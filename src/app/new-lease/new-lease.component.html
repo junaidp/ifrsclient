@@ -1,0 +1,1098 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row mt-3 mb-3 new_lease">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Contract Form
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 new_lease1">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Contract From</li>
+                        <li class="breadcrumb-item active" aria-current="page">Identity Lease</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 new_lease2">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Contract Form</li>
+                        <li class="breadcrumb-item" aria-current="page">Identity Lease</li>
+                        <li class="breadcrumb-item active" aria-current="page">Technical Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 new_lease3">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Contract Form</li>
+                        <li class="breadcrumb-item" aria-current="page">Identity Lease</li>
+                        <li class="breadcrumb-item" aria-current="page">Technical Details</li>
+                        <li class="breadcrumb-item active" aria-current="page">Payment Schedule</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 new_lease4">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Contract Form</li>
+                        <li class="breadcrumb-item" aria-current="page">Identity Lease</li>
+                        <li class="breadcrumb-item" aria-current="page">Technical Details</li>
+                        <li class="breadcrumb-item" aria-current="page">Payment Schedule</li>
+                        <li class="breadcrumb-item active" aria-current="page">Review & Submit</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a href="#step-1" type="text" class="btn btn-primary btn-circle">1</a>
+                    <p>Contract Form</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-2" type="text" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <p>Identity Lease</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-3" type="text" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                    <p>Technical Details</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-4" type="text" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                    <p>Payment Schedule</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-5" type="text" class="btn btn-default btn-circle" disabled="disabled">5</a>
+                    <p>Review / Submit</p>
+                </div>
+            </div>
+        </div>
+        <form role="form">
+            <div class="row setup-content" id="step-1">
+                <div class="col-lg-12">
+                    <div class="col-md-12">
+                        <h3></h3>
+                        <form class="needs-validation" novalidate>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Contract Reference Number</label>
+                                    <input type="number" class="form-control" id="validationCustom03"
+                                        placeholder="Contract Reference Number" [(ngModel)]="leaseContractNo" name="contractNo">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid Contract Reference Number.
+                                    </div>
+                                    {{leaseContractNo}}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lease commencement data</label>
+                                    <input type="text" class="form-control" id="validationCustom04"
+                                        placeholder="Lease commencement data" name="contractNo1" [(ngModel)]="commencementDate" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid Lease commencement data.
+                                    </div>
+                                    {{commencementDate}}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Class of asset</label>
+                                    <input type="text" class="form-control" id="validationCustom03"
+                                        placeholder="Class of asset" name="contractNo2" [(ngModel)]="classAsset" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid Class of asset.
+                                    </div>
+                                    {{classAsset}}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lease Name</label>
+                                    <input type="text" class="form-control" id="validationCustom04"
+                                        placeholder="Lease Name" name="contractNo3" [(ngModel)]="leaseName" required>
+                                    <div class="invalid-feedback">
+                                        Please provide Lease Name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Lessor Name</label>
+                                    <input type="text" class="form-control" id="validationCustom03"
+                                        placeholder="Lessor Name" name="contractNo4" required>
+                                    <div class="invalid-feedback">
+                                        Please provide Lessor Name.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lessee Name</label>
+                                    <input type="text" class="form-control" id="validationCustom04"
+                                        placeholder="Lessee Name" name="contractNo5" required>
+                                    <div class="invalid-feedback">
+                                        Please provide Lessee Name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Location</label>
+                                    <input type="text" class="form-control" id="validationCustom03"
+                                        placeholder="Location" name="contractNo6" [(ngModel)]="location" required>
+                                    <div class="invalid-feedback">
+                                        Please provide Location.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Other condition</label>
+                                    <input type="text" class="form-control" id="validationCustom04"
+                                        placeholder="Other condition" name="contractNo7" [(ngModel)]="otherCondition" required>
+                                    <div class="invalid-feedback">
+                                        Please provide Other condition.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="position:relative;">
+                                    <a class='btn btn-primary' href='javascript:;'>
+                                        Choose File...
+                                        <input type="file"
+                                            style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
+                                            name="file_source" size="40"
+                                            onchange='$("#upload-file-info").html($(this).val());'>
+                                    </a>
+                                    &nbsp;
+                                    <span class='label label-info' id="upload-file-info"></span>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-12 btn_mg">
+                                <button class="btn btn-danger btn-lg pull-right" type="button">Cancel</button>
+                                <button class="btn btn-success nextBtn btn-lg pull-right float-lg-right"
+                                    type="button">Next</button>
+                                <button class="btn btn-info xtBtn btn-lg pull-right float-lg-right"
+                                    type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row setup-content" id="step-2">
+                <div class="col-lg-12">
+                    <div class="col-md-12">
+                        <h3></h3>
+                        <div class="row second_step">
+                            <div class="col-1 font-weight-bold" style="padding: 0;">Sr. #</div>
+                            <div class="col-6 text-center font-weight-bold" style="padding: 0;">Question</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 text-center font-weight-bold">Answer</div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">1.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Is the lease contract for short term period or underlying asset is flow
+                                            value?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo40" [(ngModel)]="answer1" >
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">2.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Is there any identified assect?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo41" [(ngModel)]="answer2">
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">3.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Does the supplier have a substantive right to substitute the asset?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo42" [(ngModel)]="answer3">
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">4.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Does the customer have the right to obtain substantially all of the economic
+                                            benefits from use of the asset threughtout the period of use?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo43" [(ngModel)]="answer4">
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">5.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Does the customer, have the supplier or neither party have the right to
+                                            direct how and for what purpose the asset is used threughtout the period of
+                                            user?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo44" [(ngModel)]="answer5">
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">6.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Does the customer have the right to operate the asset throught the priod of
+                                            use, without the supplier having the right change those operating
+                                            instructions?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo45" [(ngModel)]="answer6">
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-1">7.</div>
+                                    <div class="col-11 p_decoration">
+                                        <p>Did the customer design the asset in a way that predetermines how ans for
+                                            what purpose the assect will be used throughout the period od use?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <select class="form-control" name="contractNo46" [(ngModel)]="answer7">
+                                    <option>Select here</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p><strong>CONCLUSION:</strong> Contains a lease / Does not contain a lease</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 btn_mg">
+                                <button class="btn btn-danger btn-lg pull-right" type="button">Cancel</button>
+                                <button class="btn btn-success nextBtn btn-lg pull-right float-lg-right"
+                                    type="button">Next</button>
+                                <button class="btn btn-info xtBtn btn-lg pull-right float-lg-right"
+                                    type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row setup-content" id="step-3">
+                <div class="col-lg-12">
+                    <div class="col-md-12">
+                        <div class="row mt-3 second_step">
+                            <div class="col-12">
+                                <h6>Define technical details of the lease contract</h6>
+                            </div>
+                        </div>
+                        <form class="needs-validation mt-4" novalidate>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Commencement date:</label>
+                                    <input type="date" class="form-control" id="validationCustom03"
+                                        placeholder="Contract Reference Number"  [(ngModel)]="commencementDate" name="contractNo08" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a commencement date.
+                                    </div>
+                                    <!-- {{commencementDate}} -->
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Payment In</label>
+                                    <select class="form-control" id="validationCustom04" [(ngModel)]="paymentsAt" name="contractNo09" > 
+                                        <option>Select here</option>
+                                        <option>Beginning</option>
+                                        <option>Ending</option>
+                                    </select>
+                                </div>
+                                <!-- {{paymentsAt}} -->
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Annual discount rate</label>
+                                    <input type="number" class="form-control" id="validationCustom03" placeholder="in %"
+                                    [(ngModel)]="annualDiscountRate" name="contractNo10"  required>
+                                    <div class="invalid-feedback">
+                                        Annual discount.
+                                    </div>
+                                    <!-- {{annualDiscountRate}} -->
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lease term period</label>
+                                    <input type="number" class="form-control" id="validationCustom04"
+                                        placeholder="in years" [(ngModel)]="leaseTerm" name="contractNo11" required>
+                                    <div class="invalid-feedback">
+                                        Lease term period.
+                                    </div>
+                                    <!-- {{leaseTerm}} -->
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Expected period</label>
+                                    <input type="number" class="form-control" id="validationCustom03"
+                                        placeholder="in years" [(ngModel)]="expectedPeriod" name="contractNo12" required>
+                                    <div class="invalid-feedback">
+                                        Annual discount.
+                                    </div>
+                                    <!-- {{expectedPeriod}} -->
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lease payment</label>
+                                    <input type="number" class="form-control" id="validationCustom04"
+                                        placeholder="in amount" [(ngModel)]="leasePayment" name="contractNo13" required>
+                                    <div class="invalid-feedback">
+                                        Lease payment.
+                                    </div>
+                                </div>
+                                <!-- {{leasePayment}} -->
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Payment interval</label>
+                                    <select class="form-control" id="validationCustom04" [(ngModel)]="paymentIntervals" name="contractNo14">
+                                        <option>Select period</option>
+                                        <option>Monthly</option>
+                                        <option>Quarterly</option>
+                                        <option>Semi-annually</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        payment interval.
+                                    </div>
+                                    <!-- {{paymentIntervals}} -->
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Guaranteed residual value</label>
+                                    <input type="number" class="form-control" id="validationCustom04"
+                                        placeholder="in amount" [(ngModel)]="guaranteedResidualValue" name="contractNo15" required>
+                                    <div class="invalid-feedback">
+                                        Guaranteed residual value.
+                                    </div>
+                                    <!-- {{guaranteedResidualValue}} -->
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Use full life of the Asset (years)</label>
+                                    <input type="number" class="form-control" id="validationCustom04"
+                                        placeholder="in years" [(ngModel)]="usefulLifeOfTheAsset" name="contractNo16" required>
+                                    <div class="invalid-feedback">
+                                        Use full life of the Asset (years).
+                                    </div>
+                                    <!-- {{usefulLifeOfTheAsset}} -->
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Initial direct cost</label>
+                                    <input type="number" class="form-control" id="validationCustom04"
+                                        placeholder="in amount" [(ngModel)]="initialDirectCost" name="contractNo17" required>
+                                    <div class="invalid-feedback">
+                                        initial direct cost.
+                                    </div>
+                                    <!-- {{initialDirectCost}} -->
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Escalation %-age</label>
+                                    <input type="number" class="form-control" id="validationCustom04"
+                                        placeholder="in percentage" [(ngModel)]="escalation" name="contractNo18" required>
+                                    <div class="invalid-feedback">
+                                        Escalation %-age.
+                                    </div>
+                                    <!-- {{escalation}} -->
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Escalation after every </label>
+                                    <input type="number" class="form-control" id="validationCustom04" placeholder="in years" [value] = "escalationAfterEvery" [(ngModel)]= "escalationAfterEvery" name="contractNo19" required>
+                                    <div class="invalid-feedback">
+                                        Escalation after every.
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 btn_mg">
+                            <button class="btn btn-danger btn-lg pull-right" type="button">Cancel</button>
+                            <button (click)= "calculate()" class="btn btn-success nextBtn btn-lg pull-right float-lg-right"
+                                type="button">Next</button>
+                            <button  class="btn btn-info xtBtn btn-lg pull-right float-lg-right" 
+                                type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row setup-content mt-4" id="step-4">
+                <div class="col-lg-12">
+                    <div class="col-md-12">
+                        <div class="row step_4">
+                            <div class="col-1 responsive_display">
+                                <h6 class="mb-3">Sr. #</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li>
+                                        1.
+                                    </li>
+                                    <li>
+                                        2.
+                                    </li>
+                                    <li>
+                                        3.
+                                    </li>
+                                    <li>
+                                        4.
+                                    </li>
+                                    <li>5.</li>
+                                    <li>6.</li>
+                                    <li>7.</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Date of payment</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[3]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Payment</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[2]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Discount factor(5%)</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[4]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Discounted amount</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[5]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-3 text-right responsive_display">
+                                <a href="#" download>Download report &nbsp; <i class="fas fa-download"></i></a>
+                            </div>
+                            <div class="col-12">
+                                <p class="text-center">Present Value &nbsp; = &nbsp; <strong>100,0000.00</strong></p>
+                            </div>
+                        </div>
+                        <div class="row step_4 mb-4">
+                            <div class="col-1 responsive_display">
+                                <h6 class="mb-3">Sr. #</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li>1.</li>
+                                    <li>2. </li>
+                                    <li>3.</li>
+                                    <li> 4. </li>
+                                    <li>5.</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Date of payment</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[8]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Opening balance</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[9]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Finance charge</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[10]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Payment</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[11]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="mb-3">Closing balance</h6>
+                                <ul class="list-unstyled text-center">
+                                    <li *ngFor="let row of map | keyvalue">
+                                        {{row.value[12]}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 btn_mg">
+                                <button class="btn btn-danger btn-lg pull-right" type="button">Cancel</button>
+                                <button class="btn btn-success nextBtn btn-lg pull-right float-lg-right"
+                                    type="button">Next</button>
+                                <button class="btn btn-info xtBtn btn-lg pull-right float-lg-right"
+                                    type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row setup-content" id="step-5">
+                <div class="col-lg-12">
+                    <div class="col-md-12 mt-4">
+                        <div class="row mt-4">
+                            <div class="col-lg-10 col-md-6 col-12">
+                                <h6><a href="#">CONTRACT FORM &nbsp; <i class="fas fa-pencil-alt"></i></a></h6>
+                            </div>
+                            <div class="col-lg-2 col-md-6 col-12"><a href="#" download>Download report &nbsp; <i
+                                        class="fas fa-download"></i></a></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-10 col-md-10 col-12">
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Contract Reference Number</label>
+                                        <input type="number" readonly class="form-control" id="validationCustom03"
+                                        [(ngModel)]="leaseContractNo" name="contractNo30"   placeholder="Contract Reference Number" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Contract Reference Number.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Lease commencement data</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom04"
+                                        name="contractNo31" [(ngModel)]="commencementDate"   placeholder="Lease commencement data" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Lease commencement data.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Class of asset</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom03"
+                                        name="contractNo32" [(ngModel)]="classAsset"   placeholder="Class of asset" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Class of asset.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Lease Name</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom04"
+                                        name="contractNo33" [(ngModel)]="leaseName"  placeholder="Lease Name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide Lease Name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Lessor Name</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom03"
+                                        placeholder="Lessor Name" name="contractNo34"   placeholder="Lessor Name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide Lessor Name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Lessee Name</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom04"
+                                        name="contractNo35"   placeholder="Lessee Name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide Lessee Name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Location</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom03"
+                                        name="contractNo36" [(ngModel)]="location"   placeholder="Location" required>
+                                        <div class="invalid-feedback">
+                                            Please provide Location.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Other condition</label>
+                                        <input type="text" readonly class="form-control" id="validationCustom04"
+                                        name="contractNo37" [(ngModel)]="otherCondition"    placeholder="Other condition" required>
+                                        <div class="invalid-feedback">
+                                            Please provide Other condition.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-12 mt-4 final_p_decorate">
+                            <p>Attachment(s):</p>
+                            <span class='label label-info' id="upload-file-info"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h6><a href="#">IDENTIFYLEASE &nbsp; <i class="fas fa-pencil-alt"></i></a></h6>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="row second_step">
+                                <div class="col-1 font-weight-bold">Sr. #</div>
+                                <div class="col-6 text-center font-weight-bold" style="padding: 0;">Question</div>
+                                <div class="col-1"></div>
+                                <div class="col-4 text-center font-weight-bold">Answer</div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">1.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Is the lease contract for short term period or underlying asset is flow
+                                                value?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo001" [(ngModel)]="answer1" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">2.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Is there any identified assect?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo002" [(ngModel)]="answer2" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">3.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Does the supplier have a substantive right to substitute the asset?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo003" [(ngModel)]="answer3" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">4.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Does the customer have the right to obtain substantially all of the
+                                                economic benefits from use of the asset threughtout the period of use?
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo004" [(ngModel)]="answer4" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">5.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Does the customer, have the supplier or neither party have the right to
+                                                direct how and for what purpose the asset is used threughtout the period
+                                                of user?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo005" [(ngModel)]="answer5" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">6.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Does the customer have the right to operate the asset throught the priod
+                                                of use, without the supplier having the right change those operating
+                                                instructions?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo006" [(ngModel)]="answer6" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-1">7.</div>
+                                        <div class="col-11 p_decoration">
+                                            <p>Did the customer design the asset in a way that predetermines how ans for
+                                                what purpose the assect will be used throughout the period od use?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <select class="form-control" name="contractNo007" [(ngModel)]="answer7" disabled="true">
+                                        <option>Select here</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><strong>CONCLUSION:</strong> Contains a lease / Does not contain a lease</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h6><a href="#">TECHNICAL DETAILS &nbsp; <i class="fas fa-pencil-alt"></i></a></h6>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Commencement date:</label>
+                                    <input type="date" readonly class="form-control" id="validationCustom03" [(ngModel)]="commencementDate" name="contractNo081"
+                                        placeholder="Contract Reference Number" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a commencement date.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Payment In</label>
+                                    <select class="form-control" id="validationCustom04"   [(ngModel)]="paymentsAt" name="contractNo091" disabled>
+                                        <option>Select here</option>
+                                        <option>Beginning</option>
+                                        <option>Ending</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Annual discount rate</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom03"
+                                    [(ngModel)]="annualDiscountRate" name="contractNo101"  placeholder="in %" required>
+                                    <div class="invalid-feedback">
+                                        Annual discount.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lease term period</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]="leaseTerm" name="contractNo111"  placeholder="in years" required>
+                                    <div class="invalid-feedback">
+                                        Lease term period.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Expected period</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom03"
+                                    [(ngModel)]="expectedPeriod" name="contractNo121"  placeholder="in years" required>
+                                    <div class="invalid-feedback">
+                                        Annual discount.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Lease payment</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]="leasePayment" name="contractNo131"  placeholder="in amount" required>
+                                    <div class="invalid-feedback">
+                                        Lease payment.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Payment interval</label>
+                                    <select class="form-control"  [(ngModel)]="paymentIntervals" name="contractNo141" id="validationCustom04" disabled>
+                                        <option>Select period</option>
+                                        <option>Monthly</option>
+                                        <option>Quarterly</option>
+                                        <option>Semi-annually</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        payment interval.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Guaranteed residual value</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]="guaranteedResidualValue" name="contractNo151"   placeholder="in amount" required>
+                                    <div class="invalid-feedback">
+                                        Guaranteed residual value.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Use full life of the Asset (years)</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]="usefulLifeOfTheAsset" name="contractNo161"   placeholder="in years" required>
+                                    <div class="invalid-feedback">
+                                        Use full life of the Asset (years).
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Initial direct cost</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]="initialDirectCost" name="contractNo171"  placeholder="in amount" required>
+                                    <div class="invalid-feedback">
+                                        initial direct cost.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Escalation %-age</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]="escalation" name="contractNo181"  placeholder="in percentage" required>
+                                    <div class="invalid-feedback">
+                                        Escalation %-age.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Escalation after every</label>
+                                    <input type="text" readonly class="form-control" id="validationCustom04"
+                                    [(ngModel)]= "escalationAfterEvery" name="contractNo191"  placeholder="in years" required>
+                                    <div class="invalid-feedback">
+                                        Escalation after every.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h6><a href="#">PAYMENT SCHEDULE &nbsp; <i class="fas fa-pencil-alt"></i></a></h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <div class="row step_4">
+                                <div class="col-lg-1 responsive_display">
+                                    <h6 class="mb-3">Sr. #</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li> 1. </li>
+                                        <li> 2.</li>
+                                        <li>3. </li>
+                                        <li> 4.</li>
+                                        <li>5.</li>
+                                        <li>6.</li>
+                                        <li>7.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Date of payment</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[3]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Payment</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[2]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Discount factor(5%)</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[4]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Discounted amount</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[5]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <!-- <a href="#" download >Download report &nbsp; <i class="fas fa-download"></i></a> -->
+                                </div>
+                                <div class="col-12">
+                                    <p class="text-center">Present Value &nbsp; = &nbsp; <strong>100,0000.00</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row step_4 mb-4">
+                                <div class="col-1 responsive_display">
+                                    <h6 class="mb-3">Sr. #</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li>1.</li>
+                                        <li>2. </li>
+                                        <li>3.</li>
+                                        <li> 4. </li>
+                                        <li>5.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Date of payment</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[8]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Opening balance</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[9]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Finance charge</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[10]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Payment</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[11]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Closing balance</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[12]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
