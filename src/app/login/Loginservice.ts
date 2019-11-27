@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Injectable } from "@angular/core";
-const url = "https://compliancetool.herokuapp.com/users/getUser";
+const url = "//compliancetool.herokuapp.com/users/getUser";
 
 @Injectable({ providedIn: "root" })
 export class Loginservice {
