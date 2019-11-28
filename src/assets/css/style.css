@@ -78,6 +78,7 @@ label{
     line-height: 18px;
 }
 .step_4>div>h6{
+    height: 45px;
     color: #007bff;
     text-align: center;
     text-decoration: underline;

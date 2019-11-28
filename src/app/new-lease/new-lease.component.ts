@@ -14,7 +14,7 @@ export class NewLeaseComponent implements OnInit {
   //first tab
   leaseContractNo = "";
   classAsset = "";
-  commencementDate = new Date();
+  commencementDate ="";
   leaseName = "";
   leassorName = "";
   leasseeName = "";
@@ -22,13 +22,13 @@ export class NewLeaseComponent implements OnInit {
   otherCondition = "";
   //2nd tab question/answer
 
-  answer1 = "";
-  answer2 = "";
-  answer3 = "";
-  answer4 = "";
-  answer5 = "";
-  answer6 = "";
-  answer7 = "";
+  answer1 = "Select here";
+  answer2 = "Select here";
+  answer3 = "Select here";
+  answer4 = "Select here";
+  answer5 = "Select here";
+  answer6 = "Select here";
+  answer7 = "Select here";
 
 
   //3rd tab
