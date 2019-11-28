@@ -103,7 +103,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom04">Lease commencement data</label>
                                     <input type="text" class="form-control" id="validationCustom04"
-                                        placeholder="Lease commencement data" name="contractNo1" [(ngModel)]="commencementDate" required>
+                                       placeholder="Lease commencement data" name="contractNo1" [(ngModel)]="commencementDate" required>
                                     <div class="invalid-feedback">
                                         Please provide a valid Lease commencement data.
                                     </div>
@@ -211,7 +211,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo40" [(ngModel)]="answer1" >
-                                    <option>Select here</option>
+                                    <option selected>Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -228,7 +228,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo41" [(ngModel)]="answer2">
-                                    <option>Select here</option>
+                                    <option selected>Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -245,7 +245,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo42" [(ngModel)]="answer3">
-                                    <option>Select here</option>
+                                    <option selected>Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -263,7 +263,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo43" [(ngModel)]="answer4">
-                                    <option>Select here</option>
+                                    <option selected>Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -282,7 +282,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo44" [(ngModel)]="answer5">
-                                    <option>Select here</option>
+                                    <option selected>Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -301,7 +301,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo45" [(ngModel)]="answer6">
-                                    <option>Select here</option>
+                                    <option selected>Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -319,7 +319,7 @@
                             </div>
                             <div class="col-lg-4 text-center">
                                 <select class="form-control" name="contractNo46" [(ngModel)]="answer7">
-                                    <option>Select here</option>
+                                    <option selected >Select here</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -352,7 +352,7 @@
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom03">Commencement date:</label>
-                                    <input type="date" class="form-control" id="validationCustom03"
+                                    <input type="date"  class="form-control" id="validationCustom03"
                                         placeholder="Contract Reference Number"  [(ngModel)]="commencementDate" name="contractNo08" required>
                                     <div class="invalid-feedback">
                                         Please provide a commencement date.
@@ -514,7 +514,7 @@
                                 <h6 class="mb-3">Date of payment</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[3]}}
+                                        {{row.value[3]| date:'mediumDate'}}
                                     </li>
                                 </ul>
                             </div>
@@ -522,7 +522,7 @@
                                 <h6 class="mb-3">Payment</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[2]}}
+                                        {{row.value[2] | number}}
                                     </li>
                                 </ul>
                             </div>
@@ -530,7 +530,7 @@
                                 <h6 class="mb-3">Discount factor(5%)</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[4]}}
+                                        {{row.value[4] |number:'0.1-4'}}
                                     </li>
                                 </ul>
                             </div>
@@ -538,7 +538,7 @@
                                 <h6 class="mb-3">Discounted amount</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[5]}}
+                                        {{row.value[5] | number}}
                                     </li>
                                 </ul>
                             </div>
@@ -564,7 +564,7 @@
                                 <h6 class="mb-3">Date of payment</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[8]}}
+                                        {{row.value[8] | date:'mediumDate'}}
                                     </li>
                                 </ul>
                             </div>
@@ -572,7 +572,7 @@
                                 <h6 class="mb-3">Opening balance</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[9]}}
+                                        {{row.value[9] | number}}
                                     </li>
                                 </ul>
                             </div>
@@ -580,7 +580,7 @@
                                 <h6 class="mb-3">Finance charge</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[10]}}
+                                        {{row.value[10] | number}}
                                     </li>
                                 </ul>
                             </div>
@@ -588,7 +588,7 @@
                                 <h6 class="mb-3">Payment</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[11]}}
+                                        {{row.value[11] | number}}
                                     </li>
                                 </ul>
                             </div>
@@ -596,7 +596,7 @@
                                 <h6 class="mb-3">Closing balance</h6>
                                 <ul class="list-unstyled text-center">
                                     <li *ngFor="let row of map | keyvalue">
-                                        {{row.value[12]}}
+                                        {{row.value[12] | number}}
                                     </li>
                                 </ul>
                             </div>
@@ -996,7 +996,7 @@
                                     <h6 class="mb-3">Date of payment</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[3]}}
+                                            {{row.value[3] | date:'mediumDate'}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1004,7 +1004,7 @@
                                     <h6 class="mb-3">Payment</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[2]}}
+                                            {{row.value[2]| number}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1012,7 +1012,7 @@
                                     <h6 class="mb-3">Discount factor(5%)</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[4]}}
+                                            {{row.value[4]| number:'0.1-4'}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1020,7 +1020,7 @@
                                     <h6 class="mb-3">Discounted amount</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[5]}}
+                                            {{row.value[5]| number}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1047,7 +1047,7 @@
                                     <h6 class="mb-3">Date of payment</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[8]}}
+                                            {{row.value[8] | date:'mediumDate'}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1055,7 +1055,7 @@
                                     <h6 class="mb-3">Opening balance</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[9]}}
+                                            {{row.value[9] | number:'1.0-0'}
                                         </li>
                                     </ul>
                                 </div>
@@ -1063,7 +1063,7 @@
                                     <h6 class="mb-3">Finance charge</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[10]}}
+                                            {{row.value[10] | number}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1071,7 +1071,7 @@
                                     <h6 class="mb-3">Payment</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[11]}}
+                                            {{row.value[11]| number}}
                                         </li>
                                     </ul>
                                 </div>
@@ -1079,7 +1079,7 @@
                                     <h6 class="mb-3">Closing balance</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[12]}}
+                                            {{row.value[12]| number}}
                                         </li>
                                     </ul>
                                 </div>
