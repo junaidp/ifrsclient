@@ -1,12 +1,13 @@
 import axios from "axios";
 import { Injectable } from "@angular/core";
-const url = "//compliancetool.herokuapp.com/users/getUser";
+import { stringify } from 'querystring';
+const url = "//compliancetool.herokuapp.com/users/signIn";
 
 @Injectable({ providedIn: "root" })
 export class Loginservice {
-  async calculate(data) {
-    
-   
+  async signIn(data) {
+    alert(data.name);
+    alert(data.password)
     const response = await axios.get(url, data);
     return response;
   }
