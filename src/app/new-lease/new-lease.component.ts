@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LeaseService } from "./leaseService";
-
+import {Globals} from "../globals";
 
 declare var $: any;
 
@@ -10,7 +10,7 @@ declare var $: any;
   styleUrls: ["./new-lease.component.css"]
 })
 export class NewLeaseComponent implements OnInit {
-  constructor(public leaseService: LeaseService) { }
+  constructor(public leaseService: LeaseService, public globals : Globals) { }
   //first tab
   leaseContractNo = "";
   classAsset = "";
@@ -63,9 +63,11 @@ export class NewLeaseComponent implements OnInit {
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery
     };
+   // alert("calculation for " + this.globals.userName)
     this.leaseService.calculate(data).then(response => {
       this.map = new Map(Object.entries(response.data));
-      console.log("In MAP ENTRIES");
+      
+      /*console.log("In MAP ENTRIES");
 
       this.map.forEach((value: Map<string, string>, key: string) => {
         for (var key in value) {
@@ -73,7 +75,7 @@ export class NewLeaseComponent implements OnInit {
             console.log(key + " -> " + value[key]);
           }
         }
-      });
+      });*/
     });
   }
 
