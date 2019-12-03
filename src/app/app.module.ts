@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NewLeaseComponent } from './new-lease/new-lease.component';
 import { LoginComponent } from './login/login.component';
 import { Globals } from './globals'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,8 @@ import { Globals } from './globals'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    NgbModule
   ],
   providers: [
     Globals

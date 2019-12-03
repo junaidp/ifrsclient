@@ -4,6 +4,9 @@ import {Globals} from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
+
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -30,6 +33,16 @@ export class LoginComponent implements OnInit {
         
         else if(data.name =='') {
           alert("Please Enter User and Pasword")
+          interface Alert {
+            type: string;
+            message: string;
+          }
+          const ALERTS: Alert[] = [{
+            type: 'success',
+            message: 'This is an success alert',
+          }];
+          alert("Please Enter Udddser and Pasword")
+
         }
         else {
           alert("wrong Username or password")
@@ -41,6 +54,8 @@ export class LoginComponent implements OnInit {
     this.globals.userId = response.data.userId;
     this.globals.userName = response.data.name;
   }
-
+  
   ngOnInit() {}
 }
+
+
