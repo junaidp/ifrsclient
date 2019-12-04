@@ -2,50 +2,33 @@
   <div class="container-login100">
     <div class="wrap-login100">
       <form class="login100-form validate-form">
+        <div *ngIf="!isLoggedIn" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>User Name & Password </strong> is incorrect
+        </div>
+
         <span class="login100-form-title p-b-34">
           Account Login
         </span>
 
-        <div
-          class="wrap-input100 rs1-wrap-input100 validate-input m-b-20"
-          data-validate="Type user name"
+        <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
+          <input id="first-name" class="input100" type="text" name="username" placeholder="Name" [(ngModel)]="name" />
 
-        >
-        
-          <input
-            id="first-name"
-            class="input100"
-            type="text"
-            name="username"
-            placeholder="name"
-            [(ngModel)]="name"
-
-          />
+          
           
           
           <span class="focus-input100"></span>
         </div>
-        
-        <div
-          class="wrap-input100 rs2-wrap-input100 validate-input m-b-20"
-          data-validate="Type password"
-        >
-          <input
-            class="input100"
-            type="password"
-            name="pass"
-            placeholder="Password"
-            [(ngModel)]="password"
-          />
+        <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+          <input class="input100" type="password" name="pass" placeholder="Password" [(ngModel)]="password" />
 
           <span class="focus-input100"></span>
         </div>
 
         <div class="container-login100-form-btn">
-          <button
-            class="login100-form-btn"
-            (click)="signIn()"
-          >
+          <button class="login100-form-btn" (click)="  login()">
             Sign in
           </button>
         </div>
@@ -59,18 +42,15 @@
             User name / password?
           </a>
         </div>
-
+ 
         <div class="w-full text-center">
-          <a href="signup.html" class="txt3">
+          <a href="/signup" class="txt3">
             Sign Up
           </a>
         </div>
       </form>
 
-      <div
-        class="login100-more"
-        style="background-image: url('/assets/img/bg-01.jpg');"
-      ></div>
+      <div class="login100-more" style="background-image: url('/assets/img/bg-01.jpg');"></div>
     </div>
   </div>
 </div>

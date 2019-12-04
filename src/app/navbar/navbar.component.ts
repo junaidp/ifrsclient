@@ -11,13 +11,14 @@ export class NavbarComponent implements OnInit {
   constructor(public globals: Globals) {
    
   }
-  name = "";
+  name = localStorage.getItem('name');
 
   ngOnInit() {}
 
   ngDoCheck(): void {
     if (this.name != this.globals.userName) {
-      this.name = this.globals.userName;
+      // this.name = this.globals.userName;
+      this.name = localStorage.getItem('name')
     }
   }
 }

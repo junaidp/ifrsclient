@@ -11,6 +11,7 @@ import { NewLeaseComponent } from './new-lease/new-lease.component';
 import { LoginComponent } from './login/login.component';
 import { Globals } from './globals'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     NewLeaseComponent,
     LoginComponent,
-    
+    SignupComponent
    
   ],
   imports: [

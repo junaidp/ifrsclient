@@ -5,14 +5,16 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
-
+import { AuthGuard } from './auth.guarrd'
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-
-  { path: 'newlease', component: NewLeaseComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/home' , pathMatch: 'full' }
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'newlease', component: NewLeaseComponent },
+  { path: 'signup', component: SignupComponent },
+
 ];
 
 @NgModule({
@@ -21,6 +23,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
- 
+
 })
 export class AppRoutingModule { }
