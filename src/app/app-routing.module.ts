@@ -6,10 +6,13 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guarrd'
+import { JournalEntriesComponent } from './journal-entries/journal-entries.component'
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'journalEntries', component: JournalEntriesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'newlease', component: NewLeaseComponent }
 

@@ -9,7 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NewLeaseComponent } from './new-lease/new-lease.component';
 import { LoginComponent } from './login/login.component';
-import { Globals } from './globals'
+import { Globals } from './globals';
+import { JournalEntriesComponent } from './journal-entries/journal-entries.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { Globals } from './globals'
     FooterComponent,
     NewLeaseComponent,
     LoginComponent,
+    JournalEntriesComponent,
     
    
   ],
