@@ -4,4 +4,22 @@ import { Injectable } from '@angular/core';
 export class Globals {
   userId: string = '';
   userName: string ="";
+
+  // for lease and all 
+  leaseContractNo = "";
+  classAsset = "";
+  commencementDate ="";
+  paymentsAt = "";
+  annualDiscountRate = "";
+  leaseTerm = "";
+  expectedPeriod = "";
+  leasePayment = "";
+  paymentIntervals = "";
+  initialDirectCost = "";
+  guaranteedResidualValue = "";
+  usefulLifeOfTheAsset = "";
+  escalation = "";
+  escalationAfterEvery = "";
+
+
 }

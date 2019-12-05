@@ -20,6 +20,9 @@ export class NewLeaseComponent implements OnInit {
   leasseeName = "";
   location = "";
   otherCondition = "";
+
+
+
   //2nd tab question/answer
 
   answer1 = "Select here";
@@ -47,7 +50,12 @@ export class NewLeaseComponent implements OnInit {
 
 
   calculate() {
+
+
+
+
     var data = {
+   
       leaseContractNo: this.leaseContractNo,
       classAsset: this.classAsset,
       commencementDate: this.commencementDate,
@@ -63,6 +71,23 @@ export class NewLeaseComponent implements OnInit {
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery
     };
+    this.globals.leaseContractNo= this.leaseContractNo,
+    this.globals.classAsset= this.classAsset,
+    this.globals.commencementDate= this.commencementDate,
+    this.globals.paymentsAt= this.paymentsAt,
+    this.globals.annualDiscountRate= this.annualDiscountRate,
+    this.globals.leaseTerm= this.leaseTerm,
+    this.globals.expectedPeriod= this.expectedPeriod,
+    this.globals.leasePayment= this.leasePayment,
+    this.globals.paymentIntervals= this.paymentIntervals,
+    this.globals.initialDirectCost= this.initialDirectCost,
+    this.globals.guaranteedResidualValue= this.guaranteedResidualValue,
+    this.globals.usefulLifeOfTheAsset= this.usefulLifeOfTheAsset,
+    this.globals.escalation= this.escalation,
+    this.globals. escalationAfterEvery= this.escalationAfterEvery
+
+
+    alert(this.globals.escalationAfterEvery)
    // alert("calculation for " + this.globals.userName)
     this.leaseService.calculate(data).then(response => {
       this.map = new Map(Object.entries(response.data));
@@ -78,8 +103,13 @@ export class NewLeaseComponent implements OnInit {
       });*/
     });
   }
-
+  private setGlobals() {
+  
+  }
   ngOnInit() {
+
+
+
     $(document).ready(function () {
       var navListItems = $("div.setup-panel div a"),
         allWells = $(".setup-content"),
