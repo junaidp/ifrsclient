@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"]
 })
-export class LoginComponent implements OnInit {
+ export class LoginComponent implements OnInit {
   isLoggedIn = true;
   @ViewChild('alert', { static: true }) alert: ElementRef;
   constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService) { }
@@ -65,3 +65,5 @@ export class LoginComponent implements OnInit {
    // this.alert.nativeElement.classList.remove('show');
   }
 }
+
+

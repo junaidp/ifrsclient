@@ -9,7 +9,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NewLeaseComponent } from './new-lease/new-lease.component';
 import { LoginComponent } from './login/login.component';
-import { Globals } from './globals';
+import { Globals } from './globals'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignupComponent } from './signup/signup.component';
+
 import { JournalEntriesComponent } from './journal-entries/journal-entries.component';
 import { ReportsComponent } from './reports/reports.component';
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
@@ -22,17 +25,18 @@ import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoptio
     FooterComponent,
     NewLeaseComponent,
     LoginComponent,
+    SignupComponent,
     JournalEntriesComponent,
     ReportsComponent,
-    FirsttimeadoptionComponent,
+    FirsttimeadoptionComponent
     
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    NgbModule
   ],
   providers: [
     Globals

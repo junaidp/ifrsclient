@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guarrd'
+import { SignupComponent } from './signup/signup.component';
 import { JournalEntriesComponent } from './journal-entries/journal-entries.component'
 import {ReportsComponent } from './reports/reports.component'
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
