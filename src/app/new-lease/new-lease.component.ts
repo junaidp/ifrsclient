@@ -23,6 +23,7 @@ export class NewLeaseComponent implements OnInit {
 
 
 
+
   //2nd tab question/answer
 
   answer1 = "Select here";
@@ -46,6 +47,7 @@ export class NewLeaseComponent implements OnInit {
   usefulLifeOfTheAsset = "";
   escalation = "";
   escalationAfterEvery = "";
+  contractCurrency = "";
   map: Map<string, Map<string, string>>;
 
 
