@@ -11,7 +11,9 @@ import { JournalEntriesComponent } from './journal-entries/journal-entries.compo
 import { ReportsComponent } from './reports/reports.component'
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
 import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiod.component'
-
+import { PaymentReportComponent } from './payment-report/payment-report.component'
+import { RightOfUseComponent } from './right-of-use/right-of-use.component'
+import { LeaseReportComponent } from './lease-report/lease-report.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,16 +22,26 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'newlease', component: NewLeaseComponent },
   { path: 'firsttimeadoption', component: FirsttimeadoptionComponent },
-  { path: 'reports', component: ReportsComponent },
+  { path: 'reports',  component: ReportsComponent, 
+  children: [
+  
+    { path: 'paymentreport', component: PaymentReportComponent },
+    { path: 'rightofuse', component: RightOfUseComponent },
+    { path: 'leasereport', component: LeaseReportComponent }
+  ]
+},
+
   { path: 'signup', component: SignupComponent },
-  { path: 'firsttimeadoptionreportingperiod', component: FirsttimeadoptionreportingperiodComponent }
+  { path: 'firsttimeadoptionreportingperiod', component: FirsttimeadoptionreportingperiodComponent },
+
 
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes)
   ],
   exports: [RouterModule],
 
