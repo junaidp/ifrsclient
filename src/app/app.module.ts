@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { JournalEntriesComponent } from './journal-entries/journal-entries.component';
 import { ReportsComponent } from './reports/reports.component';
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
+import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiod.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoptio
     SignupComponent,
     JournalEntriesComponent,
     ReportsComponent,
-    FirsttimeadoptionComponent
-    
+    FirsttimeadoptionComponent,
+    FirsttimeadoptionreportingperiodComponent
    
   ],
   imports: [

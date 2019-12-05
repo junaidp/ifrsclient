@@ -8,8 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guarrd'
 import { SignupComponent } from './signup/signup.component';
 import { JournalEntriesComponent } from './journal-entries/journal-entries.component'
-import {ReportsComponent } from './reports/reports.component'
+import { ReportsComponent } from './reports/reports.component'
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
+import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiod.component'
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'newlease', component: NewLeaseComponent },
   { path: 'firsttimeadoption', component: FirsttimeadoptionComponent },
-  { path: 'reports', component: ReportsComponent }
+  { path: 'reports', component: ReportsComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'firsttimeadoptionreportingperiod', component: FirsttimeadoptionreportingperiodComponent }
 
 ];
 

@@ -16,7 +16,7 @@ export class NewLeaseComponent implements OnInit {
   classAsset = "";
   commencementDate ="";
   leaseName = "";
-  leassorName = "";
+  lessorName = "";
   leasseeName = "";
   location = "";
   otherCondition = "";
