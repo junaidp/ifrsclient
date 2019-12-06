@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 const url = "//compliancetool.herokuapp.com/users/saveUser";
 
 @Injectable({ providedIn: "root" })
-export class Firsttimeadoptionreportingperiodservice {
+export class Firsttimeadoptioninitialservice {
 
   async formdata(data) {
 

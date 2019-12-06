@@ -11,6 +11,7 @@ import { JournalEntriesComponent } from './journal-entries/journal-entries.compo
 import { ReportsComponent } from './reports/reports.component'
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
 import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiod.component'
+import { FirsttimeadoptioninitialComponent } from './firsttimeadoptioninitial/firsttimeadoptioninitial.component'
 
 
 const routes: Routes = [
@@ -22,8 +23,9 @@ const routes: Routes = [
   { path: 'firsttimeadoption', component: FirsttimeadoptionComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'firsttimeadoptionreportingperiod', component: FirsttimeadoptionreportingperiodComponent }
-
+  { path: 'firsttimeadoptionreportingperiod', component: FirsttimeadoptionreportingperiodComponent },
+  { path: 'firsttimeadoptioninitial', component: FirsttimeadoptioninitialComponent }
+  
 ];
 
 @NgModule({
