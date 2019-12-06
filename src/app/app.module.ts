@@ -18,6 +18,9 @@ import { ReportsComponent } from './reports/reports.component';
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
 import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiod.component';
 import { FirsttimeadoptioninitialComponent } from './firsttimeadoptioninitial/firsttimeadoptioninitial.component';
+import { RightOfUseComponent } from './right-of-use/right-of-use.component';
+import { PaymentReportComponent } from './payment-report/payment-report.component';
+import { LeaseReportComponent } from './lease-report/lease-report.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { FirsttimeadoptioninitialComponent } from './firsttimeadoptioninitial/fi
     ReportsComponent,
     FirsttimeadoptionComponent,
     FirsttimeadoptionreportingperiodComponent,
-    FirsttimeadoptioninitialComponent
+    FirsttimeadoptioninitialComponent,
+    RightOfUseComponent,
+    PaymentReportComponent,
+    LeaseReportComponent
    
   ],
   imports: [
