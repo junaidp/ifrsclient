@@ -6,15 +6,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="/assets/js/jquery.js"></script>
+
         <!-- <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet" id="bootstrap-css"> 
         <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery.js"></script>
-         -->
+        <script src="js/bootstrap.bundle.min.js"></script> -->
+        <!-- <script src="js/jquery.js"></script> -->
+        
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- <li class="nav-item"><a class="nav-link" href="index.html">Home <span class="sr-only"></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us<span class="sr-only"></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us<span class="sr-only"></span></a></li> -->
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="col-2 nav-item dropdown text-center">
+                            <a class="nav-link  img_nav_bar" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <label>UserName</label>
+                                <img src="img/Adnan.png"> 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="login.html">Log In</a>
+                                <a class="dropdown-item" href="index.html">Log Out</a>
+                                <a class="dropdown-item" href="signup.html">Sign In</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         <div class="container-fluid">
             <div class="container">
@@ -113,7 +140,7 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease Commencement Date</label>
-                                            <input type="date" class="form-control" id="validationCustom04" min="2017-01-01" placeholder="Enter Lease Commencement Date" required="required"  />
+                                            <input type="date" class="form-control" id="validationCustom04" min="2018-01-01" placeholder="Enter Lease Commencement Date" required="required"  />
                                             <div class="invalid-feedback">
                                                 Please provide a valid Lease commencement Date.
                                             </div>
@@ -310,7 +337,6 @@
                                     </div>
                                 </div>
                                 <div class="row display_inline_block" style="width: 100%;">
-                                   
                                         <div class="row" id="lease_no">
                                             <strong class="col-2">CONCLUSION: </strong>
                                             <span class="col-4" ><i style="color: red; font-weight: bold;"> Does not contain a lease </i></span>
@@ -319,7 +345,6 @@
                                             <strong class="col-2" >CONCLUSION: </strong>
                                             <span class="col-4" id=""><i style="color: green;font-weight: bold;">Contains a lease </i></span>
                                         </div>
-                                
                                 </div>
                                 <div class="row">
                                     <div class="col-12 btn_mg">
@@ -852,7 +877,7 @@
                                     </div>
                                 </div>
                                 <div class="row mt-4 border-top">
-                                    <div class="col-12 mt-3"><h6><a href="#">LEASE INFORMATION &nbsp; <i class="fas fa-pencil-alt"></i></a></h6></div>
+                                    <div class="col-12 mt-3"><h6><a href="#">LEASE INFORMATION &nbsp; <i class="fas fa-pencil-alt"></i></a></h6>></div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-12">
@@ -969,7 +994,7 @@
                                     </div>
                                 </div>
                                 <div class="row mt-4 border-top">
-                                    <div class="col-12 mt-3"><h6> style="color: #007bff;"</h6>LEASE SCHEDULE</div>
+                                    <div class="col-12 mt-3"><h6 style="color: #007bff;">LEASE SCHEDULE</h6>></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 mt-5">
@@ -1085,7 +1110,7 @@
                                             </div>
                                             <div class="col-1"></div>
                                         </div>
-                                    </div>
+                                </div>
                                 </div>
                                 <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit">Submit</button>
                             </div>

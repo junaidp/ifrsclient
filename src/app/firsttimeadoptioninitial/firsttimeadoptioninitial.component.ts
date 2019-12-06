@@ -1,20 +1,19 @@
 import { Component, OnInit } from "@angular/core";
-import { Firsttimeadoptionreportingperiodservice } from "./firsttimeadoptionreportingperiod.componentservice";import { Globals } from "../globals";
+import { Firsttimeadoptioninitialservice } from "./firsttimeadoptioninitialservice";import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
 declare var $: any;
+
 @Component({
-  selector: 'app-firsttimeadoptionreportingperiod',
-  templateUrl: './firsttimeadoptionreportingperiod.component.html',
-  styleUrls: ['./firsttimeadoptionreportingperiod.component.css']
+  selector: 'app-firsttimeadoptioninitial',
+  templateUrl: './firsttimeadoptioninitial.component.html',
+  styleUrls: ['./firsttimeadoptioninitial.component.css']
 })
-
-
- export class FirsttimeadoptionreportingperiodComponent implements OnInit {
+ export class FirsttimeadoptioninitialComponent implements OnInit {
   isLoggedIn = true;
-  constructor(public firsttimeadoptionreportingperiodservice: Firsttimeadoptionreportingperiodservice, public globals: Globals, private router: Router, public authService: AuthService) { }
+  constructor(public firsttimeadoptioninitialservice: Firsttimeadoptioninitialservice, public globals: Globals, private router: Router, public authService: AuthService) { }
   returnUrl: string;
   name = "";
   password = "";
@@ -23,7 +22,7 @@ declare var $: any;
     var data = {
     
   };
-  this.firsttimeadoptionreportingperiodservice.formdata(data).then(response => {
+  this.firsttimeadoptioninitialservice.formdata(data).then(response => {
  
   });
 
@@ -32,7 +31,6 @@ declare var $: any;
   
 
   ngOnInit() {
-    
     $(document).ready(function () {
       var navListItems = $("div.setup-panel div a"),
         allWells = $(".setup-content"),
@@ -109,7 +107,6 @@ declare var $: any;
       });
       $("div.setup-panel div a.btn-primary").trigger("click");
     });
-    
 
   }
  
