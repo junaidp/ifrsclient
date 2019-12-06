@@ -14,6 +14,7 @@ import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionre
 import { PaymentReportComponent } from './payment-report/payment-report.component'
 import { RightOfUseComponent } from './right-of-use/right-of-use.component'
 import { LeaseReportComponent } from './lease-report/lease-report.component'
+import { SelectReportComponent } from './select-report/select-report.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,10 +25,11 @@ const routes: Routes = [
   { path: 'firsttimeadoption', component: FirsttimeadoptionComponent },
   { path: 'reports',  component: ReportsComponent, 
   children: [
-  
+    { path: '', component: SelectReportComponent },
+    { path: 'leasereport', component: LeaseReportComponent },
     { path: 'paymentreport', component: PaymentReportComponent },
-    { path: 'rightofuse', component: RightOfUseComponent },
-    { path: 'leasereport', component: LeaseReportComponent }
+    { path: 'rightofuse', component: RightOfUseComponent }
+   
   ]
 },
 
