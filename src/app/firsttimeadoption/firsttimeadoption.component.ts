@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./firsttimeadoption.component.css']
 })
 export class FirsttimeadoptionComponent implements OnInit {
+  
 
   constructor() { }
 

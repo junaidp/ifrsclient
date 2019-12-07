@@ -15,13 +15,58 @@ declare var $: any;
   isLoggedIn = true;
   constructor(public firsttimeadoptioninitialservice: Firsttimeadoptioninitialservice, public globals: Globals, private router: Router, public authService: AuthService) { }
   returnUrl: string;
-  name = "";
-  password = "";
+
+  ContractReferenceNumber = "";
+  LeaseCommencementDate = "";
+  ClassOfAsset = "";
+  LeaseName = "";
+  LessorName = "";
+  Location = "";
+  OtherCondition = "";
+
+
+  CommencementDate = "";
+  PaymentIn = "";
+  AnnualDiscountRate = "";
+  validationCustom04 = "";
+  LeaseTermPeriod = "";
+  ExpectedUsagePeriod = "";
+  LeasePayment = "";
+  PaymentInterval = "";
+  GuaranteedResidualValue = "";
+  LifeOfTheAsset = "";
+  InitialDirectCost = "";
+  Escalation = "";
+  EscalationAfterEvery = "";
+  ContractCurrency = "";
+
 
   formdata() {
     var data = {
+      ContractReferenceNumber :this.ContractReferenceNumber,
+  LeaseCommencementDate : this.LeaseCommencementDate,
+  ClassOfAsset : this.ClassOfAsset,
+  LeaseName : this.LeaseName,
+  LessorName :this.LessorName,
+  Location : this.Location,
+  OtherCondition :this.OtherCondition,
+
+  CommencementDate:this.CommencementDate,
+  PaymentIn :this.PaymentIn,
+  AnnualDiscountRate :this.AnnualDiscountRate,
+  LeaseTermPeriod :this.LeaseTermPeriod,
+  ExpectedUsagePeriod:this.ExpectedUsagePeriod, 
+  LeasePayment:this.LeasePayment, 
+  PaymentInterval:this.PaymentInterval, 
+  GuaranteedResidualValue:this.GuaranteedResidualValue, 
+  LifeOfTheAsset :this.LifeOfTheAsset,
+  InitialDirectCost:this.InitialDirectCost, 
+  Escalation :this.Escalation,
+  EscalationAfterEvery:this.EscalationAfterEvery, 
+  ContractCurrency :this.ContractCurrency
     
   };
+  
   this.firsttimeadoptioninitialservice.formdata(data).then(response => {
  
   });

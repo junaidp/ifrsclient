@@ -4,6 +4,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { TouchSequence } from "selenium-webdriver";
 declare var $: any;
 @Component({
   selector: 'app-firsttimeadoptionreportingperiod',
@@ -16,15 +17,61 @@ declare var $: any;
   isLoggedIn = true;
   constructor(public firsttimeadoptionreportingperiodservice: Firsttimeadoptionreportingperiodservice, public globals: Globals, private router: Router, public authService: AuthService) { }
   returnUrl: string;
-  name = "";
-  password = "";
+
+  ContractReferenceNumber = "";
+  LeaseCommencementDate = "";
+  ClassOfAsset = "";
+  LeaseName = "";
+  LessorName = "";
+  Location = "";
+  OtherCondition = "";
+
+
+  CommencementDate = "";
+  PaymentIn = "";
+  AnnualDiscountRate = "";
+  validationCustom04 = "";
+  LeaseTermPeriod = "";
+  ExpectedUsagePeriod = "";
+  LeasePayment = "";
+  PaymentInterval = "";
+  GuaranteedResidualValue = "";
+  LifeOfTheAsset = "";
+  InitialDirectCost = "";
+  Escalation = "";
+  EscalationAfterEvery = "";
+  ContractCurrency = "";
+
 
   formdata() {
     var data = {
+  ContractReferenceNumber :this.ContractReferenceNumber,
+  LeaseCommencementDate : this.LeaseCommencementDate,
+  ClassOfAsset : this.ClassOfAsset,
+  LeaseName : this.LeaseName,
+  LessorName :this.LessorName,
+  Location : this.Location,
+  OtherCondition :this.OtherCondition,
+
+  CommencementDate:this.CommencementDate,
+  PaymentIn :this.PaymentIn,
+  AnnualDiscountRate :this.AnnualDiscountRate,
+  LeaseTermPeriod :this.LeaseTermPeriod,
+  ExpectedUsagePeriod:this.ExpectedUsagePeriod, 
+  LeasePayment:this.LeasePayment, 
+  PaymentInterval:this.PaymentInterval, 
+  GuaranteedResidualValue:this.GuaranteedResidualValue, 
+  LifeOfTheAsset :this.LifeOfTheAsset,
+  InitialDirectCost:this.InitialDirectCost, 
+  Escalation :this.Escalation,
+  EscalationAfterEvery:this.EscalationAfterEvery, 
+  ContractCurrency :this.ContractCurrency
     
   };
   this.firsttimeadoptionreportingperiodservice.formdata(data).then(response => {
- 
+    
+
+     
   });
 
   }
@@ -32,83 +79,7 @@ declare var $: any;
   
 
   ngOnInit() {
-    
-    $(document).ready(function () {
-      var navListItems = $("div.setup-panel div a"),
-        allWells = $(".setup-content"),
-        allNextBtn = $(".nextBtn");
-
-      allWells.hide();
-
-      navListItems.click(function (e) {
-        e.preventDefault();
-        var $target = $($(this).attr("href")),
-          $item = $(this);
-
-        if (!$item.hasClass("disabled")) {
-          navListItems.removeClass("btn-primary").addClass("btn-default");
-          $item.addClass("btn-primary");
-          allWells.hide();
-          $target.show();
-          $target.find("input:eq(0)").focus();
-        }
-      });
-
-      allNextBtn.click(function () {
-        var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $(
-            'div.setup-panel div a[href="#' + curStepBtn + '"]'
-          )
-            .parent()
-            .next()
-            .children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='url']"),
-          isValid = true;
-        debugger;
-        if (curStepBtn == "step-1") {
-          $(".new_lease1").css("display", "block");
-          $(".new_lease").css("display", "none");
-          $(".new_lease2").css("display", "none");
-          $(".new_lease3").css("display", "none");
-          $(".new_lease4").css("display", "none");
-        }
-        if (curStepBtn == "step-2") {
-          $(".new_lease2").css("display", "block");
-          $(".new_lease").css("display", "none");
-          $(".new_lease1").css("display", "none");
-          $(".new_lease3").css("display", "none");
-          $(".new_lease4").css("display", "none");
-        }
-        if (curStepBtn == "step-3") {
-          $(".new_lease3").css("display", "block");
-          $(".new_lease").css("display", "none");
-          $(".new_lease1").css("display", "none");
-          $(".new_lease2").css("display", "none");
-          $(".new_lease4").css("display", "none");
-        }
-        if (curStepBtn == "step-4") {
-          $(".new_lease4").css("display", "block");
-          $(".new_lease").css("display", "none");
-          $(".new_lease1").css("display", "none");
-          $(".new_lease3").css("display", "none");
-          $(".new_lease2").css("display", "none");
-        }
-        $(".form-group").removeClass("has-error");
-        for (var i = 0; i < curInputs.length; i++) {
-          if (!curInputs[i].validity.valid) {
-            isValid = false;
-            $(curInputs[i])
-              .closest(".form-group")
-              .addClass("has-error");
-          }
-        }
-
-        if (isValid) debugger;
-        nextStepWizard.removeAttr("disabled").trigger("click");
-      });
-      $("div.setup-panel div a.btn-primary").trigger("click");
-    });
+   
     
 
   }
