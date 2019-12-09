@@ -47,9 +47,11 @@ body{
     height: 39px;
     border-radius: 20px;
 }
-.img_nav_bar>label{
+.img_nav_bar>p{
     margin-right: 14px;
     font-weight: 600;
+    float: left;
+    line-height: 31px;
 }
 .new_lease>div>a>i{
     display: inline-block;
@@ -78,10 +80,10 @@ label{
     line-height: 18px;
 }
 .step_4>div>h6{
-    height: 45px;
     color: #007bff;
     text-align: center;
     text-decoration: underline;
+    font-size: 14px;
 }
 .final_p_decorate{
     color: #007bff;
@@ -101,7 +103,6 @@ label{
 }
 .card_decoration>a{
     width: 100%;
-    margin-top: 50px;
 }
 .card_height{
     min-height: 244px;
@@ -113,7 +114,12 @@ label{
 .card_height:hover .card_decoration p>i{
     color: #007bff;
 }
-
+#journal_entry{
+    display: none;
+}
+#journal_entry1{
+    display: none;
+}
 /* signin form css */
 .register-photo {
     background:#f2f2f2;
@@ -291,13 +297,365 @@ label{
 
 /* draft section */
 .footer{
-    margin-top: 100px;
+    margin-top: 270px;
     bottom: 0;
 }
 .footer>a{
     margin: 0 16px;
 }
+.report_css{
+    line-height: 33px;
+    font-weight: 500;
+}
+.tab{
+    display: none;
+}
+.tab1{
+    display: none;
+}
+.tab2{
+    display: none;
+}
+.tab3{
+    display: none;
+}
 
+/* popup */
+.cstmmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+.closes {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.closes:hover,
+.closes:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* popup */
+.btn_mg>button:nth-child(1){
+    margin-left: 10px;
+}
+/* our services */
+.ourServices_main_css {
+    padding: 0;
+    background-image: url('../img/ourservices.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    position: relative;
+    border-top: 2px solid #2db0b5;
+    z-index: -1;
+    width: 100%;
+    float: left;
+}
+.ourServices_back_css {
+    width: 100%;
+    float: left;
+    background-color: rgb(0,0,0, .4);
+}
+.ourServices_main_css>div>div>div>div>h1{
+    margin:150px 0;
+    color:white;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.ourServices_body_css > div > h4 {
+    box-shadow: 1px 4px 8px #777;
+    padding: 59px 8px;
+    min-height: 150px;
+    font-weight: bold;
+    margin: 14px 0;
+    color: #2db0b5;
+}
+.photo_css{
+    left: 127px;;
+}
+/* our services */
+/* tooltipc hover */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 0.9;
+  text-align: center;
+}
+.tool{
+    text-align: right;
+}
+.tool>i{
+    font-size: 18px;
+    line-height: 39px;
+    color: #747474;
+}
+.shownext1{
+    display: none;
+    color: red;
+}
+.shownextq5{
+    display: none;
+    color: red;
+}
+.tool:hover i{
+    color: #007bff;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+/* tooltips */
+
+/* payment schedule monthy*/
+.panel{
+    text-align: center;
+    background-color: #ffffff;
+}
+.panel-heading{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.panel-title{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+.panel:hover { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35); }
+.panel-body{
+    padding: 0px;
+    text-align: center;
+}
+.the-price{
+    background-color: rgba(220,220,220,.17);
+    box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+    padding: 20px;
+    margin: 0;
+}
+.the-price h1{
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+}
+.table{
+    text-align: center;
+}
+.bold{
+    font-weight: bold;
+}
+.padding_payment_schedule{
+    padding-bottom: 20px;
+}
+.subscript{
+    font-size: 25px;
+}
+/* CSS-only ribbon styles    */
+.cnrflash{
+    /*Position correctly within container*/
+    position: absolute;
+    top: -9px;
+    right: 4px;
+    z-index: 1; /*Set overflow to hidden, to mask inner square*/
+    overflow: hidden; /*Set size and add subtle rounding  		to soften edges*/
+    width: 100px;
+    height: 100px;
+    border-radius: 3px 5px 3px 0;
+}
+.cnrflash-inner
+{
+    /*Set position, make larger then 			container and rotate 45 degrees*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 145px;
+    height: 145px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -o-transform: rotate(45deg); /* Opera */
+    -moz-transform: rotate(45deg); /* Firefox */
+    -webkit-transform: rotate(45deg); /* Safari and Chrome */
+    -webkit-transform-origin: 100% 100%; /*Purely decorative effects to add texture and stuff*/ /* Safari and Chrome */
+    -ms-transform-origin: 100% 100%;  /* IE 9 */
+    -o-transform-origin: 100% 100%; /* Opera */
+    -moz-transform-origin: 100% 100%; /* Firefox */
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1,1,1,.2) 50%);
+    background-size: 4px,auto, auto,auto;
+    background-color: #aa0101;
+    box-shadow: 0 3px 3px 0 rgba(1,1,1,.5), 0 1px 0 0 rgba(1,1,1,.5), inset 0 -1px 8px 0 rgba(255,255,255,.3), inset 0 -1px 0 0 rgba(255,255,255,.2);
+}
+.cnrflash-inner:before, .cnrflash-inner:after
+{
+    /*Use the border triangle trick to make  				it look like the ribbon wraps round it's 				container*/
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    width: 0;
+    height: 0;
+    border: 8px solid #800000;
+}
+.cnrflash-inner:before
+{
+    left: 1px;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+.cnrflash-inner:after
+{
+    right: 0;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+.cnrflash-label
+{
+    /*Make the label look nice*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(1,1,1,.8);
+    font-size: 0.95em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* payment schedule monthly */
+
+#hiddenDiv{
+    display: none;
+}
+#hiddenDiv1{
+    display: none;
+}
+#hiddenDiv2{
+    display: none;
+}
+#hiddenDiv3{
+    display: none;
+}
+#hiddenDiv4{
+    display: none;
+}
+#hiddenDiv5{
+    display: none;
+}
+#lease_no{
+    display: none;
+}
+#lease_yes{
+    display: none;
+}
+.display_inline_block{
+    display: inline-block;
+}
+.right_of_use_heading>div{
+    padding: 0;
+    text-align: center;
+}
+.right_of_use_heading>div>h6{
+    margin: 10px 0;
+    font-size: 14px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.journal_new>div>h6{
+    color: #007bff;
+}
+.journal_display{
+    display: none;
+}
+.tab4{
+    display: none;
+}
+.journal_new{
+    text-align: center;
+}
+.journal_display1{
+    display: none;
+}
+.journal_display2{
+    display: none;
+}
+.new_add_headind{
+    color: #007bff;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.journal_new>h6{
+    color: #007bff;
+    text-align: center;
+}
 @media only screen and (min-width:100px) and (max-width:480px){
     .second_step{
         display: none;
@@ -307,5 +665,11 @@ label{
     }
     .responsive_display{
         display: none;
+    }
+    .photo_css{
+        left: 30px;
+    }
+    .browse-bu{
+        left: 10px;
     }
 }
