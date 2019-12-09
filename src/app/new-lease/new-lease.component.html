@@ -552,13 +552,9 @@
                                     <div class="col-1 responsive_display">
                                         <h6 class="mb-3">Sr. #</h6>
                                         <ul class="list-unstyled text-center">
-                                            <li>1.</li>
-                                            <li>2.</li>
-                                            <li>3.</li>
-                                            <li>4.</li>
-                                            <li>5.</li>
-                                            <li>6.</li>
-                                            <li>7.</li>
+                                            <li *ngFor="let row of map | keyvalue">
+                                                {{row.value[0]}}
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-6 col-6">
@@ -611,11 +607,9 @@
                                             <div class="col-1 responsive_display">
                                                 <h6 class="mb-3">Sr. #</h6>
                                                 <ul class="list-unstyled text-center">
-                                                    <li>1.</li>
-                                                    <li>2.</li>
-                                                    <li>3.</li>
-                                                    <li>4.</li>
-                                                    <li>5.</li>
+                                                    <li *ngFor="let row of map | keyvalue">
+                                                        {{row.value[14]}}
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="col-lg-2 col-md-6 col-6">
@@ -994,13 +988,9 @@
                                                 <div class="col-1 responsive_display">
                                                     <h6 class="mb-3">Sr. #</h6>
                                                     <ul class="list-unstyled text-center">
-                                                        <li>1.</li>
-                                                        <li>2.</li>
-                                                        <li>3.</li>
-                                                        <li>4.</li>
-                                                        <li>5.</li>
-                                                        <li>6.</li>
-                                                        <li>7.</li>
+                                                        <li *ngFor="let row of map | keyvalue">
+                                                            {{row.value[0]}}
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-2 col-md-6 col-6">
@@ -1053,11 +1043,9 @@
                                                     <div class="col-1 responsive_display">
                                                         <h6 class="mb-3">Sr. #</h6>
                                                         <ul class="list-unstyled text-center">
-                                                            <li>1.</li>
-                                                            <li>2.</li>
-                                                            <li>3.</li>
-                                                            <li>4.</li>
-                                                            <li>5.</li>
+                                                            <li *ngFor="let row of map | keyvalue">
+                                                                {{row.value[14]}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
