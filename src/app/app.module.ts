@@ -22,6 +22,7 @@ import { RightOfUseComponent } from './right-of-use/right-of-use.component';
 import { PaymentReportComponent } from './payment-report/payment-report.component';
 import { LeaseReportComponent } from './lease-report/lease-report.component';
 import { SelectReportComponent } from './select-report/select-report.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SelectReportComponent } from './select-report/select-report.component';
     RightOfUseComponent,
     PaymentReportComponent,
     LeaseReportComponent,
-    SelectReportComponent
+    SelectReportComponent,
+    LandingComponent
    
   ],
   imports: [

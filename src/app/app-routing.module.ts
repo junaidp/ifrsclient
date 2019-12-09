@@ -17,9 +17,11 @@ import { PaymentReportComponent } from './payment-report/payment-report.componen
 import { RightOfUseComponent } from './right-of-use/right-of-use.component'
 import { LeaseReportComponent } from './lease-report/lease-report.component'
 import { SelectReportComponent } from './select-report/select-report.component'
+import { LandingComponent } from './landing/landing.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'landing', component: LandingComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
