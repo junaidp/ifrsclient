@@ -18,12 +18,21 @@ import { RightOfUseComponent } from './right-of-use/right-of-use.component'
 import { LeaseReportComponent } from './lease-report/lease-report.component'
 import { SelectReportComponent } from './select-report/select-report.component'
 import { LandingComponent } from './landing/landing.component'
+import { FinanceComponent } from './financecost/financecost.component'
+import { LeaseliabilityComponent } from './leaseliability/leaseliability.component';
+import { AccuredliabilityComponent } from './accuredliability/accuredliability.component';
+import { CashbankComponent } from './cashbank/cashbank.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'journalEntries', component: JournalEntriesComponent },
+  { path: 'journalEntries', component: JournalEntriesComponent},
+  { path: 'financecost', component: FinanceComponent },
+  { path: 'leaseliability', component: LeaseliabilityComponent },
+  { path: 'accuredliability', component: AccuredliabilityComponent },
+  { path: 'cashbank', component: CashbankComponent },
+
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'newlease', component: NewLeaseComponent },
   { path: 'firsttimeadoption', component: FirsttimeadoptionComponent },

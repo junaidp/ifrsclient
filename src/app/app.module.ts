@@ -23,6 +23,10 @@ import { PaymentReportComponent } from './payment-report/payment-report.componen
 import { LeaseReportComponent } from './lease-report/lease-report.component';
 import { SelectReportComponent } from './select-report/select-report.component';
 import { LandingComponent } from './landing/landing.component';
+import { FinanceComponent } from './financecost/financecost.component';
+import { LeaseliabilityComponent } from './leaseliability/leaseliability.component';
+import { AccuredliabilityComponent } from './accuredliability/accuredliability.component';
+import { CashbankComponent } from './cashbank/cashbank.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +46,12 @@ import { LandingComponent } from './landing/landing.component';
     PaymentReportComponent,
     LeaseReportComponent,
     SelectReportComponent,
-    LandingComponent
-   
+    LandingComponent,
+    FinanceComponent,
+    LeaseliabilityComponent,
+    AccuredliabilityComponent,
+    CashbankComponent
+    
   ],
   imports: [
     BrowserModule,
