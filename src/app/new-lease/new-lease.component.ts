@@ -89,10 +89,10 @@ export class NewLeaseComponent implements OnInit {
     this.globals. escalationAfterEvery= this.escalationAfterEvery
 
 
-    alert(this.globals.escalationAfterEvery)
    // alert("calculation for " + this.globals.userName)
     this.leaseService.calculate(data).then(response => {
       this.map = new Map(Object.entries(response.data));
+  
       
       /*console.log("In MAP ENTRIES");
 
