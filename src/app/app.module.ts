@@ -27,6 +27,7 @@ import { FinanceComponent } from './financecost/financecost.component';
 import { LeaseliabilityComponent } from './leaseliability/leaseliability.component';
 import { AccuredliabilityComponent } from './accuredliability/accuredliability.component';
 import { CashbankComponent } from './cashbank/cashbank.component';
+import { DraftComponent } from './draft/draft.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CashbankComponent } from './cashbank/cashbank.component';
     FinanceComponent,
     LeaseliabilityComponent,
     AccuredliabilityComponent,
-    CashbankComponent
+    CashbankComponent,
+    DraftComponent
     
   ],
   imports: [

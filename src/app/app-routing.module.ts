@@ -22,6 +22,7 @@ import { FinanceComponent } from './financecost/financecost.component'
 import { LeaseliabilityComponent } from './leaseliability/leaseliability.component';
 import { AccuredliabilityComponent } from './accuredliability/accuredliability.component';
 import { CashbankComponent } from './cashbank/cashbank.component';
+import { DraftComponent } from './draft/draft.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,7 +33,9 @@ const routes: Routes = [
   { path: 'leaseliability', component: LeaseliabilityComponent },
   { path: 'accuredliability', component: AccuredliabilityComponent },
   { path: 'cashbank', component: CashbankComponent },
+  { path: 'draft', component: DraftComponent },
 
+  
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'newlease', component: NewLeaseComponent },
   { path: 'firsttimeadoption', component: FirsttimeadoptionComponent },
