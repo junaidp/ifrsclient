@@ -5,7 +5,7 @@ const url = "//compliancetool.herokuapp.com/calculation/journal ";
 @Injectable({ providedIn: "root" })
 export class JournalService {
   async calculate(data) {
-  alert("here")
+
    const response = await axios.post(url, data);
     return response;
 
