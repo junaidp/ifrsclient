@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>New Lease</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet"> 
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script> -->
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="Ifrs16mainpage.html">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- <li class="nav-item"><a class="nav-link" href="index.html">Home <span class="sr-only"></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us<span class="sr-only"></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us<span class="sr-only"></span></a></li> -->
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="col-2 nav-item dropdown text-center">
+                            <a class="nav-link  img_nav_bar" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>UserName</p>
+                                <img src="img/Adnan.png" alt="img"> 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="login.html">Log In</a>
+                                <a class="dropdown-item" href="../index.html">Log Out</a>
+                                <a class="dropdown-item" href="signup.html">Sign In</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row mt-3 mb-3 new_lease">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            
+                            <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page"><i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i> &nbsp;New Lease</li>
+                            <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Journal Entry</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
+                    <h6>Name of Lease: &nbsp; <span>xxxxx</span></h6>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
+                    <h6>Starting Date: &nbsp; <span>xxxxx</span></h6>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
+                    
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-right text-sm-center">
+                    <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p  style="font-weight: 600; color: #007bff; cursor: pointer;" id="journal_entry_show">Journal entries for entire lease period</p>
+                </div>
+            </div>
+            <div class="row step_4 mb-4 mt-4">
+                <div class="col-12">
+                    <div class="row responsive_display journal_new">
+                        <h6 class="col-1">Sr. #</h6>
+                        <h6 class="col-2">Date</h6>
+                        <h6 class="col-3 text-lg-left">Head Of Account</h6>
+                        <h6 class="col-2">Dr.</h6>
+                        <h6 class="col-2">Cr.</h6>
+                    </div>
+                </div>
+                <div class="col-12 mt-2">
+                    <div class="row responsive_display journal_new">
+                        <div class="col-1">1</div>
+                        <div class="col-2">mm:dd:yyyy</div>
+                        <div class="col-3">
+                            <div class="row text-lg-left">
+                                <div class="col-12">Right Of Use Asset</div>
+                                <div class="col-12">Lease Liability</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-12">100,000</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-12"></div>
+                                <div class="col-12 mt-4">100,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6"></div>
+            </div>
+            <div class="row mt-4 mb-4" id="journal_entry"> 
+                <div class="col-12 mt-3">
+                    <div class="row journal_new" id="show2">
+                        <div class="col-1">2</div>
+                        <div class="col-2">mm:dd:yyyy</div>
+                        <div class="col-3">
+                            <div class="row text-lg-left">
+                                <div class="col-12">Finance Cost</div>
+                                <div class="col-12 mt-2">Lease Liability</div>
+                                <div class="col-12 mt-2">Cash / Bank</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-12">22,771</div>
+                                <div class="col-12 mt-2">171,566</div>
+                            </div>
+                        </div>
+                        <div class="col-2 mt-4">
+                            <div class="row">
+                                <div class="col-12 mt-4">250,000</div>
+                            </div>
+                        </div>
+                        <div class="col-2 mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 mb-4 " id="journal_entry1">
+                <div class="col-12 mt-3">
+                    <div class="row journal_new">
+                        <div class="col-1">3</div>
+                        <div class="col-2">mm:dd:yyyy</div>
+                        <div class="col-3">
+                            <div class="row text-lg-left">
+                                <div class="col-12">Finance Cost</div>
+                                <div class="col-12 mt-2">Lease Liability</div>
+                                <div class="col-12 mt-2">Cash / Bank</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-12">22,771</div>
+                                <div class="col-12 mt-2">171,566</div>
+                            </div>
+                        </div>
+                        <div class="col-2 mt-4">
+                            <div class="row">
+                                <div class="col-12 mt-4">250,000</div>
+                            </div>
+                        </div>
+                        <div class="col-2 mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit" style="margin-left: 20px;">Close</button>
+            <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit">Add new</button>
+        </div>
+    </body>
+</html>
+
+<script>
+    $("#journal_entry_show").on("click", function (){
+    $("#journal_entry").toggle("show");
+    $("#journal_entry1").toggle("show");
+});
+</script>

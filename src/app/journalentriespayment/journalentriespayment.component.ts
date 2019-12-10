@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Financeservice } from "./FinanceService";
+import { JournalentriespaymentService } from "./JournalentriespaymentService";
 import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,12 +7,12 @@ import {ViewChild, ElementRef } from '@angular/core';
 import { allResolved } from "q";
 
 @Component({
-  selector: "app-finanace",
-  templateUrl: "./financecost.component.html",
-  styleUrls: ["./financecost.component.css"]
+  selector: "app-Journalentriespayment",
+  templateUrl: "./journalentriespayment.component.html",
+  styleUrls: ["./journalentriespayment.component.css"]
 })
-export class FinanceComponent implements OnInit {
-   constructor(public finanaceservice: Financeservice, public globals: Globals, private router: Router) {}
+export class JournalentriespaymentComponent implements OnInit {
+   constructor(public journalentriespaymentservice: JournalentriespaymentService, public globals: Globals, private router: Router) {}
  
 
    

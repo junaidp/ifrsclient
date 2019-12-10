@@ -28,6 +28,15 @@ import { LeaseliabilityComponent } from './leaseliability/leaseliability.compone
 import { AccuredliabilityComponent } from './accuredliability/accuredliability.component';
 import { CashbankComponent } from './cashbank/cashbank.component';
 import { DraftComponent } from './draft/draft.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { CompanyloginComponent } from './companylogin/companylogin.component';
+import { FirsttimeadoptionjournalentryComponent } from './firsttimeadoptionjournalentry/firsttimeadoptionjournalentry.component';
+import { JournalentriespaymentService } from './journalentriespayment/JournalentriespaymentService';
+import { JournalentriespaymentComponent } from './journalentriespayment/journalentriespayment.component';
+import { NewLeasejournalentryComponent } from './newLeasejournalentry/newLeasejournalentry.component';
+import { PaymentgetwayComponent } from './paymentgetway/paymentgetway.component';
+import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +61,15 @@ import { DraftComponent } from './draft/draft.component';
     LeaseliabilityComponent,
     AccuredliabilityComponent,
     CashbankComponent,
-    DraftComponent
-    
+    DraftComponent,
+    AboutusComponent,
+    ContactusComponent,
+    CompanyloginComponent,
+    FirsttimeadoptionjournalentryComponent,
+    JournalentriespaymentComponent,
+    NewLeasejournalentryComponent,
+    PaymentgetwayComponent,
+    PaymentscheduleComponent
   ],
   imports: [
     BrowserModule,

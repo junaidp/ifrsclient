@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Payment GetWay</title>
+    <meta charset="UTF-8">
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" id="bootstrap-css"> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script> -->
+	
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><a class="nav-link" href="index.html">Home <span class="sr-only"></span></a></li>
+						<li class="nav-item"><a class="nav-link" href="aboutus.html">About Us<span class="sr-only"></span></a></li>
+						<li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us<span class="sr-only"></span></a></li>
+					</ul>
+                </div>
+            </div>
+        </nav>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+                
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-34">
+						Payment
+					</span>
+					
+					<article class="card">
+                        <div class="card-body p-5">
+                            <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
+                                    <i class="fa fa-credit-card"></i> Credit Card</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
+                                    <i class="fab fa-paypal"></i>  Paypal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                    <i class="fa fa-university"></i>  Bank Transfer</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="nav-tab-card">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="username">Full name (on the card)</label>
+                                            <input type="text" class="form-control" name="username" placeholder="" required="">
+                                        </div> <!-- form-group.// -->
+                                    
+                                        <div class="form-group">
+                                            <label for="cardNumber">Card number</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text text-muted">
+                                                        <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>   
+                                                        <i class="fab fa-cc-mastercard"></i> 
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group">
+                                                    <label><span class="hidden-xs">Expiration</span> </label>
+                                                    <div class="input-group">
+                                                        <input type="number" class="form-control" placeholder="MM" name="">
+                                                        <input type="number" class="form-control" placeholder="YY" name="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+                                                    <input type="number" class="form-control" required="">
+                                                </div> <!-- form-group.// -->
+                                            </div>
+                                        </div> <!-- row.// -->
+                                        <button class="subscribe btn btn-primary btn-block" type="button"> Confirm  </button>
+                                    </form>
+                                </div> <!-- tab-pane.// -->
+                                <div class="tab-pane fade" id="nav-tab-paypal">
+                                    <p>Paypal is easiest way to pay online</p>
+                                    <p><button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in my Paypal </button> </p>
+                                    <p><strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                </div>
+                                <div class="tab-pane fade" id="nav-tab-bank">
+                                    <p>Bank accaunt details</p>
+                                    <dl class="param">
+                                        <dt>BANK: </dt>
+                                        <dd> THE WORLD BANK</dd>
+                                    </dl>
+                                    <dl class="param">
+                                        <dt>Accaunt number: </dt>
+                                        <dd> 12345678912345</dd>
+                                    </dl>
+                                    <dl class="param">
+                                        <dt>IBAN: </dt>
+                                        <dd> 123456789</dd>
+                                    </dl>
+                                    <p><strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                </div> 
+                            </div> 
+                            
+                        </div> <!-- card-body.// -->
+                    </article> 
+				</form>
+				<div class="login100-more" style="background-image: url('assets/img/bg-01.jpg');"></div>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
