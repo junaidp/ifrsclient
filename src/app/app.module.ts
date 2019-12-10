@@ -37,6 +37,7 @@ import { JournalentriespaymentComponent } from './journalentriespayment/journale
 import { NewLeasejournalentryComponent } from './newLeasejournalentry/newLeasejournalentry.component';
 import { PaymentgetwayComponent } from './paymentgetway/paymentgetway.component';
 import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.component';
+import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.comp
     JournalentriespaymentComponent,
     NewLeasejournalentryComponent,
     PaymentgetwayComponent,
-    PaymentscheduleComponent
+    PaymentscheduleComponent,
+    AddNewUserComponent
   ],
   imports: [
     BrowserModule,
