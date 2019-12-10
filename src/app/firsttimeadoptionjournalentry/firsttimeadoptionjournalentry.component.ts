@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FirsttimeadoptionjournelentryService } from "./firsttimeadoptionjournelentryService";
+import { Firsttimeadoptionjournelentryservice } from "./Firsttimeadoptionjournelentryservice";
 import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +12,7 @@ import { allResolved } from "q";
   styleUrls: ["./firsttimeadoptionjournalentry.component.css"]
 })
 export class FirsttimeadoptionjournalentryComponent implements OnInit {
-   constructor(public firsttimeadoptionjournelentryservice: FirsttimeadoptionjournelentryService, public globals: Globals, private router: Router) {}
+   constructor(public firsttimeadoptionjournelentryservice: Firsttimeadoptionjournelentryservice, public globals: Globals, private router: Router) {}
  
 
    
