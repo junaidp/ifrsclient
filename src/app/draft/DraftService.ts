@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 const url = "//compliancetool.herokuapp.com/calculation/journal ";
 
 @Injectable({ providedIn: "root" })
-export class Draftservice {
+export class DraftService {
   async signIn(data) {
      const response = await axios.post(url, data).then(
     );
