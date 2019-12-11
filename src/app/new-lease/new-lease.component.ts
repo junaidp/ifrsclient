@@ -32,6 +32,7 @@ export class NewLeaseComponent implements OnInit {
   answer4 = "Select here";
   answer5 = "Select here";
   answer6 = "Select here";
+  answer6new = "Select here";
   answer7 = "Select here";
 
 
