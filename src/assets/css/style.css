@@ -2,6 +2,10 @@ body{
     margin-bottom: 10px;
     background-color: #f2f2f2;
 }
+.navbar-light .navbar-brand img{
+    height: 45px;
+    width: 196px;
+}
 .stepwizard-step p {
     margin-top: 10px;
 }
@@ -24,7 +28,17 @@ body{
     content: " ";
     width: 100%;
     height: 1px;
-    background-color: #ccc;
+    background-color: #FFB600;
+}
+a:hover {
+    color: #FFB600 !important;
+}
+.form-control:focus {
+    border-color: #FFB600;
+    box-shadow: 0 0 0 0.1rem #FFB600;
+}
+.blue_color{
+    background-color: #001769;
 }
 .stepwizard-step {
     display: table-cell;
@@ -39,8 +53,11 @@ body{
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
-  background-color: #007bff;
+  background-color: #001769;
   color: white;
+}
+.btn-circle:hover{
+    color: white;
 }
 .img_nav_bar>img{
     width: 39px;
@@ -80,7 +97,8 @@ label{
     line-height: 18px;
 }
 .step_4>div>h6{
-    color: #007bff;
+    color: black;
+    font-weight: bold;
     text-align: center;
     text-decoration: underline;
     font-size: 14px;
@@ -231,7 +249,10 @@ label{
     opacity: 0;
 }
 .breadcrumb{
-    background-color: #f8f9fa;
+    background-color: transparent;
+}
+.breadcrumb-item.active {
+    color: #FFB600;
 }
 .new_lease1{
     display: none;
@@ -420,7 +441,7 @@ label{
 .tool>i{
     font-size: 18px;
     line-height: 39px;
-    color: #747474;
+    color: #FFB600;
 }
 .shownext1{
     display: none;
@@ -431,7 +452,23 @@ label{
     color: red;
 }
 .tool:hover i{
-    color: #007bff;
+    color: #ef5822;
+}
+.assec_heading h6{
+    color: #ef5822 !important;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.contract_form_edit{
+    display: inline-block;
+}
+.contract_form_edit>h6{
+    color: #ef5822;
+    cursor: pointer;
+    font-weight: bold;
+}
+.contract_form_edit>h6:hover{
+    color: #FFB600;
 }
 .tooltip .tooltiptext {
   visibility: hidden;
