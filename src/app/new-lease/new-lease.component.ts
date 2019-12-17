@@ -101,7 +101,7 @@ export class NewLeaseComponent implements OnInit {
   console.log(response.data)
       this.map1 = this.map.get("17");
       this.presentValue = this.map1[9];
-      alert(this.presentValue)
+     
       /*console.log("In MAP ENTRIES");
 
       this.map.forEach((value: Map<string, string>, key: string) => {

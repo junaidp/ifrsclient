@@ -13,6 +13,9 @@ declare var $: any;
   styleUrls:  ["./newLeasejournalentry.component.css"]
 })
 export class NewLeasejournalentryComponent implements OnInit {
+
+
+
    constructor(public newLeasejournalentryservice: NewLeasejournalentryService, public globals: Globals, private router: Router) {}
    year :Date;
    month:Date;
@@ -56,7 +59,7 @@ export class NewLeasejournalentryComponent implements OnInit {
   mainHeadOfAccount2: String;
 
 
-
+  presentValue:number;
   date: ""; 
   date1: "";
   date2: "";
@@ -93,108 +96,112 @@ export class NewLeasejournalentryComponent implements OnInit {
     escalationAfterEvery: this.globals.escalationAfterEvery,
  //   year:2019
   };
-  alert(JSON.stringify(data))
   this.newLeasejournalentryservice.calculate(data).then(response => {
     this.map = new Map(Object.entries(response.data));
-    console.log(this.map);
-    console.log(JSON.stringify(response.data))
-    this.map1 = this.map.get("8");
-    this.drValue = this.map1[25];
 
-    this.map1 = this.map.get("9");
-    this.drValue1 = this.map1[25];
+    console.log(response.data)
+//     alert(this.map.size)
+//     this.map1 = this.map.get("17");
+//     this.presentValue = this.map1[9];
 
-    this.map1 = this.map.get("11");
-    this.drValue2 = this.map1[25];
+//     this.map1 = this.map.get("8");
+//     this.drValue = this.map1[25];
 
-    this.map1 = this.map.get("12");
-    this.drValue3 = this.map1[25];
+//     this.map1 = this.map.get("9");
+//     this.drValue1 = this.map1[25];
 
-    this.map1 = this.map.get("13");
-    this.drValue4 = this.map1[25];
+//     this.map1 = this.map.get("11");
+//     this.drValue2 = this.map1[25];
 
-    this.map1 = this.map.get("15");
-    this.drValue5 = this.map1[25];
+//     this.map1 = this.map.get("12");
+//     this.drValue3 = this.map1[25];
 
-    this.map1 = this.map.get("16");
-    this.drValue6 = this.map1[25];
+//     this.map1 = this.map.get("13");
+//     this.drValue4 = this.map1[25];
 
-    this.map1 = this.map.get("17");
-    this.drValue7 = this.map1[25];
+//     this.map1 = this.map.get("15");
+//     this.drValue5 = this.map1[25];
 
+//     this.map1 = this.map.get("16");
+//     this.drValue6 = this.map1[25];
 
-
-    // for cr
-
-    this.map1 = this.map.get("8");
-    this.crValue = this.map1[26]+ 0;
-
-    this.map1 = this.map.get("9");
-    this.crValue1 = this.map1[26];
-
-    this.map1 = this.map.get("11");
-    this.crValue2 = this.map1[26]+ 0;
-
-    this.map1 = this.map.get("12");
-    this.crValue3 = this.map1[26]+ 0;
-
-    this.map1 = this.map.get("13");
-    this.crValue4 = this.map1[26]+ 0;
-
-    this.map1 = this.map.get("15");
-    this.crValue5 = this.map1[26]+ 0;
-
-    this.map1 = this.map.get("16");
-    this.crValue6 = this.map1[26]+ 0;
-
-    this.map1 = this.map.get("17");
-    this.crValue7 = this.map1[26] + 0;
+//     this.map1 = this.map.get("17");
+//     this.drValue7 = this.map1[25];
 
 
 
-    //ffor head
+//     // for cr
 
-    this.map1 = this.map.get("8");
-    this.headOfAccount = this.map1[22];
+//     this.map1 = this.map.get("8");
+//     this.crValue = this.map1[26]+ 0;
 
-    this.map1 = this.map.get("9");
-    this.headOfAccount1 = this.map1[23];
+//     this.map1 = this.map.get("9");
+//     this.crValue1 = this.map1[26];
 
-    this.map1 = this.map.get("11");
-    this.headOfAccount2 = this.map1[22];
+//     this.map1 = this.map.get("11");
+//     this.crValue2 = this.map1[26]+ 0;
 
-    this.map1 = this.map.get("12");
-    this.headOfAccount3 = this.map1[22];
+//     this.map1 = this.map.get("12");
+//     this.crValue3 = this.map1[26]+ 0;
 
-    this.map1 = this.map.get("13");
-    this.headOfAccount4 = this.map1[23];
+//     this.map1 = this.map.get("13");
+//     this.crValue4 = this.map1[26]+ 0;
 
-    this.map1 = this.map.get("15");
-    this.headOfAccount5 = this.map1[22];
+//     this.map1 = this.map.get("15");
+//     this.crValue5 = this.map1[26]+ 0;
 
-    this.map1 = this.map.get("16");
-    this.headOfAccount6 = this.map1[22];
+//     this.map1 = this.map.get("16");
+//     this.crValue6 = this.map1[26]+ 0;
 
-    this.map1 = this.map.get("17");
-    this.headOfAccount7 = this.map1[23];
+//     this.map1 = this.map.get("17");
+//     this.crValue7 = this.map1[26] + 0;
 
 
 
-//for date
+//     //ffor head
+
+//     this.map1 = this.map.get("8");
+//     this.headOfAccount = this.map1[22];
+
+//     this.map1 = this.map.get("9");
+//     this.headOfAccount1 = this.map1[23];
+
+//     this.map1 = this.map.get("11");
+//     this.headOfAccount2 = this.map1[22];
+
+//     this.map1 = this.map.get("12");
+//     this.headOfAccount3 = this.map1[22];
+
+//     this.map1 = this.map.get("13");
+//     this.headOfAccount4 = this.map1[23];
+
+//     this.map1 = this.map.get("15");
+//     this.headOfAccount5 = this.map1[22];
+
+//     this.map1 = this.map.get("16");
+//     this.headOfAccount6 = this.map1[22];
+
+//     this.map1 = this.map.get("17");
+//     this.headOfAccount7 = this.map1[23];
+
+
+
+// //for date
+// // this.map1 = this.map.get("8");
+// // this.date = this.map1[22];
+
 // this.map1 = this.map.get("8");
-// this.date = this.map1[22];
-
-this.map1 = this.map.get("8");
-this.date = this.map1[19];
+// this.date = this.map1[19];
 
 
-this.map1 = this.map.get("11");
-this.date1 = this.map1[19];
+// this.map1 = this.map.get("11");
+// this.date1 = this.map1[19];
 
 
-this.map1 = this.map.get("15");
-this.date2 = this.map1[19];
+// this.map1 = this.map.get("15");
+// this.date2 = this.map1[19];
 
+//old cmnt
 // this.map1 = this.map.get("9");
 // this.date1 = this.map1[19];
 
@@ -222,3 +229,8 @@ this.date2 = this.map1[19];
 }
     
 }
+// $(document).ready(function () {
+//   for (var i = 1; i <= 3; i++) {
+//       $('#testing').append('TESTING');
+//   }
+// });
