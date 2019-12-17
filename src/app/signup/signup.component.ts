@@ -48,7 +48,10 @@ export class SignupComponent implements OnInit {
     this.signupservice.SignUp(data).then(response => {
        this.isLoggedIn = false
        alert(response.data)
+       console.log(response.data)
+       this.router.navigate(['/login']);  
     });
+
   }
 }
   closeAlert() {

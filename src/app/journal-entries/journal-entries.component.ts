@@ -14,6 +14,10 @@ export class JournalEntriesComponent implements OnInit {
   constructor(public journalService: JournalService, public globals: Globals) {
 
   }
+
+   year :Date;
+   month:Date;
+
   map: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   //for dr
@@ -49,7 +53,10 @@ export class JournalEntriesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    $("#journal_entry_show").on("click", function (){
+      $("#journal_entry").toggle("show");
+      $("#journal_entry1").toggle("show");
+  });
     var data = {
 
       leaseContractNo: this.globals.leaseContractNo,

@@ -11,10 +11,15 @@ declare var $: any;
 })
 export class NewLeaseComponent implements OnInit {
   constructor(public leaseService: LeaseService, public globals : Globals) { }
+
+
+  map1: Map<String, String>;
+  presentValue: number;
+
   //first tab
   leaseContractNo = "";
   classAsset = "";
-  commencementDate ="";
+  commencementDate ="2019-03-11";
   leaseName = "";
   lessorName = "";
   leasseeName = "";
@@ -37,17 +42,17 @@ export class NewLeaseComponent implements OnInit {
 
 
   //3rd tab
-  paymentsAt = "";
-  annualDiscountRate = "";
-  leaseTerm = "";
-  expectedPeriod = "";
-  leasePayment = "";
-  paymentIntervals = "";
-  initialDirectCost = "";
-  guaranteedResidualValue = "";
-  usefulLifeOfTheAsset = "";
-  escalation = "";
-  escalationAfterEvery = "";
+  paymentsAt = "Beginning";
+  annualDiscountRate = "3";
+  leaseTerm = "10";
+  expectedPeriod = "10";
+  leasePayment = "2670000";
+  paymentIntervals = "Yearly";
+  initialDirectCost = "0";
+  guaranteedResidualValue = "1000000";
+  usefulLifeOfTheAsset = "10";
+  escalation = "30";
+  escalationAfterEvery = "10";
   contractCurrency = "";
   map: Map<string, Map<string, string>>;
 
@@ -93,8 +98,10 @@ export class NewLeaseComponent implements OnInit {
    // alert("calculation for " + this.globals.userName)
     this.leaseService.calculate(data).then(response => {
       this.map = new Map(Object.entries(response.data));
-  
-      
+  console.log(response.data)
+      this.map1 = this.map.get("17");
+      this.presentValue = this.map1[9];
+      alert(this.presentValue)
       /*console.log("In MAP ENTRIES");
 
       this.map.forEach((value: Map<string, string>, key: string) => {
