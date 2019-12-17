@@ -85,6 +85,7 @@ a:hover {
 }
 label{
     font-weight: 600;
+    color: #666666;
 }
 .second_step>div>h6{
     text-decoration: underline;
@@ -97,7 +98,7 @@ label{
     line-height: 18px;
 }
 .step_4>div>h6{
-    color: black;
+    color: #666666;
     font-weight: bold;
     text-align: center;
     text-decoration: underline;
