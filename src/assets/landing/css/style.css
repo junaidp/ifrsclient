@@ -91,7 +91,8 @@ banner
 
 .navbar-brand img {
     padding-top: 2px;
-    width: 120px !important;
+    width: 196px !important;
+    margin-top: -14px;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -162,7 +163,10 @@ banner
 	padding-top: 190px;
 }
 .banner-logo img{
-	display: inline-block;
+    display: inline-block;
+    width: 382px;
+    margin-top: 18px;
+    margin-bottom: 28px;
 }
 .banner-text{
 	color: #fff;
@@ -173,11 +177,26 @@ banner
 	text-transform: uppercase;
 	padding-bottom:15px;
 }
+.btn_color{
+    background-color: #323232;
+    width: 100%;
+    color: white;
+}
+.btn_color:hover{
+    color: white;
+}
+.no_active_individual{
+    background-color: #323232;
+    color: white;
+}
+.no_active_individual:hover{
+    color: white;
+}
 .btn-appoint, .btn-appoint:hover, .btn-appoint:focus{
 	margin-top: 30px;
 	padding: 10px 20px;
 	font-size: 12px;
-	background-color: rgba(12, 184, 182, 0.91);
+	background-color: #ef5822;
 	border-radius: 3px;
 	color: #fff;
 }
@@ -269,7 +288,7 @@ about
     width: 40px;
     height: 40px;
     padding-top: 6px;
-    background: #0cb8b6;
+    background: #ef5822;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
@@ -416,7 +435,7 @@ contact us
     margin-top: 40px;
 }
 .btn-form, .btn-form:hover, .btn-form:focus {
-    background-color: #0cb8b6;
+    background-color: #323232;
     color: #fff;
     border-radius: 0px;
     padding: 10px 20px;
@@ -524,12 +543,19 @@ footer
 /* payment schedule monthy*/
 .panel{
     text-align: center;
-    background-color: #ffffff;
+    background-color: #2a377e;
+    color: white;
+    min-height: 526px;
+}
+.silver_gold:hover{
+    animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
 }
 .panel-heading{
     color: #fff !important;
-    background-color: #428bca !important;
-    border-color: #428bca !important;
+    background-color: #ef5822 !important;
+    border-color: #fbb315 !important;
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
     border-top-right-radius: 3px;
@@ -546,8 +572,8 @@ footer
     text-align: center;
 }
 .the-price{
-    background-color: rgba(220,220,220,.17);
-    box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+    /* background-color: rgba(220,220,220,.17);
+    box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff; */
     padding: 20px;
     margin: 0;
 }
@@ -555,6 +581,10 @@ footer
     line-height: 1em;
     padding: 0;
     margin: 0;
+    color: white;
+}
+.the-price h1>span>small{
+    color: white;
 }
 .table{
     text-align: center;
@@ -598,6 +628,14 @@ footer
     right: 0;
     width: 145px;
     height: 145px;
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
     background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1,1,1,.2) 50%);
     background-size: 4px,auto, auto,auto;
     background-color: #aa0101;
@@ -629,8 +667,38 @@ footer
 }
 .subscript{
     font-size: 25px;
+    color: white;
 }
-
+.subscript>h3{
+    color: white;
+}
+.bronze>div:nth-child(2) h2{
+    color: white;
+    font-weight: normal;
+    font-size: 29px;
+}
+.bronze>div:nth-child(1) img{
+    margin-top: 36px;
+    margin-bottom: 25px;
+}
+.lease_points>div{
+    margin-top: 10px;
+}
+.lease_points>div:nth-child(6){
+    margin-bottom: 36px;
+}
+.lease_points_gold>div{
+    margin-top: 10px;
+}
+.lease_points_gold>div:nth-child(7){
+    margin-bottom: 36px;
+}
+.silver{
+    background-color: #f05822;
+}
+.gold{
+    background-color: #fcb415;
+}
 /* **********popup  */
 .cstmmodal {
     display: none; /* Hidden by default */
@@ -644,6 +712,7 @@ footer
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    bottom: 20px;
   }
   
   /* Modal Content */
@@ -765,7 +834,7 @@ footer
     line-height:20px;
 }
 .register-photo form .btn-primary {
-    background:#00ad5f;
+    background:#323232;
     border:none;
     border-radius:4px;
     padding:11px;
@@ -858,7 +927,7 @@ footer
 }
 #aboutt {
     top: 50%;
-    background-color: #0cadad;
+    background-color: #ef5822;
     position: fixed;
 } 
 .subscribe{
