@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'companylogin', component: CompanyloginComponent },
   { path: 'firsttimeadoptionjournalentry', component: FirsttimeadoptionjournalentryComponent },
   { path: 'journalentriespayment', component: JournalentriespaymentComponent },
-  { path: 'newleasejournalentry', component: NewLeasejournalentryComponent },
+  { path: 'newlease/newleasejournalentry', component: NewLeasejournalentryComponent },
   { path: 'paymentgetway', component: PaymentgetwayComponent },
   { path: 'paymentschedule', component: PaymentscheduleComponent },
 

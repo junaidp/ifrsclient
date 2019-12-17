@@ -1,16 +1,13 @@
 import axios from "axios";
 import { Injectable } from "@angular/core";
-const url = "//compliancetool.herokuapp.com/users/saveUser";
+  const url = "//compliancetool.herokuapp.com/calculation/journal ";
 
 @Injectable({ providedIn: "root" })
 export class NewLeasejournalentryService {
+  async calculate(data) {
 
-  async SignUp(data) {
-
-
-     const response = await axios.post(url,data).then(
-    );
-    console.log(response);
+   const response = await axios.post(url, data);
     return response;
+
   }
 }

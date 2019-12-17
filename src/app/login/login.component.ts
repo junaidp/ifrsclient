@@ -41,8 +41,10 @@ import { AuthService } from '../auth.service';
       password: this.password
     };
     this.loginservice.signIn(data).then(response => {
-      
-      if (data.name == "shehryar" && data.password == "password") {
+      alert(response.data.password)
+      console.log(response.data)
+      alert(response.data.name )
+      if (data.name == response.data.name && data.password == response.data.password) {
         alert("successful login")
 
         this.setGlobals(response);

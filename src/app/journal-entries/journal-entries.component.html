@@ -30,7 +30,10 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="row">
                         <div class="col-4 report_css">Select Month</div>
-                        <input type="month" class="form-control col-8" placeholder="data" name="" /> 
+                        <input type="month" class="form-control col-8" placeholder="data" name="" [(ngModel)]="year" />
+                        {{year | date: 'yyyy'}} 
+                        {{year | date: 'MM'}}
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12"></div>
@@ -78,7 +81,7 @@
                         <div class="col-3"><h6>Cr.</h6></div>
                     </div>
                     <div class="row journal_new border" id="show2">
-                        <div class="col-3">{{date}}</div>
+                        <div class="col-3">{{date  | date:'mediumDate'}}</div>
                         <div class="col-3">
                             <div class="row text-lg-left">
                                 <div class="col-12" style="cursor: pointer;" onclick="window.open(routerLink='/financecost', 'newwindow', 'width=1020,height=300');  return false;">{{headOfAccount}}</div>
