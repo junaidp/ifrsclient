@@ -58,6 +58,7 @@ export class NewLeasejournalentryComponent implements OnInit {
   mainHeadOfAccount1: String;
   mainHeadOfAccount2: String;
 
+  commencementDate: String;
 
   presentValue:number;
   date: ""; 
@@ -96,13 +97,15 @@ export class NewLeasejournalentryComponent implements OnInit {
     escalationAfterEvery: this.globals.escalationAfterEvery,
  //   year:2019
   };
+
+  this.commencementDate= this.globals.commencementDate,
   this.newLeasejournalentryservice.calculate(data).then(response => {
     this.map = new Map(Object.entries(response.data));
 
     console.log(response.data)
 //     alert(this.map.size)
-//     this.map1 = this.map.get("17");
-//     this.presentValue = this.map1[9];
+    this.map1 = this.map.get("17");
+    this.presentValue = this.map1[9];
 
 //     this.map1 = this.map.get("8");
 //     this.drValue = this.map1[25];
