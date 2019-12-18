@@ -87,6 +87,13 @@ label{
     font-weight: 600;
     color: #666666;
 }
+.setting{
+    float: left;
+}
+.setting>h6{
+    color: #666666;
+    font-weight: bold;
+}
 .second_step>div>h6{
     text-decoration: underline;
     color: #007bff;
@@ -528,8 +535,7 @@ label{
     text-align: center;
 }
 .the-price{
-    background-color: rgba(220,220,220,.17);
-    box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+    
     padding: 20px;
     margin: 0;
 }
