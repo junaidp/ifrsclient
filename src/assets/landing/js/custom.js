@@ -126,12 +126,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   var modal = document.getElementById("apmodal");
   var btn = document.getElementById("aboutt");
-  var span = document.getElementsByClassName("close1")[0];
   btn.onclick = function() {
     modal.style.display = "block";
-  }
-  span.onclick = function() {
-    modal.style.display = "none";
   }
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -169,3 +165,4 @@ $(document).ready(function () {
     modal.style.display = "block";
   }
 });
+
