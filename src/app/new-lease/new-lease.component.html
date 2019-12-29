@@ -112,7 +112,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom0">Enter Contract Reference Number</label>
                                         <input type="number" class="form-control" name="ref"
-                                            [(ngModel)]="commencementDate" id="validationCustom03"
+                                            [(ngModel)]="leaseContractNo" id="validationCustom03"
                                             placeholder="Enter Contract Reference Number" required="true" />
                                         <div class="invalid-feedback">
                                             Please provide a valid Contract Reference Number.
@@ -1315,7 +1315,7 @@
                                 </div>
                                 <div class="col-12 mt-3">
                                     <button class="btn btn-dark btn-lg pull-right float-lg-right"
-                                    routerLink ="newleasejournalentry"  type="submit">Submit</button>
+                                    routerLink ="newleasejournalentry"  type="submit" (click)="  saveData()">Submit</button>
                                 </div>
                             </div>
                         </div>

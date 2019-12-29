@@ -8,7 +8,7 @@ export class Globals {
   // for lease and all 
   leaseContractNo = "";
   classAsset = "";
-  commencementDate ="";
+  commencementDate;
   paymentsAt = "";
   annualDiscountRate = "";
   leaseTerm = "";
@@ -20,6 +20,7 @@ export class Globals {
   usefulLifeOfTheAsset = "";
   escalation = "";
   escalationAfterEvery = "";
+  presentValue = 0;
 
 
 }

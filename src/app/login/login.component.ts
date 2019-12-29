@@ -41,7 +41,7 @@ import { AuthService } from '../auth.service';
       password: this.password
     };
     this.loginservice.signIn(data).then(response => {
-      alert(response.data.password)
+      alert(response.data.userId)
       console.log(response.data)
       alert(response.data.name )
       if (data.name == response.data.name && data.password == response.data.password) {

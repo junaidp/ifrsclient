@@ -56,7 +56,8 @@ export class NewLeaseComponent implements OnInit {
   contractCurrency = "";
   map: Map<string, Map<string, string>>;
 
-
+//getting user
+userId = "1133"
   calculate() {
 
 
@@ -77,8 +78,10 @@ export class NewLeaseComponent implements OnInit {
       guaranteedResidualValue: this.guaranteedResidualValue,
       usefulLifeOfTheAsset: this.usefulLifeOfTheAsset,
       escalation: this.escalation,
-      escalationAfterEvery: this.escalationAfterEvery
+      escalationAfterEvery: this.escalationAfterEvery,
+      
     };
+   
     this.globals.leaseContractNo= this.leaseContractNo,
     this.globals.classAsset= this.classAsset,
     this.globals.commencementDate= this.commencementDate,
@@ -101,7 +104,7 @@ export class NewLeaseComponent implements OnInit {
   console.log(response.data)
       this.map1 = this.map.get("17");
       this.presentValue = this.map1[9];
-     
+      this.globals.presentValue = this.presentValue
       /*console.log("In MAP ENTRIES");
 
       this.map.forEach((value: Map<string, string>, key: string) => {
@@ -112,6 +115,61 @@ export class NewLeaseComponent implements OnInit {
         }
       });*/
     });
+
+
+
+
+ 
+  }
+  saveData(){
+    alert(this.userId)
+    var data = {
+      userId: this.userId,
+      leaseContractNo: this.leaseContractNo,
+      classAsset: this.classAsset,
+      commencementDate: this.commencementDate,
+      paymentsAt: this.paymentsAt,
+      annualDiscountRate: this.annualDiscountRate,
+      leaseTerm: this.leaseTerm,
+      expectedPeriod: this.expectedPeriod,
+      leasePayment: this.leasePayment,
+      paymentIntervals: this.paymentIntervals,
+      initialDirectCost: this.initialDirectCost,
+      guaranteedResidualValue: this.guaranteedResidualValue,
+      usefulLifeOfTheAsset: this.usefulLifeOfTheAsset,
+      escalation: this.escalation,
+      escalationAfterEvery: this.escalationAfterEvery,
+      // contractCurrency:this.contractCurrency,
+      // answer1:this.answer1,
+      // answer2:this.answer2,
+      // answer3:this.answer3,
+      // answer4:this.answer4,
+      // answer5:this.answer5,
+      // answer6new:this.answer6new,
+      // answer7:this.answer7
+    };
+    this.globals.leaseContractNo= this.leaseContractNo,
+    this.globals.classAsset= this.classAsset,
+    this.globals.commencementDate= this.commencementDate,
+    this.globals.paymentsAt= this.paymentsAt,
+    this.globals.annualDiscountRate= this.annualDiscountRate,
+    this.globals.leaseTerm= this.leaseTerm,
+    this.globals.expectedPeriod= this.expectedPeriod,
+    this.globals.leasePayment= this.leasePayment,
+    this.globals.paymentIntervals= this.paymentIntervals,
+    this.globals.initialDirectCost= this.initialDirectCost,
+    this.globals.guaranteedResidualValue= this.guaranteedResidualValue,
+    this.globals.usefulLifeOfTheAsset= this.usefulLifeOfTheAsset,
+    this.globals.escalation= this.escalation,
+    this.globals. escalationAfterEvery= this.escalationAfterEvery
+
+    console.log(JSON.stringify(data))
+    this.leaseService.SaveData(data).then(response => {
+    
+      alert(response.data)
+      
+    
+   });
   }
   private setGlobals() {
   
