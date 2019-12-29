@@ -50,10 +50,6 @@ export class JournalEntriesComponent implements OnInit {
   headOfAccount2: String;
   headOfAccount3: String;
   headOfAccount4: String;
-
-
-
-  splitDate: string;
   fullDate: ""
 
   calculate() {
@@ -119,7 +115,7 @@ export class JournalEntriesComponent implements OnInit {
 
         $('#paymentMonthDiv').hide();
       }
-      this.fullDate = day + "/" + month + "/" + year
+  //    this.fullDate = day + "/" + month + "/" + year
 
     });
 
