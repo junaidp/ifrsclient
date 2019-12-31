@@ -30,26 +30,7 @@ export class JournalEntriesComponent implements OnInit {
   map1: Map<String, String>;
   //for dr
   drValue: any;
-  drValue1: String;
-  drValue2: String;
-  drValue3: String;
-  drValue4: String;
 
-  // for cr
-  crValue: String;
-  crValue1: String;
-  crValue2: String;
-  crValue3: String;
-  crValue4: String;
-
-
-
-  //for head of account
-  headOfAccount: String;
-  headOfAccount1: String;
-  headOfAccount2: String;
-  headOfAccount3: String;
-  headOfAccount4: String;
   fullDate: ""
 
   calculate() {
@@ -96,7 +77,25 @@ export class JournalEntriesComponent implements OnInit {
 
 
   ngOnInit() {
+
+    $('#endingView').hide();
+    $('#beginningView').hide();
     $('#paymentMonthDiv').hide();
+    var paymentIn =this.globals.paymentsAt
+    var paymentBeginning = "Beginning"
+    var paymentEnding = "Ending"
+    $('#endingView').hide();
+  alert(this.globals.paymentsAt)
+    
+    if (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) {
+      alert("end")
+      $('#endingView').show();
+    }
+    if (paymentIn.toLowerCase() == paymentBeginning.toLowerCase()) {
+      alert("begin")
+      $('#beginningView').show();
+    }
+
     var commencementDateOld = (this.globals.commencementDate.split("-"))
     var comencementMonth = commencementDateOld[1];
     var year = commencementDateOld[2];
@@ -115,7 +114,7 @@ export class JournalEntriesComponent implements OnInit {
 
         $('#paymentMonthDiv').hide();
       }
-  //    this.fullDate = day + "/" + month + "/" + year
+      //    this.fullDate = day + "/" + month + "/" + year
 
     });
 
