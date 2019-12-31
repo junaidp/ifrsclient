@@ -20,6 +20,7 @@ export class JournalEntriesComponent implements OnInit {
   repeatMonth: number
 
   leaseLiability: number
+  leaseLiabilityBeginning: number
 
   totalOfMonth: any
   repeatedMonthValue: any
@@ -70,7 +71,7 @@ export class JournalEntriesComponent implements OnInit {
       this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
 
       this.leaseLiability = this.presentValue - this.monthTotal - this.repeatMonth
-
+      this.leaseLiabilityBeginning = this.presentValue - this.monthTotal
     });
 
   }
@@ -81,6 +82,8 @@ export class JournalEntriesComponent implements OnInit {
     $('#endingView').hide();
     $('#beginningView').hide();
     $('#paymentMonthDiv').hide();
+    $('#paymentMonthBeginningDiv').hide();
+    
     var paymentIn =this.globals.paymentsAt
     var paymentBeginning = "Beginning"
     var paymentEnding = "Ending"
@@ -109,6 +112,8 @@ export class JournalEntriesComponent implements OnInit {
       if (comencementMonth == month) {
 
         $('#paymentMonthDiv').show();
+      
+        $('#paymentMonthBeginningDiv').show();
       }
       else {
 

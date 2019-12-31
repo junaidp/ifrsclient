@@ -13,7 +13,7 @@
 // }
 import axios from "axios";
 import { Injectable } from "@angular/core";
-const url = "//compliancetool.herokuapp.com/calculation/lease";
+const url = "//compliancetool.herokuapp.com/calculation/lease/yearly";
 
 @Injectable({ providedIn: "root" })
 export class NewLeasejournalentryService {

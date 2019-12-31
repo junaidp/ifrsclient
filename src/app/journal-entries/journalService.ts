@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Injectable } from "@angular/core";
-const url = "//compliancetool.herokuapp.com/calculation/journal ";
+const url = "//compliancetool.herokuapp.com/calculation/journal/yearly ";
 
 @Injectable({ providedIn: "root" })
 export class JournalService {
