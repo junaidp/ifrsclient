@@ -116,7 +116,7 @@ export class JournalEntriesComponent implements OnInit {
         $('#paymentMonthBeginningDiv').show();
       }
       else {
-
+        $('#paymentMonthBeginningDiv').hide();
         $('#paymentMonthDiv').hide();
       }
       //    this.fullDate = day + "/" + month + "/" + year
