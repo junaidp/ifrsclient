@@ -120,16 +120,16 @@
                                     Cash / Bank</div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3"> 
                             <div class="row">
-                                <div class="col-12">{{totalOfMonth | number}}</div>
-                                <div class="col-12 mt-2">{{repeatedMonthValue | number}}</div>
+                                <div class="col-12">{{repeatedMonthValue | number}}</div>
+                                <div class="col-12 mt-2">{{totalOfMonth | number}}</div>
                                 <div class="col-12 mt-2">{{leaseLiability | number}}</div>
                             </div>
                         </div>
                         <div class="col-3 mt-4">
                             <div class="row">
-                                <div class="col-12 mt-5">{{presentValue | number}}</div>
+                                <div class="col-12 mt-5">{{paymentCashBank | number}}</div>
                             </div>
                         </div>
                     </div>
@@ -232,6 +232,7 @@
                     <strong class="mb-3">PKR Beginning</strong>
                 </div>
             </div>
+        <div id="paymentMonthBeginningDiv" >
             <div class="row mt-4">
                 <div class="col-12 mt-3" id="paymentMonthBeginningDiv">
                     <div class="row journal_new">
@@ -265,13 +266,13 @@
                         </div>
                         <div class="col-3">
                             <div class="row">
-                                <div class="col-12">{{totalOfMonth | number}}</div>
+                                <div class="col-12">{{financeCostBeginning | number}}</div>
                                 <div class="col-12 mt-2">{{leaseLiabilityBeginning | number}}</div>
                             </div>
                         </div>
                         <div class="col-3 mt-4">
                             <div class="row">
-                                <div class="col-12 mt-5">{{presentValue | number}}</div>
+                                <div class="col-12 mt-5">{{paymentCashBank | number}}</div>
                             </div>
                         </div>
                     </div>
@@ -302,15 +303,17 @@
                         </div>
                     </div>
 
-                    <div class="col-3">{{totalOfMonth | number}}</div>
+                    <div class="col-3">{{financeCostBeginning | number}}</div>
                     <div class="col-3 mt-4">
                         <div class="row">
                             <div class="col-12"></div>
-                            <div class="col-12 mt-2">{{totalOfMonth | number}}</div>
+                            <div class="col-12 mt-2">{{financeCostBeginning | number}}</div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
             <div class="col-12 mt-3">
                 <div class="row journal_new">
                     <div class="col-3">

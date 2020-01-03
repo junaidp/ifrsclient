@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Globals } from "../globals";
 import { JournalService } from "./journalService";
 import { ThrowStmt } from '@angular/compiler';
+import { JsonPipe } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -15,7 +16,7 @@ export class JournalEntriesComponent implements OnInit {
   constructor(public journalService: JournalService, public globals: Globals) {
 
   }
-  presentValue: number
+  paymentCashBank: any
   monthTotal: number
   repeatMonth: number
 
@@ -24,6 +25,7 @@ export class JournalEntriesComponent implements OnInit {
 
   totalOfMonth: any
   repeatedMonthValue: any
+  financeCostBeginning: any
   year: Date;
   month: Date;
 
@@ -31,11 +33,11 @@ export class JournalEntriesComponent implements OnInit {
   map1: Map<String, String>;
   //for dr
   drValue: any;
-
+ paymentInterval = "";
   fullDate: ""
 
   calculate() {
-    this.presentValue = this.globals.presentValue
+    
     // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
     var day = 10
@@ -62,22 +64,30 @@ export class JournalEntriesComponent implements OnInit {
 
     };
     this.journalService.calculate(data).then(response => {
+
+      console.log(response.data)
+      
       this.map = new Map(Object.entries(response.data));
       this.drValue = this.map.get('dr')
       this.totalOfMonth = this.map.get('total')
       this.repeatedMonthValue = this.map.get('repeat');
-
+      this.financeCostBeginning = this.map.get('financeCharge');
+      
+      var payment = this.map.get('payment');
+      this.paymentCashBank = payment
       this.monthTotal = parseInt(this.totalOfMonth, 10);
       this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
 
-      this.leaseLiability = this.presentValue - this.monthTotal - this.repeatMonth
-      this.leaseLiabilityBeginning = this.presentValue - this.monthTotal
+      this.leaseLiability = this.paymentCashBank - this.monthTotal - this.repeatMonth
+      this.leaseLiabilityBeginning = this.paymentCashBank - this.financeCostBeginning
     });
 
   }
 
 
   ngOnInit() {
+
+  this.paymentInterval = this.globals.paymentIntervals
 
     $('#endingView').hide();
     $('#beginningView').hide();
@@ -88,14 +98,11 @@ export class JournalEntriesComponent implements OnInit {
     var paymentBeginning = "Beginning"
     var paymentEnding = "Ending"
     $('#endingView').hide();
-  alert(this.globals.paymentsAt)
     
     if (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) {
-      alert("end")
       $('#endingView').show();
     }
     if (paymentIn.toLowerCase() == paymentBeginning.toLowerCase()) {
-      alert("begin")
       $('#beginningView').show();
     }
 
