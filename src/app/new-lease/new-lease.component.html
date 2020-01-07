@@ -112,7 +112,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom0">Enter Contract Reference Number</label>
                                         <input type="number" class="form-control" name="ref"
-                                            [(ngModel)]="leaseContractNo" id="validationCustom03"
+                                            [(ngModel)]="leaseContractNo" 
                                             placeholder="Enter Contract Reference Number" required="true" />
                                         <div class="invalid-feedback">
                                             Please provide a valid Contract Reference Number.
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Commencement Date</label>
-                                        <input type="date" class="form-control" id="validationCustom04" min="2019-01-01"
+                                        <input type="date" class="form-control"  min="2019-01-01"
                                             name="contractNo1" [(ngModel)]="commencementDate"
                                             placeholder="Enter Lease Commencement Date" required="required" />
                                         <div class="invalid-feedback">
@@ -132,7 +132,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Class Of Asset</label>
                                         <select name="contractNo2" [(ngModel)]="classAsset" class="form-control"
-                                            id="validationCustom04"
+                                            
                                             onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
                                             <option>Select here</option>
                                             <option value="1">Add new</option>
@@ -143,7 +143,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Name</label>
-                                        <input type="text" class="form-control" id="validationCustom04"
+                                        <input type="text" class="form-control" 
                                             name="contractNo3" [(ngModel)]="leaseName" placeholder="Enter Lease Name"
                                             required>
                                         <div class="invalid-feedback">
@@ -155,7 +155,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Lessor Name</label>
                                         <input type="text" class="form-control" name="contractNo005"
-                                            [(ngModel)]="lessorName" id="validationCustom03"
+                                            [(ngModel)]="lessorName" 
                                             placeholder="Enter Lessor Name" required>
                                         <div class="invalid-feedback">
                                             Please provide Lessor Name.
@@ -163,7 +163,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Location</label>
-                                        <input type="text" class="form-control" id="validationCustom03"
+                                        <input type="text" class="form-control" 
                                             name="contractNo6" [(ngModel)]="location" placeholder="Select Location"
                                             required>
                                         <div class="invalid-feedback">
@@ -175,7 +175,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Other Condition</label>
                                         <textarea type="text" class="form-control" name="contractNo7"
-                                            [(ngModel)]="otherCondition" id="validationCustom04"
+                                            [(ngModel)]="otherCondition" 
                                             placeholder="Describe Contract Conditions (if any)" required></textarea>
                                         <div class="invalid-feedback">
                                             Please provide Other condition.
@@ -407,7 +407,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Commencement Date</label>
                                         <input type="date" [(ngModel)]="commencementDate" name="contractNo08"
-                                            class="form-control" id="validationCustom03" required>
+                                            class="form-control"  required>
                                         <div class="invalid-feedback">
                                             Please provide a commencement date.
                                         </div>
@@ -415,7 +415,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Payment In</label>
                                         <select class="form-control" [(ngModel)]="paymentsAt" name="contractNo09"
-                                            id="validationCustom04">
+                                            >
                                             <option>Select here</option>
                                             <option>Beginning</option>
                                             <option>Ending</option>
@@ -426,7 +426,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Annual Discount Rate</label>
                                         <input type="number" [(ngModel)]="annualDiscountRate" name="contractNo10"
-                                            class="form-control" id="validationCustom03" placeholder="in %" required>
+                                            class="form-control"  placeholder="in %" required>
                                         <div class="invalid-feedback">
                                             Annual discount.
                                         </div>
@@ -434,7 +434,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Term Period</label>
                                         <input type="number" class="form-control" [(ngModel)]="leaseTerm"
-                                            name="contractNo11" id="validationCustom04" placeholder="in years" required>
+                                            name="contractNo11"  placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Lease term period.
                                         </div>
@@ -444,7 +444,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Expected Usage Period</label>
                                         <input type="number" [(ngModel)]="expectedPeriod" name="contractNo12"
-                                            class="form-control" id="validationCustom03" placeholder="in years"
+                                            class="form-control"  placeholder="in years"
                                             required>
                                         <div class="invalid-feedback">
                                             Annual discount.
@@ -453,7 +453,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Payment</label>
                                         <input type="number" class="form-control" [(ngModel)]="leasePayment"
-                                            name="contractNo13" id="validationCustom04" placeholder="in amount"
+                                            name="contractNo13"  placeholder="in amount"
                                             required>
                                         <div class="invalid-feedback">
                                             Lease payment.
@@ -464,7 +464,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Payment Interval</label>
                                         <select class="form-control" [(ngModel)]="paymentIntervals" name="contractNo14"
-                                            id="validationCustom04">
+                                            >
                                             <option>Select period</option>
                                             <option>Monthly</option>
                                             <option>Quarterly</option>
@@ -477,7 +477,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Guaranteed Residual Value</label>
                                         <input type="number" class="form-control" [(ngModel)]="guaranteedResidualValue"
-                                            name="contractNo15" id="validationCustom04" placeholder="in amount"
+                                            name="contractNo15"  placeholder="in amount"
                                             required>
                                         <div class="invalid-feedback">
                                             Guaranteed residual value.
@@ -488,7 +488,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Useful Life Of The Asset (years)</label>
                                         <input type="number" class="form-control" [(ngModel)]="usefulLifeOfTheAsset"
-                                            name="contractNo16" id="validationCustom04" placeholder="in years" required>
+                                            name="contractNo16"  placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
                                         </div>
@@ -496,7 +496,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
                                         <input type="number" class="form-control" [(ngModel)]="initialDirectCost"
-                                            name="contractNo17" id="validationCustom04" placeholder="in amount"
+                                            name="contractNo17"  placeholder="in amount"
                                             required>
                                         <div class="invalid-feedback">
                                             initial direct cost.
@@ -507,7 +507,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
                                         <input type="number" class="form-control" [(ngModel)]="escalation"
-                                            name="contractNo18" id="validationCustom04" placeholder="in percentage"
+                                            name="contractNo18"  placeholder="in percentage"
                                             required>
                                         <div class="invalid-feedback">
                                             Escalation %-age.
@@ -516,7 +516,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Escalation After Every</label>
                                         <input type="number" min="1" [(ngModel)]="escalationAfterEvery"
-                                            name="contractNo19" class="form-control" id="validationCustom04"
+                                            name="contractNo19" class="form-control" 
                                             placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Escalation after every.
@@ -780,7 +780,7 @@
                                             <label for="validationCustom03">Contract Reference Number</label>
                                             <input type="number" readonly class="form-control"
                                                 [(ngModel)]="leaseContractNo" name="contractNo30"
-                                                id="validationCustom03" placeholder="Contract Reference Number"
+                                                 placeholder="Contract Reference Number"
                                                 required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Contract Reference Number.
@@ -789,7 +789,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease Commencement Date</label>
                                             <input type="text" readonly class="form-control" name="contractNo31"
-                                                [(ngModel)]="commencementDate" id="validationCustom04"
+                                                [(ngModel)]="commencementDate" 
                                                 placeholder="Lease commencement data" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Lease commencement data.
@@ -800,7 +800,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Class Of Asset</label>
                                             <input type="text" readonly class="form-control" name="contractNo32"
-                                                [(ngModel)]="classAsset" id="validationCustom03"
+                                                [(ngModel)]="classAsset" 
                                                 placeholder="Class of asset" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Class of asset.
@@ -809,7 +809,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease Name</label>
                                             <input type="text" readonly class="form-control" name="contractNo33"
-                                                [(ngModel)]="leaseName" id="validationCustom04" placeholder="Lease Name"
+                                                [(ngModel)]="leaseName"  placeholder="Lease Name"
                                                 required>
                                             <div class="invalid-feedback">
                                                 Please provide Lease Name.
@@ -820,7 +820,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Lessor Name</label>
                                             <input type="text" readonly class="form-control" name="contractNo333"
-                                                [(ngModel)]="lessorName" id="validationCustom03"
+                                                [(ngModel)]="lessorName" 
                                                 placeholder="Lessor Name" required>
                                             <div class="invalid-feedback">
                                                 Please provide Lessor Name.
@@ -829,7 +829,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Location</label>
                                             <input type="text" readonly class="form-control" name="contractNo36"
-                                                [(ngModel)]="location" id="validationCustom03" placeholder="Location"
+                                                [(ngModel)]="location"  placeholder="Location"
                                                 required>
                                             <div class="invalid-feedback">
                                                 Please provide Location.
@@ -840,7 +840,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Other Condition</label>
                                             <textarea type="text" readonly class="form-control" name="contractNo37"
-                                                [(ngModel)]="otherCondition" id="validationCustom04"
+                                                [(ngModel)]="otherCondition" 
                                                 placeholder="Other condition" required></textarea>
                                             <div class="invalid-feedback">
                                                 Please provide Other condition.
@@ -1013,7 +1013,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Commencement Date:</label>
-                                        <input type="date" readonly class="form-control" id="validationCustom03"
+                                        <input type="date" readonly class="form-control" 
                                             [(ngModel)]="commencementDate" name="contractNo081"
                                             placeholder="Contract Reference Number" required>
                                         <div class="invalid-feedback">
@@ -1023,7 +1023,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Payment In</label>
                                         <select class="form-control" [(ngModel)]="paymentsAt" name="contractNo091"
-                                            id="validationCustom04" disabled>
+                                             disabled>
                                             <option>Select here</option>
                                             <option>Beginning</option>
                                             <option>Ending</option>
@@ -1035,7 +1035,7 @@
                                         <label for="validationCustom03">Annual Discount Rate</label>
                                         <input type="text" readonly class="form-control"
                                             [(ngModel)]="annualDiscountRate" name="contractNo101"
-                                            id="validationCustom03" placeholder="in %" required>
+                                             placeholder="in %" required>
                                         <div class="invalid-feedback">
                                             Annual discount.
                                         </div>
@@ -1043,7 +1043,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Term Period</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="leaseTerm"
-                                            name="contractNo111" id="validationCustom04" placeholder="in years"
+                                            name="contractNo111"  placeholder="in years"
                                             required>
                                         <div class="invalid-feedback">
                                             Lease term period.
@@ -1054,7 +1054,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Expected Usage Period</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="expectedPeriod"
-                                            name="contractNo121" id="validationCustom03" placeholder="in years"
+                                            name="contractNo121"  placeholder="in years"
                                             required>
                                         <div class="invalid-feedback">
                                             Annual discount.
@@ -1063,7 +1063,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Payment</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="leasePayment"
-                                            name="contractNo131" id="validationCustom04" placeholder="in amount"
+                                            name="contractNo131"  placeholder="in amount"
                                             required>
                                         <div class="invalid-feedback">
                                             Lease payment.
@@ -1074,7 +1074,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Payment Interval</label>
                                         <select [(ngModel)]="paymentIntervals" name="contractNo141" class="form-control"
-                                            id="validationCustom04" disabled>
+                                             disabled>
                                             <option>Select period</option>
                                             <option>Monthly</option>
                                             <option>Quarterly</option>
@@ -1089,7 +1089,7 @@
                                         <label for="validationCustom04">Guaranteed Residual Value</label>
                                         <input type="text" readonly class="form-control"
                                             [(ngModel)]="guaranteedResidualValue" name="contractNo151"
-                                            id="validationCustom04" placeholder="in amount" required>
+                                             placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Guaranteed residual value.
                                         </div>
@@ -1099,7 +1099,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Useful Life Of The Asset (years)</label>
                                         <input type="text" readonly class="form-control"
-                                            [(ngModel)]= "usefulLifeOfTheAsset" name="qwee" id="validationCustom04"
+                                            [(ngModel)]= "usefulLifeOfTheAsset" name="qwee" 
                                             placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
@@ -1108,7 +1108,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="initialDirectCost"
-                                            name="contractNo171" id="validationCustom04" placeholder="in amount"
+                                            name="contractNo171"  placeholder="in amount"
                                             required>
                                         <div class="invalid-feedback">
                                             initial direct cost.
@@ -1119,7 +1119,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="escalation"
-                                            name="contractNo181" id="validationCustom04" placeholder="in percentage"
+                                            name="contractNo181"  placeholder="in percentage"
                                             required>
                                         <div class="invalid-feedback">
                                             Escalation %-age.
@@ -1129,7 +1129,7 @@
                                         <label for="validationCustom04">Escalation After Every</label>
                                         <input type="text" readonly class="form-control"
                                             [(ngModel)]="escalationAfterEvery" name="contractNo191"
-                                            id="validationCustom04" placeholder="in years" required>
+                                             placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Escalation after every.
                                         </div>
@@ -1139,7 +1139,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Contract Currency</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="contractCurrency"
-                                            name="contractNo1091" id="validationCustom04" placeholder="currency"
+                                            name="contractNo1091"  placeholder="currency"
                                             required>
                                         <div class="invalid-feedback">
                                         </div>
@@ -1336,7 +1336,7 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom04">Add New Class of Asset</label>
-                    <input type="text" class="form-control" id="validationCustom04" placeholder="Add New Class of Asset"
+                    <input type="text" class="form-control"  placeholder="Add New Class of Asset"
                         required>
                     <div class="invalid-feedback">
                         Please provide a valid Lease commencement data.

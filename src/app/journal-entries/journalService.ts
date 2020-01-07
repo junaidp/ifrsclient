@@ -15,7 +15,7 @@ export class JournalService {
   }
   if(paymentInterval.toLowerCase()== "quarterly"){
     url = "//compliancetool.herokuapp.com/calculation/journal/quarterly ";
-  }
+  } 
 
  
    const response = await axios.post(url, data);

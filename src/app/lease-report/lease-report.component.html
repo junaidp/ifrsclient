@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12  report_css">Quick Report</div>
                         <select class="form-control col-lg-8 col-md-4 col-12">
@@ -42,16 +42,13 @@
                         </select> 
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-12 report_css">Starting Date</div>
-                        <input type="date" class="form-control col-lg-8 col-md-4 col-12" id="validationCustom03" placeholder="date">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-12">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-12 report_css">Ending Date</div>
-                        <input type="date" class="form-control col-lg-8 col-md-4 col-12" placeholder="data" name="" /> 
+                        <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
+                            <option>Select class of asset</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[4]| date:'classAsset'}}</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -59,25 +56,19 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
-                            <option>Select Name</option>
-                            <option>Name 1</option>
-                            <option>Name 1</option>
-                            <option>Name 1</option>
-                            <option>Name 1</option>
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
+                            <option>Select here</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[3]| date:'lessorName'}}</option>
                         </select>  
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Name of Lease</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
-                            <option>Select Name</option>
-                            <option>xxx</option>
-                            <option>vvv</option>
-                            <option>yyy</option>
-                            <option>yyyy</option>
-                        </select> 
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
+                            <option>Select here</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[2]| date:'leaseName'}}</option>
+                        </select>  
                     </div>
                 </div>
             </div>
@@ -85,7 +76,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Location of Lease</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select Location</option>
                             <option>Location 1</option>
                             <option>Location 1</option>
@@ -95,13 +86,16 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
-                            <option>Select class of asset</option>
-                            <option>vehicles</option>
-                            <option>PPE</option>
-                            <option>PPE2</option>
-                        </select> 
+                        <div class="col-lg-4 col-md-4 col-12 report_css">Starting Date</div>
+                        <input type="date" class="form-control col-lg-8 col-md-4 col-12"  placeholder="date">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-12 report_css">Ending Date</div>
+                        <input type="date" class="form-control col-lg-8 col-md-4 col-12" placeholder="data" name="" /> 
                     </div>
                 </div>
             </div>
@@ -131,6 +125,7 @@
                 </div>
                 <div class="col-1"></div>
             </div>
+            
             <div class="row mt-3 border-top">
                 <div class="col-12" style="padding: 0;">
                     <ul class="draft_close_section mt-4 mb-3">
@@ -178,14 +173,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Contract Reference Number</label>
-                                            <input type="number" readonly class="form-control" id="validationCustom03" placeholder="Contract Reference Number" required>
+                                            <input type="number" readonly class="form-control"  placeholder="Contract Reference Number" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Contract Reference Number.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease commencement data</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Lease commencement data" required>
+                                            <input type="text" readonly class="form-control"  placeholder="Lease commencement data" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Lease commencement data.
                                             </div>
@@ -194,14 +189,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Class of asset</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom03" placeholder="Class of asset" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Class of asset" required>
                                                 <div class="invalid-feedback">
                                                     Please provide a valid Class of asset.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lease Name</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Lease Name" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Lease Name" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Lease Name.
                                                 </div>
@@ -210,14 +205,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Lessor Name</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom03" placeholder="Lessor Name" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Lessor Name" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Lessor Name.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lessee Name</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Lessee Name" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Lessee Name" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Lessee Name.
                                                 </div>
@@ -226,14 +221,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Location</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom03" placeholder="Location" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Location" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Location.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Other condition</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Other condition" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Other condition" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Other condition.
                                                 </div>
@@ -375,14 +370,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Commencement date:</label>
-                                            <input type="date" readonly class="form-control" id="validationCustom03" placeholder="Contract Reference Number" required>
+                                            <input type="date" readonly class="form-control"  placeholder="Contract Reference Number" required>
                                             <div class="invalid-feedback">
                                                 Please provide a commencement date.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Payment In</label>
-                                            <select class="form-control" id="validationCustom04" disabled>
+                                            <select class="form-control"  disabled>
                                                 <option>Select here</option>
                                                 <option>Beginning</option>
                                                 <option>Ending</option>
@@ -392,14 +387,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Annual discount rate</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom03" placeholder="in %" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in %" required>
                                             <div class="invalid-feedback">
                                                 Annual discount.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease term period</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                 Lease term period.
                                             </div>
@@ -408,14 +403,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Expected period</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom03" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                 Annual discount.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease payment</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in amount" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in amount" required>
                                             <div class="invalid-feedback">
                                                 Lease payment.
                                             </div>
@@ -424,7 +419,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Payment interval</label>
-                                            <select class="form-control" id="validationCustom04" disabled>
+                                            <select class="form-control"  disabled>
                                                 <option>Select period</option>
                                                 <option>Monthly</option>
                                                 <option>Quarterly</option>
@@ -437,7 +432,7 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Guaranteed residual value</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in amount" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in amount" required>
                                             <div class="invalid-feedback">
                                                 Guaranteed residual value.
                                             </div>
@@ -446,14 +441,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Use full life of the Asset (years)</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                     Use full life of the Asset (years).
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Initial direct cost</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in amount" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in amount" required>
                                             <div class="invalid-feedback">
                                                 initial direct cost.
                                             </div>
@@ -462,14 +457,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Escalation %-age</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in percentage" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in percentage" required>
                                             <div class="invalid-feedback">
                                                 Escalation %-age.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Escalation after every</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                 Escalation after every.
                                             </div>
@@ -478,7 +473,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Cotract Currency</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="contract currency" required>
+                                            <input type="text" readonly class="form-control"  placeholder="contract currency" required>
                                             <div class="invalid-feedback">
                                                 Escalation after every.
                                             </div>
@@ -793,14 +788,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Contract Reference Number</label>
-                                            <input type="number" readonly class="form-control" id="validationCustom03" placeholder="Contract Reference Number" required>
+                                            <input type="number" readonly class="form-control"  placeholder="Contract Reference Number" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Contract Reference Number.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease commencement data</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Lease commencement data" required>
+                                            <input type="text" readonly class="form-control"  placeholder="Lease commencement data" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Lease commencement data.
                                             </div>
@@ -809,14 +804,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Class of asset</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom03" placeholder="Class of asset" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Class of asset" required>
                                                 <div class="invalid-feedback">
                                                     Please provide a valid Class of asset.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lease Name</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Lease Name" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Lease Name" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Lease Name.
                                                 </div>
@@ -825,14 +820,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Lessor Name</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom03" placeholder="Lessor Name" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Lessor Name" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Lessor Name.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lessee Name</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Lessee Name" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Lessee Name" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Lessee Name.
                                                 </div>
@@ -841,14 +836,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Location</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom03" placeholder="Location" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Location" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Location.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Other condition</label>
-                                                <input type="text" readonly class="form-control" id="validationCustom04" placeholder="Other condition" required>
+                                                <input type="text" readonly class="form-control"  placeholder="Other condition" required>
                                                 <div class="invalid-feedback">
                                                     Please provide Other condition.
                                                 </div>
@@ -990,14 +985,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Commencement date:</label>
-                                            <input type="date" readonly class="form-control" id="validationCustom03" placeholder="Contract Reference Number" required>
+                                            <input type="date" readonly class="form-control"  placeholder="Contract Reference Number" required>
                                             <div class="invalid-feedback">
                                                 Please provide a commencement date.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Payment In</label>
-                                            <select class="form-control" id="validationCustom04" disabled>
+                                            <select class="form-control"  disabled>
                                                 <option>Select here</option>
                                                 <option>Beginning</option>
                                                 <option>Ending</option>
@@ -1007,14 +1002,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Annual discount rate</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom03" placeholder="in %" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in %" required>
                                             <div class="invalid-feedback">
                                                 Annual discount.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease term period</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                 Lease term period.
                                             </div>
@@ -1023,14 +1018,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Expected period</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom03" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                 Annual discount.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease payment</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in amount" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in amount" required>
                                             <div class="invalid-feedback">
                                                 Lease payment.
                                             </div>
@@ -1039,7 +1034,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Payment interval</label>
-                                            <select class="form-control" id="validationCustom04" disabled>
+                                            <select class="form-control"  disabled>
                                                 <option>Select period</option>
                                                 <option>Monthly</option>
                                                 <option>Quarterly</option>
@@ -1052,7 +1047,7 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Guaranteed residual value</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in amount" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in amount" required>
                                             <div class="invalid-feedback">
                                                 Guaranteed residual value.
                                             </div>
@@ -1061,14 +1056,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Use full life of the Asset (years)</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                     Use full life of the Asset (years).
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Initial direct cost</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in amount" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in amount" required>
                                             <div class="invalid-feedback">
                                                 initial direct cost.
                                             </div>
@@ -1077,14 +1072,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Escalation %-age</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in percentage" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in percentage" required>
                                             <div class="invalid-feedback">
                                                 Escalation %-age.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Escalation after every</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="in years" required>
+                                            <input type="text" readonly class="form-control"  placeholder="in years" required>
                                             <div class="invalid-feedback">
                                                 Escalation after every.
                                             </div>
@@ -1093,7 +1088,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Cotract Currency</label>
-                                            <input type="text" readonly class="form-control" id="validationCustom04" placeholder="contract currency" required>
+                                            <input type="text" readonly class="form-control"  placeholder="contract currency" required>
                                             <div class="invalid-feedback">
                                                 Escalation after every.
                                             </div>

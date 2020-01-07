@@ -11,7 +11,7 @@
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script> -->
     </head>
-    <body>
+    <body> 
         <div class="container">
             <div class="row mt-3 mb-3 new_lease">
                 <div class="col-12">
@@ -27,25 +27,19 @@
             <div class="row mt-4">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
-                            <option>Select Name</option>
-                            <option>Name 1</option>
-                            <option>Name 1</option>
-                            <option>Name 1</option>
-                            <option>Name 1</option>
+                        <div class="col-lg-4 col-md-4 col-12 report_css" >Lessor Name</div>
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
+                            <option>Select here</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[3]| date:'lessorName'}}</option>
                         </select>  
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Lease Name</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
-                            <option>Select Name</option>
-                            <option>xxx</option>
-                            <option>vvv</option>
-                            <option>yyy</option>
-                            <option>yyyy</option>
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
+                            <option>Select here</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[2]| date:'leaseName'}}</option>
                         </select> 
                     </div>
                 </div>
@@ -54,7 +48,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Location</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select Location</option>
                             <option>Location 1</option>
                             <option>Location 1</option>
@@ -65,11 +59,9 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Vendor Name</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
-                            <option>Select Location</option>
-                            <option>Location 1</option>
-                            <option>Location 1</option>
-                            <option>Location 1</option>
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
+                            <option>Select here</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[5]| date:'vendername'}}</option>
                         </select>  
                     </div>
                 </div>
@@ -78,21 +70,24 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
-                        <select class="form-control col-lg-8 col-md-4 col-12" id="validationCustom04">
+                        <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select class of asset</option>
-                            <option>vehicles</option>
-                            <option>PPE</option>
-                            <option>PPE2</option>
+                            <option *ngFor="let row of map | keyvalue">{{row.value[4]| date:'classAsset'}}</option>
                         </select> 
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
+                        <div class="col-lg-4 col-md-4 col-12 report_css">Date</div>
                         <input type="month" class="form-control col-lg-8 col-md-4 col-12 " /> 
                     </div>
                 </div>
             </div>
+            <div class="row mt-4 mb-4">
+                <div class="col-12" ><button class="btn btn-dark" (click)="value();">value</button></div>
+            </div>
+        </div>
+        <div class="container-fluid">
             <div class="row mt-4 responsive_display border-top  ">
                 <div class="col-12 mt-4">
                     <div class="row right_of_use_heading border">
@@ -126,58 +121,58 @@
                     </div>
                 </div>
                 <div class="col-12 mt-sm-1">
-                    <div class="row right_of_use_heading">
-                        <div class="col-1"> 1 </div>
-                        <div class="col-1">123</div>
-                        <div class="col-2">A </div>
-                        <div class="col-1">aqdf1</div>
-                        <div class="col-2">Vehcil</div>
-                        <div class="col-2">PN1 </div>
-                        <div class="col-1">Pakistan</div>
-                        <div class="col-1">mm:dd:yy</div>
-                        <div class="col-1">10,0000</div>
-                    </div>
-                </div>
-                <div class="col-12 mt-sm-1">
-                    <div class="row right_of_use_heading">
-                        <div class="col-1"> 1 </div>
-                        <div class="col-1">123</div>
-                        <div class="col-2">A </div>
-                        <div class="col-1">aqdf1</div>
-                        <div class="col-2">Vehcil</div>
-                        <div class="col-2">PN1 </div>
-                        <div class="col-1">Pakistan</div>
-                        <div class="col-1">mm:dd:yy</div>
-                        <div class="col-1">10,0000</div>
-                    </div>
-                </div>
-                <div class="col-12 mt-sm-1">
-                    <div class="row right_of_use_heading">
-                        <div class="col-1"> 1 </div>
-                        <div class="col-1">123</div>
-                        <div class="col-2">A </div>
-                        <div class="col-1">aqdf1</div>
-                        <div class="col-2">Vehcil</div>
-                        <div class="col-2">PN1 </div>
-                        <div class="col-1">Pakistan</div>
-                        <div class="col-1">mm:dd:yy</div>
-                        <div class="col-1">10,0000</div>
-                    </div>
-                </div>
-                <div class="col-12 mt-sm-1">
-                    <div class="row right_of_use_heading">
-                        <div class="col-1"> 1 </div>
-                        <div class="col-1">123</div>
-                        <div class="col-2">A </div>
-                        <div class="col-1">aqdf1</div>
-                        <div class="col-2">Vehcil</div>
-                        <div class="col-2">PN1 </div>
-                        <div class="col-1">Pakistan</div>
-                        <div class="col-1">mm:dd:yy</div>
-                        <div class="col-1">10,0000</div>
+                    <div class="row right_of_use_heading" >
+                        <div class="col-1">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue"> {{row.value[0]}}</li>
+                            </ul> 
+                        </div>
+                        <div class="col-1">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue"> {{row.value[1]| date:'leaseContractNo'}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-2">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{row.value[3]| date:'lessorName'}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-1">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{row.value[2]| date:'leaseName'}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-2">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{row.value[4]| date:'classAsset'}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-2">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{row.value[5]| date:'vendername'}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-1">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{location}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-1">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{row.value[8]| date:'mediumDate'}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-1">
+                            <ul class="list-unstyled text-center">
+                                <li *ngFor="let row of map | keyvalue">{{row.value[3] | number}}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
+<script>
+    
+</script>
