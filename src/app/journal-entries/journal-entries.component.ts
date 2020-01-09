@@ -16,16 +16,17 @@ export class JournalEntriesComponent implements OnInit {
   constructor(public journalService: JournalService, public globals: Globals) {
 
   }
+  dateSelectorMonth:any
   paymentCashBank: any
   monthTotal: number
   repeatMonth: number
 
-  leaseLiability: number
+  leaseLiabilityEnding: number
   leaseLiabilityBeginning: number
 
   totalOfMonth: any
   repeatedMonthValue: any
-  financeCostBeginning: any
+  financeCost: any
   year: Date;
   month: Date;
 
@@ -43,6 +44,7 @@ export class JournalEntriesComponent implements OnInit {
     var day = 10
     var year = ret[0];
     var month = ret[1];
+    this.dateSelectorMonth = month
     var data = {
 
       year: year,
@@ -68,18 +70,29 @@ export class JournalEntriesComponent implements OnInit {
       console.log(response.data)
       
       this.map = new Map(Object.entries(response.data));
+      // settign valuesfrom api call srive 
       this.drValue = this.map.get('dr')
       this.totalOfMonth = this.map.get('total')
       this.repeatedMonthValue = this.map.get('repeat');
-      this.financeCostBeginning = this.map.get('financeCharge');
-      
+      this.financeCost = this.map.get('financeCharge');
+
+      // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
+      var paymentEnding = "Ending" 
       var payment = this.map.get('payment');
+      var paymentInGlobal =this.globals.paymentsAt
+      var commencementDateG = (this.globals.commencementDate.split("-"))
+      var comencementMonth = commencementDateG[1];
+      if ((comencementMonth == month) &&(paymentInGlobal.toLowerCase==paymentEnding.toLowerCase)) {
+        this.drValue = this.drValue - this.repeatMonth
+      }
+
       this.paymentCashBank = payment
       this.monthTotal = parseInt(this.totalOfMonth, 10);
       this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
-
-      this.leaseLiability = this.paymentCashBank - this.monthTotal - this.repeatMonth
-      this.leaseLiabilityBeginning = this.paymentCashBank - this.financeCostBeginning
+      //calculatiung leaseliability for ending
+      this.leaseLiabilityEnding = this.paymentCashBank - this.monthTotal - this.repeatMonth
+      //calculatiung leaseliability for Beginning
+      this.leaseLiabilityBeginning = this.paymentCashBank - this.financeCost
     });
 
   }
@@ -87,8 +100,12 @@ export class JournalEntriesComponent implements OnInit {
 
   ngOnInit() {
 
-  this.paymentInterval = this.globals.paymentIntervals
+    var commencementDateOld = (this.globals.commencementDate.split("-"))
+    var comencementMonth = commencementDateOld[1];
+    var year = commencementDateOld[2];
+    this.paymentInterval = this.globals.paymentIntervals
 
+    // at startup hiding all the divs ..
     $('#endingView').hide();
     $('#beginningView').hide();
     $('#paymentMonthDiv').hide();
@@ -97,8 +114,8 @@ export class JournalEntriesComponent implements OnInit {
     var paymentIn =this.globals.paymentsAt
     var paymentBeginning = "Beginning"
     var paymentEnding = "Ending"
-    $('#endingView').hide();
     
+    // for showing user selected beginning or ending view shown accordingly
     if (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) {
       $('#endingView').show();
     }
@@ -106,18 +123,18 @@ export class JournalEntriesComponent implements OnInit {
       $('#beginningView').show();
     }
 
-    var commencementDateOld = (this.globals.commencementDate.split("-"))
-    var comencementMonth = commencementDateOld[1];
-    var year = commencementDateOld[2];
+   // dateSelector change event
 
     $('#dateSelector').on('change', function () {
-      //    alert($('#dateSelector').val());
+  
+      //getting and spi;itting the date fromdate Selector
       var ret = ($('#dateSelector').val().split("-"))
       var day = 10
       var year = ret[0];
       var month = ret[1];
-      if (comencementMonth == month) {
-
+// check if payment month equals tyo commencement month then show payemnt divs
+      if (comencementMonth== month) {
+        
         $('#paymentMonthDiv').show();
       
         $('#paymentMonthBeginningDiv').show();
