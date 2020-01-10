@@ -82,13 +82,19 @@ export class JournalEntriesComponent implements OnInit {
       var paymentInGlobal =this.globals.paymentsAt
       var commencementDateG = (this.globals.commencementDate.split("-"))
       var comencementMonth = commencementDateG[1];
-      if ((comencementMonth == month) &&(paymentInGlobal.toLowerCase==paymentEnding.toLowerCase)) {
+
+      //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
+      if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
         this.drValue = this.drValue - this.repeatMonth
+        //calculationg accrued liability for ending
+        this.totalOfMonth = this.totalOfMonth - this.repeatMonth
       }
 
       this.paymentCashBank = payment
       this.monthTotal = parseInt(this.totalOfMonth, 10);
       this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
+      
+
       //calculatiung leaseliability for ending
       this.leaseLiabilityEnding = this.paymentCashBank - this.monthTotal - this.repeatMonth
       //calculatiung leaseliability for Beginning
@@ -101,8 +107,9 @@ export class JournalEntriesComponent implements OnInit {
   ngOnInit() {
 
     var commencementDateOld = (this.globals.commencementDate.split("-"))
+    alert(this.globals.commencementDate)
     var comencementMonth = commencementDateOld[1];
-    var year = commencementDateOld[2];
+    var commencementyear = commencementDateOld[0];
     this.paymentInterval = this.globals.paymentIntervals
 
     // at startup hiding all the divs ..
@@ -132,8 +139,16 @@ export class JournalEntriesComponent implements OnInit {
       var day = 10
       var year = ret[0];
       var month = ret[1];
+            //if user selects ending then the payment year month will start from the next year of selected commencement year.
+      alert(commencementyear +"/" + year ) 
+      alert(paymentIn +"/" + paymentEnding ) 
+      alert(comencementMonth +"/" + month ) 
+      if((commencementyear ==year) && (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) && (comencementMonth== month)){
+        $('#paymentMonthDiv').hide();
+      }
+
 // check if payment month equals tyo commencement month then show payemnt divs
-      if (comencementMonth== month) {
+     else if (comencementMonth== month) {
         
         $('#paymentMonthDiv').show();
       
