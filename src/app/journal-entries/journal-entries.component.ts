@@ -23,6 +23,7 @@ export class JournalEntriesComponent implements OnInit {
 
   leaseLiabilityEnding: number
   leaseLiabilityBeginning: number
+  accruedLiabilityMonthly: number
 
   totalOfMonth: any
   repeatedMonthValue: any
@@ -34,7 +35,7 @@ export class JournalEntriesComponent implements OnInit {
   map1: Map<String, String>;
   //for dr
   drValue: any;
- paymentInterval = "";
+
   fullDate: ""
 
   calculate() {
@@ -68,7 +69,15 @@ export class JournalEntriesComponent implements OnInit {
     this.journalService.calculate(data).then(response => {
 
       console.log(response.data)
-      
+      // setting all the values to null in startup
+      this.repeatedMonthValue =0
+      this.drValue =0
+      this.totalOfMonth  =0
+      this.financeCost =0
+      this.leaseLiabilityEnding =0
+      this.leaseLiabilityBeginning= 0
+
+
       this.map = new Map(Object.entries(response.data));
       // settign valuesfrom api call srive 
       this.drValue = this.map.get('dr')
@@ -82,6 +91,7 @@ export class JournalEntriesComponent implements OnInit {
       var paymentInGlobal =this.globals.paymentsAt
       var commencementDateG = (this.globals.commencementDate.split("-"))
       var comencementMonth = commencementDateG[1];
+      var paymentIntervalGlobal =this.globals.paymentIntervals
 
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
       if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
@@ -89,6 +99,14 @@ export class JournalEntriesComponent implements OnInit {
         //calculationg accrued liability for ending
         this.totalOfMonth = this.totalOfMonth - this.repeatMonth
       }
+
+            //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
+        if((paymentIntervalGlobal.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())){
+          
+          this.totalOfMonth = this.map.get('accuredLiabality')
+          this.repeatedMonthValue = this.map.get('financeCostRemaining')
+
+        }
 
       this.paymentCashBank = payment
       this.monthTotal = parseInt(this.totalOfMonth, 10);
@@ -106,19 +124,23 @@ export class JournalEntriesComponent implements OnInit {
 
   ngOnInit() {
 
+// if monthly in selected then payment month div will be shown in all conditions 
+
     var commencementDateOld = (this.globals.commencementDate.split("-"))
-    alert(this.globals.commencementDate)
     var comencementMonth = commencementDateOld[1];
     var commencementyear = commencementDateOld[0];
-    this.paymentInterval = this.globals.paymentIntervals
-
+    var paymentInterval = this.globals.paymentIntervals
     // at startup hiding all the divs ..
     $('#endingView').hide();
     $('#beginningView').hide();
+   if (paymentInterval.toLowerCase() !== "monthly"){
+    
     $('#paymentMonthDiv').hide();
     $('#paymentMonthBeginningDiv').hide();
+   }
     
-    var paymentIn =this.globals.paymentsAt
+
+   var paymentIn =this.globals.paymentsAt
     var paymentBeginning = "Beginning"
     var paymentEnding = "Ending"
     
@@ -139,16 +161,16 @@ export class JournalEntriesComponent implements OnInit {
       var day = 10
       var year = ret[0];
       var month = ret[1];
+   
             //if user selects ending then the payment year month will start from the next year of selected commencement year.
-      alert(commencementyear +"/" + year ) 
-      alert(paymentIn +"/" + paymentEnding ) 
-      alert(comencementMonth +"/" + month ) 
-      if((commencementyear ==year) && (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) && (comencementMonth== month)){
+      if((commencementyear ==year) && (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) && (comencementMonth== month) && (paymentInterval.toLowerCase() !== "monthly")){
         $('#paymentMonthDiv').hide();
-      }
+1      }
 
 // check if payment month equals tyo commencement month then show payemnt divs
-     else if (comencementMonth== month) {
+// not hidng fir monthly paymentinterval coz all payment divs should be shown
+     else if ((comencementMonth== month) || (paymentInterval.toLowerCase() == "monthly"))
+      {
         
         $('#paymentMonthDiv').show();
       
