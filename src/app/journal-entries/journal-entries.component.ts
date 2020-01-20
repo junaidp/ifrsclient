@@ -90,6 +90,7 @@ calculate() {
 
       // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       var paymentEnding = "Ending" 
+      var paymentBeginning = "Beginning" 
       var payment = this.map.get('payment');
       var paymentInGlobal =this.globals.paymentsAt
       var commencementDateG = (this.globals.commencementDate.split("-"))
@@ -131,7 +132,7 @@ calculate() {
 //fc for payment month ending should be picked from column j
 //for every quarter start month dr should be subtracted from 1 value above the J column
 //total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-      if (paymentInGlobal.toLowerCase() == "quarterly") {
+      if ((paymentInGlobal.toLowerCase() == "quarterly") && (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase())) {
         //begining
         alert("quarterly")
         this.drValue = this.map.get('dr') 
@@ -152,12 +153,12 @@ calculate() {
  var financeCostNormalMonth = this.drValue
  var finaceCostPAymentMonth = this.repeatedMonthValue
  var accruedLiabilityPayment = this.totalOfMonth
-             this.drValue = this.drValue - this.aboveColj
+      this.drValue = financeCostNormalMonth - this.aboveColj
  
    
  //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
    this.totalOfMonth = this.totalOfMonth -this.aboveColj
-   this.leaseLiabilityEnding = this.paymentCashBank - this.totalOfMonth - this.repeatedMonthValue
+   this.leaseLiabilityEnding = this.paymentCashBank - accruedLiabilityPayment -  finaceCostPAymentMonth
       }
 
     });
