@@ -134,7 +134,7 @@ calculate() {
 //total(accruedliability payment month should be subtracted from coluumn j 1 value above)
       if ((paymentInGlobal.toLowerCase() == "quarterly") && (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase())) {
         //begining
-        alert("quarterly")
+       
         this.drValue = this.map.get('dr') 
         this.financeCost = this.map.get('financeCharge');
         var payment = this.map.get('payment');
@@ -237,7 +237,7 @@ calculate() {
         $('#paymentMonthBeginningDiv').show();
         var montha = month + 1;
        var q = (Math.ceil(montha / 3));
-       alert(q)
+     
       }
       else {
         $('#paymentMonthBeginningDiv').hide();
