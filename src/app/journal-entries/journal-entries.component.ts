@@ -35,6 +35,8 @@ export class JournalEntriesComponent implements OnInit {
   map1: Map<String, String>;
   //for dr
   drValue: any;
+  startDate: any;
+  endDate: any;
   aboveColj:any
 
   fullDate: ""
@@ -132,34 +134,62 @@ calculate() {
 //fc for payment month ending should be picked from column j
 //for every quarter start month dr should be subtracted from 1 value above the J column
 //total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-      if ((paymentInGlobal.toLowerCase() == "quarterly") && (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase())) {
-        //begining
-       
+    
+//if ((paymentIntervalGlobal.toLowerCase() == "quarterly") && (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase())) {
+  
+  //first of all check whether its quarterly then check if payment month = month then check whether payment = beginning or ending
+
+  if (paymentIntervalGlobal.toLowerCase() == "quarterly"){
+      this.startDate = this.map.get('startDate')
+      var paymentDate =  this.startDate.split("-")
+      var paymentYear = paymentDate[0];
+      var paymentMonth = paymentDate[1];
+
+      var ret = ($('#dateSelector').val().split("-"))
+      var day = 10
+      var year = ret[0];
+      var userSelectedMonth = ret[1];
+      if(userSelectedMonth == paymentMonth){
+        $('#paymentMonthDiv').show();
+        $('#paymentMonthBeginningDiv').show();  
+      }
+      else{
+        $('#paymentMonthDiv').hide();
+        $('#paymentMonthBeginningDiv').hide(); 
+      }
+    
+        if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()) {
+
+//begining
         this.drValue = this.map.get('dr') 
         this.financeCost = this.map.get('financeCharge');
         var payment = this.map.get('payment');
         this.paymentCashBank = payment
         this.leaseLiabilityBeginning = this.paymentCashBank - this.financeCost
-
-        //ending
-
       }
-      if ((paymentInGlobal.toLowerCase() == "quarterly") &&  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())){
+
+    //  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())
+        else  {
+      //ending
         this.drValue = this.map.get('dr') 
         this.repeatedMonthValue = this.map.get('repeat')
         this.aboveColj = this.map.get('aboveColumnJ')
         this.paymentCashBank = this.map.get('payment')
+       
+        var aboveJ = this.aboveColj
+        var financeCostNormalMonth = this.drValue
+        var finaceCostPAymentMonth = this.repeatedMonthValue
+        var accruedLiabilityPayment = this.totalOfMonth
         //for every quarter start month dr should be subtracted from 1 value above the J column
- var financeCostNormalMonth = this.drValue
- var finaceCostPAymentMonth = this.repeatedMonthValue
- var accruedLiabilityPayment = this.totalOfMonth
-      this.drValue = financeCostNormalMonth - this.aboveColj
- 
+        if(userSelectedMonth == paymentMonth){
+              this.drValue = financeCostNormalMonth - aboveJ
+        }
    
  //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-   this.totalOfMonth = this.totalOfMonth -this.aboveColj
-   this.leaseLiabilityEnding = this.paymentCashBank - accruedLiabilityPayment -  finaceCostPAymentMonth
-      }
+      this.totalOfMonth = this.totalOfMonth -aboveJ
+      this.leaseLiabilityEnding = this.paymentCashBank - accruedLiabilityPayment -  finaceCostPAymentMonth
+        }
+    }
 
     });
 
@@ -231,13 +261,6 @@ calculate() {
         $('#paymentMonthDiv').show();
       
         $('#paymentMonthBeginningDiv').show();
-      }
-      else if ((comencementMonth== month) || (paymentInterval.toLowerCase() == "quarterly")){
-        $('#paymentMonthDiv').show();
-        $('#paymentMonthBeginningDiv').show();
-        var montha = month + 1;
-       var q = (Math.ceil(montha / 3));
-     
       }
       else {
         $('#paymentMonthBeginningDiv').hide();
