@@ -131,7 +131,7 @@ calculate() {
 //**ending */
 //total = sum of i ,j,k
 // for ending fc and accruued liability should be puicked from g ,h,i column
-//fc for payment month ending should be picked from column j
+//fc for payment month ending should be picked from column j above
 //for every quarter start month dr should be subtracted from 1 value above the J column
 //total(accruedliability payment month should be subtracted from coluumn j 1 value above)
     
@@ -187,7 +187,7 @@ calculate() {
               this.aboveColj = 0
             }
         if(userSelectedMonth == paymentMonth){
-       
+          this.repeatedMonthValue = this.map.get('aboveColJ')
               this.drValue = this.drValue - this.aboveColj
         }
    
