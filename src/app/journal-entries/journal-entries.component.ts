@@ -175,6 +175,7 @@ calculate() {
         this.repeatedMonthValue = this.map.get('repeat')
         this.aboveColj = this.map.get('aboveColJ')
         this.paymentCashBank = this.map.get('payment')
+        this.totalOfMonth = this.map.get('total') 
        
         var aboveJ = this.aboveColj
         var financeCostNormalMonth = this.drValue
@@ -183,8 +184,13 @@ calculate() {
         //for every quarter start month dr should be subtracted from 1 value above the J column
       
             //to avoid nan values
-            if(this.aboveColj==null){
+      
+            if(this.aboveColj=="" || this.aboveColj == "undefined"){
               this.aboveColj = 0
+      }
+            if(this.totalOfMonth == "" || this.totalOfMonth == "undefined"){
+              this.totalOfMonth = 0;
+           
             }
         if(userSelectedMonth == paymentMonth){
           this.repeatedMonthValue = this.map.get('aboveColJ')
@@ -193,7 +199,7 @@ calculate() {
    
  //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
       this.totalOfMonth = this.totalOfMonth -aboveJ
-      this.leaseLiabilityEnding = this.paymentCashBank -  this.totalOfMonth -  finaceCostPAymentMonth
+      this.leaseLiabilityEnding = this.paymentCashBank -  this.totalOfMonth -  this.repeatedMonthValue
         }
     }
 
