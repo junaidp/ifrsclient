@@ -27,6 +27,7 @@ export class JournalEntriesComponent implements OnInit {
 
   totalOfMonth: any
   repeatedMonthValue: any
+  repeatedMonthAccrued: any
   financeCost: any
   year: Date;
   month: Date;
@@ -81,6 +82,7 @@ calculate() {
       this.leaseLiabilityEnding =0
       this.leaseLiabilityBeginning= 0
       this.repeatMonth = 0
+      this.repeatedMonthAccrued = 0
 
 
       this.map = new Map(Object.entries(response.data));
@@ -89,6 +91,7 @@ calculate() {
       this.totalOfMonth = this.map.get('total') // sum of g,h,i
       this.repeatedMonthValue = this.map.get('repeat'); // column j
       this.financeCost = this.map.get('financeCharge'); // fc
+      this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued'); 
 
       // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       var paymentEnding = "Ending" 
@@ -103,7 +106,7 @@ calculate() {
       if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
         this.drValue = this.drValue - this.repeatedMonthValue
         //calculationg accrued liability for ending yearly
-        this.totalOfMonth = this.totalOfMonth - this.repeatedMonthValue
+        this.totalOfMonth = this.totalOfMonth - this.repeatedMonthAccrued //it should be repatMonthAccrued
       }
 
             //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
@@ -176,6 +179,8 @@ calculate() {
         this.aboveColj = this.map.get('aboveColJ')
         this.paymentCashBank = this.map.get('payment')
         this.totalOfMonth = this.map.get('total') 
+        this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued'); 
+
        
         var aboveJ = this.aboveColj
         var financeCostNormalMonth = this.drValue
@@ -198,7 +203,7 @@ calculate() {
         }
    
  //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-      this.totalOfMonth = this.totalOfMonth -aboveJ
+      this.totalOfMonth = this.totalOfMonth -this.repeatedMonthAccrued
       this.leaseLiabilityEnding = this.paymentCashBank -  this.totalOfMonth -  this.repeatedMonthValue
         }
     }
