@@ -91,7 +91,7 @@ calculate() {
       this.totalOfMonth = this.map.get('total') // sum of g,h,i
       this.repeatedMonthValue = this.map.get('repeat'); // column j
       this.financeCost = this.map.get('financeCharge'); // fc
-      this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued'); 
+      this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued'); 
 
       // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       var paymentEnding = "Ending" 
@@ -179,7 +179,7 @@ calculate() {
         this.aboveColj = this.map.get('aboveColJ')
         this.paymentCashBank = this.map.get('payment')
         this.totalOfMonth = this.map.get('total') 
-        this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued'); 
+        this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued'); 
 
        
         var aboveJ = this.aboveColj
