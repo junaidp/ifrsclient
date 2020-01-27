@@ -179,7 +179,7 @@ calculate() {
         this.aboveColj = this.map.get('aboveColJ')
         this.paymentCashBank = this.map.get('payment')
         this.totalOfMonth = this.map.get('total') 
-        this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued'); 
+        this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued'); 
 
        
         var aboveJ = this.aboveColj
