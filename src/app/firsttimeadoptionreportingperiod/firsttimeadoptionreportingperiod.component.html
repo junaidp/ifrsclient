@@ -640,34 +640,40 @@
                                             <h6 class="mb-3">Sr. #</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{row.value[14]}}
+                                                    {{row.value[14]| number}}
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6">
                                             <h6 class="mb-3">Year</h6>
                                             <ul class="list-unstyled text-center">
-                                                <li>
-                                                    yyyy
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[15]| date:'mediumDate'}}
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-6">
                                             <h6 class="mb-3">NBV Opening (1st Jan)</h6>
                                             <ul class="list-unstyled text-center">
-                                                <li> 100,000.00</li>
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[16]| number}}
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6">
                                             <h6 class="mb-3">Description</h6>
                                             <ul class="list-unstyled text-center">
-                                                <li> 1.00</li>
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[17]| number}}
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-6">
                                             <h6 class="mb-3">NBV Closing (31st Dec) </h6>
                                             <ul class="list-unstyled text-center">
-                                                <li>100,000</li>
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[18]| number}}
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -685,7 +691,7 @@
                                     <h6 class="mb-3">Sr. #</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[0]}}
+                                            {{row.value[0]| number}}}
                                         </li>
                                     </ul>
                                 </div>
@@ -693,7 +699,7 @@
                                     <h6 class="mb-3">Date Of Payment</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[2]| date:'mediumDate'}}
+                                            {{row.value[3]| date:'mediumDate'}}
                                         </li>
                                     </ul>
                                 </div>
@@ -701,7 +707,7 @@
                                     <h6 class="mb-3">Payment</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[3] | number}}
+                                            {{row.value[2] | number}}
                                         </li>
                                     </ul>
                                 </div>
@@ -772,7 +778,7 @@
                                             <h6 class="mb-3">Payment</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{-(row.value[11]) | number}}
+                                                    {{(row.value[11]) | number}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -1207,34 +1213,40 @@
                                                         <h6 class="mb-3">Sr. #</h6>
                                                         <ul class="list-unstyled text-center">
                                                             <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[14]}}
+                                                                {{row.value[14]| number}}
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Year</h6>
                                                         <ul class="list-unstyled text-center">
-                                                            <li>
-                                                                yyyy
+                                                            <li *ngFor="let row of map | keyvalue">
+                                                                {{row.value[15]| date:'mediumDate'}}
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-3 col-md-6 col-6">
                                                         <h6 class="mb-3">NBV Opening (1st Jan)</h6>
                                                         <ul class="list-unstyled text-center">
-                                                            <li> 100,000.00</li>
+                                                            <li *ngFor="let row of map | keyvalue">
+                                                                {{row.value[16]| number}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Description</h6>
                                                         <ul class="list-unstyled text-center">
-                                                            <li> 1.00</li>
+                                                             <li *ngFor="let row of map | keyvalue">
+                                                                {{row.value[17]| number}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-3 col-md-6 col-6">
                                                         <h6 class="mb-3">NBV Closing (31st Dec) </h6>
                                                         <ul class="list-unstyled text-center">
-                                                            <li>100,000</li>
+                                                            <li *ngFor="let row of map | keyvalue">
+                                                                {{row.value[18]| number}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1325,7 +1337,7 @@
                                             <h6 class="mb-3">Date Of Payment</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{row.value[2]| date:'mediumDate'}}
+                                                    {{row.value[3]| date:'mediumDate'}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -1333,7 +1345,7 @@
                                             <h6 class="mb-3">Payment</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{row.value[3] | number}}
+                                                    {{row.value[2] | number}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -1364,7 +1376,7 @@
                                 </div>
                                 <div class="col-12 mt-3">
                                     <button class="btn btn-dark btn-lg pull-right float-lg-right"
-                                    routerLink ="newleasejournalentry"  type="submit" (click)="  saveData()">Submit</button>
+                                    routerLink ="firsttimeadoptionjournalentry"  type="submit" (click)="  saveData()">Submit</button>
                                 </div>
                             </div>
                         </div>

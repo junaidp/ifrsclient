@@ -105,7 +105,7 @@ userId = "1133"
    // alert("calculation for " + this.globals.userName)
     this.Firsttimeadoptionreportingperiodservice.calculate(data).then(response => {
       this.map = new Map(Object.entries(response.data));
-  console.log(response.data)
+       console.log(response.data)
       this.map1 = this.map.get("17");
       this.presentValue = this.map1[9];
       alert(this.presentValue)
