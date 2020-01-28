@@ -618,7 +618,7 @@
                         <div class="row">
                             <div class="col-12 btn_mg">
                                 <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right"
-                                    (click)="  calculate()" type="button">Next1</button>
+                                    (click)="  calculate()" type="button">Next</button>
                                 <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right"
                                     type="submit">Save</button>
                                 <button class="btn btn-dark btn-lg pull-right float-lg-right"
@@ -689,7 +689,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row step_4 mb-4 mt-4 border-bottom">
+                            <div class="row step_4 mb-4 mt-4">
                                 <div class="col-12 new_add_headind assec_heading">
                                     <h6 class="text-lg-left">Lease Payment Schedule</h6>
                                 </div>
@@ -747,6 +747,62 @@
                                     </div>
                                 </div>
                                 <div class="col-1 mb-4"></div>
+                            </div>
+                            <div class="row step_4">
+                                <div class="col-12 new_add_headind ">
+                                    <div class="row assec_heading">
+                                        <h6 class="col-lg-3 col-md-12 col-12">PRESENT VALUE CALCULATION</h6>
+                                        <div class="col-lg-6 col-md-12 col-12"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1 responsive_display">
+                                    <h6 class="mb-3">Sr. #</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[0]}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Date Of Payment</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[2]| date:'mediumDate'}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Payment</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[3] | number}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Discount Factor (5%)</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[4] |number:'0.1-4'}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <h6 class="mb-3">Discounted Amount</h6>
+                                    <ul class="list-unstyled text-center">
+                                        <li *ngFor="let row of map | keyvalue">
+                                            {{row.value[5] | number}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-3 text-right responsive_display"></div>
+                                <div class="col-12">
+                                    <div class="row mt-3 mb-3">
+                                        <div class="col-5"></div>
+                                        <div class="col-2">Present Value &nbsp; = </div>
+                                        <div class="col-2 text-center"><strong>{{presentValue| number}}</strong></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 btn_mg">
@@ -1252,7 +1308,9 @@
                                                 </div>
                                             </div> -->
                                         </div>
-                                        <div class="row step_4 mb-4 mt-4 border-bottom">
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <div class="row step_4 mb-4 mt-4">
                                             <div class="col-12 new_add_headind assec_heading">
                                                 <h6 class="text-lg-left">Lease Payment Schedule</h6>
                                             </div>
@@ -1310,6 +1368,64 @@
                                                 </div>
                                             </div>
                                             <div class="col-1 mb-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-5">
+                                        <div class="row step_4">
+                                            <div class="col-12 new_add_headind ">
+                                                <div class="row assec_heading">
+                                                    <h6 class="col-lg-3 col-md-12 col-12">PRESENT VALUE CALCULATION</h6>
+                                                    <div class="col-lg-6 col-md-12 col-12"></div>
+                                                    <div class="col-lg-3 col-md-12 col-12 text-lg-right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 responsive_display setting">
+                                            <h6 class="mb-3">Sr. #</h6>
+                                            <ul class="list-unstyled text-center">
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[0]}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-6 setting">
+                                            <h6 class="mb-3">Date Of Payment</h6>
+                                            <ul class="list-unstyled text-center">
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[2]| date:'mediumDate'}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-6 setting">
+                                            <h6 class="mb-3">Payment</h6>
+                                            <ul class="list-unstyled text-center">
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[3] | number}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-6 setting">
+                                            <h6 class="mb-3">Discount Factor (5%)</h6>
+                                            <ul class="list-unstyled text-center">
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[4] |number:'0.1-4'}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-6 setting">
+                                            <h6 class="mb-3">Discounted Amount</h6>
+                                            <ul class="list-unstyled text-center">
+                                                <li *ngFor="let row of map | keyvalue">
+                                                    {{row.value[5] | number}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="row mt-3 mb-3">
+                                                <div class="col-5"></div>
+                                                <div class="col-3">Present Value &nbsp; = </div>
+                                                <div class="col-4 text-center"><strong>{{presentValue| number}}</strong></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
