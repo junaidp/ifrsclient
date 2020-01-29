@@ -106,7 +106,15 @@ export class NewLeasejournalentryComponent implements OnInit {
 //     alert(this.map.size)
     this.map1 = this.map.get("17");
     this.presentValue = this.map1[9];
-
+  });
+}
+    
+}
+// $(document).ready(function () {
+//   for (var i = 1; i <= 3; i++) {
+//       $('#testing').append('TESTING');
+//   }
+// });
 //     this.map1 = this.map.get("8");
 //     this.drValue = this.map1[25];
 
@@ -225,15 +233,3 @@ export class NewLeasejournalentryComponent implements OnInit {
 
 // this.map1 = this.map.get("17");
 // this.date7 = this.map1[19];
-
-
-
-  });
-}
-    
-}
-// $(document).ready(function () {
-//   for (var i = 1; i <= 3; i++) {
-//       $('#testing').append('TESTING');
-//   }
-// });

@@ -110,9 +110,9 @@
             
             <div class="row mt-4 mb-4" id="journal_entry"> 
                 <div class="col-12 mt-3">
-                    <div class="row journal_new" id="show2">
-                        <div class="col-1">2</div>
-                        <div class="col-2">mm:dd:yyyy</div>
+                    <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue" >
+                        <div class="col-1">{{row.value[0]+1 | number}}</div>
+                        <div class="col-2">{{row.value[3]| date:'mediumDate'}}</div>
                         <div class="col-3">
                             <div class="row text-lg-left">
                                 <div class="col-12">Finance Cost</div>
@@ -122,46 +122,20 @@
                         </div>
                         <div class="col-2">
                             <div class="row">
-                                <div class="col-12">22,771</div>
-                                <div class="col-12 mt-2">171,566</div>
+                                <div class="col-12">{{row.value[10] | number}}</div>
+                                <div class="col-12 mt-2">{{(row.value[11])- row.value[10] | number}} </div>
                             </div>
                         </div>
                         <div class="col-2 mt-4">
                             <div class="row">
-                                <div class="col-12 mt-4">250,000</div>
+                                <div class="col-12 mt-4">{{(row.value[11])| number}}</div>
                             </div>
                         </div>
                         <div class="col-2 mt-4"></div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-4 mb-4 " id="journal_entry1">
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-1">3</div>
-                        <div class="col-2">mm:dd:yyyy</div>
-                        <div class="col-3">
-                            <div class="row text-lg-left">
-                                <div class="col-12">Finance Cost</div>
-                                <div class="col-12 mt-2">Lease Liability</div>
-                                <div class="col-12 mt-2">Cash / Bank</div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-12">22,771</div>
-                                <div class="col-12 mt-2">171,566</div>
-                            </div>
-                        </div>
-                        <div class="col-2 mt-4">
-                            <div class="row">
-                                <div class="col-12 mt-4">250,000</div>
-                            </div>
-                        </div>
-                        <div class="col-2 mt-4"></div>
-                    </div>
-                </div>
-            </div>
+           
             <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit" style="margin-left: 20px;">Close</button>
             <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit">Add new</button>
         </div>
