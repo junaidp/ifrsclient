@@ -103,7 +103,7 @@ calculate() {
       var paymentIntervalGlobal =this.globals.paymentIntervals
 
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
-      if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
+      if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalGlobal.toLowerCase() == "yearly")) {
         this.drValue = this.drValue - this.repeatedMonthValue
         //calculationg accrued liability for ending yearly
         this.totalOfMonth = this.totalOfMonth - this.repeatedMonthAccrued //it should be repatMonthAccrued
