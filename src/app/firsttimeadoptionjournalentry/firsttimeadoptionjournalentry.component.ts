@@ -5,6 +5,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ViewChild, ElementRef } from '@angular/core';
 import { allResolved } from "q";
+import { JsonPipe } from '@angular/common';
 declare var $: any;
 @Component({
   selector: "app-firsttimeadoptionjournalentry",
@@ -15,9 +16,14 @@ export class FirsttimeadoptionjournalentryComponent implements OnInit {
    constructor(public firsttimeadoptionjournalentryservice: FirsttimeadoptionjournalentryService, public globals: Globals, private router: Router) {}
    year :Date;
    month:Date;
+   leaseLiability:number
+   rightToUse:number
+   retainedEarning:number
 
   map: Map<string, Map<string, string>>;
+
   map1: Map<String, String>;
+
   //for dr
   commencementDate: String;
 
@@ -52,11 +58,23 @@ export class FirsttimeadoptionjournalentryComponent implements OnInit {
   this.firsttimeadoptionjournalentryservice.calculate(data).then(response => {
     this.map = new Map(Object.entries(response.data));
 
+
     console.log(response.data)
 //     alert(this.map.size)
     this.map1 = this.map.get("17");
     this.presentValue = this.map1[9];
   });
+
+  //this is used for calculating the above three entries
+  this.firsttimeadoptionjournalentryservice.journalFta(data).then(response => {
+   // this.mapJournal1 = new Map((response.data));
+   console.log(response.data)
+    this.leaseLiability = response.data.leseLiabality
+this.retainedEarning= response.data.RetainedEarning
+this.rightToUse = response.data.RightToUse
+
+
+});
      }
  
     SignUp(){
