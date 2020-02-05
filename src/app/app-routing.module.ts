@@ -31,7 +31,7 @@ import { JournalentriespaymentComponent } from './journalentriespayment/journale
 import { NewLeasejournalentryComponent } from './newLeasejournalentry/newLeasejournalentry.component';
 import { PaymentgetwayComponent } from './paymentgetway/paymentgetway.component';
 import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.component';
-
+import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
@@ -46,6 +46,8 @@ const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'companylogin', component: CompanyloginComponent },
   { path: 'firsttimeadoptionreportingperiod/firsttimeadoptionjournalentry', component: FirsttimeadoptionjournalentryComponent },
+  { path: 'firsttimeadoptioninitial/firsttimeadoptionjournalentrycommulative', component: FirsttimeadoptionjournalentrycommulativeComponent },
+
   { path: 'journalentriespayment', component: JournalentriespaymentComponent },
   { path: 'newlease/newleasejournalentry', component: NewLeasejournalentryComponent },
   { path: 'paymentgetway', component: PaymentgetwayComponent },

@@ -38,6 +38,7 @@ import { NewLeasejournalentryComponent } from './newLeasejournalentry/newLeasejo
 import { PaymentgetwayComponent } from './paymentgetway/paymentgetway.component';
 import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
+import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
     NewLeasejournalentryComponent,
     PaymentgetwayComponent,
     PaymentscheduleComponent,
-    AddNewUserComponent
+    AddNewUserComponent,
+    FirsttimeadoptionjournalentrycommulativeComponent
   ],
   imports: [
     BrowserModule,
