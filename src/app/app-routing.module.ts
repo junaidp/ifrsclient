@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guarrd'
 import { SignupComponent } from './signup/signup.component';
 import { JournalEntriesComponent } from './journal-entries/journal-entries.component'
+import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entriesfta.component'
 import { ReportsComponent } from './reports/reports.component'
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
 import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiodcomponent'
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent},
+  { path: 'journalEntriesfta', component: JournalEntriesftaComponent},
   { path: 'financecost', component: FinanceComponent },
   { path: 'leaseliability', component: LeaseliabilityComponent },
   { path: 'accuredliability', component: AccuredliabilityComponent },

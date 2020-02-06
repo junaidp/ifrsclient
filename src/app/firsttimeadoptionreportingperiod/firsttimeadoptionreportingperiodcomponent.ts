@@ -171,7 +171,7 @@ userId = "1133"
     console.log(JSON.stringify(data))
     this.Firsttimeadoptionreportingperiodservice.SaveData(data).then(response => {
     
-      alert(response.data)
+  
       
     
    });

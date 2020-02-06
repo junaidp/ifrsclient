@@ -6,6 +6,7 @@ export class Globals {
   userName: string ="";
 
   // for lease and all 
+  selectedJournal = "";
   leaseContractNo = "";
   classAsset = "";
   commencementDate;

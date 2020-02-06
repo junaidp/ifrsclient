@@ -15,14 +15,33 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/login']);
       
     }
-  
   }
-  myClickFunction(event) { 
+  selected = "";
+
+  clickLease(event) { 
     //just added console.log which will display the event details in browser on click of the button.
-    alert("Button is clicked");
-    
-    
- }
+    this.selected = "/journalEntries"
+    this.globals.selectedJournal= this.selected
+      
+  }
+
+ clickAdoption(event) { 
+  //just added console.log which will display the event details in browser on click of the button.
+  this.selected = "/journalEntriesfta" 
+  this.globals.selectedJournal= this.selected
+  }
+  clickJournal(event) { 
+    //just added console.log which will display the event details in browser on click of the button.
+    alert(this.selected)
+    if (this.globals.selectedJournal == "/journalEntries") {
+     alert("j")
+     this.router.navigate(['/journalEntries']);
+    } 
+    if (this.globals.selectedJournal == "/journalEntriesfta") {
+      this.router.navigate(['/journalEntriesfta']);
+     } 
+    }
+
   ngOnInit() {
     this.id = localStorage.getItem('token');
   }

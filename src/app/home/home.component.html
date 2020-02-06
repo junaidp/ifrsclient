@@ -26,8 +26,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card card_height">
                         <img src="/assets/img/New lease.jpg" class="card-img-top" height="228px" alt="...">
-                        <div class="card-body card_decoration">
-                            <a  routerLink="/newlease" class="btn btn-primary">New Lease</a>
+                        <div class="card-body card_decoration" >
+                            <a (click)="clickLease()" routerLink="/newlease"  class="btn btn-primary">New Lease</a>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="card card_height">
                         <img src="/assets/img/bulb.jpg" class="card-img-top" height="228px" alt="...">
                         <div class="card-body card_decoration">
-                            <a routerLink="/firsttimeadoption" class="btn btn-primary">First Time Adoption</a>
+                            <a routerLink="/firsttimeadoption" (click)="clickAdoption()" class="btn btn-primary">First Time Adoption</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="card card_height">
                         <img src="/assets/img/Journal Entry.jpg" class="card-img-top" height="228px" alt="...">
                         <div class="card-body card_decoration">
-                            <a routerLink="/journalEntries"  class="btn btn-primary">Journal Entries</a>
+                            <a  (click)="clickJournal()"   class="btn btn-primary">Journal Entries</a>
                         </div>
                     </div>
                 </div>

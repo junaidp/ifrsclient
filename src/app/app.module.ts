@@ -39,6 +39,7 @@ import { PaymentgetwayComponent } from './paymentgetway/paymentgetway.component'
 import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
+import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entriesfta.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimead
     PaymentgetwayComponent,
     PaymentscheduleComponent,
     AddNewUserComponent,
-    FirsttimeadoptionjournalentrycommulativeComponent
+    FirsttimeadoptionjournalentrycommulativeComponent,
+    JournalEntriesftaComponent
   ],
   imports: [
     BrowserModule,
