@@ -57,7 +57,7 @@ export class NewLeaseComponent implements OnInit {
   map: Map<string, Map<string, string>>;
 
 //getting user
-userId = "1133"
+
   calculate() {
 
 
@@ -123,9 +123,8 @@ userId = "1133"
  
   }
   saveData(){
-    alert(this.userId)
     var data = {
-      userId: this.userId,
+      
       leaseContractNo: this.leaseContractNo,
       classAsset: this.classAsset,
       commencementDate: this.commencementDate,
@@ -140,6 +139,7 @@ userId = "1133"
       usefulLifeOfTheAsset: this.usefulLifeOfTheAsset,
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery,
+      userId: this.globals.userId,
       // contractCurrency:this.contractCurrency,
       // answer1:this.answer1,
       // answer2:this.answer2,
@@ -167,8 +167,7 @@ userId = "1133"
     console.log(JSON.stringify(data))
     this.leaseService.SaveData(data).then(response => {
     
-      alert(response.data)
-      
+    
     
    });
   }
@@ -176,6 +175,7 @@ userId = "1133"
   
   }
   ngOnInit() {
+
 
     $(document).ready(function () {
 

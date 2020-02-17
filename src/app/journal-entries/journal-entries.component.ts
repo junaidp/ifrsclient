@@ -92,6 +92,16 @@ calculate() {
       this.repeatedMonthValue = this.map.get('repeat'); // column j
       this.financeCost = this.map.get('financeCharge'); // fc
       this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued'); 
+  
+     
+     // for rounding off upto 0 dc
+     this.drValue = Math.round(this.drValue)
+     this.totalOfMonth = Math.round(this.totalOfMonth)
+     this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
+     this.financeCost = Math.round(this.financeCost)
+     this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
+
+
 
       // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       var paymentEnding = "Ending" 
@@ -104,9 +114,9 @@ calculate() {
 
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
       if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalGlobal.toLowerCase() == "yearly")) {
-        this.drValue = this.drValue - this.repeatedMonthValue
+        this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
         //calculationg accrued liability for ending yearly
-        this.totalOfMonth = this.totalOfMonth - this.repeatedMonthAccrued //it should be repatMonthAccrued
+        this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued) //it should be repatMonthAccrued
       }
 
             //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
@@ -114,6 +124,8 @@ calculate() {
           
           this.totalOfMonth = this.map.get('accuredLiabality')
           this.repeatedMonthValue = this.map.get('financeCostRemaining')
+          this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
+          this.totalOfMonth = Math.round(this.totalOfMonth)
 
         }
 //monthTotal - total of month  and repeat month = repeated value changed due to having issues with nan
@@ -123,10 +135,12 @@ calculate() {
       
 
       //calculatiung leaseliability for ending
-      this.leaseLiabilityEnding = this.paymentCashBank - this.monthTotal - this.repeatMonth
+      this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
       //calculatiung leaseliability for Beginning
-      this.leaseLiabilityBeginning = this.paymentCashBank - this.financeCost
+      this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
+      
 
+       
 //quarter wise payment in beginning paymentydiv would be shown in commencement month and then after every 3 months it should be shown
 // g ,h,i column as dr for the month.. g is first monmth h is 2nd and I is 3rd month .. simple month entry
 //fc and paymentmonth  for payment month should be picked fromt he similar table as it was working
@@ -167,8 +181,13 @@ calculate() {
         this.drValue = this.map.get('dr') 
         this.financeCost = this.map.get('financeCharge');
         var payment = this.map.get('payment');
+
+        //for round to 0 dc
+        this.drValue = Math.round(this.drValue)
+        this.financeCost = Math.round(this.financeCost)
+        
         this.paymentCashBank = payment
-        this.leaseLiabilityBeginning = this.paymentCashBank - this.financeCost
+        this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
       }
 
     //  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())
@@ -180,8 +199,14 @@ calculate() {
         this.paymentCashBank = this.map.get('payment')
         this.totalOfMonth = this.map.get('total') 
         this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued'); 
+//for rounding to 0
+        this.drValue = Math.round(this.drValue)
+        this.aboveColj = Math.round(this.aboveColj)
+        this.paymentCashBank = Math.round(this.paymentCashBank)
+        this.totalOfMonth = Math.round(this.totalOfMonth)
+        this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
+        this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
 
-       
         var aboveJ = this.aboveColj
         var financeCostNormalMonth = this.drValue
         var finaceCostPAymentMonth = this.repeatedMonthValue
@@ -199,12 +224,12 @@ calculate() {
             }
         if(userSelectedMonth == paymentMonth){
           this.repeatedMonthValue = this.map.get('aboveColJ')
-              this.drValue = this.drValue - this.aboveColj
+              this.drValue = Math.round(this.drValue - this.aboveColj)
         }
    
  //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-      this.totalOfMonth = this.totalOfMonth -this.repeatedMonthAccrued
-      this.leaseLiabilityEnding = this.paymentCashBank -  this.totalOfMonth -  this.repeatedMonthValue
+      this.totalOfMonth = Math.round(this.totalOfMonth -this.repeatedMonthAccrued)
+      this.leaseLiabilityEnding = Math.round(this.paymentCashBank -  this.totalOfMonth -  this.repeatedMonthValue)
         }
     }
 
