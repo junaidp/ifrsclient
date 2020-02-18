@@ -44,6 +44,7 @@ export class JournalEntriesComponent implements OnInit {
 
 
 calculate() {
+
     
     // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
@@ -68,12 +69,21 @@ calculate() {
       guaranteedResidualValue: this.globals.guaranteedResidualValue,
       usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
       escalation: this.globals.escalation,
-      escalationAfterEvery: this.globals.escalationAfterEvery
+      escalationAfterEvery: this.globals.escalationAfterEvery,
+      userId:1134
 
     };
     this.journalService.calculate(data).then(response => {
 
       console.log(response.data)
+      alert(JSON.stringify(response.data))
+    
+      $.each(response.data, function(index) {
+        
+          alert(response.data[index].dr);
+         
+   
+      
       // setting all the values to null in startup
       this.repeatedMonthValue =0
       this.drValue =0
@@ -85,7 +95,7 @@ calculate() {
       this.repeatedMonthAccrued = 0
 
 
-      this.map = new Map(Object.entries(response.data));
+      this.map = new Map(Object.entries(response.data[index]));
       // settign valuesfrom api call srive 
       this.drValue = this.map.get('dr') //g,h,i column
       this.totalOfMonth = this.map.get('total') // sum of g,h,i
@@ -102,25 +112,43 @@ calculate() {
      this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
 
 
-
+     
       // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       var paymentEnding = "Ending" 
       var paymentBeginning = "Beginning" 
       var payment = this.map.get('payment');
-      var paymentInGlobal =this.globals.paymentsAt
-      var commencementDateG = (this.globals.commencementDate.split("-"))
-      var comencementMonth = commencementDateG[1];
-      var paymentIntervalGlobal =this.globals.paymentIntervals
+  //    var paymentInGlobal =this.globals.paymentsAt
 
+
+      var paymentInGlobal = response.data[index].paymentsAt;
+      alert(paymentInGlobal)
+
+      var commencementDateS = (response.data[index].commencementDate)
+
+      alert(commencementDateS)
+      var commencementDateService = (commencementDateS.split(" "))
+      var monthService = commencementDateService[1]
+      var dayService = commencementDateService[2]
+      var yearService = commencementDateService[5]
+      alert(monthService)
+      alert(dayService)
+      alert(yearService)
+
+
+   //   var commencementDateG = (this.globals.commencementDate.split("-"))
+   //   var comencementMonth = commencementDateG[1];
+  //    var paymentIntervalGlobal =this.globals.paymentIntervals
+      var paymentIntervalsService =response.data[index].paymentInterval;
+      alert(paymentIntervalsService)
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
-      if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalGlobal.toLowerCase() == "yearly")) {
+      if ((monthService == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalsService.toLowerCase() == "yearly")) {
         this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
         //calculationg accrued liability for ending yearly
         this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued) //it should be repatMonthAccrued
       }
 
             //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
-        if((paymentIntervalGlobal.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())){
+        if((paymentIntervalsService.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())){
           
           this.totalOfMonth = this.map.get('accuredLiabality')
           this.repeatedMonthValue = this.map.get('financeCostRemaining')
@@ -156,7 +184,7 @@ calculate() {
   
   //first of all check whether its quarterly then check if payment month = month then check whether payment = beginning or ending
 
-  if (paymentIntervalGlobal.toLowerCase() == "quarterly"){
+  if (paymentIntervalsService.toLowerCase() == "quarterly"){
       this.startDate = this.map.get('startDate')
       var paymentDate =  this.startDate.split("-")
       var paymentYear = paymentDate[0];
@@ -230,13 +258,14 @@ calculate() {
  //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
       this.totalOfMonth = Math.round(this.totalOfMonth -this.repeatedMonthAccrued)
       this.leaseLiabilityEnding = Math.round(this.paymentCashBank -  this.totalOfMonth -  this.repeatedMonthValue)
-        }
+      alert(this.totalOfMonth)
+    }
     }
 
     });
 
 
-
+  });
 
 
 

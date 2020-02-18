@@ -8,7 +8,8 @@ export class JournalService {
     var paymentInterval = data.paymentIntervals
 
    if(paymentInterval.toLowerCase()== "yearly"){
-    url = "//compliancetool.herokuapp.com/calculation/journal/yearly ";
+ //   url = "//compliancetool.herokuapp.com/calculation/journal/yearly ";
+ url = "//compliancetool.herokuapp.com/calculation/journal/yearlySum ";
    }
    if(paymentInterval.toLowerCase()== "monthly"){
     url = "//compliancetool.herokuapp.com/calculation/journal/monthly ";
