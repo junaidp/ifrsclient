@@ -68,12 +68,30 @@ calculate() {
       guaranteedResidualValue: this.globals.guaranteedResidualValue,
       usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
       escalation: this.globals.escalation,
-      escalationAfterEvery: this.globals.escalationAfterEvery
+      escalationAfterEvery: this.globals.escalationAfterEvery,
+      userId:1134
 
     };
-    this.journalService.calculate(data).then(response => {
 
+
+    this.journalService.calculate(data).then(response => {
+    var a =[]
+    // $.each(response.data, function(k, v) {
+    //  alert("sad")
+    //   });
+
+
+
+
+    alert(response.data.length)
+        $.each(response.data, function(index) {
+            alert(response.data[index].dr);
+            console.log(response.data[index])
+            
+        });
+  
       console.log(response.data)
+     
       // setting all the values to null in startup
       this.repeatedMonthValue =0
       this.drValue =0
