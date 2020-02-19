@@ -10,25 +10,29 @@ import { AuthService } from '../auth.service';
 })
 export class HomeComponent implements OnInit {
   id: string;
+  selected = "";
   constructor(public globals : Globals,private router: Router,public authService: AuthService) { 
     if(localStorage.getItem('name') == null && localStorage.getItem('pass') == null ){
       this.router.navigate(['/login']);
       
     }
   }
-  selected = "";
+
 
   clickLease(event) { 
     //just added console.log which will display the event details in browser on click of the button.
     this.selected = "/journalEntries"
     this.globals.selectedJournal= this.selected
+    alert(this.globals.selectedJournal)
       
   }
 
  clickAdoption(event) { 
   //just added console.log which will display the event details in browser on click of the button.
   this.selected = "/journalEntriesfta" 
+
   this.globals.selectedJournal= this.selected
+  alert(this.globals.selectedJournal)
   }
   clickJournal(event) { 
     //just added console.log which will display the event details in browser on click of the button.
@@ -36,9 +40,11 @@ export class HomeComponent implements OnInit {
     if (this.globals.selectedJournal == "/journalEntries") {
     
      this.router.navigate(['/journalEntries']);
+     alert(this.globals.selectedJournal)
     } 
     if (this.globals.selectedJournal == "/journalEntriesfta") {
       this.router.navigate(['/journalEntriesfta']);
+      alert(this.globals.selectedJournal)
      } 
     }
 

@@ -267,7 +267,7 @@ calculate() {
      
     }
     }
-    alert(this.drValue)
+    alert(this.drValue);
 
     this.ServiceDrValue += parseInt(this.drValue)
     alert(somethingdr += this.ServiceDrValue)
