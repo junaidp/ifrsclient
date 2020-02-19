@@ -80,13 +80,25 @@ calculate() {
     // $.each(response.data, function(k, v) {
     //  alert("sad")
     //   });
-    var somethingdr = 0;
+    var sumOfdr = 0;
+    var sumOfpaymentCashBank = 0
+    var sumOfmonthTotal = 0
+    var sumOfrepeatMonth = 0
+
+    var sumOfleaseLiabilityEnding = 0
+    var sumOfleaseLiabilityBeginning = 0
+    var sumOfaccruedLiabilityMonthly = 0
+
+    var sumOftotalOfMonth = 0
+    var sumOfrepeatedMonthValue = 0
+    var sumOfrepeatedMonthAccrued = 0
+    var sumOffinanceCost = 0
       console.log(response.data)
-      alert(JSON.stringify(response.data))
+      
     
       $.each(response.data, function(index) {
         
-          alert(response.data[index].dr);
+        
          
    
       
@@ -267,13 +279,24 @@ calculate() {
      
     }
     }
-    alert(this.drValue);
 
-    this.ServiceDrValue += parseInt(this.drValue)
-    alert(somethingdr += this.ServiceDrValue)
+    sumOfdr += parseInt(this.drValue)
+    sumOfpaymentCashBank += parseInt(this.paymentCashBank)
+    sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
+    sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning)
+    sumOftotalOfMonth += parseInt(this.totalOfMonth)
+    sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
+    sumOffinanceCost += parseInt(this.financeCost)
+
     
-   
     });
+    this.drValue = sumOfdr
+    this.paymentCashBank = sumOfpaymentCashBank
+    this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
+    this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning
+    this.totalOfMonth = sumOftotalOfMonth
+    this.repeatedMonthValue = sumOfrepeatedMonthValue
+    this.financeCost = sumOffinanceCost
 
 
   });
