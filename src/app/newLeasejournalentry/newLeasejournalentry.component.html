@@ -54,7 +54,7 @@
                         <h6 class="col-2">Cr.</h6>
                     </div>
                 </div>
-                <div class="col-12 mt-2">
+                <div class="col-12 mt-2 border-bottom">
                     <div class="row responsive_display journal_new">
                         <div class="col-1">1</div>
                         <div class="col-2">{{commencementDate}}</div>
@@ -79,13 +79,13 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-6"></div>
             </div>
-            <div class="row mt-4 mb-4" id="journal_entry"> 
+            <div class="row mt-4 mb-4 border-bottom" id="journal_entry"> 
                 <div class="col-12 mt-3">
                     <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue" >
                         <div class="col-1">{{row.value[0]+1 | number}}</div>
                         <div class="col-2">{{row.value[2]| date:'mediumDate'}}</div>
                         <div class="col-3">
-                            <div class="row text-lg-left">
+                            <div class="row text-lg-left mb-3">
                                 <div class="col-12">Finance Cost</div>
                                 <div class="col-12 mt-2">Lease Liability</div>
                                 <div class="col-12 mt-2">Cash / Bank</div>

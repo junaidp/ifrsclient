@@ -110,7 +110,7 @@
                             <form class="needs-validation" role="form" novalidate>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom0">Enter Contract Reference Number</label>
+                                        <label for="validationCustom0">Contract Reference Number</label>
                                         <input type="number" class="form-control" name="ref"
                                             [(ngModel)]="leaseContractNo" 
                                             placeholder="Enter Contract Reference Number" required="true" />
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Other Condition</label>
+                                        <label for="validationCustom04">Other Conditions</label>
                                         <textarea type="text" class="form-control" name="contractNo7"
                                             [(ngModel)]="otherCondition" 
                                             placeholder="Describe Contract Conditions (if any)" required></textarea>
@@ -185,7 +185,7 @@
                                         <label for="validationCustom04"></label>
                                         <div style="position:relative; margin-top: 10px; margin-left: 10px;">
                                             <a class='btn btn-primary blue_color' href='javascript:;'>
-                                                Upload File...
+                                                Upload File
                                                 <input type="file"
                                                     style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
                                                     name="file_source" size="40"
@@ -432,7 +432,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Lease Term Period</label>
+                                        <label for="validationCustom04">Expected Usage Period</label>
                                         <input type="number" class="form-control" [(ngModel)]="leaseTerm"
                                             name="contractNo11"  placeholder="in years" required>
                                         <div class="invalid-feedback">
@@ -442,7 +442,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom03">Expected Usage Period</label>
+                                        <label for="validationCustom03">Lease Term Period</label>
                                         <input type="number" [(ngModel)]="expectedPeriod" name="contractNo12"
                                             class="form-control"  placeholder="in years"
                                             required>
@@ -653,7 +653,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-6">
-                                            <h6 class="mb-3">NBV Opening (1st Jan)</h6>
+                                            <h6 class="mb-3">NBV Opening</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[16]| number:'1.0-0'}}
@@ -661,7 +661,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6">
-                                            <h6 class="mb-3">Description</h6>
+                                            <h6 class="mb-3">Depreciation</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[17]| number:'1.0-0'}}
@@ -669,7 +669,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-6">
-                                            <h6 class="mb-3">NBV Closing (31st Dec) </h6>
+                                            <h6 class="mb-3">NBV Closing </h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[18]| number:'1.0-0'}}
@@ -691,7 +691,7 @@
                                     <h6 class="mb-3">Sr. #</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[0]| number:'1.0-0'}}}
+                                            {{row.value[0]| number:'1.0-0'}}
                                         </li>
                                     </ul>
                                 </div>
@@ -712,7 +712,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-6">
-                                    <h6 class="mb-3">Discount Factor (5%)</h6>
+                                    <h6 class="mb-3">Discount Factor (%)</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
                                             {{row.value[4] |number:'0.1-3'}}
@@ -1350,7 +1350,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-6 setting">
-                                            <h6 class="mb-3">Discount Factor (5%)</h6>
+                                            <h6 class="mb-3">Discount Factor (%)</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[4] |number:'0.1-3'}}
