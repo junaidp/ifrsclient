@@ -644,7 +644,7 @@
                                     <h6 class="mb-3">Sr. #</h6>
                                     <ul class="list-unstyled text-center">
                                         <li *ngFor="let row of map | keyvalue">
-                                            {{row.value[0]}}
+                                            {{row.value[0] | number:'1.0-0'}}
                                         </li>
                                     </ul>
                                 </div>
@@ -699,7 +699,7 @@
                                             <h6 class="mb-3">Sr. #</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{row.value[14]}}
+                                                    {{row.value[14] | number:'1.0-0'}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -1169,7 +1169,7 @@
                                             <h6 class="mb-3">Sr. #</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{row.value[0]}}
+                                                    {{row.value[0] | number:'1.0-0'}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -1262,7 +1262,7 @@
                                                         <h6 class="mb-3">Sr. #</h6>
                                                         <ul class="list-unstyled text-center">
                                                             <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[14]}}
+                                                                {{row.value[14] | number:'1.0-0'}}
                                                             </li>
                                                         </ul>
                                                     </div>

@@ -82,7 +82,7 @@
                 </div>
                 <div class="col-12 mt-2">
                     <div class="row responsive_display journal_new">
-                        <div class="col-1">1</div>
+                        <div class="col-1">0</div>
                         <div class="col-2">mm:dd:yyyy</div>
                         <div class="col-3">
                             <div class="row text-lg-left">
@@ -93,15 +93,15 @@
                         </div>
                         <div class="col-2">
                             <div class="row">
-                                <div class="col-12">{{rightToUse |number:'0.1-4'}}</div>
-                                <div class="col-12">{{retainedEarning |number:'0.1-4'}}</div>
+                                <div class="col-12">{{rightToUse | number:'1.0-0'}}</div>
+                                <div class="col-12">{{retainedEarning | number:'1.0-0'}}</div>
                        
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="row">
                                 <div class="col-12"></div>
-                                <div class="col-12 mt-5">{{leaseLiability |number:'0.1-4'}}</div>
+                                <div class="col-12 mt-5">{{leaseLiability | number:'1.0-0'}}</div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
             <div class="row mt-4 mb-4" id="journal_entry"> 
                 <div class="col-12 mt-3">
                     <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue" >
-                        <div class="col-1">{{row.value[0]+1 | number}}</div>
+                        <div class="col-1">{{row.value[0] | number:'1.0-0'}}</div>
                         <div class="col-2">{{row.value[3]| date:'mediumDate'}}</div>
                         <div class="col-3">
                             <div class="row text-lg-left">
@@ -123,13 +123,13 @@
                         </div>
                         <div class="col-2">
                             <div class="row">
-                                <div class="col-12">{{row.value[10] | number}}</div>
-                                <div class="col-12 mt-2">{{(row.value[11])- row.value[10] | number}} </div>
+                                <div class="col-12">{{row.value[10] | number:'1.0-0'}}</div>
+                                <div class="col-12 mt-2">{{(row.value[11])- row.value[10] | number:'1.0-0'}} </div>
                             </div>
                         </div>
                         <div class="col-2 mt-4">
                             <div class="row">
-                                <div class="col-12 mt-4">{{(row.value[11])| number}}</div>
+                                <div class="col-12 mt-4">{{(row.value[11]) | number:'1.0-0'}}</div>
                             </div>
                         </div>
                         <div class="col-2 mt-4"></div>
