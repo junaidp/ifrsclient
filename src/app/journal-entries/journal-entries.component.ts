@@ -17,11 +17,13 @@ export class JournalEntriesComponent implements OnInit {
 
   }
   commencementDateService:Date
+  commencementDateS:Date
   dateSelectorMonth:any
   paymentCashBank: any
   monthTotal: number
   repeatMonth: number
 
+  
   leaseLiabilityEnding: number
   leaseLiabilityBeginning: number
   accruedLiabilityMonthly: number
@@ -122,7 +124,7 @@ calculate() {
       this.repeatedMonthValue = this.map.get('repeat'); // column j
       this.financeCost = this.map.get('financeCharge'); // fc
       this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued'); 
-      this.commencementDate = this.map.get('commencementDate');
+      this.commencementDateS = this.map.get('commencementDate');
   
      
      // for rounding off upto 0 dc
