@@ -661,10 +661,10 @@
                                             </ul>
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6">
-                                            <h6 class="mb-3">Description</h6>
+                                            <h6 class="mb-3">Depreciation</h6>
                                             <ul class="list-unstyled text-center">
                                                 <li *ngFor="let row of map | keyvalue">
-                                                    {{row.value[17]| number:'1.0-0'}}
+                                                    {{-(row.value[17]) | number:'1.0-0'}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -1234,10 +1234,10 @@
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Description</h6>
+                                                        <h6 class="mb-3">Depreciation</h6>
                                                         <ul class="list-unstyled text-center">
                                                              <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[17]| number:'1.0-0'}}
+                                                                {{-(row.value[17]) | number:'1.0-0'}}
                                                             </li>
                                                         </ul>
                                                     </div>

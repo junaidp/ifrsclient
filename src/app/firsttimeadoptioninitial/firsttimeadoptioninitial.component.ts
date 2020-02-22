@@ -108,7 +108,7 @@ userId = "1133"
        console.log(response.data)
       this.map1 = this.map.get("17");
       this.presentValue = this.map1[9];
-      alert(this.presentValue)
+   //   alert(this.presentValue)
       this.globals.presentValue = this.presentValue
       /*console.log("In MAP ENTRIES");
 
@@ -127,7 +127,7 @@ userId = "1133"
  
   }
   saveData(){
-    alert(this.userId)
+  //  alert(this.userId)
     var data = {
       userId: this.userId,
       leaseContractNo: this.leaseContractNo,

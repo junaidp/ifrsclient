@@ -70,8 +70,8 @@ export class FirsttimeadoptionjournalentryComponent implements OnInit {
    // this.mapJournal1 = new Map((response.data));
    console.log(response.data)
     this.leaseLiability = response.data.leseLiabality
-this.retainedEarning= response.data.RetainedEarning
-this.rightToUse = response.data.RightToUse
+    this.retainedEarning= response.data.RetainedEarning
+    this.rightToUse = response.data.RightToUse
 
 
 });

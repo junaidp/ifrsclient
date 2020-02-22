@@ -16,6 +16,7 @@ export class JournalEntriesComponent implements OnInit {
   constructor(public journalService: JournalService, public globals: Globals) {
 
   }
+  commencementDateService:Date
   dateSelectorMonth:any
   paymentCashBank: any
   monthTotal: number
@@ -80,6 +81,7 @@ calculate() {
     // $.each(response.data, function(k, v) {
     //  alert("sad")
     //   });
+    console.log(response.data)
     var sumOfdr = 0;
     var sumOfpaymentCashBank = 0
     var sumOfmonthTotal = 0
@@ -93,7 +95,7 @@ calculate() {
     var sumOfrepeatedMonthValue = 0
     var sumOfrepeatedMonthAccrued = 0
     var sumOffinanceCost = 0
-      console.log(response.data)
+      
       
     
       $.each(response.data, function(index) {
@@ -120,6 +122,7 @@ calculate() {
       this.repeatedMonthValue = this.map.get('repeat'); // column j
       this.financeCost = this.map.get('financeCharge'); // fc
       this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued'); 
+      this.commencementDate = this.map.get('commencementDate');
   
      
      // for rounding off upto 0 dc
