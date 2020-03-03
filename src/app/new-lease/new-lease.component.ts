@@ -15,6 +15,7 @@ export class NewLeaseComponent implements OnInit {
 
   map1: Map<String, String>;
   presentValue: number;
+  userId:any
 
   //first tab
   leaseContractNo = "";
@@ -123,6 +124,9 @@ export class NewLeaseComponent implements OnInit {
  
   }
   saveData(){
+    alert("sad")
+    this.userId =   localStorage.getItem('userId');
+    alert(this.userId)
     var data = {
       
       leaseContractNo: this.leaseContractNo,
@@ -139,7 +143,7 @@ export class NewLeaseComponent implements OnInit {
       usefulLifeOfTheAsset: this.usefulLifeOfTheAsset,
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery,
-      userId: this.globals.userId,
+      userId: this.userId,
       // contractCurrency:this.contractCurrency,
       // answer1:this.answer1,
       // answer2:this.answer2,

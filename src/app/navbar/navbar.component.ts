@@ -15,8 +15,13 @@ export class NavbarComponent implements OnInit {
    
   }
   name = localStorage.getItem('name');
+  userId = localStorage.getItem('userId');
+  
 
-  ngOnInit() {}
+  ngOnInit() {
+  alert(this.userId)
+  alert(this.name)
+  }
 
   ngDoCheck(): void {
     if (this.name != this.globals.userName) {

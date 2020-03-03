@@ -17,6 +17,7 @@ import { AuthService } from '../auth.service';
   returnUrl: string;
   name = "";
   password = "";
+  id = "";
 
   signIn() {
 
@@ -26,6 +27,7 @@ import { AuthService } from '../auth.service';
   private setGlobals(response) {
     this.globals.userId = response.data.userId;
     this.globals.userName = response.data.name;
+    this.id = response.data.userId
   }
 
   ngOnInit() {
@@ -38,7 +40,8 @@ import { AuthService } from '../auth.service';
   login() {
     var data = {
       name: this.name,
-      password: this.password
+      password: this.password,
+      id:this.id
     };
     this.loginservice.signIn(data).then(response => {
       alert(response.data.userId)
@@ -51,6 +54,7 @@ import { AuthService } from '../auth.service';
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('name', data.name);
         localStorage.setItem('pass', data.password);
+        localStorage.setItem('userId', response.data.userId);
 
         this.router.navigate([this.returnUrl]);
       }

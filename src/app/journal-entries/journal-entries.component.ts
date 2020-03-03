@@ -16,6 +16,7 @@ export class JournalEntriesComponent implements OnInit {
   constructor(public journalService: JournalService, public globals: Globals) {
 
   }
+  userId:any
   commencementDateService:Date
   commencementDateS:Date
   dateSelectorMonth:any
@@ -49,7 +50,8 @@ export class JournalEntriesComponent implements OnInit {
 
 calculate() {
 
-    
+    this.userId =   localStorage.getItem('userId');
+    alert(this.userId)
     // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
     var day = 10
@@ -74,7 +76,7 @@ calculate() {
       usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
       escalation: this.globals.escalation,
       escalationAfterEvery: this.globals.escalationAfterEvery,
-      userId:1134
+      userId:this.userId
 
     };
 
@@ -118,6 +120,7 @@ calculate() {
       this.ServiceDrValue = 0
 
       this.map = new Map(Object.entries(response.data[index]));
+      console.log(this.map)
       // settign valuesfrom api call srive 
       this.drValue = this.map.get('dr') //g,h,i column
       this.totalOfMonth = this.map.get('total') // sum of g,h,i
@@ -144,11 +147,11 @@ calculate() {
 
 
       var paymentInGlobal = response.data[index].paymentsAt;
-   //   alert(paymentInGlobal)
+      alert(paymentInGlobal)
 
       var commencementDateS = (response.data[index].commencementDate)
 
- //     alert(commencementDateS)
+     alert(commencementDateS)
       var commencementDateService = (commencementDateS.split(" "))
       var monthService = commencementDateService[1]
       var dayService = commencementDateService[2]
@@ -161,8 +164,8 @@ calculate() {
    //   var commencementDateG = (this.globals.commencementDate.split("-"))
    //   var comencementMonth = commencementDateG[1];
   //    var paymentIntervalGlobal =this.globals.paymentIntervals
-      var paymentIntervalsService =response.data[index].paymentInterval;
-  //    alert(paymentIntervalsService)
+      var paymentIntervalsService =response.data[index].paymentIntervals;
+      alert(paymentIntervalsService)
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
       if ((monthService == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalsService.toLowerCase() == "yearly")) {
         this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
@@ -284,7 +287,7 @@ calculate() {
      
     }
     }
-
+    alert(this.drValue)
     sumOfdr += parseInt(this.drValue)
     sumOfpaymentCashBank += parseInt(this.paymentCashBank)
     sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
