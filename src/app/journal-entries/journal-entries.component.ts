@@ -51,7 +51,6 @@ export class JournalEntriesComponent implements OnInit {
 calculate() {
 
     this.userId =   localStorage.getItem('userId');
-    alert(this.userId)
     // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
     var day = 10
@@ -80,7 +79,7 @@ calculate() {
 
     };
 
-    
+//    alert(data)
     this.journalService.calculate(data).then(response => {
     // $.each(response.data, function(k, v) {
     //  alert("sad")
@@ -120,7 +119,17 @@ calculate() {
       this.ServiceDrValue = 0
 
       this.map = new Map(Object.entries(response.data[index]));
-      console.log(this.map)
+      var paymentInGlobal = response.data[index].paymentsAt;
+  //    alert(paymentInGlobal)
+      var commencementDateSer = (response.data[index].commencementDate)
+  //   alert(commencementDateSer)
+     var paymentIntervalsService =response.data[index].paymentIntervals;
+ //    alert(paymentIntervalsService)
+  //    console.log(this.map)
+      var commencementDateService = (commencementDateSer.split(" "))
+      var monthService = commencementDateService[1]
+      var dayService = commencementDateService[2]
+      var yearService = commencementDateService[5]
       // settign valuesfrom api call srive 
       this.drValue = this.map.get('dr') //g,h,i column
       this.totalOfMonth = this.map.get('total') // sum of g,h,i
@@ -146,16 +155,7 @@ calculate() {
   //    var paymentInGlobal =this.globals.paymentsAt
 
 
-      var paymentInGlobal = response.data[index].paymentsAt;
-      alert(paymentInGlobal)
-
-      var commencementDateS = (response.data[index].commencementDate)
-
-     alert(commencementDateS)
-      var commencementDateService = (commencementDateS.split(" "))
-      var monthService = commencementDateService[1]
-      var dayService = commencementDateService[2]
-      var yearService = commencementDateService[5]
+  
       // alert(monthService)
       // alert(dayService)
       // alert(yearService)
@@ -164,10 +164,10 @@ calculate() {
    //   var commencementDateG = (this.globals.commencementDate.split("-"))
    //   var comencementMonth = commencementDateG[1];
   //    var paymentIntervalGlobal =this.globals.paymentIntervals
-      var paymentIntervalsService =response.data[index].paymentIntervals;
-      alert(paymentIntervalsService)
+   
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
       if ((monthService == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalsService.toLowerCase() == "yearly")) {
+    //    alert("171")
         this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
         //calculationg accrued liability for ending yearly
         this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued) //it should be repatMonthAccrued
@@ -175,7 +175,7 @@ calculate() {
 
             //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
         if((paymentIntervalsService.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())){
-          
+      //    alert("179")
           this.totalOfMonth = this.map.get('accuredLiabality')
           this.repeatedMonthValue = this.map.get('financeCostRemaining')
           this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
@@ -191,7 +191,9 @@ calculate() {
       //calculatiung leaseliability for ending
       this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
       //calculatiung leaseliability for Beginning
+//      alert(this.paymentCashBank  + "f" + this.financeCost)
       this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
+ //     alert(this.leaseLiabilityBeginning + "l95")
       
 
        
@@ -287,11 +289,13 @@ calculate() {
      
     }
     }
-    alert(this.drValue)
+ //   alert(this.drValue)
     sumOfdr += parseInt(this.drValue)
     sumOfpaymentCashBank += parseInt(this.paymentCashBank)
     sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
     sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning)
+///    alert(sumOfleaseLiabilityBeginning)
+ //   alert(sumOfleaseLiabilityEnding)
     sumOftotalOfMonth += parseInt(this.totalOfMonth)
     sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
     sumOffinanceCost += parseInt(this.financeCost)
