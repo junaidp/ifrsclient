@@ -58,29 +58,30 @@ calculate() {
     var month = ret[1];
     this.dateSelectorMonth = month
     var data = {
-
+      userId:this.userId,
       year: year,
-      month: month,
-      leaseContractNo: this.globals.leaseContractNo,
-      classAsset: this.globals.classAsset,
-      commencementDate: this.globals.commencementDate,
-      paymentsAt: this.globals.paymentsAt,
-      annualDiscountRate: this.globals.annualDiscountRate,
-      leaseTerm: this.globals.leaseTerm,
-      expectedPeriod: this.globals.expectedPeriod,
-      leasePayment: this.globals.leasePayment,
-      paymentIntervals: this.globals.paymentIntervals,
-      initialDirectCost: this.globals.initialDirectCost,
-      guaranteedResidualValue: this.globals.guaranteedResidualValue,
-      usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
-      escalation: this.globals.escalation,
-      escalationAfterEvery: this.globals.escalationAfterEvery,
-      userId:this.userId
+      month: month
+      // leaseContractNo: this.globals.leaseContractNo,
+      // classAsset: this.globals.classAsset,
+      // commencementDate: this.globals.commencementDate,
+      // paymentsAt: this.globals.paymentsAt,
+      // annualDiscountRate: this.globals.annualDiscountRate,
+      // leaseTerm: this.globals.leaseTerm,
+      // expectedPeriod: this.globals.expectedPeriod,
+      // leasePayment: this.globals.leasePayment,
+      // paymentIntervals: this.globals.paymentIntervals,
+      // initialDirectCost: this.globals.initialDirectCost,
+      // guaranteedResidualValue: this.globals.guaranteedResidualValue,
+      // usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
+      // escalation: this.globals.escalation,
+      // escalationAfterEvery: this.globals.escalationAfterEvery,
+   
 
     };
 
 //    alert(data)
     this.journalService.calculate(data).then(response => {
+    //  alert(JSON.stringify(response.data))
     // $.each(response.data, function(k, v) {
     //  alert("sad")
     //   });
@@ -120,11 +121,11 @@ calculate() {
 
       this.map = new Map(Object.entries(response.data[index]));
       var paymentInGlobal = response.data[index].paymentsAt;
-  //    alert(paymentInGlobal)
+    //  alert(paymentInGlobal)
       var commencementDateSer = (response.data[index].commencementDate)
-  //   alert(commencementDateSer)
+    // alert(commencementDateSer)
      var paymentIntervalsService =response.data[index].paymentIntervals;
- //    alert(paymentIntervalsService)
+   //  alert(paymentIntervalsService)
   //    console.log(this.map)
       var commencementDateService = (commencementDateSer.split(" "))
       var monthService = commencementDateService[1]
