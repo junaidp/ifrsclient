@@ -119,12 +119,23 @@ calculate() {
       this.repeatedMonthAccrued = 0
       this.ServiceDrValue = 0
 
+
+      var paymentEnding = "Ending" 
+      var paymentBeginning = "Beginning" 
+     
       this.map = new Map(Object.entries(response.data[index]));
       var paymentInGlobal = response.data[index].paymentsAt;
-    //  alert(paymentInGlobal)
+      alert(paymentInGlobal)
       var commencementDateSer = (response.data[index].commencementDate)
     // alert(commencementDateSer)
      var paymentIntervalsService =response.data[index].paymentIntervals;
+
+     if(paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()){
+       alert("beginninginside")
+       $('#endingView').hide();
+      $('#paymentMonthDiv').show();
+      $('#paymentMonthBeginningDiv').show();  
+     }
    //  alert(paymentIntervalsService)
   //    console.log(this.map)
       var commencementDateService = (commencementDateSer.split(" "))
@@ -150,8 +161,6 @@ calculate() {
 
      
       // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
-      var paymentEnding = "Ending" 
-      var paymentBeginning = "Beginning" 
       var payment = this.map.get('payment');
   //    var paymentInGlobal =this.globals.paymentsAt
 
