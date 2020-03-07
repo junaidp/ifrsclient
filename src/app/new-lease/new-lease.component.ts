@@ -124,9 +124,9 @@ export class NewLeaseComponent implements OnInit {
  
   }
   saveData(){
-    alert("sad")
+ //   alert("sad")
     this.userId =   localStorage.getItem('userId');
-    alert(this.userId)
+   // alert(this.userId)
     var data = {
       
       leaseContractNo: this.leaseContractNo,
