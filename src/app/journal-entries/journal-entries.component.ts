@@ -61,30 +61,8 @@ export class JournalEntriesComponent implements OnInit {
       userId: this.userId,
       year: year,
       month: month
-      // leaseContractNo: this.globals.leaseContractNo,
-      // classAsset: this.globals.classAsset,
-      // commencementDate: this.globals.commencementDate,
-      // paymentsAt: this.globals.paymentsAt,
-      // annualDiscountRate: this.globals.annualDiscountRate,
-      // leaseTerm: this.globals.leaseTerm,
-      // expectedPeriod: this.globals.expectedPeriod,
-      // leasePayment: this.globals.leasePayment,
-      // paymentIntervals: this.globals.paymentIntervals,
-      // initialDirectCost: this.globals.initialDirectCost,
-      // guaranteedResidualValue: this.globals.guaranteedResidualValue,
-      // usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
-      // escalation: this.globals.escalation,
-      // escalationAfterEvery: this.globals.escalationAfterEvery,
-
-
     };
-
-    //    alert(data)
     this.journalService.calculate(data).then(response => {
-      //  alert(JSON.stringify(response.data))
-      // $.each(response.data, function(k, v) {
-      //  alert("sad")
-      //   });
       console.log(response.data)
       var sumOfdr = 0;
       var sumOfpaymentCashBank = 0
@@ -100,13 +78,8 @@ export class JournalEntriesComponent implements OnInit {
       var sumOfrepeatedMonthAccrued = 0
       var sumOffinanceCost = 0
 
-
-
+      alert("serviceCalled")
       $.each(response.data, function (index) {
-
-
-
-
 
         // setting all the values to null in startup
         this.repeatedMonthValue = 0
@@ -125,19 +98,12 @@ export class JournalEntriesComponent implements OnInit {
 
         this.map = new Map(Object.entries(response.data[index]));
         var paymentInGlobal = response.data[index].paymentsAt;
- //       alert(paymentInGlobal)
         var commencementDateSer = (response.data[index].commencementDate)
-        // alert(commencementDateSer)
         var paymentIntervalsService = response.data[index].paymentIntervals;
-
         var commencementDateService = (commencementDateSer.split(" "))
         var monthService = commencementDateService[1]
         var dayService = commencementDateService[2]
         var yearService = commencementDateService[5]
-
-
-        //  alert(paymentIntervalsService)
-        //    console.log(this.map)
 
         // settign valuesfrom api call srive 
         this.drValue = this.map.get('dr') //g,h,i column
@@ -155,26 +121,10 @@ export class JournalEntriesComponent implements OnInit {
         this.financeCost = Math.round(this.financeCost)
         this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
 
-
-
         // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
         var payment = this.map.get('payment');
-        //    var paymentInGlobal =this.globals.paymentsAt
-
-
-
-        // alert(monthService)
-        // alert(dayService)
-        // alert(yearService)
-
-
-        //   var commencementDateG = (this.globals.commencementDate.split("-"))
-        //   var comencementMonth = commencementDateG[1];
-        //    var paymentIntervalGlobal =this.globals.paymentIntervals
-
         //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
         if ((monthService == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
-          //    alert("171")
           this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
           //calculationg accrued liability for ending yearly
           this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued) //it should be repatMonthAccrued
@@ -182,7 +132,6 @@ export class JournalEntriesComponent implements OnInit {
 
         //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
         if ((paymentIntervalsService.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
-          //    alert("179")
           this.totalOfMonth = this.map.get('accuredLiabality')
           this.repeatedMonthValue = this.map.get('financeCostRemaining')
           this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
@@ -198,11 +147,7 @@ export class JournalEntriesComponent implements OnInit {
         //calculatiung leaseliability for ending
         this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
         //calculatiung leaseliability for Beginning
-        //      alert(this.paymentCashBank  + "f" + this.financeCost)
         this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
-        //     alert(this.leaseLiabilityBeginning + "l95")
-
-
 
         //quarter wise payment in beginning paymentydiv would be shown in commencement month and then after every 3 months it should be shown
         // g ,h,i column as dr for the month.. g is first monmth h is 2nd and I is 3rd month .. simple month entry
@@ -230,11 +175,11 @@ export class JournalEntriesComponent implements OnInit {
           var year = ret[0];
           var userSelectedMonth = ret[1];
           if (userSelectedMonth == paymentMonth) {
-            $('#paymentMonthDiv').show();
+            $('#paymentMonthEndingDiv').show();
             $('#paymentMonthBeginningDiv').show();
           }
           else {
-            $('#paymentMonthDiv').hide();
+            $('#paymentMonthEndingDiv').hide();
             $('#paymentMonthBeginningDiv').hide();
           }
 
@@ -296,40 +241,67 @@ export class JournalEntriesComponent implements OnInit {
 
           }
         }
-        //   alert(this.drValue)
         sumOfdr += parseInt(this.drValue)
-       
+
 
         const monthServiceInt = calculateMonth(monthService);
 
         function calculateMonth(monthService) {
-          if (monthService == "Jan") {
+          if (monthService.toLowerCase() == "Jan".toLowerCase()) {
             return "01"
           }
-          if (monthService == "Feb") {
+          if (monthService.toLowerCase() == "Feb".toLowerCase()) {
             return "02"
           }
-          if (monthService == "Mar") {
+          if (monthService.toLowerCase() == "Mar".toLowerCase()) {
             return "03"
           }
-          if (monthService == "Apr") {
+          if (monthService.toLowerCase() == "Apr".toLowerCase()) {
             return "04"
           }
+          if (monthService.toLowerCase() == "May".toLowerCase()) {
+            return "05"
+          }
+          if (monthService.toLowerCase() == "Jun".toLowerCase()) {
+            return "06"
+          }
+          if (monthService.toLowerCase() == "Jul".toLowerCase()) {
+            return "07"
+          }
+          if (monthService.toLowerCase() == "Aug".toLowerCase()) {
+            return "08"
+          }
+          if (monthService.toLowerCase() == "Sep".toLowerCase()) {
+            return "09"
+          }
+          if (monthService.toLowerCase() == "Oct".toLowerCase()) {
+            return "10"
+          }
+          if (monthService.toLowerCase() == "Nov".toLowerCase()) {
+            return "11"
+          }
+          if (monthService.toLowerCase() == "Dec".toLowerCase()) {
+            return "12"
+          }
+
         }
-     //   alert(month + "ser" + this.drValue)
+
         if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt)) {
+          $('#endingView').hide();
+          $('#paymentMonthEndingDiv').hide();
+          $('#beginningView').show();
+          $('#paymentMonthBeginningDiv').show();
           sumOfpaymentCashBank += parseInt(this.paymentCashBank)
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
           sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning)
-          ///    alert(sumOfleaseLiabilityBeginning)
-          //   alert(sumOfleaseLiabilityEnding)
           sumOftotalOfMonth += parseInt(this.totalOfMonth)
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
-          sumOffinanceCost = parseInt(this.financeCost);
-    //      alert("beginninginside")
-          $('#endingView').hide();
-          $('#paymentMonthDiv').show();
-          $('#paymentMonthBeginningDiv').show();
+          sumOffinanceCost += parseInt(this.financeCost)
+
+
+        }
+        else {
+          //  $('#paymentMonthBeginningDiv').hide();
         }
 
       });
@@ -343,16 +315,9 @@ export class JournalEntriesComponent implements OnInit {
       this.drValue = sumOfdr
 
     });
-
-
-
-
   }
 
-
   ngOnInit() {
-
-
     // if monthly in selected then payment month div will be shown in all conditions 
 
     var commencementDateOld = (this.globals.commencementDate.split("-"))
@@ -364,15 +329,14 @@ export class JournalEntriesComponent implements OnInit {
     $('#beginningView').hide();
     if (paymentInterval.toLowerCase() !== "quarterly") {
 
-      $('#paymentMonthDiv').show();
+      $('#paymentMonthEndingDiv').show();
       $('#paymentMonthBeginningDiv').show();
     }
     if (paymentInterval.toLowerCase() !== "monthly") {
 
-      $('#paymentMonthDiv').hide();
+      $('#paymentMonthEndingDiv').hide();
       $('#paymentMonthBeginningDiv').hide();
     }
-
 
     var paymentIn = this.globals.paymentsAt
     var paymentBeginning = "Beginning"
@@ -398,7 +362,7 @@ export class JournalEntriesComponent implements OnInit {
 
       //if user selects ending then the payment year month will start from the next year of selected commencement year.
       if ((commencementyear == year) && (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) && (comencementMonth == month) && (paymentInterval.toLowerCase() !== "monthly")) {
-        $('#paymentMonthDiv').hide();
+        $('#paymentMonthEndingDiv').hide();
         1
       }
 
@@ -406,7 +370,7 @@ export class JournalEntriesComponent implements OnInit {
       // not hidng fir monthly paymentinterval coz all payment divs should be shown
       else if ((comencementMonth == month) || (paymentInterval.toLowerCase() == "monthly")) {
 
-        $('#paymentMonthDiv').show();
+        $('#paymentMonthEndingDiv').show();
 
         $('#paymentMonthBeginningDiv').show();
       }
