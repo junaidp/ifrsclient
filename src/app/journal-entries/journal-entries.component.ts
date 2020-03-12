@@ -176,12 +176,12 @@ export class JournalEntriesComponent implements OnInit {
           var year = ret[0];
           var userSelectedMonth = ret[1];
           if (userSelectedMonth == paymentMonth) {
-            $('#paymentMonthEndingDiv').show();
-            $('#paymentMonthBeginningDiv').show();
+            // $('#paymentMonthEndingDiv').show();
+            // $('#paymentMonthBeginningDiv').show();
           }
           else {
-            $('#paymentMonthEndingDiv').hide();
-            $('#paymentMonthBeginningDiv').hide();
+            // $('#paymentMonthEndingDiv').hide();
+            // $('#paymentMonthBeginningDiv').hide();
           }
 
           if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()) {
@@ -288,7 +288,7 @@ export class JournalEntriesComponent implements OnInit {
         }
         $('#beginningView').show();
       //  $('#paymentMonthBeginningDiv').hide();
-        if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt)) {
+        if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly") ) {
           $('#endingView').hide();
           $('#paymentMonthEndingDiv').hide();
           $('#paymentMonthBeginningDiv').show();
