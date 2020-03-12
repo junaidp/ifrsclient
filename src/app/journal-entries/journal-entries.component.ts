@@ -49,7 +49,8 @@ export class JournalEntriesComponent implements OnInit {
   ServiceDrValue = 0;
 
   calculate() {
-
+    $('#paymentMonthBeginningDiv').show();
+    $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
     // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
@@ -283,13 +284,13 @@ export class JournalEntriesComponent implements OnInit {
           if (monthService.toLowerCase() == "Dec".toLowerCase()) {
             return "12"
           }
-
+          
         }
-
+        $('#beginningView').show();
+      //  $('#paymentMonthBeginningDiv').hide();
         if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt)) {
           $('#endingView').hide();
           $('#paymentMonthEndingDiv').hide();
-          $('#beginningView').show();
           $('#paymentMonthBeginningDiv').show();
           sumOfpaymentCashBank += parseInt(this.paymentCashBank)
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
@@ -301,7 +302,7 @@ export class JournalEntriesComponent implements OnInit {
 
         }
         else {
-          //  $('#paymentMonthBeginningDiv').hide();
+            // $('#paymentMonthBeginningDiv').hide();
         }
 
       });
@@ -317,79 +318,77 @@ export class JournalEntriesComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    // if monthly in selected then payment month div will be shown in all conditions 
+   ngOnInit() {
+  //   // if monthly in selected then payment month div will be shown in all conditions 
 
-    var commencementDateOld = (this.globals.commencementDate.split("-"))
-    var comencementMonth = commencementDateOld[1];
-    var commencementyear = commencementDateOld[0];
-    var paymentInterval = this.globals.paymentIntervals
-    // at startup hiding all the divs ..
-    $('#endingView').hide();
-    $('#beginningView').hide();
-    if (paymentInterval.toLowerCase() !== "quarterly") {
+  //   var commencementDateOld = (this.globals.commencementDate.split("-"))
+  //   var comencementMonth = commencementDateOld[1];
+  //   var commencementyear = commencementDateOld[0];
+  //   var paymentInterval = this.globals.paymentIntervals
+  //   // at startup hiding all the divs ..
+     $('#endingView').hide();
+     $('#beginningView').hide();
+  //   if (paymentInterval.toLowerCase() !== "quarterly") {
 
-      $('#paymentMonthEndingDiv').show();
-      $('#paymentMonthBeginningDiv').show();
-    }
-    if (paymentInterval.toLowerCase() !== "monthly") {
+  //     $('#paymentMonthEndingDiv').show();
+  //     $('#paymentMonthBeginningDiv').show();
+  //   }
+  //   if (paymentInterval.toLowerCase() !== "monthly") {
 
-      $('#paymentMonthEndingDiv').hide();
-      $('#paymentMonthBeginningDiv').hide();
-    }
+  //     $('#paymentMonthEndingDiv').hide();
+  //     $('#paymentMonthBeginningDiv').hide();
+  //   }
 
-    var paymentIn = this.globals.paymentsAt
-    var paymentBeginning = "Beginning"
-    var paymentEnding = "Ending"
+  //   var paymentIn = this.globals.paymentsAt
+  //   var paymentBeginning = "Beginning"
+  //   var paymentEnding = "Ending"
 
-    // for showing user selected beginning or ending view shown accordingly
-    if (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) {
-      $('#endingView').show();
-    }
-    if (paymentIn.toLowerCase() == paymentBeginning.toLowerCase()) {
-      $('#beginningView').show();
-    }
+  //   // for showing user selected beginning or ending view shown accordingly
+  //   if (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) {
+  //     $('#endingView').show();
+  //   }
+  //   if (paymentIn.toLowerCase() == paymentBeginning.toLowerCase()) {
+  //     $('#beginningView').show();
+  //   }
 
-    // dateSelector change event
+  //   // dateSelector change event
 
-    $('#dateSelector').on('change', function () {
+  //   $('#dateSelector').on('change', function () {
 
-      //getting and spi;itting the date fromdate Selector
-      var ret = ($('#dateSelector').val().split("-"))
-      var day = 10
-      var year = ret[0];
-      var month = ret[1];
+  //     //getting and spi;itting the date fromdate Selector
+  //     var ret = ($('#dateSelector').val().split("-"))
+  //     var day = 10
+  //     var year = ret[0];
+  //     var month = ret[1];
 
-      //if user selects ending then the payment year month will start from the next year of selected commencement year.
-      if ((commencementyear == year) && (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) && (comencementMonth == month) && (paymentInterval.toLowerCase() !== "monthly")) {
-        $('#paymentMonthEndingDiv').hide();
-        1
-      }
+  //     //if user selects ending then the payment year month will start from the next year of selected commencement year.
+  //     if ((commencementyear == year) && (paymentIn.toLowerCase() == paymentEnding.toLowerCase()) && (comencementMonth == month) && (paymentInterval.toLowerCase() !== "monthly")) {
+  //       $('#paymentMonthEndingDiv').hide();
+  //       1
+  //     }
 
-      // check if payment month equals tyo commencement month then show payemnt divs
-      // not hidng fir monthly paymentinterval coz all payment divs should be shown
-      else if ((comencementMonth == month) || (paymentInterval.toLowerCase() == "monthly")) {
+  //     // check if payment month equals tyo commencement month then show payemnt divs
+  //     // not hidng fir monthly paymentinterval coz all payment divs should be shown
+  //     else if ((comencementMonth == month) || (paymentInterval.toLowerCase() == "monthly")) {
 
-        $('#paymentMonthEndingDiv').show();
+  //       $('#paymentMonthEndingDiv').show();
 
-        $('#paymentMonthBeginningDiv').show();
-      }
-      else {
-        $('#paymentMonthBeginningDiv').hide();
-        $('#paymentMonthDiv').hide();
-      }
-      //    this.fullDate = day + "/" + month + "/" + year
+  //       $('#paymentMonthBeginningDiv').show();
+  //     }
+  //     else {
+  //       $('#paymentMonthBeginningDiv').hide();
+  //       $('#paymentMonthDiv').hide();
+  //     }
+  //     //    this.fullDate = day + "/" + month + "/" + year
 
-    });
+  //   });
 
-    $("#journal_entry_show").on("click", function () {
-      $("#journal_entry").toggle("show");
-      $("#journal_entry1").toggle("show");
-    });
+  //   $("#journal_entry_show").on("click", function () {
+  //     $("#journal_entry").toggle("show");
+  //     $("#journal_entry1").toggle("show");
+  //   });
 
-  }
+   }
 
-  calculateMonth() {
-
-  }
+  
 }
