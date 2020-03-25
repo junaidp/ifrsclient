@@ -1,19 +1,22 @@
 import axios from "axios";
 import { Injectable } from "@angular/core";
-const url = "//compliancetool.herokuapp.com/calculation/lease/yearly";
+import { Globals } from "../globals";
 
-const urlSaveData = "//compliancetool.herokuapp.com/data/saveData";
 
 @Injectable({ providedIn: "root" })
 export class LeaseService {
+  constructor(public globals: Globals) {
+    
+    
+  }
   async calculate(data) {
-  
+    const url = this.globals.APP_URL+"/calculation/lease/yearly";
    const response = await axios.post(url, data);
     return response;
   }
 
   async SaveData(data) {
-
+    const urlSaveData = this.globals.APP_URL+"/data/saveData";
     const response = await axios.post(urlSaveData, data).then();
     return response;
   }
