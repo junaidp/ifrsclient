@@ -121,11 +121,11 @@ export class JournalEntriesComponent implements OnInit {
         this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
         this.financeCost = Math.round(this.financeCost)
         this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
-
+        const monthServiceInt = calculateMonth(monthService);
         // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
         var payment = this.map.get('payment');
         //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
-        if ((monthService == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
+        if ((monthServiceInt == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
           this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
           //calculationg accrued liability for ending yearly
           this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued) //it should be repatMonthAccrued
@@ -245,7 +245,7 @@ export class JournalEntriesComponent implements OnInit {
         sumOfdr += parseInt(this.drValue)
 
 
-        const monthServiceInt = calculateMonth(monthService);
+        
 
         function calculateMonth(monthService) {
           if (monthService.toLowerCase() == "Jan".toLowerCase()) {
