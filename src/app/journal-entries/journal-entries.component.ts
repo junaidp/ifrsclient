@@ -294,12 +294,13 @@ export class JournalEntriesComponent implements OnInit {
           $('#endingView').show();
           $('#paymentMonthEndingDiv').show();
           $('#paymentMonthBeginningDiv').show();
-          sumOfpaymentCashBank += parseInt(this.paymentCashBank)
+          sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
           sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning)
           sumOftotalOfMonth += parseInt(this.totalOfMonth)
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
           sumOffinanceCost += parseInt(this.financeCost)
+          alert(this.paymentCashBank)
 
 
         }
@@ -308,7 +309,7 @@ export class JournalEntriesComponent implements OnInit {
         }
 
       });
-
+      alert( "ad" +sumOfpaymentCashBank);
       this.paymentCashBank = sumOfpaymentCashBank
       this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
       this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning
@@ -316,6 +317,7 @@ export class JournalEntriesComponent implements OnInit {
       this.repeatedMonthValue = sumOfrepeatedMonthValue
       this.financeCost = sumOffinanceCost
       this.drValue = sumOfdr
+     
 
     });
   }
