@@ -49,10 +49,9 @@ export class JournalEntriesComponent implements OnInit {
   ServiceDrValue = 0;
 
   calculate() {
-    $('#paymentMonthBeginningDiv').show();
-    $('#beginningView').show();
+    // $('#paymentMonthBeginningDiv').show();
+    // $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
-    // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
     var day = 10
     var year = ret[0];
@@ -286,21 +285,24 @@ export class JournalEntriesComponent implements OnInit {
           }
 
         }
-        $('#beginningView').show();
+        
         //  $('#paymentMonthBeginningDiv').hide();
       //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if  ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
-
+        if  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()){
           $('#endingView').show();
           $('#paymentMonthEndingDiv').show();
+        }
+          else{
+          $('#beginningView').show();
           $('#paymentMonthBeginningDiv').show();
+          }
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
           sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning)
           sumOftotalOfMonth += parseInt(this.totalOfMonth)
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
           sumOffinanceCost += parseInt(this.financeCost)
-          alert(this.paymentCashBank)
 
 
         }
@@ -309,7 +311,6 @@ export class JournalEntriesComponent implements OnInit {
         }
 
       });
-      alert( "ad" +sumOfpaymentCashBank);
       this.paymentCashBank = sumOfpaymentCashBank
       this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
       this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning

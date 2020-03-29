@@ -44,9 +44,7 @@ import { AuthService } from '../auth.service';
       id:this.id
     };
     this.loginservice.signIn(data).then(response => {
-      alert(response.data.userId)
       console.log(response.data)
-      alert(response.data.name )
       if (data.name == response.data.name && data.password == response.data.password) {
         alert("successful login")
 

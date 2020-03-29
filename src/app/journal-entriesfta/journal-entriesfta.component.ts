@@ -46,7 +46,6 @@ export class JournalEntriesftaComponent implements OnInit {
 
 calculate() {
     
-    // alert($('#dateSelector').val());
     var ret = ($('#dateSelector').val().split("-"))
     var day = 10
     var year = ret[0];
@@ -155,6 +154,7 @@ calculate() {
       var paymentDate =  this.startDate.split("-")
       var paymentYear = paymentDate[0];
       var paymentMonth = paymentDate[1];
+
 
       var ret = ($('#dateSelector').val().split("-"))
       var day = 10
