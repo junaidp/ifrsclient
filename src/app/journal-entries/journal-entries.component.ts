@@ -23,28 +23,22 @@ export class JournalEntriesComponent implements OnInit {
   paymentCashBank: any
   monthTotal: number
   repeatMonth: number
-
-
   leaseLiabilityEnding: number
   leaseLiabilityBeginning: number
   accruedLiabilityMonthly: number
-
   totalOfMonth: any
   repeatedMonthValue: any
   repeatedMonthAccrued: any
   financeCost: any
   year: Date;
   month: Date;
-
   map: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   //for dr
   drValue: number;
-
   startDate: any;
   endDate: any;
   aboveColj: any
-
   fullDate: ""
   ServiceDrValue = 0;
 
@@ -68,17 +62,25 @@ export class JournalEntriesComponent implements OnInit {
       var sumOfpaymentCashBank = 0
       var sumOfmonthTotal = 0
       var sumOfrepeatMonth = 0
-
       var sumOfleaseLiabilityEnding = 0
       var sumOfleaseLiabilityBeginning = 0
       var sumOfaccruedLiabilityMonthly = 0
-
       var sumOftotalOfMonth = 0
       var sumOfrepeatedMonthValue = 0
       var sumOfrepeatedMonthAccrued = 0
       var sumOffinanceCost = 0
+      var paymentInGlobal 
+      var commencementDateSer 
+      var paymentIntervalsService 
+      var commencementDateService
+      var monthService
+      var payment
+      var dayService
+      var yearService
+
 
       alert("serviceCalled")
+
       $.each(response.data, function (index) {
 
         // setting all the values to null in startup
@@ -91,21 +93,29 @@ export class JournalEntriesComponent implements OnInit {
         this.repeatMonth = 0
         this.repeatedMonthAccrued = 0
         this.ServiceDrValue = 0
-
-
         var paymentEnding = "Ending"
         var paymentBeginning = "Beginning"
 
         this.map = new Map(Object.entries(response.data[index]));
-        var paymentInGlobal = response.data[index].paymentsAt;
-        var commencementDateSer = (response.data[index].commencementDate)
-        var paymentIntervalsService = response.data[index].paymentIntervals;
-        var commencementDateService = (commencementDateSer.split(" "))
-        var monthService = commencementDateService[1]
-        var dayService = commencementDateService[2]
-        var yearService = commencementDateService[5]
+         paymentInGlobal = response.data[index].paymentsAt;
+         commencementDateSer = (response.data[index].commencementDate)
+         paymentIntervalsService = response.data[index].paymentIntervals;
+         commencementDateService = (commencementDateSer.split(" "))
+         monthService = commencementDateService[1]
+         dayService = commencementDateService[2]
+         yearService = commencementDateService[5]
 
         // settign valuesfrom api call srive 
+
+        if(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()){
+          paymentBeginningFunction();
+        }
+
+        if(paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()){
+          paymentEndingFunction();
+        }
+
+
         this.drValue = this.map.get('dr') //g,h,i column
         this.totalOfMonth = this.map.get('total') // sum of g,h,i
         this.repeatedMonthValue = this.map.get('repeat'); // column j
@@ -122,7 +132,8 @@ export class JournalEntriesComponent implements OnInit {
         this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
         const monthServiceInt = calculateMonth(monthService);
         // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
-        var payment = this.map.get('payment');
+         payment = this.map.get('payment');
+        
         //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
         if ((monthServiceInt == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
           this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
@@ -188,7 +199,7 @@ export class JournalEntriesComponent implements OnInit {
             //begining
             this.drValue = this.map.get('dr')
             this.financeCost = this.map.get('financeCharge');
-            var payment = this.map.get('payment');
+             payment = this.map.get('payment');
 
             //for round to 0 dc
             this.drValue = Math.round(this.drValue)
@@ -243,48 +254,6 @@ export class JournalEntriesComponent implements OnInit {
         }
         sumOfdr += parseInt(this.drValue)
 
-
-        
-
-        function calculateMonth(monthService) {
-          if (monthService.toLowerCase() == "Jan".toLowerCase()) {
-            return "01"
-          }
-          if (monthService.toLowerCase() == "Feb".toLowerCase()) {
-            return "02"
-          }
-          if (monthService.toLowerCase() == "Mar".toLowerCase()) {
-            return "03"
-          }
-          if (monthService.toLowerCase() == "Apr".toLowerCase()) {
-            return "04"
-          }
-          if (monthService.toLowerCase() == "May".toLowerCase()) {
-            return "05"
-          }
-          if (monthService.toLowerCase() == "Jun".toLowerCase()) {
-            return "06"
-          }
-          if (monthService.toLowerCase() == "Jul".toLowerCase()) {
-            return "07"
-          }
-          if (monthService.toLowerCase() == "Aug".toLowerCase()) {
-            return "08"
-          }
-          if (monthService.toLowerCase() == "Sep".toLowerCase()) {
-            return "09"
-          }
-          if (monthService.toLowerCase() == "Oct".toLowerCase()) {
-            return "10"
-          }
-          if (monthService.toLowerCase() == "Nov".toLowerCase()) {
-            return "11"
-          }
-          if (monthService.toLowerCase() == "Dec".toLowerCase()) {
-            return "12"
-          }
-
-        }
         
         //  $('#paymentMonthBeginningDiv').hide();
       //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
@@ -318,11 +287,54 @@ export class JournalEntriesComponent implements OnInit {
       this.repeatedMonthValue = sumOfrepeatedMonthValue
       this.financeCost = sumOffinanceCost
       this.drValue = sumOfdr
-     
 
     });
-  }
+    function calculateMonth(monthService) {
+      if (monthService.toLowerCase() == "Jan".toLowerCase()) {
+        return "01"
+      }
+      if (monthService.toLowerCase() == "Feb".toLowerCase()) {
+        return "02"
+      }
+      if (monthService.toLowerCase() == "Mar".toLowerCase()) {
+        return "03"
+      }
+      if (monthService.toLowerCase() == "Apr".toLowerCase()) {
+        return "04"
+      }
+      if (monthService.toLowerCase() == "May".toLowerCase()) {
+        return "05"
+      }
+      if (monthService.toLowerCase() == "Jun".toLowerCase()) {
+        return "06"
+      }
+      if (monthService.toLowerCase() == "Jul".toLowerCase()) {
+        return "07"
+      }
+      if (monthService.toLowerCase() == "Aug".toLowerCase()) {
+        return "08"
+      }
+      if (monthService.toLowerCase() == "Sep".toLowerCase()) {
+        return "09"
+      }
+      if (monthService.toLowerCase() == "Oct".toLowerCase()) {
+        return "10"
+      }
+      if (monthService.toLowerCase() == "Nov".toLowerCase()) {
+        return "11"
+      }
+      if (monthService.toLowerCase() == "Dec".toLowerCase()) {
+        return "12"
+      }
+  
+    }
+    function paymentBeginningFunction(){
+    if  (this.paymentIntervalsService.toLowerCase() == "monthly"){}
 
+    }
+    function paymentEndingFunction(){}
+  }
+  
   ngOnInit() {
     //   // if monthly in selected then payment month div will be shown in all conditions 
 

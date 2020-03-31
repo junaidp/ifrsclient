@@ -100,7 +100,6 @@ calculate() {
      this.financeCost = Math.round(this.financeCost)
      this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
 
-      // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       var paymentEnding = "Ending" 
       var paymentBeginning = "Beginning" 
       var payment = this.map.get('payment');
@@ -108,7 +107,7 @@ calculate() {
       var commencementDateG = (this.globals.commencementDate.split("-"))
       var comencementMonth = commencementDateG[1];
       var paymentIntervalGlobal =this.globals.paymentIntervals
-
+      // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
       //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
       if ((comencementMonth == month)&&(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) &&(paymentIntervalGlobal.toLowerCase() == "yearly")) {
         this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
@@ -127,8 +126,6 @@ calculate() {
       this.paymentCashBank = payment
       this.monthTotal = parseInt(this.totalOfMonth, 10);
       this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
-      
-
       //calculatiung leaseliability for ending
       this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
       //calculatiung leaseliability for Beginning
