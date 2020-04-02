@@ -16,325 +16,302 @@ export class JournalEntriesComponent implements OnInit {
   constructor(public journalService: JournalService, public globals: Globals) {
 
   }
-  userId: any
-  commencementDateService: Date
-  commencementDateS: Date
-  dateSelectorMonth: any
-  paymentCashBank: any
-  monthTotal: number
-  repeatMonth: number
-  leaseLiabilityEnding: number
-  leaseLiabilityBeginning: number
-  accruedLiabilityMonthly: number
-  totalOfMonth: any
-  repeatedMonthValue: any
-  repeatedMonthAccrued: any
-  financeCost: any
-  year: Date;
-  month: Date;
-  map: Map<string, Map<string, string>>;
-  map1: Map<String, String>;
+  public userId: any
+  public commencementDateService: Date
+  public commencementDateS: Date
+  public dateSelectorMonth: any
+  public paymentCashBank: any
+  public monthTotal: number
+  public repeatMonth: number
+  public leaseLiabilityEnding: number
+  public leaseLiabilityBeginning: number
+  public accruedLiabilityMonthly: number
+  public totalOfMonth: any
+  public repeatedMonthValue: any
+  public repeatedMonthAccrued: any
+  public financeCost: any
+  public year: Date;
+  public month: Date;
+  public map: Map<string, Map<string, string>>;
+  public map1: Map<String, String>;
   //for dr
-  drValue: number;
-  startDate: any;
-  endDate: any;
-  aboveColj: any
-  fullDate: ""
-  ServiceDrValue = 0;
+  public drValue: number;
+  public startDate: any;
+  public endDate: any;
+  public aboveColj: any
+  public fullDate: ""
+  public ServiceDrValue = 0;
 
   calculate() {
-    // $('#paymentMonthBeginningDiv').show();
-    // $('#beginningView').show();
+    this.letsCalcluate();
+  }
+  
+  private letsCalcluate() {
+    $('#paymentMonthBeginningDiv').show();
+    $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
-    var ret = ($('#dateSelector').val().split("-"))
-    var day = 10
+    var ret = ($('#dateSelector').val().split("-"));
+    var day = 10;
     var year = ret[0];
     var month = ret[1];
-    this.dateSelectorMonth = month
+    this.dateSelectorMonth = month;
     var data = {
       userId: this.userId,
       year: year,
       month: month
     };
     this.journalService.calculate(data).then(response => {
-      console.log(response.data)
-      var sumOfdr = 0;
-      var sumOfpaymentCashBank = 0
-      var sumOfmonthTotal = 0
-      var sumOfrepeatMonth = 0
-      var sumOfleaseLiabilityEnding = 0
-      var sumOfleaseLiabilityBeginning = 0
-      var sumOfaccruedLiabilityMonthly = 0
-      var sumOftotalOfMonth = 0
-      var sumOfrepeatedMonthValue = 0
-      var sumOfrepeatedMonthAccrued = 0
-      var sumOffinanceCost = 0
-      var paymentInGlobal 
-      var commencementDateSer 
-      var paymentIntervalsService 
-      var commencementDateService
-      var monthService
-      var payment
-      var dayService
-      var yearService
+      this.onServerCallSuccess(response, paymentBeginningFunction, paymentEndingFunction, calculateMonth, month);
+    });
+    
+    function calculateMonth(monthService) {
+      if (monthService.toLowerCase() == "Jan".toLowerCase()) {
+        return "01";
+      }
+      if (monthService.toLowerCase() == "Feb".toLowerCase()) {
+        return "02";
+      }
+      if (monthService.toLowerCase() == "Mar".toLowerCase()) {
+        return "03";
+      }
+      if (monthService.toLowerCase() == "Apr".toLowerCase()) {
+        return "04";
+      }
+      if (monthService.toLowerCase() == "May".toLowerCase()) {
+        return "05";
+      }
+      if (monthService.toLowerCase() == "Jun".toLowerCase()) {
+        return "06";
+      }
+      if (monthService.toLowerCase() == "Jul".toLowerCase()) {
+        return "07";
+      }
+      if (monthService.toLowerCase() == "Aug".toLowerCase()) {
+        return "08";
+      }
+      if (monthService.toLowerCase() == "Sep".toLowerCase()) {
+        return "09";
+      }
+      if (monthService.toLowerCase() == "Oct".toLowerCase()) {
+        return "10";
+      }
+      if (monthService.toLowerCase() == "Nov".toLowerCase()) {
+        return "11";
+      }
+      if (monthService.toLowerCase() == "Dec".toLowerCase()) {
+        return "12";
+      }
+    }
+    function paymentBeginningFunction() {
+      if (this.paymentIntervalsService.toLowerCase() == "monthly") { }
+    }
+    function paymentEndingFunction() { }
+  }
 
-
-      alert("serviceCalled")
-
-      $.each(response.data, function (index) {
-
-        // setting all the values to null in startup
-        this.repeatedMonthValue = 0
-        this.drValue = 0
-        this.totalOfMonth = 0
-        this.financeCost = 0
-        this.leaseLiabilityEnding = 0
-        this.leaseLiabilityBeginning = 0
-        this.repeatMonth = 0
-        this.repeatedMonthAccrued = 0
-        this.ServiceDrValue = 0
-        var paymentEnding = "Ending"
-        var paymentBeginning = "Beginning"
-
-        this.map = new Map(Object.entries(response.data[index]));
-         paymentInGlobal = response.data[index].paymentsAt;
-         commencementDateSer = (response.data[index].commencementDate)
-         paymentIntervalsService = response.data[index].paymentIntervals;
-         commencementDateService = (commencementDateSer.split(" "))
-         monthService = commencementDateService[1]
-         dayService = commencementDateService[2]
-         yearService = commencementDateService[5]
-
-        // settign valuesfrom api call srive 
-
-        if(paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()){
-          paymentBeginningFunction();
+  private onServerCallSuccess(response, paymentBeginningFunction: () => void, paymentEndingFunction: () => void, calculateMonth: (monthService: any) => "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12", month: any) {
+    console.log(response.data);
+    var sumOfdr = 0;
+    var sumOfpaymentCashBank = 0;
+    var sumOfmonthTotal = 0;
+    var sumOfrepeatMonth = 0;
+    var sumOfleaseLiabilityEnding = 0;
+    var sumOfleaseLiabilityBeginning = 0;
+    var sumOfaccruedLiabilityMonthly = 0;
+    var sumOftotalOfMonth = 0;
+    var sumOfrepeatedMonthValue = 0;
+    var sumOfrepeatedMonthAccrued = 0;
+    var sumOffinanceCost = 0;
+    var paymentInGlobal;
+    var commencementDateSer;
+    var paymentIntervalsService;
+    var commencementDateService;
+    var monthService;
+    var payment;
+    var dayService;
+    var yearService;
+    alert("serviceCalled");
+    $.each(response.data, function (index) {
+      // setting all the values to null in startup
+      this.initialize();
+      var paymentEnding = "Ending";
+      var paymentBeginning = "Beginning";
+      this.map = new Map(Object.entries(response.data[index]));
+      paymentInGlobal = response.data[index].paymentsAt;
+      commencementDateSer = (response.data[index].commencementDate);
+      paymentIntervalsService = response.data[index].paymentIntervals;
+      commencementDateService = (commencementDateSer.split(" "));
+      monthService = commencementDateService[1];
+      dayService = commencementDateService[2];
+      yearService = commencementDateService[5];
+      // settign valuesfrom api call srive 
+      if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) {
+        paymentBeginningFunction();
+      }
+      if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()) {
+        paymentEndingFunction();
+      }
+     
+      this.drValue = this.map.get('dr'); //g,h,i column
+      this.totalOfMonth = this.map.get('total'); // sum of g,h,i
+      this.repeatedMonthValue = this.map.get('repeat'); // column j
+      this.financeCost = this.map.get('financeCharge'); // fc
+      this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued');
+      this.commencementDateS = this.map.get('commencementDate');
+      
+      // for rounding off upto 0 dc
+      this.round();
+      const monthServiceInt = calculateMonth(monthService);
+      // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
+      payment = this.map.get('payment');
+      //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
+      if ((monthServiceInt == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
+        this.drValue = Math.round(this.drValue - this.repeatedMonthValue);
+        //calculationg accrued liability for ending yearly
+        this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued); //it should be repatMonthAccrued
+      }
+      //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
+      if ((paymentIntervalsService.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
+        this.totalOfMonth = this.map.get('accuredLiabality');
+        this.repeatedMonthValue = this.map.get('financeCostRemaining');
+        this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued);
+        this.totalOfMonth = Math.round(this.totalOfMonth);
+      }
+      //monthTotal - total of month  and repeat month = repeated value changed due to having issues with nan
+      this.paymentCashBank = payment;
+      this.monthTotal = parseInt(this.totalOfMonth, 10);
+      this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
+      //calculatiung leaseliability for ending
+      this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth);
+      //calculatiung leaseliability for Beginning
+      this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost);
+      //quarter wise payment in beginning paymentydiv would be shown in commencement month and then after every 3 months it should be shown
+      // g ,h,i column as dr for the month.. g is first monmth h is 2nd and I is 3rd month .. simple month entry
+      //fc and paymentmonth  for payment month should be picked fromt he similar table as it was working
+      //**ending */
+      //total = sum of i ,j,k
+      // for ending fc and accruued liability should be puicked from g ,h,i column
+      //fc for payment month ending should be picked from column j above
+      //for every quarter start month dr should be subtracted from 1 value above the J column
+      //total(accruedliability payment month should be subtracted from coluumn j 1 value above)
+      //if ((paymentIntervalGlobal.toLowerCase() == "quarterly") && (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase())) {
+      //first of all check whether its quarterly then check if payment month = month then check whether payment = beginning or ending
+      if (paymentIntervalsService.toLowerCase() == "quarterly") {
+        this.startDate = this.map.get('startDate');
+        var paymentDate = this.startDate.split("-");
+        var paymentYear = paymentDate[0];
+        var paymentMonth = paymentDate[1];
+        var ret = ($('#dateSelector').val().split("-"));
+        var day = 10;
+        var year = ret[0];
+        var userSelectedMonth = ret[1];
+        if (userSelectedMonth == paymentMonth) {
+          // $('#paymentMonthEndingDiv').show();
+          // $('#paymentMonthBeginningDiv').show();
         }
-
-        if(paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()){
-          paymentEndingFunction();
+        else {
+          // $('#paymentMonthEndingDiv').hide();
+          // $('#paymentMonthBeginningDiv').hide();
         }
-
-
-        this.drValue = this.map.get('dr') //g,h,i column
-        this.totalOfMonth = this.map.get('total') // sum of g,h,i
-        this.repeatedMonthValue = this.map.get('repeat'); // column j
-        this.financeCost = this.map.get('financeCharge'); // fc
-        this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued');
-        this.commencementDateS = this.map.get('commencementDate');
-
-
-        // for rounding off upto 0 dc
-        this.drValue = Math.round(this.drValue)
-        this.totalOfMonth = Math.round(this.totalOfMonth)
-        this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
-        this.financeCost = Math.round(this.financeCost)
-        this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
-        const monthServiceInt = calculateMonth(monthService);
-        // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
-         payment = this.map.get('payment');
-        
-        //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
-        if ((monthServiceInt == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
-          this.drValue = Math.round(this.drValue - this.repeatedMonthValue)
-          //calculationg accrued liability for ending yearly
-          this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued) //it should be repatMonthAccrued
+        if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()) {
+          //begining
+          this.drValue = this.map.get('dr');
+          this.financeCost = this.map.get('financeCharge');
+          payment = this.map.get('payment');
+          //for round to 0 dc
+          this.drValue = Math.round(this.drValue);
+          this.financeCost = Math.round(this.financeCost);
+          this.paymentCashBank = payment;
+          this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost);
         }
-
-        //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
-        if ((paymentIntervalsService.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
-          this.totalOfMonth = this.map.get('accuredLiabality')
-          this.repeatedMonthValue = this.map.get('financeCostRemaining')
-          this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
-          this.totalOfMonth = Math.round(this.totalOfMonth)
-
-        }
-        //monthTotal - total of month  and repeat month = repeated value changed due to having issues with nan
-        this.paymentCashBank = payment
-        this.monthTotal = parseInt(this.totalOfMonth, 10);
-        this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
-
-
-        //calculatiung leaseliability for ending
-        this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
-        //calculatiung leaseliability for Beginning
-        this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
-
-        //quarter wise payment in beginning paymentydiv would be shown in commencement month and then after every 3 months it should be shown
-        // g ,h,i column as dr for the month.. g is first monmth h is 2nd and I is 3rd month .. simple month entry
-        //fc and paymentmonth  for payment month should be picked fromt he similar table as it was working
-
-        //**ending */
-        //total = sum of i ,j,k
-        // for ending fc and accruued liability should be puicked from g ,h,i column
-        //fc for payment month ending should be picked from column j above
-        //for every quarter start month dr should be subtracted from 1 value above the J column
-        //total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-
-        //if ((paymentIntervalGlobal.toLowerCase() == "quarterly") && (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase())) {
-
-        //first of all check whether its quarterly then check if payment month = month then check whether payment = beginning or ending
-
-        if (paymentIntervalsService.toLowerCase() == "quarterly") {
-          this.startDate = this.map.get('startDate')
-          var paymentDate = this.startDate.split("-")
-          var paymentYear = paymentDate[0];
-          var paymentMonth = paymentDate[1];
-
-          var ret = ($('#dateSelector').val().split("-"))
-          var day = 10
-          var year = ret[0];
-          var userSelectedMonth = ret[1];
+        //  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())
+        else {
+          //ending
+          this.drValue = this.map.get('dr');
+          this.repeatedMonthValue = this.map.get('repeat');
+          this.aboveColj = this.map.get('aboveColJ');
+          this.paymentCashBank = this.map.get('payment');
+          this.totalOfMonth = this.map.get('total');
+          this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued');
+          //for rounding to 0
+          this.drValue = Math.round(this.drValue);
+          this.aboveColj = Math.round(this.aboveColj);
+          this.paymentCashBank = Math.round(this.paymentCashBank);
+          this.totalOfMonth = Math.round(this.totalOfMonth);
+          this.repeatedMonthValue = Math.round(this.repeatedMonthValue);
+          this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued);
+          var aboveJ = this.aboveColj;
+          var financeCostNormalMonth = this.drValue;
+          var finaceCostPAymentMonth = this.repeatedMonthValue;
+          var accruedLiabilityPayment = this.totalOfMonth;
+          //for every quarter start month dr should be subtracted from 1 value above the J column
+          //to avoid nan values
+          if (this.aboveColj == "" || this.aboveColj == "undefined") {
+            this.aboveColj = 0;
+          }
+          if (this.totalOfMonth == "" || this.totalOfMonth == "undefined") {
+            this.totalOfMonth = 0;
+          }
           if (userSelectedMonth == paymentMonth) {
-            // $('#paymentMonthEndingDiv').show();
-            // $('#paymentMonthBeginningDiv').show();
+            this.repeatedMonthValue = this.map.get('aboveColJ');
+            this.drValue = Math.round(this.drValue - this.aboveColj);
           }
-          else {
-            // $('#paymentMonthEndingDiv').hide();
-            // $('#paymentMonthBeginningDiv').hide();
-          }
-
-          if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase()) {
-
-            //begining
-            this.drValue = this.map.get('dr')
-            this.financeCost = this.map.get('financeCharge');
-             payment = this.map.get('payment');
-
-            //for round to 0 dc
-            this.drValue = Math.round(this.drValue)
-            this.financeCost = Math.round(this.financeCost)
-
-            this.paymentCashBank = payment
-            this.leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
-          }
-
-          //  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())
-          else {
-            //ending
-            this.drValue = this.map.get('dr')
-            this.repeatedMonthValue = this.map.get('repeat')
-            this.aboveColj = this.map.get('aboveColJ')
-            this.paymentCashBank = this.map.get('payment')
-            this.totalOfMonth = this.map.get('total')
-            this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued');
-            //for rounding to 0
-            this.drValue = Math.round(this.drValue)
-            this.aboveColj = Math.round(this.aboveColj)
-            this.paymentCashBank = Math.round(this.paymentCashBank)
-            this.totalOfMonth = Math.round(this.totalOfMonth)
-            this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
-            this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
-
-            var aboveJ = this.aboveColj
-            var financeCostNormalMonth = this.drValue
-            var finaceCostPAymentMonth = this.repeatedMonthValue
-            var accruedLiabilityPayment = this.totalOfMonth
-            //for every quarter start month dr should be subtracted from 1 value above the J column
-
-            //to avoid nan values
-
-            if (this.aboveColj == "" || this.aboveColj == "undefined") {
-              this.aboveColj = 0
-            }
-            if (this.totalOfMonth == "" || this.totalOfMonth == "undefined") {
-              this.totalOfMonth = 0;
-
-            }
-            if (userSelectedMonth == paymentMonth) {
-              this.repeatedMonthValue = this.map.get('aboveColJ')
-              this.drValue = Math.round(this.drValue - this.aboveColj)
-            }
-
-            //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-            this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued)
-            this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.totalOfMonth - this.repeatedMonthValue)
-
-          }
+          //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
+          this.totalOfMonth = Math.round(this.totalOfMonth - this.repeatedMonthAccrued);
+          this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.totalOfMonth - this.repeatedMonthValue);
         }
-        sumOfdr += parseInt(this.drValue)
-
-        
-        //  $('#paymentMonthBeginningDiv').hide();
+      }
+      sumOfdr += parseInt(this.drValue);
+      //  $('#paymentMonthBeginningDiv').hide();
       //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
-        if  ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
-        if  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()){
+      if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
+        if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) {
           $('#endingView').show();
           $('#paymentMonthEndingDiv').show();
         }
-          else{
+        else {
           $('#beginningView').show();
           $('#paymentMonthBeginningDiv').show();
-          }
-          sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
-          sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
-          sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning)
-          sumOftotalOfMonth += parseInt(this.totalOfMonth)
-          sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
-          sumOffinanceCost += parseInt(this.financeCost)
-
-
         }
-        else {
-          // $('#paymentMonthBeginningDiv').hide();
-        }
-
-      });
-      this.paymentCashBank = sumOfpaymentCashBank
-      this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
-      this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning
-      this.totalOfMonth = sumOftotalOfMonth
-      this.repeatedMonthValue = sumOfrepeatedMonthValue
-      this.financeCost = sumOffinanceCost
-      this.drValue = sumOfdr
-
+        sumOfpaymentCashBank += parseFloat(this.paymentCashBank);
+        sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding);
+        sumOfleaseLiabilityBeginning += parseInt(this.leaseLiabilityBeginning);
+        sumOftotalOfMonth += parseInt(this.totalOfMonth);
+        sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue);
+        sumOffinanceCost += parseInt(this.financeCost);
+      }
+      else {
+        // $('#paymentMonthBeginningDiv').hide();
+      }
     });
-    function calculateMonth(monthService) {
-      if (monthService.toLowerCase() == "Jan".toLowerCase()) {
-        return "01"
-      }
-      if (monthService.toLowerCase() == "Feb".toLowerCase()) {
-        return "02"
-      }
-      if (monthService.toLowerCase() == "Mar".toLowerCase()) {
-        return "03"
-      }
-      if (monthService.toLowerCase() == "Apr".toLowerCase()) {
-        return "04"
-      }
-      if (monthService.toLowerCase() == "May".toLowerCase()) {
-        return "05"
-      }
-      if (monthService.toLowerCase() == "Jun".toLowerCase()) {
-        return "06"
-      }
-      if (monthService.toLowerCase() == "Jul".toLowerCase()) {
-        return "07"
-      }
-      if (monthService.toLowerCase() == "Aug".toLowerCase()) {
-        return "08"
-      }
-      if (monthService.toLowerCase() == "Sep".toLowerCase()) {
-        return "09"
-      }
-      if (monthService.toLowerCase() == "Oct".toLowerCase()) {
-        return "10"
-      }
-      if (monthService.toLowerCase() == "Nov".toLowerCase()) {
-        return "11"
-      }
-      if (monthService.toLowerCase() == "Dec".toLowerCase()) {
-        return "12"
-      }
-  
-    }
-    function paymentBeginningFunction(){
-    if  (this.paymentIntervalsService.toLowerCase() == "monthly"){}
-
-    }
-    function paymentEndingFunction(){}
+    this.paymentCashBank = sumOfpaymentCashBank;
+    this.leaseLiabilityEnding = sumOfleaseLiabilityEnding;
+    this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning;
+    this.totalOfMonth = sumOftotalOfMonth;
+    this.repeatedMonthValue = sumOfrepeatedMonthValue;
+    this.financeCost = sumOffinanceCost;
+    this.drValue = sumOfdr;
   }
-  
+
+  private round() {
+    this.drValue = Math.round(this.drValue);
+    this.totalOfMonth = Math.round(this.totalOfMonth);
+    this.repeatedMonthValue = Math.round(this.repeatedMonthValue);
+    this.financeCost = Math.round(this.financeCost);
+    this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued);
+  }
+
+  private initialize() {
+    this.repeatedMonthValue = 0;
+    this.drValue = 0;
+    this.totalOfMonth = 0;
+    this.financeCost = 0;
+    this.leaseLiabilityEnding = 0;
+    this.leaseLiabilityBeginning = 0;
+    this.repeatMonth = 0;
+    this.repeatedMonthAccrued = 0;
+    this.ServiceDrValue = 0;
+  }
+
   ngOnInit() {
     //   // if monthly in selected then payment month div will be shown in all conditions 
 
