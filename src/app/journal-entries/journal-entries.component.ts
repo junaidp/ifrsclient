@@ -130,7 +130,7 @@ export class JournalEntriesComponent implements OnInit {
         yearService = commencementDateService[5]
 
         // settign valuesfrom api call srive 
-        drValueAccrued = this.map.get('dr')
+        
         drValuePrepaidExpence = this.map.get('dr')
         drValueFinanceCost = this.map.get('dr') //g,h,i column
 
@@ -144,7 +144,7 @@ export class JournalEntriesComponent implements OnInit {
 
         // for rounding off upto 0 dc
         drValueFinanceCost = Math.round(drValueFinanceCost)
-        drValueAccrued = Math.round(drValueAccrued)
+        
         drValuePrepaidExpence = Math.round(drValuePrepaidExpence)
         totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
         this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
@@ -155,30 +155,46 @@ export class JournalEntriesComponent implements OnInit {
         // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
         payment = this.map.get('payment');
 
-        //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
-        if ((monthServiceInt == month) && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) && (paymentIntervalsService.toLowerCase() == "yearly")) {
+        this.paymentCashBank = payment
+     
+       
+       if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()){
+
+        drValueAccrued = this.map.get('dr')
+        drValueAccrued = Math.round(drValueAccrued)
+       
+        if ((monthServiceInt == month) && (paymentIntervalsService.toLowerCase() == "yearly")) {
           drValueFinanceCost = Math.round(drValueFinanceCost - this.repeatedMonthValue)
           drValueAccrued = Math.round(drValueAccrued - this.repeatedMonthValue)
           //calculationg accrued liability for ending yearly
           totalOfMonthAccrued = Math.round(totalOfMonthAccrued - this.repeatedMonthAccrued) //it should be repatMonthAccrued
         }
 
-        //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
-        if ((paymentIntervalsService.toLowerCase() == "monthly") && (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())) {
+        if ((paymentIntervalsService.toLowerCase() == "monthly") ) {
           totalOfMonthAccrued = this.map.get('accuredLiabality')
           this.repeatedMonthValue = this.map.get('financeCostRemaining')
           this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
           totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
 
         }
-        //monthTotal - total of month  and repeat month = repeated value changed due to having issues with nan
-        this.paymentCashBank = payment
         this.monthTotal = parseInt(totalOfMonthAccrued, 10);
         this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
+        leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
+
+
+       }
+       
+       
+        //if month = cm,ncmnt month nd payment = ending sybtract repeated month from dr valu 
+      
+
+        //if user selects monthly and payment intervals as ending then fcPayment should be picked from column I accrued liability * os actually now fc *form coumn H 1 value above from the row, //cash bank is comiong but not being populated.// dr calue is correct
+      
+        //monthTotal - total of month  and repeat month = repeated value changed due to having issues with nan
+       
 
 
         //calculatiung leaseliability for ending
-        leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
         //calculatiung leaseliability for Beginning
         leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
 
@@ -286,6 +302,7 @@ export class JournalEntriesComponent implements OnInit {
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
           sumOffinanceCost += parseInt(this.financeCost)
+
           alert(leaseLiabilityEnding)
           alert(leaseLiabilityBeginning)
           sumOfAccruedLiability = parseInt(totalOfMonthAccrued + drValueAccrued)
@@ -305,11 +322,14 @@ export class JournalEntriesComponent implements OnInit {
       this.repeatedMonthValue = sumOfrepeatedMonthValue
       this.financeCost = sumOffinanceCost
       alert(sumOffinanceCost)
+      alert(sumOffinanceCostDr+ sumOffinanceCost)
       this.drValue = sumOffinanceCostDr
 
+      
+   var   sumOfFinanceCostFinal = sumOffinanceCost+sumOffinanceCostDr
       // newly added
       this.paymentCashBank = sumOfpaymentCashBank
-      this.finalFinanceCost = sumOffinanceCost
+      this.finalFinanceCost = sumOfFinanceCostFinal
       this.finalAccruedLiability = sumOfAccruedLiability
       this.FinalPrepaidExpense = sumOfPrepaidExpense
       this.finalLeaseLiability = sumOfLeaseLiability
