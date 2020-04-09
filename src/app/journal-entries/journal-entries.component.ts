@@ -68,8 +68,10 @@ export class JournalEntriesComponent implements OnInit {
       console.log(response.data)
       var sumOfPrepaidExpense = 0
       var sumOfAccruedLiability = 0
+      var sumOfAccruedLiabilityCr = 0
       var sumOfLeaseLiability = 0
       var sumOffinanceCostDr = 0;
+      var sumOfPrepaidExpenseCr = 0;
       var sumOfpaymentCashBank = 0
 
       var sumOfleaseLiabilityEnding = 0
@@ -123,12 +125,14 @@ export class JournalEntriesComponent implements OnInit {
         yearService = commencementDateService[5]
 
         // settign valuesfrom api call srive 
-        drValueFinanceCost = this.map.get('dr') //g,h,i column
+        drValueFinanceCost = this.map.get('dr')
+        crValuePrepaidExpence = this.map.get('dr') //g,h,i column
         totalOfMonthAccrued = this.map.get('total') // sum of g,h,i
         this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued');
         this.commencementDateS = this.map.get('commencementDate');
         // for rounding off upto 0 dc
         drValueFinanceCost = Math.round(drValueFinanceCost)
+        crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
         totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
         this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
         const monthServiceInt = calculateMonth(monthService);
@@ -144,6 +148,9 @@ export class JournalEntriesComponent implements OnInit {
           crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
           leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
           financeCostPrepaidExpence = Math.round(financeCostPrepaidExpence)
+
+          sumOfPrepaidExpenseCr += parseInt(crValuePrepaidExpence)
+
         }
        
        if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()){
@@ -170,6 +177,7 @@ export class JournalEntriesComponent implements OnInit {
         this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
         leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
 
+        sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
 
        }
  
@@ -260,6 +268,7 @@ export class JournalEntriesComponent implements OnInit {
         }
         
         sumOffinanceCostDr += parseInt(drValueFinanceCost)
+        alert(sumOffinanceCostDr + "as" + crValueAccrued)
 
         //  $('#paymentMonthBeginningDiv').hide();
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
@@ -273,9 +282,9 @@ export class JournalEntriesComponent implements OnInit {
           sumOffinanceCost += parseInt(this.financeCost)
           sumOffinanceCostCr += parseInt(this.financeCost)
 
-
-          sumOfAccruedLiability = parseInt(totalOfMonthAccrued  + (-crValueAccrued))
-          sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence + (-crValuePrepaidExpence))
+          alert(crValuePrepaidExpence + "qw")
+          sumOfAccruedLiability = parseInt(totalOfMonthAccrued)
+          sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence)
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
         }
       });
@@ -287,13 +296,17 @@ export class JournalEntriesComponent implements OnInit {
       this.repeatedMonthValue = sumOfrepeatedMonthValue
       this.financeCost = sumOffinanceCost
       this.drValue = sumOffinanceCostDr
+     
+      var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
+     var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
+     
       var   sumOfFinanceCostFinal = sumOffinanceCost+sumOffinanceCostDr +sumOfrepeatedMonthValue +(-sumOffinanceCostCr)
       // newly added
      
       this.paymentCashBank = sumOfpaymentCashBank
       this.finalFinanceCost = sumOfFinanceCostFinal
-      this.finalAccruedLiability = sumOfAccruedLiability
-      this.FinalPrepaidExpense = sumOfPrepaidExpense
+      this.finalAccruedLiability = sumOfAccruedLiabilityFinal
+      this.FinalPrepaidExpense = sumOfPrepaidExpenceFinal
       this.finalLeaseLiability = sumOfLeaseLiability
 
     });
