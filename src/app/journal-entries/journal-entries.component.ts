@@ -283,8 +283,10 @@ export class JournalEntriesComponent implements OnInit {
           sumOffinanceCostCr += parseInt(this.financeCost)
 
           alert(crValuePrepaidExpence + "qw")
-          sumOfAccruedLiability = parseInt(totalOfMonthAccrued)
+          sumOfAccruedLiability += parseInt(totalOfMonthAccrued)
+          alert(financeCostPrepaidExpence + "fcpe")
           sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence)
+          alert(sumOfPrepaidExpense + "line288")
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
         }
       });
@@ -297,12 +299,13 @@ export class JournalEntriesComponent implements OnInit {
       this.financeCost = sumOffinanceCost
       this.drValue = sumOffinanceCostDr
      
+      alert(sumOfPrepaidExpense +"spe" + sumOfPrepaidExpenseCr +"spCr" )
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
      var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
      
       var   sumOfFinanceCostFinal = sumOffinanceCost+sumOffinanceCostDr +sumOfrepeatedMonthValue +(-sumOffinanceCostCr)
       // newly added
-     
+    
       this.paymentCashBank = sumOfpaymentCashBank
       this.finalFinanceCost = sumOfFinanceCostFinal
       this.finalAccruedLiability = sumOfAccruedLiabilityFinal
