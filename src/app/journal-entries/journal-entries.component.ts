@@ -123,7 +123,6 @@ export class JournalEntriesComponent implements OnInit {
         monthService = commencementDateService[1]
         dayService = commencementDateService[2]
         yearService = commencementDateService[5]
-        alert(paymentInGlobal)
 
         // settign valuesfrom api call srive 
         drValueFinanceCost = this.map.get('dr')
@@ -299,11 +298,9 @@ export class JournalEntriesComponent implements OnInit {
       this.financeCost = sumOffinanceCost
       this.drValue = sumOffinanceCostDr
      
-      alert(sumOfPrepaidExpense +"SumPrepaid" + sumOfPrepaidExpenseCr +"SumPrepaidCr" )
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
      var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
     
-     alert(sumOfPrepaidExpenceFinal+ "finalprepaid")
       var   sumOfFinanceCostFinal = sumOffinanceCost+sumOffinanceCostDr +sumOfrepeatedMonthValue +(-sumOffinanceCostCr)
       // newly added
     
