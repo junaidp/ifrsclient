@@ -136,8 +136,14 @@ export class JournalEntriesComponent implements OnInit {
         const monthServiceInt = calculateMonth(monthService);
         // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
         payment = this.map.get('payment');
+       if (typeof payment == "undefined"|| typeof payment == null){
+        payment = 0
+        }
+        
+        
+        if(payment>=0){
         this.paymentCashBank = payment
-
+        }
         if (paymentIntervalsService.toLowerCase() == "quarterly") {
           this.startDate = this.map.get('startDate')
           var paymentDate = this.startDate.split("-")
@@ -148,11 +154,6 @@ export class JournalEntriesComponent implements OnInit {
           var day = 10
           var year = ret[0];
           var userSelectedMonth = ret[1];
-
-
-
-          //  (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase())
-
         }
 
 
@@ -178,8 +179,9 @@ export class JournalEntriesComponent implements OnInit {
             crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
             this.financeCost = Math.round(this.financeCost)
             financeCostPrepaidExpence = Math.round(financeCostPrepaidExpence)
-
+            if(payment>=0){
             this.paymentCashBank = payment
+            }
             leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
           }
 
@@ -271,8 +273,13 @@ export class JournalEntriesComponent implements OnInit {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
 
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
+
+          if (leaseLiabilityEnding > 0) {
           sumOfleaseLiabilityEnding += parseInt(leaseLiabilityEnding)
+          }
+          if (leaseLiabilityBeginning > 0) {
           sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
+          }
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
           sumOffinanceCost += parseInt(this.financeCost)
@@ -284,7 +291,6 @@ export class JournalEntriesComponent implements OnInit {
           if (financeCostPrepaidExpence > 0) {
             sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence + 0)
           }
-
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
         }
       });
@@ -306,7 +312,7 @@ export class JournalEntriesComponent implements OnInit {
       this.finalFinanceCost = sumOfFinanceCostFinal
       this.finalAccruedLiability = sumOfAccruedLiabilityFinal
       this.FinalPrepaidExpense = sumOfPrepaidExpenceFinal
-      this.finalLeaseLiability = sumOfLeaseLiability
+      this.finalLeaseLiability = sumOfleaseLiabilityEnding+sumOfleaseLiabilityBeginning
 
     });
     function calculateMonth(monthService) {
