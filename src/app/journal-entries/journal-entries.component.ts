@@ -194,12 +194,14 @@ export class JournalEntriesComponent implements OnInit {
         }
 
         if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) {
-          this.repeatedMonthValue = this.map.get('repeat'); // column j
-          this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
-          crValueAccrued = this.map.get('dr')
-          crValueAccrued = Math.round(crValueAccrued)
+      
+         
 
           if ((monthServiceInt == month) && (paymentIntervalsService.toLowerCase() == "yearly")) {
+            this.repeatedMonthValue = this.map.get('repeat'); // column j
+            this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
+            crValueAccrued = this.map.get('dr')
+            crValueAccrued = Math.round(crValueAccrued)
             drValueFinanceCost = Math.round(drValueFinanceCost - this.repeatedMonthValue)
             crValueAccrued = Math.round(crValueAccrued - this.repeatedMonthValue)
             //calculationg accrued liability for ending yearly
@@ -215,7 +217,6 @@ export class JournalEntriesComponent implements OnInit {
           }
 
           if ((paymentIntervalsService.toLowerCase() == "quarterly")) {
-          //(this.repeatedMonthValue +"line218")
             //ending
             drValueFinanceCost = this.map.get('dr')
             crValueAccrued = this.map.get('dr')
@@ -245,13 +246,11 @@ export class JournalEntriesComponent implements OnInit {
 
             }
             if (userSelectedMonth == paymentMonth) {
-      //        alert("insidemonthcheck")
               this.repeatedMonthValue = this.map.get('aboveColJ')
               drValueFinanceCost = Math.round(drValueFinanceCost - this.aboveColj)
 
               crValueAccrued = Math.round(crValueAccrued - this.aboveColj)
             }
-     //       alert(this.repeatedMonthValue+"line254")
             //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued - this.repeatedMonthAccrued)
             leaseLiabilityEnding = Math.round(this.paymentCashBank - totalOfMonthAccrued - this.repeatedMonthValue)
@@ -265,7 +264,6 @@ export class JournalEntriesComponent implements OnInit {
           
           sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
         }
-  //      alert(drValueFinanceCost+ "line267")
         sumOffinanceCostDr += parseInt(drValueFinanceCost)
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
@@ -301,7 +299,6 @@ export class JournalEntriesComponent implements OnInit {
       this.drValue = sumOffinanceCostDr
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
       var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
-  //    alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr " + sumOfrepeatedMonthValue + "sorpmonthvalue" + sumOffinanceCostCr + "sfcr")
       var sumOfFinanceCostFinal = sumOffinanceCost + sumOffinanceCostDr + sumOfrepeatedMonthValue + (-sumOffinanceCostCr)
       // newly added
 
