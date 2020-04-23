@@ -98,7 +98,7 @@ export class JournalEntriesComponent implements OnInit {
       var drValueFinanceCost
 
 
-      alert("serviceCalled")
+      alert("serviceCalledCheckHost")
 
       $.each(response.data, function (index) {
 
