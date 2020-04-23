@@ -219,6 +219,7 @@ export class JournalEntriesComponent implements OnInit {
           if ((paymentIntervalsService.toLowerCase() == "quarterly")) {
             //ending
             drValueFinanceCost = this.map.get('dr')
+            alert(drValueFinanceCost + "line22`1")
             crValueAccrued = this.map.get('dr')
          //   this.repeatedMonthValue = this.map.get('repeat')
             this.aboveColj = this.map.get('aboveColJ')
@@ -264,6 +265,7 @@ export class JournalEntriesComponent implements OnInit {
           
           sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
         }
+        alert(drValueFinanceCost)
         sumOffinanceCostDr += parseInt(drValueFinanceCost)
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
@@ -299,6 +301,7 @@ export class JournalEntriesComponent implements OnInit {
       this.drValue = sumOffinanceCostDr
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
       var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
+      alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
       var sumOfFinanceCostFinal = sumOffinanceCost + sumOffinanceCostDr + sumOfrepeatedMonthValue + (-sumOffinanceCostCr)
       // newly added
 
