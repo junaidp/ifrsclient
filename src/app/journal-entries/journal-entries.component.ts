@@ -120,6 +120,7 @@ export class JournalEntriesComponent implements OnInit {
         commencementDateSer = (response.data[index].commencementDate)
         paymentIntervalsService = response.data[index].paymentIntervals;
         commencementDateService = (commencementDateSer.split(" "))
+        alert(commencementDateService)
         monthService = commencementDateService[1]
         dayService = commencementDateService[2]
         yearService = commencementDateService[5]
@@ -219,7 +220,6 @@ export class JournalEntriesComponent implements OnInit {
           if ((paymentIntervalsService.toLowerCase() == "quarterly")) {
             //ending
             drValueFinanceCost = this.map.get('dr')
-            //alert(drValueFinanceCost + "line22`1")
             crValueAccrued = this.map.get('dr')
          //   this.repeatedMonthValue = this.map.get('repeat')
             this.aboveColj = this.map.get('aboveColJ')
@@ -265,27 +265,26 @@ export class JournalEntriesComponent implements OnInit {
           
           sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
         }
-       // alert(drValueFinanceCost)
         sumOffinanceCostDr += parseInt(drValueFinanceCost)
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
 
-          if (leaseLiabilityEnding > 0) {
+          if (leaseLiabilityEnding > 0 || leaseLiabilityEnding < 0) {
           sumOfleaseLiabilityEnding += parseInt(leaseLiabilityEnding)
           }
-          if (leaseLiabilityBeginning > 0) {
+          if (leaseLiabilityBeginning > 0 || leaseLiabilityBeginning < 0) {
           sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
           }
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
           sumOffinanceCost += parseInt(this.financeCost)
-          sumOffinanceCostCr += parseInt(this.financeCost)
-          if (totalOfMonthAccrued > 0) {
+          sumOffinanceCostCr += parseInt(this.financeCost)          
+          if (totalOfMonthAccrued > 0 || leaseLiabilityEnding < 0) {
             sumOfAccruedLiability += parseInt(totalOfMonthAccrued)
           }
           financeCostPrepaidExpence = Math.round(financeCostPrepaidExpence)
-          if (financeCostPrepaidExpence > 0) {
+          if (financeCostPrepaidExpence > 0 || leaseLiabilityEnding < 0) {
             sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence + 0)
           }
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
