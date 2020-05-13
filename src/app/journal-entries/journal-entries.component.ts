@@ -279,9 +279,15 @@ export class JournalEntriesComponent implements OnInit {
           sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
           }
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
+          if(this.repeatedMonthValue > 0){
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
+        }
+        if(this.financeCost > 0){
           sumOffinanceCost += parseInt(this.financeCost)
+        }
+        if(this.financeCost > 0){
           sumOffinanceCostCr += parseInt(this.financeCost)
+        }
           if (totalOfMonthAccrued > 0) {
             sumOfAccruedLiability += parseInt(totalOfMonthAccrued)
           }
