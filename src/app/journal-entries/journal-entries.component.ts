@@ -106,6 +106,7 @@ export class JournalEntriesComponent implements OnInit {
         this.repeatedMonthValue = 0
         drValueFinanceCost = 0
         totalOfMonthAccrued = 0
+        financeCostPrepaidExpence =0
         this.financeCost = 0
         leaseLiabilityEnding = 0
         leaseLiabilityBeginning = 0
@@ -188,7 +189,6 @@ export class JournalEntriesComponent implements OnInit {
           crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
           leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
           financeCostPrepaidExpence = Math.round(financeCostPrepaidExpence)
-
           sumOfPrepaidExpenseCr += parseInt(crValuePrepaidExpence)
 
         }
@@ -259,7 +259,6 @@ export class JournalEntriesComponent implements OnInit {
             this.monthTotal = parseInt(totalOfMonthAccrued, 10);
             this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
-
             sumOfPrepaidExpense = 0;
           }
           
@@ -275,7 +274,6 @@ export class JournalEntriesComponent implements OnInit {
           if (this.leaseLiabilityEnding > 0) {
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
           }
-          alert(leaseLiabilityEnding + "endig" + leaseLiabilityBeginning + "beg")
           if (leaseLiabilityBeginning > 0) {
           sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
           }
@@ -291,7 +289,6 @@ export class JournalEntriesComponent implements OnInit {
             sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence + 0)
           }
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
-          alert(sumOfLeaseLiability + "sum e oye")
         }
       });
 
@@ -304,7 +301,7 @@ export class JournalEntriesComponent implements OnInit {
       this.drValue = sumOffinanceCostDr
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
       var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
-      alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
+    //  alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
       var sumOfFinanceCostFinal = sumOffinanceCost + sumOffinanceCostDr + sumOfrepeatedMonthValue + (-sumOffinanceCostCr)
       // newly added
 
