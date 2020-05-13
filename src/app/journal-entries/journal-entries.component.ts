@@ -266,8 +266,9 @@ export class JournalEntriesComponent implements OnInit {
           sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
           }
         }
-       // alert(drValueFinanceCost)
+        if(drValueFinanceCost > 0){
         sumOffinanceCostDr += parseInt(drValueFinanceCost)
+        }
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
@@ -301,7 +302,7 @@ export class JournalEntriesComponent implements OnInit {
       this.drValue = sumOffinanceCostDr
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
       var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
-    //  alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
+      alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
       var sumOfFinanceCostFinal = sumOffinanceCost + sumOffinanceCostDr + sumOfrepeatedMonthValue + (-sumOffinanceCostCr)
       // newly added
 
