@@ -213,8 +213,11 @@ export class JournalEntriesComponent implements OnInit {
           if ((paymentIntervalsService.toLowerCase() == "monthly")) {
             totalOfMonthAccrued = this.map.get('accuredLiabality')
             this.repeatedMonthValue = this.map.get('financeCostRemaining')
+            this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
+            this.leaseLiabilityEnding = Math.round(this.paymentCashBank - totalOfMonthAccrued - this.repeatedMonthValue)
+
 
           }
 
@@ -231,7 +234,6 @@ export class JournalEntriesComponent implements OnInit {
             //for rounding to 0
             drValueFinanceCost = Math.round(drValueFinanceCost)
             crValueAccrued = Math.round(crValueAccrued)
-
             this.aboveColj = Math.round(this.aboveColj)
             this.paymentCashBank = Math.round(this.paymentCashBank)
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
@@ -261,7 +263,7 @@ export class JournalEntriesComponent implements OnInit {
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
             sumOfPrepaidExpense = 0;
           }
-          
+          crValueAccrued = Math.round(crValueAccrued)
           if (crValueAccrued > 0) {
           sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
           }
