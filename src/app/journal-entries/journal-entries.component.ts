@@ -222,6 +222,7 @@ export class JournalEntriesComponent implements OnInit {
           }
 
           if ((paymentIntervalsService.toLowerCase() == "quarterly")) {
+            totalOfMonthAccrued = 0;
             //ending
             drValueFinanceCost = this.map.get('dr')
             //alert(drValueFinanceCost + "line22`1")
@@ -229,14 +230,14 @@ export class JournalEntriesComponent implements OnInit {
          //   this.repeatedMonthValue = this.map.get('repeat')
             this.aboveColj = this.map.get('aboveColJ')
             this.paymentCashBank = this.map.get('payment')
-            totalOfMonthAccrued = this.map.get('total')
+            
             this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued');
             //for rounding to 0
             drValueFinanceCost = Math.round(drValueFinanceCost)
             crValueAccrued = Math.round(crValueAccrued)
             this.aboveColj = Math.round(this.aboveColj)
             this.paymentCashBank = Math.round(this.paymentCashBank)
-            totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
+           
         //    this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             //for every quarter start month dr should be subtracted from 1 value above the J column
@@ -251,13 +252,15 @@ export class JournalEntriesComponent implements OnInit {
 
             }
             if (userSelectedMonth == paymentMonth) {
+              totalOfMonthAccrued = this.map.get('total')
+              totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
               this.repeatedMonthValue = this.map.get('aboveColJ')
               drValueFinanceCost = Math.round(drValueFinanceCost - this.aboveColj)
-
+              totalOfMonthAccrued = Math.round(totalOfMonthAccrued - this.repeatedMonthAccrued)
               crValueAccrued = Math.round(crValueAccrued - this.aboveColj)
             }
             //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-            totalOfMonthAccrued = Math.round(totalOfMonthAccrued - this.repeatedMonthAccrued)
+            
             this.monthTotal = parseInt(totalOfMonthAccrued, 10);
             this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
