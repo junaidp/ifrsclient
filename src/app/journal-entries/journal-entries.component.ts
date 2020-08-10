@@ -188,8 +188,10 @@ export class JournalEntriesComponent implements OnInit {
 
           crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
           leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
-          sumOfPrepaidExpenseCr += parseInt(crValuePrepaidExpence)
+          if(crValuePrepaidExpence > 0){
 
+           sumOfPrepaidExpenseCr += parseInt(crValuePrepaidExpence)
+          }
         }
 
         if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) {
