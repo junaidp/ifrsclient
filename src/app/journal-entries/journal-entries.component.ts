@@ -374,6 +374,21 @@ export class JournalEntriesComponent implements OnInit {
     $('#beginningView').show();
     $('#endingView').show();
     $('#paymentMonthEndingDiv').show();
+    $('#overlaylogin').hide();
+    (function() {
+        var myDiv = document.getElementById("overlaylogin"),
+
+            showww = function() {
+                myDiv.style.display = "block";
+                setTimeout(hide, 2000); // 5 seconds
+            },
+
+            hide = function() {
+                myDiv.style.display = "none";
+            };
+
+        showww();
+    })();
     //   // if monthly in selected then payment month div will be shown in all conditions 
 
     //   var commencementDateOld = (this.globals.commencementDate.split("-"))
