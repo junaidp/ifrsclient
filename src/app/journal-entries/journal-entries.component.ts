@@ -146,10 +146,11 @@ export class JournalEntriesComponent implements OnInit {
         }
         if (paymentIntervalsService.toLowerCase() == "quarterly") {
           this.startDate = this.map.get('startDate')
-          var paymentDate = this.startDate.split("-")
-          var paymentYear = paymentDate[0];
-          var paymentMonth = paymentDate[1];
-
+          if (typeof this.startDate != "undefined" && typeof this.startDate != null){
+           var paymentDate = this.startDate.split("-")
+           var paymentYear = paymentDate[0];
+           var paymentMonth = paymentDate[1];
+          }
           var ret = ($('#dateSelector').val().split("-"))
           var day = 10
           var year = ret[0];
@@ -278,6 +279,7 @@ export class JournalEntriesComponent implements OnInit {
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
+          sumOfpaymentCashBank = Math.round(sumOfpaymentCashBank)
           if (this.leaseLiabilityEnding > 0) {
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
           }
