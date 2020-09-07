@@ -22,12 +22,12 @@ export class JournalEntriesComponent implements OnInit {
   paymentCashBank: any
   finalLeaseLiability: any
   finalFinanceCost: any
+  finalDate: Date;
 
   leaseLiabilityEnding: any
   leaseLiabilityBeginning: any
   userId: any
   commencementDateService: Date
-  commencementDateS: Date
   dateSelectorMonth: any
 
   monthTotal: number
@@ -44,8 +44,6 @@ export class JournalEntriesComponent implements OnInit {
   map1: Map<String, String>;
   //for dr
 
-  startDate: any;
-  endDate: any;
   aboveColj: any
   fullDate: ""
   ServiceDrValue = 0;
@@ -55,6 +53,7 @@ export class JournalEntriesComponent implements OnInit {
     // $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
     var ret = ($('#dateSelector').val().split("-"))
+   
     var day = 10
     var year = ret[0];
     var month = ret[1];
@@ -96,6 +95,7 @@ export class JournalEntriesComponent implements OnInit {
       var leaseLiabilityEnding
       var leaseLiabilityBeginning
       var drValueFinanceCost
+      var dateService
 
 
       alert("serviceCalledCheckHost")
@@ -125,6 +125,8 @@ export class JournalEntriesComponent implements OnInit {
         dayService = commencementDateService[2]
         yearService = commencementDateService[5]
 
+
+        dateService =  (dayService +"-" +monthService + "-" + yearService)
         // settign valuesfrom api call srive 
         drValueFinanceCost = this.map.get('dr')
          // sum of g,h,i
@@ -306,11 +308,12 @@ export class JournalEntriesComponent implements OnInit {
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
         }
       });
-
+      this.finalDate = dateService
       this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
       this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning
       this.totalOfMonth = sumOftotalOfMonth
       this.finalAccruedLiability = sumOftotalOfMonth
+
       this.repeatedMonthValue = sumOfrepeatedMonthValue
       this.financeCost = sumOffinanceCost
       this.drValue = sumOffinanceCostDr
