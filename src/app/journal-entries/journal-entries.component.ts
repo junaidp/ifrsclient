@@ -324,7 +324,6 @@ export class JournalEntriesComponent implements OnInit {
       this.finalFinanceCost = sumOfFinanceCostFinal
       this.finalAccruedLiability = sumOfAccruedLiabilityFinal
       this.FinalPrepaidExpense = sumOfPrepaidExpenceFinal
-s
       
    //   alert(leaseLiabilityBeginning + "b" +leaseLiabilityEnding + "e")
       this.finalLeaseLiability = sumOfleaseLiabilityEnding+sumOfleaseLiabilityBeginning
