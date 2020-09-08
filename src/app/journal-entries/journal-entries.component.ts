@@ -87,6 +87,7 @@ export class JournalEntriesComponent implements OnInit {
       var payment
       var dayService
       var yearService
+      var commencementDateS
 
       var financeCostPrepaidExpence
       var crValuePrepaidExpence
