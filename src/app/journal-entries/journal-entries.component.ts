@@ -22,7 +22,7 @@ export class JournalEntriesComponent implements OnInit {
   paymentCashBank: any
   finalLeaseLiability: any
   finalFinanceCost: any
-  finalDate: Date;
+  finalDate: any;
 
   leaseLiabilityEnding: any
   leaseLiabilityBeginning: any
@@ -53,10 +53,13 @@ export class JournalEntriesComponent implements OnInit {
     // $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
     var ret = ($('#dateSelector').val().split("-"))
+    alert($('#dateSelector').val());
    
     var day = 10
     var year = ret[0];
     var month = ret[1];
+
+    this.finalDate =  (30 +"-" +month + "-" + year)
     this.dateSelectorMonth = month
     var data = {
       userId: this.userId,
@@ -127,7 +130,7 @@ export class JournalEntriesComponent implements OnInit {
         yearService = commencementDateService[5]
 
 
-        dateService =  (dayService +"-" +monthService + "-" + yearService)
+        
         // settign valuesfrom api call srive 
         drValueFinanceCost = this.map.get('dr')
          // sum of g,h,i
@@ -309,7 +312,7 @@ export class JournalEntriesComponent implements OnInit {
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
         }
       });
-      this.finalDate = dateService
+      alert(this.finalDate)
       this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
       this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning
       this.totalOfMonth = sumOftotalOfMonth
