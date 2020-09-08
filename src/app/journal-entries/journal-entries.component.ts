@@ -53,7 +53,6 @@ export class JournalEntriesComponent implements OnInit {
     // $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
     var ret = ($('#dateSelector').val().split("-"))
-    alert($('#dateSelector').val());
    
     var day = 10
     var year = ret[0];
@@ -66,7 +65,21 @@ export class JournalEntriesComponent implements OnInit {
       year: year,
       month: month
     };
+      var myDiv = document.getElementById("overlaylogin"),
+
+          showww = function() {
+              myDiv.style.display = "block";
+              //setTimeout(hide, 2000); // 5 seconds
+          },
+          hide = function() {
+            myDiv.style.display = "none";
+        };
+        
+      showww();
     this.journalService.calculate(data).then(response => {
+     
+      hide();
+    
       console.log(response.data)
       var sumOfPrepaidExpense = 0
       var sumOfAccruedLiability = 0
@@ -102,7 +115,6 @@ export class JournalEntriesComponent implements OnInit {
       var dateService
 
 
-      alert("serviceCalledCheckHost")
 
       $.each(response.data, function (index) {
 
@@ -312,7 +324,6 @@ export class JournalEntriesComponent implements OnInit {
           sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
         }
       });
-      alert(this.finalDate)
       this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
       this.leaseLiabilityBeginning = sumOfleaseLiabilityBeginning
       this.totalOfMonth = sumOftotalOfMonth
