@@ -489,20 +489,25 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <div class="row">
-                                <div class="col-12 empty_div">{{finalFinanceCost | number}}</div>
-                                <div class="col-12 mt-1 empty_div">{{finalAccruedLiability | number}}</div>
-                                <div class="col-12 mt-1 empty_div">{{finalLeaseLiability | number}}</div>
-                                <div class="col-12 mt-1 empty_div">{{FinalPrepaidExpense | number}}</div>
+                            <div class="row" >
+                                <!-- *ngIf"finalFinanceCost >0" -->
+                                <div class="col-12  empty_div"     *ngIf="financeBool  else assignZero">{{finalFinanceCost | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="accruedBool else assignZero">{{finalAccruedLiability | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="leaseBool else assignZero">{{finalLeaseLiability | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="prepaidBool else assignZero">{{FinalPrepaidExpense | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="paymentBool else assignZero">{{paymentCashBank | number}}</div>
                             </div>
                         </div>
+                        <ng-template #assignZero>
+                            <div class="col-12 empty_div" >0</div>
+                        </ng-template>
                         <div class="col-3 mt-6">
                             <div class="row">
-                                <div class="col-12 empty_div"></div>
-                                <div class="col-12 mt-1 empty_div"></div>
-                                <div class="col-12 mt-1 empty_div"></div>
-                                <div class="col-12 mt-1 empty_div"></div>
-                                <div class="col-12 mt-1 empty_div">{{paymentCashBank | number}}</div>
+                                <div class="col-12 empty_div"      *ngIf="!financeBool else assignZero" >{{finalFinanceCost | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!accruedBool else assignZer"   >{{finalAccruedLiability | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!leaseBool  else assignZero" >{{finalLeaseLiability | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!prepaidBool  else assignZero" >{{FinalPrepaidExpense | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!paymentBool else assignZero">{{paymentCashBank | number}}</div>
                             </div>
                         </div>
                     </div>
@@ -523,6 +528,7 @@
 
 <script>
     $(document).ready(function() {
+        
         $('#show').click(function() {
             $('.journal_display').toggle("slide");
         });
@@ -535,4 +541,5 @@
 
 
     });
+   
 </script>
