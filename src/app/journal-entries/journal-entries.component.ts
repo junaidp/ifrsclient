@@ -376,7 +376,8 @@ export class JournalEntriesComponent implements OnInit {
         this.finalLeaseLiability = -(this.finalLeaseLiability)
         this.leaseBool = false;
       }
-
+ 
+      
     });
 
 
