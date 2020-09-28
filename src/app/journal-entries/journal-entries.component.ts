@@ -363,12 +363,10 @@ export class JournalEntriesComponent implements OnInit {
         this.financeBool = false;
       }
       if(this.finalAccruedLiability < 0) {
-        alert(this.finalAccruedLiability)
         this.finalAccruedLiability = -(this.finalAccruedLiability)
         this.accruedBool = false;
       }
       if(this.FinalPrepaidExpense < 0) {
-        alert(this.FinalPrepaidExpense )
         this.FinalPrepaidExpense = -(this.FinalPrepaidExpense)
         this.prepaidBool = false;
       }
