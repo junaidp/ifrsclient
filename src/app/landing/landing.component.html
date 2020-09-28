@@ -47,7 +47,7 @@
                                 <li class=""><a href='#about'>About</a></li>
                                 <li class=""><a href="#testimonial">Testimonial</a></li>
                                 <li class=""><a href='#contact'>Contact</a></li>
-                                <li class=""><a href="#login" id="login">Login</a></li>
+                                <li class=""><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="banner-text text-center">
                             <h1 class="white animated bounceIn delay-1s">Easy 2 Lease!!</h1>
                             <p class="" data-aos="fade-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div id="login1"><a href="#" class="btn btn-appoint animated infinite swing delay-1s">Go To Your Account</a></div>
+                            <div><a data-toggle="modal" data-target="#exampleModal" class="btn btn-appoint animated infinite swing delay-1s">Go To Your Account</a></div>
                         </div>
                         <div class="overlay-detail text-center">
                             <a href="#service"><i class="fa fa-angle-down"></i></a>
@@ -284,7 +284,7 @@
                     <h2 class="ser-title">Payment Schedule</h2>
                     <hr class="botm-line">
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary animated pulse silver_gold" id="myBtn" data-aos="fade-right" onClick="$('#apmodal').show();">
+                <div class="col-lg-4 col-md-3 panel panel-primary animated pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
                     <div class="row bronze">
                         <div class="col-12"><img src="/assets/landing/img/bronze.png" alt="img" /></div>
                         <div class="col-12">
@@ -325,7 +325,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary silver pulse silver_gold" id="silver" data-aos="fade-right" onClick="$('#apmodal').show();">
+                <div class="col-lg-4 col-md-3 panel panel-primary silver pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
                     <div class="row bronze">
                         <div class="col-12"><img src="/assets/landing/img/silver.png" alt="img" /></div>
                         <div class="col-12">
@@ -366,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary gold pulse silver_gold" id="gold" data-aos="fade-right" onClick="$('#apmodal').show();">
+                <div class="col-lg-4 col-md-3 panel panel-primary gold pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
                     <div class="row bronze">
                         <div class="col-12"><img src="/assets/landing/img/gold.png" alt="img" /></div>
                         <div class="col-12">
@@ -513,160 +513,101 @@
         </div>
     </footer>
 
-    <div id="apmodal" class="cstmmodal">
-        <div class="modal-content">
-            <div class="row">
-                <span class="close">&times;</span>
-            </div>
-            <div class="register-photo">
-                <div class="form-container">
-                    <form method="post">
-                        <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                        <div class="preview text-center">
-                            <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" id="blah" alt="Preview Image" width="200" height="200" />
-                            <div class="browse-button">
-                                <i class="fa fa-pencil-alt"></i>
-                                <input class="browse-input" type="file" required name="UploadedFile" onchange="readURL(this);" id="UploadedFile" />
-                            </div>
-                            <span class="Error"></span>
-                        </div>
-                        <div class="form-group"><input class="form-control" type="email" name="email" required placeholder="Email"></div>
-                        <div class="form-group"><input class="form-control" type="password" id="txtPassword" name="password" placeholder="Password"></div>
-                        <div class="form-group"><input class="form-control" type="password" id="txtConfirmPassword" name="password-repeat" placeholder="Password (repeat)"></div>
-                        <div class="form-group">
-                            <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
-                        </div>
-                        <div class="form-group"><button class="btn btn-primary btn-block" id="payment" type="submit">Sign Up</button><a href="paymentplane.html">payment</a></div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div href="#apmodal" class="btn btn_color" onClick="$('#companylogin').hide(); $('#apmodal').show()">Individual User</div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div href="#companylogin" class="btn btn_color no_active_individual" onClick="$('#apmodal').hide(); $('#companylogin').show()">Company</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="apmodallogin" class="cstmmodal">
-        <div class="modal-content">
-            <div class="">
-                <span class="close1">&times;</span>
-            </div>
-            <div class="container-login100">
-                <div class="wrap-login100">
-                    <form class="login100-form validate-form">
-                        <span class="login100-form-title p-b-34">
-                          Account Login
-                        </span>
-                        <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                            <input id="first-name" class="input100" type="text" name="username" placeholder="Name" />
-                            <span class="focus-input100"></span>
-                        </div>
-                        <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                            <input class="input100" type="password" name="pass" placeholder="Password" />
-                            <span class="focus-input100"></span>
-                        </div>
-
-                        <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                              Sign in
-                            </button>
-                        </div>
-
-                        <div class="w-full text-center p-t-27 p-b-239">
-                            <span class="txt1">
-                              Forgot
-                            </span>
-
-                            <a href="#" class="txt2">
-                              User name / password?
-                            </a>
-                        </div>
-
-                        <div class="w-full text-center">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="btn btn_color" id="loginnn">Forn SignUp</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="mySidenav" class="sidenav pulse">
-        <div href="#aboutt" class="animated infinite pulse delay-1s" id="aboutt">Click here for free trial</div>
+        <div href="#aboutt" class="animated infinite pulse delay-1s" data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div>
     </div>
-    <div id="companylogin" class="cstmmodal">
-        <div class="modal-content">
-            <div class="">
-                <span class="close2">&times;</span>
-            </div>
-            <div class="register-photo">
-                <div class="form-container">
-                    <form method="post">
-                        <h2 class="text-center"><strong>Create</strong>&nbsp; Company Account.</h2>
-                        <div class="preview text-center">
-                            <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" id="blah" alt="Preview Image" width="200" height="200" />
-                            <div class="browse-button">
-                                <i class="fa fa-pencil-alt"></i>
-                                <input class="browse-input" type="file" required name="UploadedFile" onchange="readURL(this);" id="UploadedFile" />
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: 422px;">
+            <div class="modal-content" style="padding: 0 !important; width: 100% !important;background-color: transparent">
+                <div class="modal-body p-0">
+                    <div id="logreg-forms">
+                        <form class="form-signin" #myForm='ngForm'>
+                            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+                            <div class="social-login">
+                                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+                                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
                             </div>
-                            <span class="Error"></span>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="text" name="name" required placeholder="Company Name"></div>
+                            <p style="text-align:center"> OR </p>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+                            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+                            <a id="forgot_pswd" onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();">Forgot password?</a>
+                            <hr>
+                            <!-- <p>Don't have an account!</p>  -->
+                            <button class="btn btn-primary btn-block" type="button" id="btn-signup" onclick="$('.Company_login').hide();$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+                        </form>
+
+                        <form action="/reset/password/" class="form-reset" #myForm='ngForm'>
+                            <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+                            <a onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();"><i class="fas fa-angle-left"></i> Back</a>
+                        </form>
+
+                        <form action="/signup/" #myForm='ngForm' class="form-signup">
+                            <div class="social-login">
+                                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span> </button>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="email" name="email" required placeholder="Email"></div>
+                            <div class="social-login">
+                                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google+</span> </button>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="number" name="name" required placeholder="Contact Number"></div>
+
+                            <p style="text-align:center">OR</p>
+                            <div class="checkbox_company">
+                                <input type="checkbox" checked="checked" class="radio float-left" name="fooby[1][]" id="individual_user_checkbox" onclick="var checkBox = document.getElementById('individual_user_checkbox');
+                                var text = document.getElementsByClassName('individual_user_checkbox');
+                                if (checkBox.checked == true) {
+                                    // text.style.display = 'block';
+                                    $('.individual_user_checkbox').show();
+                                    $('.Company_login').hide();
+                                    $('#company_checkbox').prop('checked', false)
+                                } else {
+                                    $('.individual_user_checkbox').hide();
+                                    // text.style.display = 'none';
+                                }"> <label for="individual_user_checkbox"> Individual</label>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="text" name="name" required placeholder="Company Address"></div>
+                            <div class="individual_user_checkbox">
+                                <input type="text" id="user-name" class="form-control" placeholder="Full Name" required="" autofocus="">
+                                <input type="email" id="user-email" class="form-control" placeholder="Email Address" required autofocus="">
+                                <input type="text" class="form-control" placeholder="City" required autofocus="">
+                                <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+                                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="text" name="name" required placeholder="City"></div>
+                            <div class="checkbox_company">
+                                <input type="checkbox" class="radio float-left" name="fooby[1][]" id="company_checkbox" onclick="var checkBox = document.getElementById('company_checkbox');
+                                var text = document.getElementsByClassName('Company_login');
+                                if (checkBox.checked == true) {
+                                    // text.style.display = 'block';
+                                    $('.Company_login').show();
+                                    $('.individual_user_checkbox').hide();
+                                    $('#individual_user_checkbox').prop('checked', false)
+                                } else {
+                                    $('.Company_login').hide();
+                                    // text.style.display = 'none';
+                                }"> <label for="company_checkbox">Company</label>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="text" name="name" required placeholder="Zip Code"></div>
+                            <div class="Company_login">
+                                <input type="text" class="form-control" placeholder="Company Name" required="" autofocus="">
+                                <input type="email" class="form-control" placeholder="Email Address" required autofocus="">
+                                <input type="text" class="form-control" placeholder="Contact Number" required autofocus="">
+                                <input type="text" class="form-control" placeholder="Company Address" required autofocus="">
+                                <input type="text" class="form-control" placeholder="City" required autofocus="">
+                                <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+                                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="password" id="txtPassword" name="password" placeholder="Password"></div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-group"><input class="form-control" type="password" id="txtConfirmPassword" name="password-repeat" placeholder="Password (repeat)"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">&nbsp;I agree to the license terms.</label></div>
-                        </div>
-                        <div class="form-group"><button class="btn btn-primary btn-block" id="payment" type="submit">Sign Up</button><a href="paymentplane.html">payment</a></div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12"><a href="#" class="btn btn_color no_active_individual" onClick="$('#companylogin').hide(); $('#apmodal').show()">Individual User</a></div>
-                                <div class="col-lg-6 col-md-6 col-12"><a href="#" class="btn btn_color" onClick="$('#apmodal').hide(); $('#companylogin').show()">Company</a></div>
-                            </div>
-                        </div>
-                    </form>
+
+                            <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+                            <a onclick="$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-angle-left"></i> Back</a>
+                        </form>
+                        <br>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    </script>
 </body>
 
 </html>
