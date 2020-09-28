@@ -210,5 +210,9 @@ export class LandingComponent implements OnInit {
         modal.style.display = "block";
       }
     });
+
+    $( document ).ready(function() {
+      $('#mainNavBar').hide();
+  });
   }
 }
