@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Loginservice } from "src/app/login/Loginservice";
+import { Globals } from "../globals";
+import {ViewChild, ElementRef } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 declare var $: any;
 @Component({
   selector: 'app-landing',
@@ -6,10 +12,55 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  isLoggedIn = true;
+  returnUrl: string;
+  signInName = "";
+  signInPassword = "";
+  signInId = "";
+  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService) { }
 
-  constructor() { }
+
+  private setGlobals(response) {
+    this.globals.userId = response.data.userId;
+    this.globals.userName = response.data.name;
+    this.signInId = response.data.userId
+  }
+
+  login() {
+    var data = {
+      name: this.signInName,
+      password: this.signInPassword,
+      id:this.signInId
+    };
+    this.loginservice.signIn(data).then(response => {
+      console.log(response.data)
+      if (data.name == response.data.name && data.password == response.data.password) {
+       
+        alert("successful login")
+        $('#exampleModal').modal('toggle'); 
+        this.setGlobals(response);
+        localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('name', data.name);
+        localStorage.setItem('pass', data.password);
+        localStorage.setItem('userId', response.data.userId);
+
+        this.router.navigate([this.returnUrl]);
+      }
+
+     else{
+      this.isLoggedIn = false
+   
+
+     }
+    });
+  }
 
   ngOnInit() {
+
+    this.returnUrl = '/home';
+    this.authService.logout();
+
+
     (function($) {
 
       $("input:checkbox").on('click', function() {

@@ -5,6 +5,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
+import * as bootstrap from 'bootstrap';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -38,6 +39,7 @@ import { AuthService } from '../auth.service';
   }
  
   login() {
+ 
     var data = {
       name: this.name,
       password: this.password,
@@ -47,6 +49,7 @@ import { AuthService } from '../auth.service';
       console.log(response.data)
       if (data.name == response.data.name && data.password == response.data.password) {
         alert("successful login")
+        
 
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
@@ -55,6 +58,7 @@ import { AuthService } from '../auth.service';
         localStorage.setItem('userId', response.data.userId);
 
         this.router.navigate([this.returnUrl]);
+        
       }
 
      else{
