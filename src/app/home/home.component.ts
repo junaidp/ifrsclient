@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Globals} from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../auth.service';
+declare var $: any;
 
 @Component({
   selector: 'app-home',

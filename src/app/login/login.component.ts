@@ -5,7 +5,6 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
-import * as bootstrap from 'bootstrap';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
