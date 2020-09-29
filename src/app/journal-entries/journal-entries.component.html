@@ -495,7 +495,7 @@
                                 <div class="col-12 mt-1 empty_div" *ngIf="accruedBool else assignZero">{{finalAccruedLiability | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="leaseBool else assignZero">{{finalLeaseLiability | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="prepaidBool else assignZero">{{FinalPrepaidExpense | number}}</div>
-                                <div class="col-12 mt-1 empty_div" *ngIf="paymentBool else assignZero">{{paymentCashBank | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!paymentBool else assignZero">{{paymentCashBank | number}}</div>
                             </div>
                         </div>
                         <ng-template #assignZero>
@@ -507,7 +507,7 @@
                                 <div class="col-12 mt-1 empty_div" *ngIf="!accruedBool else assignZero"   >{{finalAccruedLiability | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!leaseBool  else assignZero" >{{finalLeaseLiability | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!prepaidBool  else assignZero" >{{FinalPrepaidExpense | number}}</div>
-                                <div class="col-12 mt-1 empty_div" *ngIf="!paymentBool else assignZero">{{paymentCashBank | number}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="paymentBool else assignZero">{{paymentCashBank | number}}</div>
                             </div>
                         </div>
                     </div>
