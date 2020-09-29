@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   selected = "";
   constructor(public globals : Globals,private router: Router,public authService: AuthService) { 
     if(localStorage.getItem('name') == null && localStorage.getItem('pass') == null ){
-      this.router.navigate(['/login']);
+      this.router.navigate(['/landing']);
       
     }
   }

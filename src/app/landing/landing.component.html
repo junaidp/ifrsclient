@@ -563,7 +563,7 @@
                                 }"> <label for="individual_user_checkbox"> &nbsp;Individual</label>
                             </div>
                             <div class="individual_user_checkbox">
-                                <input type="text" id="user-name" class="form-control" placeholder="Full Name" required="" autofocus="">
+                                <input type="text" id="user-name" class="form-control" placeholder="Full Name" name = "signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName"  >
                                 <input type="email" id="user-email" class="form-control" placeholder="Email Address" required autofocus="">
                                 <input type="text" class="form-control" placeholder="City" required autofocus="">
                                 <label for="validationCustom03">Functional Currency</label>
@@ -648,8 +648,8 @@
                                     <option value="XPD">Palladium Ounces</option>
                                     <option value="XPT">Platinum Ounces</option>
                                 </select>
-                                <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
-                                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
+                                <input type="password" id="user-pass" class="form-control" placeholder="Password" name = "signUpPassword" [(ngModel)]="signUpPassword" required autofocus="">
+                                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" name = "signUpRepeatPassword" required autofocus="" [(ngModel)]="signUpRepeatPassword">
                             </div>
                             <div class="checkbox_company">
                                 <input type="checkbox" class="radio float-left" name="fooby[1][]" id="company_checkbox" onclick="var checkBox = document.getElementById('company_checkbox');
@@ -756,7 +756,7 @@
                                 <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
                             </div>
 
-                            <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+                            <button class="btn btn-primary btn-block" (click)="SignUp()" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
                             <a onclick="$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-angle-left"></i> Back</a>
                         </form>
                         <br>

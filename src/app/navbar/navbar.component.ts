@@ -19,8 +19,7 @@ export class NavbarComponent implements OnInit {
   
 
   ngOnInit() {
-  alert(this.userId)
-  alert(this.name)
+
   }
 
   ngDoCheck(): void {
@@ -35,6 +34,6 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
     localStorage.removeItem('name')
     localStorage.removeItem('pass')
-    this.router.navigate(['/login']);
+    this.router.navigate(['/landing']);
   }
 }

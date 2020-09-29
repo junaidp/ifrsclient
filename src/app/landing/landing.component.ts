@@ -4,6 +4,7 @@ import { Globals } from "../globals";
 import {ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {Signupservice} from "src/app/signup/Signupservice"
 
 declare var $: any;
 @Component({
@@ -14,10 +15,17 @@ declare var $: any;
 export class LandingComponent implements OnInit {
   isLoggedIn = true;
   returnUrl: string;
+// for sign up variables
+  signUpUserName = "";
+  signUpPassword = ""
+  signUpRepeatPassword = ""
+
+
+  //for logging in variables
   signInName = "";
   signInPassword = "";
   signInId = "";
-  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService) { }
+  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice) { }
 
 
   private setGlobals(response) {
@@ -25,6 +33,26 @@ export class LandingComponent implements OnInit {
     this.globals.userName = response.data.name;
     this.signInId = response.data.userId
   }
+
+  SignUp(){
+    var data = {
+      name: this.signUpUserName ,
+      password: this.signUpPassword,
+      confirmpassword: this.signUpRepeatPassword,
+    };
+   
+    
+    this.Signupservice.SignUp(data).then(response => {
+      $('#logreg-forms .form-signup').toggle();
+      $('#logreg-forms .form-signin').toggle();
+      this.isLoggedIn = false
+       alert(response.data)
+       console.log(response.data)
+   //    this.router.navigate(['/login']);  
+    });
+
+  }
+
 
   login() {
     var data = {
