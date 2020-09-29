@@ -100,7 +100,7 @@ banner
 }
 
 .navbar-default {
-    background-color: transparent;
+    background-color: #1b4957;
     border: 0px;
 }
 
@@ -111,7 +111,7 @@ banner
 .navbar-brand {
     font-family: 'Chewy', cursive;
     font-size: 32px;
-    padding: 14px 0px;
+    padding: 19px 0px;
 }
 
 .navbar-brand img {
@@ -152,7 +152,7 @@ banner
 .navbar-default .navbar-nav>.active>a:hover {
     color: #fff;
     text-transform: uppercase;
-    background-color: rgba(12, 184, 182, 0.21);
+    background-color: transparent;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -166,7 +166,7 @@ banner
 .navbar-default .navbar-nav>li>a:focus {
     color: #fff;
     text-transform: uppercase;
-    background-color: rgba(12, 184, 182, 0.21);
+    background-color: transparent;
 }
 
 .affix {
@@ -175,7 +175,7 @@ banner
 
 .affix .navbar-nav>li>a:hover,
 .affix .navbar-nav>li>a:focus {
-    background-color: rgba(12, 184, 182) !important;
+    /* background-color: rgba(12, 184, 182) !important; */
 }
 
 #banner {
