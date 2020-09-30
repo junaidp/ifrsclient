@@ -562,12 +562,12 @@
                                     // text.style.display = 'none';
                                 }"> <label for="individual_user_checkbox"> &nbsp;Individual</label>
                             </div>
-                            <div class="individual_user_checkbox">
+                            <div class="individual_user_checkbox" id="individualCheckBox">
                                 <input type="text" id="user-name" class="form-control" placeholder="Full Name" name = "signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName"  >
-                                <input type="email" id="user-email" class="form-control" placeholder="Email Address" required autofocus="">
-                                <input type="text" class="form-control" placeholder="City" required autofocus="">
+                                <input type="email" id="user-email" class="form-control" name = "signUpEmail" [(ngModel)]="signUpEmail"  placeholder="Email Address" required autofocus="">
+                                <input type="text" class="form-control" placeholder="City" name = "signUpCity" [(ngModel)]="signUpCity" required autofocus="">
                                 <label for="validationCustom03">Functional Currency</label>
-                                <select class="form-control" name="contractNo119">
+                                <select class="form-control"[(ngModel)]="signUpCurency" name="contractNo119">
                                     <option value="USD" selected="selected">United States Dollars</option>
                                     <option value="EUR">Euro</option>
                                     <option value="GBP">United Kingdom Pounds</option>
