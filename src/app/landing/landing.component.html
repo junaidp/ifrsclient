@@ -550,25 +550,18 @@
 
                             <p style="text-align:center">OR</p>
                             <div class="checkbox_company">
-                                <input type="checkbox" checked="checked" class="radio float-left" name="fooby[1][]" id="individual_user_checkbox" onclick="var checkBox = document.getElementById('individual_user_checkbox');
-                                var text = document.getElementsByClassName('individual_user_checkbox');
-                                if (checkBox.checked == true) {
-                                    // text.style.display = 'block';
-                                    $('.individual_user_checkbox').show();
-                                    $('.Company_login').hide();
-                                    $('#company_checkbox').prop('checked', false)
-                                } else {
-                                    $('.individual_user_checkbox').hide();
-                                    // text.style.display = 'none';
-                                }"> <label for="individual_user_checkbox"> &nbsp;Individual</label>
+                                <label for="individual_user_checkbox"><input type="checkbox" checked="checked" class="radio float-left" id="individual_user_checkbox">  &nbsp;Individual</label>&nbsp;&nbsp;
+                                <label for="company_checkbox"><input type="checkbox" class="radio float-left" id="company_checkbox"> &nbsp;Company</label>
                             </div>
                             <div class="individual_user_checkbox">
-                                <input type="text" id="user-name" class="form-control" placeholder="Full Name" name = "signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName"  >
-                                <input type="email" id="user-email" class="form-control" placeholder="Email Address" required autofocus="">
-                                <input type="text" class="form-control" placeholder="City" required autofocus="">
-                                <label for="validationCustom03">Functional Currency</label>
-                                <select class="form-control" name="contractNo119">
-                                    <option value="USD" selected="selected">United States Dollars</option>
+                                <input type="text" id="user-name" class="form-control" placeholder="Full Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
+                                <input type="email" id="user-email" class="form-control mt-1" placeholder="Email Address" required autofocus="">
+                                <input type="text" class="form-control mt-1" placeholder="Contact Number" required autofocus="">
+                                <input type="text" class="form-control mt-1" placeholder="Address" required autofocus="">
+                                <input type="text" class="form-control mt-1" placeholder="City" required autofocus="">
+                                <select class="form-control mt-1" name="contractNo119">
+                                    <option value="" selected="selected">Functional Currency</option>
+                                    <option value="USD">United States Dollars</option>
                                     <option value="EUR">Euro</option>
                                     <option value="GBP">United Kingdom Pounds</option>
                                     <option value="DZD">Algeria Dinars</option>
@@ -648,112 +641,8 @@
                                     <option value="XPD">Palladium Ounces</option>
                                     <option value="XPT">Platinum Ounces</option>
                                 </select>
-                                <input type="password" id="user-pass" class="form-control" placeholder="Password" name = "signUpPassword" [(ngModel)]="signUpPassword" required autofocus="">
-                                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" name = "signUpRepeatPassword" required autofocus="" [(ngModel)]="signUpRepeatPassword">
-                            </div>
-                            <div class="checkbox_company">
-                                <input type="checkbox" class="radio float-left" name="fooby[1][]" id="company_checkbox" onclick="var checkBox = document.getElementById('company_checkbox');
-                                var text = document.getElementsByClassName('Company_login');
-                                if (checkBox.checked == true) {
-                                    // text.style.display = 'block';
-                                    $('.Company_login').show();
-                                    $('.individual_user_checkbox').hide();
-                                    $('#individual_user_checkbox').prop('checked', false)
-                                } else {
-                                    $('.Company_login').hide();
-                                    // text.style.display = 'none';
-                                }"> <label for="company_checkbox">&nbsp;Company</label>
-                            </div>
-                            <div class="Company_login">
-                                <input type="text" class="form-control" placeholder="Company Name" required="" autofocus="">
-                                <input type="email" class="form-control" placeholder="Email Address" required autofocus="">
-                                <input type="text" class="form-control" placeholder="Contact Number" required autofocus="">
-                                <input type="text" class="form-control" placeholder="Company Address" required autofocus="">
-                                <input type="text" class="form-control" placeholder="City" required autofocus="">
-                                <label for="validationCustom03">Functional Currency</label>
-                                <select class="form-control" name="contractNo119">
-                                    <option value="USD" selected="selected">United States Dollars</option>
-                                    <option value="EUR">Euro</option>
-                                    <option value="GBP">United Kingdom Pounds</option>
-                                    <option value="DZD">Algeria Dinars</option>
-                                    <option value="ARP">Argentina Pesos</option>
-                                    <option value="AUD">Australia Dollars</option>
-                                    <option value="ATS">Austria Schillings</option>
-                                    <option value="BSD">Bahamas Dollars</option>
-                                    <option value="BBD">Barbados Dollars</option>
-                                    <option value="BEF">Belgium Francs</option>
-                                    <option value="BMD">Bermuda Dollars</option>
-                                    <option value="BRR">Brazil Real</option>
-                                    <option value="BGL">Bulgaria Lev</option>
-                                    <option value="CAD">Canada Dollars</option>
-                                    <option value="CLP">Chile Pesos</option>
-                                    <option value="CNY">China Yuan Renmimbi</option>
-                                    <option value="CYP">Cyprus Pounds</option>
-                                    <option value="CSK">Czech Republic Koruna</option>
-                                    <option value="DKK">Denmark Kroner</option>
-                                    <option value="NLG">Dutch Guilders</option>
-                                    <option value="XCD">Eastern Caribbean Dollars</option>
-                                    <option value="EGP">Egypt Pounds</option>
-                                    <option value="FJD">Fiji Dollars</option>
-                                    <option value="FIM">Finland Markka</option>
-                                    <option value="FRF">France Francs</option>
-                                    <option value="DEM">Germany Deutsche Marks</option>
-                                    <option value="XAU">Gold Ounces</option>
-                                    <option value="GRD">Greece Drachmas</option>
-                                    <option value="HKD">Hong Kong Dollars</option>
-                                    <option value="HUF">Hungary Forint</option>
-                                    <option value="ISK">Iceland Krona</option>
-                                    <option value="INR">India Rupees</option>
-                                    <option value="IDR">Indonesia Rupiah</option>
-                                    <option value="IEP">Ireland Punt</option>
-                                    <option value="ILS">Israel New Shekels</option>
-                                    <option value="ITL">Italy Lira</option>
-                                    <option value="JMD">Jamaica Dollars</option>
-                                    <option value="JPY">Japan Yen</option>
-                                    <option value="JOD">Jordan Dinar</option>
-                                    <option value="KRW">Korea (South) Won</option>
-                                    <option value="LBP">Lebanon Pounds</option>
-                                    <option value="LUF">Luxembourg Francs</option>
-                                    <option value="MYR">Malaysia Ringgit</option>
-                                    <option value="MXP">Mexico Pesos</option>
-                                    <option value="NLG">Netherlands Guilders</option>
-                                    <option value="NZD">New Zealand Dollars</option>
-                                    <option value="NOK">Norway Kroner</option>
-                                    <option value="PKR">Pakistan Rupees</option>
-                                    <option value="XPD">Palladium Ounces</option>
-                                    <option value="PHP">Philippines Pesos</option>
-                                    <option value="XPT">Platinum Ounces</option>
-                                    <option value="PLZ">Poland Zloty</option>
-                                    <option value="PTE">Portugal Escudo</option>
-                                    <option value="ROL">Romania Leu</option>
-                                    <option value="RUR">Russia Rubles</option>
-                                    <option value="SAR">Saudi Arabia Riyal</option>
-                                    <option value="XAG">Silver Ounces</option>
-                                    <option value="SGD">Singapore Dollars</option>
-                                    <option value="SKK">Slovakia Koruna</option>
-                                    <option value="ZAR">South Africa Rand</option>
-                                    <option value="KRW">South Korea Won</option>
-                                    <option value="ESP">Spain Pesetas</option>
-                                    <option value="XDR">Special Drawing Right (IMF)</option>
-                                    <option value="SDD">Sudan Dinar</option>
-                                    <option value="SEK">Sweden Krona</option>
-                                    <option value="CHF">Switzerland Francs</option>
-                                    <option value="TWD">Taiwan Dollars</option>
-                                    <option value="THB">Thailand Baht</option>
-                                    <option value="TTD">Trinidad and Tobago Dollars</option>
-                                    <option value="TRL">Turkey Lira</option>
-                                    <option value="VEB">Venezuela Bolivar</option>
-                                    <option value="ZMK">Zambia Kwacha</option>
-                                    <option value="EUR">Euro</option>
-                                    <option value="XCD">Eastern Caribbean Dollars</option>
-                                    <option value="XDR">Special Drawing Right (IMF)</option>
-                                    <option value="XAG">Silver Ounces</option>
-                                    <option value="XAU">Gold Ounces</option>
-                                    <option value="XPD">Palladium Ounces</option>
-                                    <option value="XPT">Platinum Ounces</option>
-                                </select>
-                                <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
-                                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
+                                <input type="password" id="user-pass" class="form-control mt-1" placeholder="Password" name="signUpPassword" [(ngModel)]="signUpPassword" required autofocus="">
+                                <input type="password" id="user-repeatpass" class="form-control mt-1" placeholder="Repeat Password" name="signUpRepeatPassword" required autofocus="" [(ngModel)]="signUpRepeatPassword">
                             </div>
 
                             <button class="btn btn-primary btn-block" (click)="SignUp()" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
