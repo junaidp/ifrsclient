@@ -17,8 +17,12 @@ export class LandingComponent implements OnInit {
   returnUrl: string;
 // for sign up variables
   signUpUserName = "";
-  signUpPassword = ""
-  signUpRepeatPassword = ""
+  signUpEmail = "";
+  signUpCity = "";
+  signUpCurency ="";
+  signUpPassword = "";
+  signUpRepeatPassword = "";
+  signUpUserType = ""
 
 
   //for logging in variables
@@ -35,12 +39,24 @@ export class LandingComponent implements OnInit {
   }
 
   SignUp(){
+    
+ 
+    if($('#individual_user_checkbox').prop("checked") == true){
+      this.signUpUserType = "individual";
+    }
+    else if($('#company_checkbox').prop("checked") == true){
+      this.signUpUserType = "company";
+    }
     var data = {
       name: this.signUpUserName ,
+      email : this.signUpEmail,
+      city : this.signUpCity,
+      currency : this.signUpCurency,
+      userType: this.signUpUserType,
       password: this.signUpPassword,
-      confirmpassword: this.signUpRepeatPassword,
+      confirmpassword: this.signUpRepeatPassword
     };
-   
+   // alert(JSON.stringify(data));
     
     this.Signupservice.SignUp(data).then(response => {
       $('#logreg-forms .form-signup').toggle();

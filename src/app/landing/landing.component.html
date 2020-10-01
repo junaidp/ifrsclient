@@ -553,6 +553,7 @@
                                 <label for="individual_user_checkbox"><input type="checkbox" checked="checked" class="radio float-left" id="individual_user_checkbox">  &nbsp;Individual</label>&nbsp;&nbsp;
                                 <label for="company_checkbox"><input type="checkbox" class="radio float-left" id="company_checkbox"> &nbsp;Company</label>
                             </div>
+<<<<<<< HEAD
                             <div class="individual_user_checkbox">
                                 <input type="text" id="user-name" class="form-control" placeholder="Full Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
                                 <input type="email" id="user-email" class="form-control mt-1" placeholder="Email Address" required autofocus="">
@@ -562,6 +563,15 @@
                                 <select class="form-control mt-1" name="contractNo119">
                                     <option value="" selected="selected">Functional Currency</option>
                                     <option value="USD">United States Dollars</option>
+=======
+                            <div class="individual_user_checkbox" id="individualCheckBox">
+                                <input type="text" id="user-name" class="form-control" placeholder="Full Name" name = "signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName"  >
+                                <input type="email" id="user-email" class="form-control" name = "signUpEmail" [(ngModel)]="signUpEmail"  placeholder="Email Address" required autofocus="">
+                                <input type="text" class="form-control" placeholder="City" name = "signUpCity" [(ngModel)]="signUpCity" required autofocus="">
+                                <label for="validationCustom03">Functional Currency</label>
+                                <select class="form-control"[(ngModel)]="signUpCurency" name="contractNo119">
+                                    <option value="USD" selected="selected">United States Dollars</option>
+>>>>>>> fa7759195540b4be9c4470fe5e37b1086cbf1f56
                                     <option value="EUR">Euro</option>
                                     <option value="GBP">United Kingdom Pounds</option>
                                     <option value="DZD">Algeria Dinars</option>
