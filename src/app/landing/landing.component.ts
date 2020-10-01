@@ -22,7 +22,9 @@ export class LandingComponent implements OnInit {
   signUpCurency ="";
   signUpPassword = "";
   signUpRepeatPassword = "";
-  signUpUserType = ""
+  signUpUserType = "";
+  signUpContact = "";
+  signUpAddress = "";
 
 
   //for logging in variables
@@ -51,12 +53,14 @@ export class LandingComponent implements OnInit {
       name: this.signUpUserName ,
       email : this.signUpEmail,
       city : this.signUpCity,
+      contactNumber: this.signUpContact,
+      companyAddress: this.signUpAddress,
       currency : this.signUpCurency,
       userType: this.signUpUserType,
       password: this.signUpPassword,
       confirmpassword: this.signUpRepeatPassword
     };
-   // alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
     
     this.Signupservice.SignUp(data).then(response => {
       $('#logreg-forms .form-signup').toggle();

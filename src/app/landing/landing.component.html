@@ -557,8 +557,8 @@
                                 <input type="text" id="user-name" class="form-control" placeholder="User Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
                                 <input type="email" id="user-email" class="form-control" name="signUpEmail" [(ngModel)]="signUpEmail" placeholder="Email" required autofocus="">
                                 <input type="text" class="form-control" placeholder="City" name="signUpCity" [(ngModel)]="signUpCity" required autofocus="">
-                                <input type="text" class="form-control" placeholder="Address">
-                                <input type="text" class="form-control" placeholder="Contact Number">
+                                <input type="text" class="form-control" name="signUpAddress" placeholder="Address" [(ngModel)]="signUpAddress">
+                                <input type="text" class="form-control"name="signUpContact" placeholder="Contact Number" [(ngModel)]="signUpContact">
                                 <select class="form-control" [(ngModel)]="signUpCurency" name="contractNo119">
                                     <option value="" selected="selected">Functional Currency</option>
                                     <option value="USD">United States Dollars</option>
