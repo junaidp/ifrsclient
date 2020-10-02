@@ -9,17 +9,30 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"]
 })
+
+
 export class NavbarComponent implements OnInit {
+  addUSerOption = false;
   
   constructor(public globals: Globals ,public authService: AuthService ,private router: Router) {
-   
+  
   }
   name = localStorage.getItem('name');
   userId = localStorage.getItem('userId');
   
 
   ngOnInit() {
-
+    alert(localStorage.getItem('userType') +"ss")
+    
+    if(localStorage.getItem('userType') == "company" ){
+      alert('here')
+      this.addUSerOption = true;
+      
+    }
+    else{
+      this.addUSerOption = false;
+      alert("false")
+    }
   }
 
   ngDoCheck(): void {

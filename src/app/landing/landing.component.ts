@@ -85,9 +85,11 @@ export class LandingComponent implements OnInit {
       if (data.name == response.data.name && data.password == response.data.password) {
        
         alert("successful login")
+        alert(JSON.stringify(response.data.userType))
         $('#exampleModal').modal('toggle'); 
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('userType' , response.data.userType)
         localStorage.setItem('name', data.name);
         localStorage.setItem('pass', data.password);
         localStorage.setItem('userId', response.data.userId);

@@ -48,7 +48,6 @@ import { AuthService } from '../auth.service';
       console.log(response.data)
       if (data.name == response.data.name && data.password == response.data.password) {
         alert("successful login")
-        
 
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
