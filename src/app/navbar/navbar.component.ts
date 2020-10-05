@@ -22,16 +22,16 @@ export class NavbarComponent implements OnInit {
   
 
   ngOnInit() {
-    alert(localStorage.getItem('userType') +"ss")
+  //  alert(localStorage.getItem('userType') +"ss")
     
     if(localStorage.getItem('userType') == "company" ){
-      alert('here')
+   //   alert('here')
       this.addUSerOption = true;
       
     }
     else{
       this.addUSerOption = false;
-      alert("false")
+  //    alert("false")
     }
   }
 
