@@ -60,13 +60,11 @@ export class LandingComponent implements OnInit {
       password: this.signUpPassword,
       confirmpassword: this.signUpRepeatPassword
     };
-    alert(JSON.stringify(data));
     
     this.Signupservice.SignUp(data).then(response => {
       $('#logreg-forms .form-signup').toggle();
       $('#logreg-forms .form-signin').toggle();
       this.isLoggedIn = false
-       alert(response.data)
        console.log(response.data)
    //    this.router.navigate(['/login']);  
     });
@@ -80,16 +78,30 @@ export class LandingComponent implements OnInit {
       password: this.signInPassword,
       id:this.signInId
     };
+    this.loginService(data);
+  }
+
+  trialLogin() {
+    var data = {
+      name:"trialLogin",
+      password: "trialLogin",
+      id:this.signInId
+    };
+    this.loginService(data);
+  }
+
+
+  private loginService(data: { name: string; password: string; id: string; }) {
     this.loginservice.signIn(data).then(response => {
-      console.log(response.data)
+      console.log(response.data);
       if (data.name == response.data.name && data.password == response.data.password) {
-       
-        alert("successful login")
-        alert(JSON.stringify(response.data.userType))
-        $('#exampleModal').modal('toggle'); 
+
+     //   $('.modal-backdrop').modal('toggle');
+   
+        $('#exampleModal').modal('toggle');
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
-        localStorage.setItem('userType' , response.data.userType)
+        localStorage.setItem('userType', response.data.userType);
         localStorage.setItem('name', data.name);
         localStorage.setItem('pass', data.password);
         localStorage.setItem('userId', response.data.userId);
@@ -97,11 +109,11 @@ export class LandingComponent implements OnInit {
         this.router.navigate([this.returnUrl]);
       }
 
-     else{
-      this.isLoggedIn = false
-   
+      else {
+        this.isLoggedIn = false;
 
-     }
+
+      }
     });
   }
 
@@ -270,16 +282,16 @@ export class LandingComponent implements OnInit {
       }
     });
     $(document).ready(function () {
-      var modal = document.getElementById("apmodal");
-      var btn = document.getElementById("aboutt");
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
+      // var modal = document.getElementById("apmodal");
+      // var btn = document.getElementById("aboutt");
+      // btn.addEventListener('click', function() {
+      //   modal.style.display = "block";
+      // });
+      // window.onclick = function(event) {
+      //   if (event.target == modal) {
+      //     modal.style.display = "none";
+      //   }
+      // }
     });
     $(document).ready(function () {
       var modal = document.getElementById("companylogin");

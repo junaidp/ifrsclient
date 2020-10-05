@@ -514,7 +514,8 @@
     </footer>
 
     <div id="mySidenav" class="sidenav pulse">
-        <div href="#aboutt" class="animated infinite pulse delay-1s" data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div>
+        <!-- <div href="#aboutt" class="animated infinite pulse delay-1s" data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div> -->
+        <div  class="animated infinite pulse delay-1s" (click)="trialLogin()"  id="aboutt">Click here for free trial</div>
     </div>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="max-width: 422px;">
