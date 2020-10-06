@@ -117,9 +117,9 @@ export class LandingComponent implements OnInit {
       console.log(response.data);
       if (data.name == response.data.name && data.password == response.data.password) {
 
-     //   $('.modal-backdrop').modal('toggle');
+      $('.modal-backdrop').hide();
    
-        //$('#exampleModal').modal('toggle');
+        $('#exampleModal').hide();
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('userType', response.data.userType);
