@@ -49,6 +49,27 @@ export class LandingComponent implements OnInit {
     else if($('#company_checkbox').prop("checked") == true){
       this.signUpUserType = "company";
     }
+    validate();
+    function validateEmail(email) {
+      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+    function validate() {
+      const $result = $("#result");
+      const email = $("#email").val();
+      $result.text("");
+    
+      if (validateEmail(email)) {
+        $result.text(email + " is valid :)");
+        $result.css("color", "green");
+      } else {
+        $result.text(email + " is not valid :-)");
+        $result.css("color", "red");
+        return ;
+      }
+      return false;
+      
+    }
     var data = {
       name: this.signUpUserName ,
       email : this.signUpEmail,
@@ -98,7 +119,7 @@ export class LandingComponent implements OnInit {
 
      //   $('.modal-backdrop').modal('toggle');
    
-        $('#exampleModal').modal('toggle');
+        //$('#exampleModal').modal('toggle');
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('userType', response.data.userType);

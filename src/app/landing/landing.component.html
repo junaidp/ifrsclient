@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/landing/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/landing/css/main.css">
     <link rel="stylesheet" type="text/css" href="/assets/landing/css/animation.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <!-- <link rel="stylesheet" href="/assets/landing/css/aos.css" /> -->
     <!-- <link href="/assets/landing/css/login.css" rel="stylesheet" /> -->
 </head>
@@ -515,7 +516,7 @@
 
     <div id="mySidenav" class="sidenav pulse">
         <!-- <div href="#aboutt" class="animated infinite pulse delay-1s" data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div> -->
-        <div  class="animated infinite pulse delay-1s" (click)="trialLogin()"  id="aboutt">Click here for free trial</div>
+        <div class="animated infinite pulse delay-1s" (click)="trialLogin()" id="aboutt">Click here for free trial</div>
     </div>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="max-width: 422px;">
@@ -528,7 +529,7 @@
                                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
                             </div>
                             <p style="text-align:center"> OR </p>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="signUname" required="" autofocus="" [(ngModel)]="signInName">
+                            <input type="email" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="inputEmail" class="form-control" placeholder="Email address" name="signUname" required="" autofocus="" [(ngModel)]="signInName">
                             <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="signPass" required="" [(ngModel)]="signInPassword">
 
                             <button class="btn btn-success btn-block" type="submit" (click)="login()"><i class="fas fa-sign-in-alt"></i> Sign in</button>
@@ -539,7 +540,7 @@
                         </form>
 
                         <form action="/reset/password/" class="form-reset" #myForm='ngForm'>
-                            <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <input type="email" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
                             <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
                             <a onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();"><i class="fas fa-angle-left"></i> Back</a>
                         </form>
@@ -556,10 +557,11 @@
                             </div>
                             <div class="individual_user_checkbox" id="individualCheckBox">
                                 <input type="text" id="user-name" class="form-control" placeholder="User Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
-                                <input type="email" id="user-email" class="form-control" name="signUpEmail" [(ngModel)]="signUpEmail" placeholder="Email" required autofocus="">
+                                <input type="email" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="user-email" class="form-control" name="signUpEmail" [(ngModel)]="signUpEmail" placeholder="Email" required autofocus="">
+                                <label id='result'></label>
                                 <input type="text" class="form-control" placeholder="City" name="signUpCity" [(ngModel)]="signUpCity" required autofocus="">
                                 <input type="text" class="form-control" name="signUpAddress" placeholder="Address" [(ngModel)]="signUpAddress">
-                                <input type="text" class="form-control"name="signUpContact" placeholder="Contact Number" [(ngModel)]="signUpContact">
+                                <input type="text" class="form-control" name="signUpContact" placeholder="Contact Number" [(ngModel)]="signUpContact">
                                 <select class="form-control" [(ngModel)]="signUpCurency" name="contractNo119">
                                     <option value="" selected="selected">Functional Currency</option>
                                     <option value="USD">United States Dollars</option>
