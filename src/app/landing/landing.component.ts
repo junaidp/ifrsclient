@@ -68,7 +68,7 @@ export class LandingComponent implements OnInit {
         return ;
       }
       return false;
-      
+     
     }
     var data = {
       name: this.signUpUserName ,
@@ -93,13 +93,28 @@ export class LandingComponent implements OnInit {
   }
 
 
+
   login() {
+  //   var myDiv = document.getElementById("overlaylogin"),
+
+  //   showww = function() {
+  //       myDiv.style.display = "block";
+  //       //setTimeout(hide, 2000); // 5 seconds
+  //   },
+  //   hide = function() {
+  //     myDiv.style.display = "none";
+  // };
+  // showww();
     var data = {
       name: this.signInName,
       password: this.signInPassword,
       id:this.signInId
     };
+   
+
     this.loginService(data);
+    
+    //hide();
   }
 
   trialLogin() {
@@ -108,6 +123,7 @@ export class LandingComponent implements OnInit {
       password: "trialLogin",
       id:this.signInId
     };
+    
     this.loginService(data);
   }
 
@@ -128,6 +144,7 @@ export class LandingComponent implements OnInit {
         localStorage.setItem('userId', response.data.userId);
 
         this.router.navigate([this.returnUrl]);
+       
         $('.modal-backdrop').attr('style','display:none !important');
         $('body').css({'overflow':'auto','padding-right':'0px'});
       }
@@ -139,7 +156,26 @@ export class LandingComponent implements OnInit {
     });
   }
 
+
+  
   ngOnInit() {
+  
+   
+    (function() {
+      var myDiv = document.getElementById("overlaylogin"),
+
+          showww = function() {
+              myDiv.style.display = "block";
+              setTimeout(hide, 2000); // 5 seconds
+          },
+
+          hide = function() {
+              myDiv.style.display = "none";
+          };
+
+      showww();
+  })();
+
 
     this.returnUrl = '/home';
     this.authService.logout();
