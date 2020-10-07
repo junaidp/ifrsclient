@@ -115,11 +115,11 @@ export class LandingComponent implements OnInit {
   private loginService(data: { name: string; password: string; id: string; }) {
     this.loginservice.signIn(data).then(response => {
       console.log(response.data);
-      if (data.name == response.data.name && data.password == response.data.password) {
+      if (data.name == response.data.name && data.password == response.data.password) 
+      {
 
-      $('.modal-backdrop').hide();
-   
-        $('#exampleModal').hide();
+        $('.modal-backdrop').toggle();
+        //$('#exampleModal').hide();
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('userType', response.data.userType);
@@ -128,13 +128,14 @@ export class LandingComponent implements OnInit {
         localStorage.setItem('userId', response.data.userId);
 
         this.router.navigate([this.returnUrl]);
+        $('.modal-backdrop').attr('style','display:none !important');
+        $('body').css({'overflow':'auto','padding-right':'0px'});
       }
 
       else {
         this.isLoggedIn = false;
-
-
       }
+      //$('.modal-backdrop').attr('style','display:none !important');
     });
   }
 
@@ -143,6 +144,7 @@ export class LandingComponent implements OnInit {
     this.returnUrl = '/home';
     this.authService.logout();
 
+    $('.modal-backdrop').hide();
 
     (function($) {
 
@@ -206,145 +208,7 @@ export class LandingComponent implements OnInit {
     //   }
     // }
     
-    $(document).ready(function () {
-      var modal = document.getElementById("apmodal");
-      var btn = document.getElementById("myBtn");
-      var span = document.getElementsByClassName("close")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener('click', function() {
-        modal.style.display = "none";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("apmodal");
-      var btn = document.getElementById("gold");
-      var span = document.getElementsByClassName("close")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener('click', function() {
-        modal.style.display = "none";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("apmodal");
-      var btn = document.getElementById("silver");
-      var span = document.getElementsByClassName("close")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener('click', function() {
-        modal.style.display = "none";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("apmodallogin");
-      var btn = document.getElementById("login");
-      var span = document.getElementsByClassName("close1")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener('click', function() {
-        modal.style.display = "none";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("apmodal");
-      var btn = document.getElementById("loginnn");
-      var span = document.getElementsByClassName("close1")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener('click', function() {
-        modal.style.display = "none";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("apmodallogin");
-      var btn = document.getElementById("login1");
-      var span = document.getElementsByClassName("close1")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener('click', function() {
-        modal.style.display = "none";
-      });
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      // var modal = document.getElementById("apmodal");
-      // var btn = document.getElementById("aboutt");
-      // btn.addEventListener('click', function() {
-      //   modal.style.display = "block";
-      // });
-      // window.onclick = function(event) {
-      //   if (event.target == modal) {
-      //     modal.style.display = "none";
-      //   }
-      // }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("companylogin");
-      var btn = document.getElementById("companyloginclick");
-      var span = document.getElementsByClassName("close2")[0];
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-      span.addEventListener = function() {
-        modal.style.display = "none";
-      }
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("companylogin");
-      var btn = document.getElementById("companyloginclick1");
-      btn.addEventListener('click', function() {
-        modal.style.display = "block";
-      });
-    });
-    $(document).ready(function () {
-      var modal = document.getElementById("companylogin");
-      var btn = document.getElementById("companyloginclick2");
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-    });
-
+    
     $( document ).ready(function() {
       $('#mainNavBar').hide();
   });
