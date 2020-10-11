@@ -34,20 +34,7 @@ export class NavbarComponent implements OnInit {
       this.addUSerOption = false;
       alert("false")
     }
-    (function() {
-      var myDiv = document.getElementById("overlaylogin"),
-
-          showww = function() {
-              myDiv.style.display = "block";
-              setTimeout(hide, 2000); // 5 seconds
-          },
-
-          hide = function() {
-              myDiv.style.display = "none";
-          };
-
-      showww();
-  })();
+   
   }
   
 

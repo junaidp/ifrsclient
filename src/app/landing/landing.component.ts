@@ -42,7 +42,8 @@ export class LandingComponent implements OnInit {
 
   SignUp(){
     
- 
+   // var hide = divLoader();
+
     if($('#individual_user_checkbox').prop("checked") == true){
       this.signUpUserType = "individual";
     }
@@ -83,6 +84,7 @@ export class LandingComponent implements OnInit {
     };
     
     this.Signupservice.SignUp(data).then(response => {
+    //  hide();
       $('#logreg-forms .form-signup').toggle();
       $('#logreg-forms .form-signin').toggle();
       this.isLoggedIn = false
@@ -95,16 +97,7 @@ export class LandingComponent implements OnInit {
 
 
   login() {
-  //   var myDiv = document.getElementById("overlaylogin"),
-
-  //   showww = function() {
-  //       myDiv.style.display = "block";
-  //       //setTimeout(hide, 2000); // 5 seconds
-  //   },
-  //   hide = function() {
-  //     myDiv.style.display = "none";
-  // };
-  // showww();
+    var hide = divLoader();
     var data = {
       name: this.signInName,
       password: this.signInPassword,
@@ -113,6 +106,7 @@ export class LandingComponent implements OnInit {
    
 
     this.loginService(data);
+    hide();
     
     //hide();
   }
@@ -155,28 +149,25 @@ export class LandingComponent implements OnInit {
       //$('.modal-backdrop').attr('style','display:none !important');
     });
   }
-
-
   
+
+  divLoader() {
+    var myDiv = document.getElementById("overlaylogin"),
+
+        showww = function() {
+            myDiv.style.display = "block";
+            setTimeout(hide, 500); // 5 seconds
+        },
+
+        hide = function() {
+            myDiv.style.display = "none";
+        };
+
+    showww();
+};
+
   ngOnInit() {
-  
-   
-    (function() {
-      var myDiv = document.getElementById("overlaylogin"),
-
-          showww = function() {
-              myDiv.style.display = "block";
-              setTimeout(hide, 2000); // 5 seconds
-          },
-
-          hide = function() {
-              myDiv.style.display = "none";
-          };
-
-      showww();
-  })();
-
-
+    this.divLoader();
     this.returnUrl = '/home';
     this.authService.logout();
 
@@ -250,3 +241,18 @@ export class LandingComponent implements OnInit {
   });
   }
 }
+function divLoader() {
+  var myDiv = document.getElementById("overlaylogin"),
+
+    showww = function () {
+      myDiv.style.display = "block";
+      //setTimeout(hide, 2000); // 5 seconds
+    },
+    hide = function () {
+      myDiv.style.display = "none";
+    };
+
+  showww();
+  return hide;
+}
+
