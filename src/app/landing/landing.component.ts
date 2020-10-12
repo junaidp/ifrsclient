@@ -138,6 +138,17 @@ export class LandingComponent implements OnInit {
         localStorage.setItem('userId', response.data.userId);
 
         this.router.navigate([this.returnUrl]);
+
+        if(localStorage.getItem('userType') == "company" ){
+          alert('cpom')
+          $('#addUSerOption').show();
+          
+          
+        }
+        else{
+          alert("false")
+          $('#addUSerOption').hide();
+        }
        
         $('.modal-backdrop').attr('style','display:none !important');
         $('body').css({'overflow':'auto','padding-right':'0px'});
