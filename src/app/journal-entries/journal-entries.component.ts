@@ -3,6 +3,7 @@ import { Globals } from "../globals";
 import { JournalService } from "./journalService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
+import {ChangeDetectorRef} from '@angular/core';
 declare var $: any;
 
 @Component({
@@ -12,15 +13,16 @@ declare var $: any;
 })
 
 export class JournalEntriesComponent implements OnInit {
-  // ending issue payment div is not showing
-  constructor(public journalService: JournalService, public globals: Globals) {
-
-  }
   paymentBool = true;
   accruedBool = true;
   prepaidBool = true;
   leaseBool = true;
   financeBool = true;
+  // ending issue payment div is not showing
+  constructor(public journalService: JournalService, public globals: Globals , private cd : ChangeDetectorRef) {
+
+  }
+
 
   FinalPrepaidExpense: any
   finalAccruedLiability: any
@@ -358,23 +360,39 @@ export class JournalEntriesComponent implements OnInit {
         this.paymentCashBank = -(this.paymentCashBank)
         this.paymentBool = false;
       }
+      else{
+        this.paymentBool = true;
+      }
       if(this.finalFinanceCost < 0) {
         this.finalFinanceCost = -(this.finalFinanceCost)
         this.financeBool = false;
+      }
+      else{
+        this.financeBool = true;
       }
       if(this.finalAccruedLiability < 0) {
         this.finalAccruedLiability = -(this.finalAccruedLiability)
         this.accruedBool = false;
       }
+      else{
+        this.accruedBool = true;
+      }
       if(this.FinalPrepaidExpense < 0) {
         this.FinalPrepaidExpense = -(this.FinalPrepaidExpense)
         this.prepaidBool = false;
+      }
+      else{
+        this.prepaidBool = true;
       }
       if(this.finalLeaseLiability < 0) {
         this.finalLeaseLiability = -(this.finalLeaseLiability)
         this.leaseBool = false;
       }
+      else{
+        this.leaseBool = true;
+      }
  
+      this.cd.detectChanges();
       
     });
 

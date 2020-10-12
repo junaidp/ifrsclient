@@ -4,7 +4,8 @@ import { Globals } from "../globals";
 import {ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import {Signupservice} from "src/app/signup/Signupservice"
+import {Signupservice} from "src/app/signup/Signupservice";
+import {ChangeDetectorRef} from '@angular/core';
 
 declare var $: any;
 @Component({
@@ -31,7 +32,7 @@ export class LandingComponent implements OnInit {
   signInName = "";
   signInPassword = "";
   signInId = "";
-  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice) { }
+  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef) { }
 
 
   private setGlobals(response) {
@@ -138,15 +139,11 @@ export class LandingComponent implements OnInit {
         localStorage.setItem('userId', response.data.userId);
 
         this.router.navigate([this.returnUrl]);
-
         if(localStorage.getItem('userType') == "company" ){
-          alert('cpom')
           $('#addUSerOption').show();
-          
           
         }
         else{
-          alert("false")
           $('#addUSerOption').hide();
         }
        
