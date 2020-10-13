@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Globals } from "../globals";
 import { AuthService } from '../auth.service';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-
+declare var $: any 
 
 @Component({
   selector: "app-navbar",
