@@ -43,6 +43,8 @@ export class LandingComponent implements OnInit {
 
   SignUp(){
     
+    alert($('.the-price > h1').innerHTML())
+
    // var hide = divLoader();
 
     if($('#individual_user_checkbox').prop("checked") == true){
@@ -71,6 +73,7 @@ export class LandingComponent implements OnInit {
       }
       return false;
      
+
     }
     var data = {
       name: this.signUpUserName ,
@@ -81,9 +84,9 @@ export class LandingComponent implements OnInit {
       currency : this.signUpCurency,
       userType: this.signUpUserType,
       password: this.signUpPassword,
-      confirmpassword: this.signUpRepeatPassword
+      confirmpassword: this.signUpRepeatPassword,
+      paymentSchedule: this.globals.paymentSchedule
     };
-    
     this.Signupservice.SignUp(data).then(response => {
     //  hide();
       $('#logreg-forms .form-signup').toggle();
@@ -96,6 +99,22 @@ export class LandingComponent implements OnInit {
   }
 
 
+  bronzeClick() {
+    alert("bronze")
+    this.globals.paymentSchedule = "bronze";
+    };
+  silverClick() {
+    alert("silver")
+    this.globals.paymentSchedule = "silver";
+    };
+  goldClick() {
+    alert("gold")
+    this.globals.paymentSchedule = "gold";
+    };
+  trialClick() {
+    alert("trials")
+    this.globals.paymentSchedule = "";
+    };
 
   login() {
     var hide = divLoader();
@@ -199,7 +218,9 @@ export class LandingComponent implements OnInit {
         }
     });
 
-       
+       $('#bronzeMember').on('click' , function(){
+        alert("sad");
+       });
       // Add smooth scrolling to all links in navbar
       $(".navbar a,a.btn-appoint, .quick-info li a, .overlay-detail a").on('click', function(event) {
     

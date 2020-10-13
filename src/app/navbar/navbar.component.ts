@@ -22,17 +22,13 @@ export class NavbarComponent implements OnInit {
   
 
   ngOnInit() {
-//    alert(localStorage.getItem('userType') +"ss")
-    
+
     if(localStorage.getItem('userType') == "company" ){
- //     alert('cpom')
-      this.addUSerOption = true;
-      
+      $('#addUSerOption').show();
       
     }
     else{
-      this.addUSerOption = false;
-   //   alert("false")
+      $('#addUSerOption').hide();
     }
    
   }
