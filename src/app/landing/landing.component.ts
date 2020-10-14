@@ -6,6 +6,7 @@ import { AuthService } from '../auth.service';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Signupservice} from "src/app/signup/Signupservice";
 import {ChangeDetectorRef} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 declare var $: any;
 @Component({
@@ -14,6 +15,7 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  
   isLoggedIn = true;
   returnUrl: string;
 // for sign up variables
@@ -51,27 +53,9 @@ export class LandingComponent implements OnInit {
     else if($('#company_checkbox').prop("checked") == true){
       this.signUpUserType = "company";
     }
-    validate();
-    function validateEmail(email) {
-      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    }
-    function validate() {
-      const $result = $("#result");
-      const email = $("#email").val();
-      $result.text("");
-    
-      if (validateEmail(email)) {
-        $result.text(email + " is valid :)");
-        $result.css("color", "green");
-      } else {
-        $result.text(email + " is not valid :-)");
-        $result.css("color", "red");
-        return ;
-      }
-      return false;
-     
-    }
+
+
+
     var data = {
       name: this.signUpUserName ,
       email : this.signUpEmail,
@@ -98,16 +82,18 @@ export class LandingComponent implements OnInit {
 
 
   login() {
-    var hide = divLoader();
+    //var hide = divLoader();
     var data = {
       name: this.signInName,
       password: this.signInPassword,
       id:this.signInId
     };
    
-
+    $('#exampleModal').css('z-index','-1 !important');
     this.loginService(data);
-    hide();
+    //hide();
+    
+    divLoader();
     
     //hide();
   }
@@ -124,12 +110,14 @@ export class LandingComponent implements OnInit {
 
 
   private loginService(data: { name: string; password: string; id: string; }) {
+    //$('#exampleModal').css('z-index','-1 !important');
     this.loginservice.signIn(data).then(response => {
       console.log(response.data);
       if (data.name == response.data.name && data.password == response.data.password) 
       {
-
+        
         $('.modal-backdrop').toggle();
+        
         //$('#exampleModal').hide();
         this.setGlobals(response);
         localStorage.setItem('isLoggedIn', "true");
@@ -175,10 +163,41 @@ export class LandingComponent implements OnInit {
 };
 
   ngOnInit() {
+
+    $('#user-name').on('input', function() {
+      var input=$(this);
+      var is_name=input.val();
+      if(is_name){input.removeClass("invalid").addClass("valid");}
+      else{input.removeClass("valid").addClass("invalid");}
+    });
+    $('#contact_number').keyup('input', function() {
+      var input=$(this);
+      var is_number=input.val();
+      if(is_number){input.removeClass("invalid").addClass("valid");}
+      else{input.removeClass("valid").addClass("invalid");}
+    });
+    $('#user-email').on('input', function() {
+      var input=$(this);
+      var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      var is_email=re.test(input.val());
+      if(is_email){input.removeClass("invalid").addClass("valid");}
+      else{input.removeClass("valid").addClass("invalid");}
+    });
+
+    //pass
+    $('#user-pass, #user-repeatpass').on('keyup', function () {
+      if ($('#user-pass').val() == $('#user-repeatpass').val()) {
+        $('#message').html('Matching').css('color', 'green');
+      } else 
+        $('#message').html('Not Matching').css('color', 'red');
+    });
+    //pass
+
     this.divLoader();
     this.returnUrl = '/home';
     this.authService.logout();
 
+    
     $('.modal-backdrop').hide();
 
     (function($) {
