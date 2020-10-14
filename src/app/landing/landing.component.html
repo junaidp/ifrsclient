@@ -525,6 +525,12 @@
                     <div id="logreg-forms">
                         <form class="form-signin" #myForm='ngForm' novalidate>
                             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>User Name & Password </strong> is incorrect
+                              </div>
                             <div class="social-login text-center">
                                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
                             </div>
@@ -551,6 +557,13 @@
                             </div>
 
                             <p style="text-align:center">OR</p>
+
+                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>User Name & Password </strong> is incorrect
+                              </div>
                             <div class="checkbox_company">
                                 <label for="individual_user_checkbox"><input type="checkbox" checked="checked" onclick="$('#company_checkbox').prop('checked', false)" class="radio float-left" id="individual_user_checkbox">  &nbsp;Individual</label>&nbsp;&nbsp;
                                 <label for="company_checkbox"><input type="checkbox" class="radio float-left" onclick="$('#individual_user_checkbox').prop('checked', false)" id="company_checkbox"> &nbsp;Company</label>

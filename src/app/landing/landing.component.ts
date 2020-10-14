@@ -15,7 +15,7 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  
+  validator = true;
   isLoggedIn = true;
   returnUrl: string;
 // for sign up variables
@@ -45,6 +45,10 @@ export class LandingComponent implements OnInit {
 
   SignUp(){
     
+    if(this.signUpCity == ""){
+      alert("city")
+      this.validator = false;
+    }
    // var hide = divLoader();
 
     if($('#individual_user_checkbox').prop("checked") == true){
@@ -54,7 +58,9 @@ export class LandingComponent implements OnInit {
       this.signUpUserType = "company";
     }
 
-
+    if(this.globals.paymentSchedule == "trial"){
+      this.signUpUserType = "trialUser"
+    }
 
     var data = {
       name: this.signUpUserName ,
@@ -68,6 +74,7 @@ export class LandingComponent implements OnInit {
       confirmpassword: this.signUpRepeatPassword,
       paymentSchedule: this.globals.paymentSchedule
     };
+    alert(JSON.stringify(data))
     this.Signupservice.SignUp(data).then(response => {
     //  hide();
       $('#logreg-forms .form-signup').toggle();
@@ -79,25 +86,11 @@ export class LandingComponent implements OnInit {
 
   }
 
-
-  bronzeClick() {
-    alert("bronze")
-    this.globals.paymentSchedule = "bronze";
-    };
-  silverClick() {
-    alert("silver")
-    this.globals.paymentSchedule = "silver";
-    };
-  goldClick() {
-    alert("gold")
-    this.globals.paymentSchedule = "gold";
-    };
-  trialClick() {
-    alert("trials")
-    this.globals.paymentSchedule = "";
-    };
-
   login() {
+    if(this.signInName == ""){
+      alert("city")
+      this.validator = false;
+    }
     //var hide = divLoader();
     var data = {
       name: this.signInName,
@@ -123,8 +116,6 @@ export class LandingComponent implements OnInit {
     
     this.loginService(data);
   }
-
-
   private loginService(data: { name: string; password: string; id: string; }) {
     //$('#exampleModal').css('z-index','-1 !important');
     this.loginservice.signIn(data).then(response => {
@@ -141,6 +132,9 @@ export class LandingComponent implements OnInit {
         localStorage.setItem('name', data.name);
         localStorage.setItem('pass', data.password);
         localStorage.setItem('userId', response.data.userId);
+        localStorage.setItem('paymentSchedule', response.data.paymentSchedule)
+
+        alert(localStorage.getItem('paymentSchedule'));
 
         this.router.navigate([this.returnUrl]);
         if(localStorage.getItem('userType') == "company" ){
@@ -161,6 +155,23 @@ export class LandingComponent implements OnInit {
       //$('.modal-backdrop').attr('style','display:none !important');
     });
   }
+
+  bronzeClick() {
+    alert("bronze")
+    this.globals.paymentSchedule = "bronze";
+    };
+  silverClick() {
+    alert("silver")
+    this.globals.paymentSchedule = "silver";
+    };
+  goldClick() {
+    alert("gold")
+    this.globals.paymentSchedule = "gold";
+    };
+  trialClick() {
+    alert("trials")
+    this.globals.paymentSchedule = "trial";
+    };
   
 
   divLoader() {
