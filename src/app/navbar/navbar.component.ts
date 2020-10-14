@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Globals } from "../globals";
 import { AuthService } from '../auth.service';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-
+declare var $: any 
 
 @Component({
   selector: "app-navbar",
@@ -22,17 +22,13 @@ export class NavbarComponent implements OnInit {
   
 
   ngOnInit() {
-//    alert(localStorage.getItem('userType') +"ss")
-    
+
     if(localStorage.getItem('userType') == "company" ){
- //     alert('cpom')
-      this.addUSerOption = true;
-      
+      $('#addUSerOption').show();
       
     }
     else{
-      this.addUSerOption = false;
-   //   alert("false")
+      $('#addUSerOption').hide();
     }
    
   }

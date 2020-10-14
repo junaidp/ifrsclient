@@ -285,8 +285,8 @@
                     <h2 class="ser-title">Payment Schedule</h2>
                     <hr class="botm-line">
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary animated pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
-                    <div class="row bronze">
+                <div class="col-lg-4 col-md-3 panel panel-primary animated pulse silver_gold" id="bronzeMember" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
+                    <div class="row bronze" (click) = "bronzeClick()">
                         <div class="col-12"><img src="/assets/landing/img/bronze.png" alt="img" /></div>
                         <div class="col-12">
                             <h2>BRONZE</h2>
@@ -327,7 +327,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 panel panel-primary silver pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
-                    <div class="row bronze">
+                    <div class="row silver " (click) = "silverClick()">
                         <div class="col-12"><img src="/assets/landing/img/silver.png" alt="img" /></div>
                         <div class="col-12">
                             <h2>SILVER</h2>
@@ -368,7 +368,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 panel panel-primary gold pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
-                    <div class="row bronze">
+                    <div class="row gold" (click) = "goldClick()">
                         <div class="col-12"><img src="/assets/landing/img/gold.png" alt="img" /></div>
                         <div class="col-12">
                             <h2>GOLD</h2>
@@ -515,7 +515,7 @@
     </footer>
 
     <div id="mySidenav" class="sidenav pulse">
-        <div href="#aboutt" class="animated infinite pulse delay-1s" data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div>
+        <div href="#aboutt" class="animated infinite pulse delay-1s"  (click)="trialClick()"data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div>
         <!-- <div class="animated infinite pulse delay-1s" (click)="trialLogin()" id="aboutt">Click here for free trial</div> -->
     </div>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

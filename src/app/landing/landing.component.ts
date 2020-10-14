@@ -45,6 +45,8 @@ export class LandingComponent implements OnInit {
 
   SignUp(){
     
+    alert($('.the-price > h1').innerHTML())
+
    // var hide = divLoader();
 
     if($('#individual_user_checkbox').prop("checked") == true){
@@ -53,9 +55,34 @@ export class LandingComponent implements OnInit {
     else if($('#company_checkbox').prop("checked") == true){
       this.signUpUserType = "company";
     }
+<<<<<<< HEAD
 
 
 
+=======
+    validate();
+    function validateEmail(email) {
+      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+    function validate() {
+      const $result = $("#result");
+      const email = $("#email").val();
+      $result.text("");
+    
+      if (validateEmail(email)) {
+        $result.text(email + " is valid :)");
+        $result.css("color", "green");
+      } else {
+        $result.text(email + " is not valid :-)");
+        $result.css("color", "red");
+        return ;
+      }
+      return false;
+     
+
+    }
+>>>>>>> f909bf068e97695c1aef61c02a326fd16be3554c
     var data = {
       name: this.signUpUserName ,
       email : this.signUpEmail,
@@ -65,9 +92,9 @@ export class LandingComponent implements OnInit {
       currency : this.signUpCurency,
       userType: this.signUpUserType,
       password: this.signUpPassword,
-      confirmpassword: this.signUpRepeatPassword
+      confirmpassword: this.signUpRepeatPassword,
+      paymentSchedule: this.globals.paymentSchedule
     };
-    
     this.Signupservice.SignUp(data).then(response => {
     //  hide();
       $('#logreg-forms .form-signup').toggle();
@@ -80,6 +107,22 @@ export class LandingComponent implements OnInit {
   }
 
 
+  bronzeClick() {
+    alert("bronze")
+    this.globals.paymentSchedule = "bronze";
+    };
+  silverClick() {
+    alert("silver")
+    this.globals.paymentSchedule = "silver";
+    };
+  goldClick() {
+    alert("gold")
+    this.globals.paymentSchedule = "gold";
+    };
+  trialClick() {
+    alert("trials")
+    this.globals.paymentSchedule = "";
+    };
 
   login() {
     //var hide = divLoader();
@@ -218,7 +261,9 @@ export class LandingComponent implements OnInit {
         }
     });
 
-       
+       $('#bronzeMember').on('click' , function(){
+        alert("sad");
+       });
       // Add smooth scrolling to all links in navbar
       $(".navbar a,a.btn-appoint, .quick-info li a, .overlay-detail a").on('click', function(event) {
     
