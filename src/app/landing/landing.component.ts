@@ -45,8 +45,6 @@ export class LandingComponent implements OnInit {
 
   SignUp(){
     
-    alert($('.the-price > h1').innerHTML())
-
    // var hide = divLoader();
 
     if($('#individual_user_checkbox').prop("checked") == true){
