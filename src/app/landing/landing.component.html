@@ -48,7 +48,7 @@
                                 <li class=""><a href='#about'>About</a></li>
                                 <li class=""><a href="#testimonial">Testimonial</a></li>
                                 <li class=""><a href='#contact'>Contact</a></li>
-                                <li class=""><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
+                                <li class=""><a href="#" data-toggle="modal" data-target="#exampleModal" onclick="$('#btn-signup').hide(); $('.form-signin').show(); $('.form-signup').hide();">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <div class="banner-text text-center">
                             <h1 class="white animated bounceIn delay-1s">Easy 2 Lease!!</h1>
                             <p class="" data-aos="fade-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div><a data-toggle="modal" data-target="#exampleModal" class="btn btn-appoint animated infinite swing delay-1s">Go To Your Account</a></div>
+                            <div><a data-toggle="modal" data-target="#exampleModal"   onclick="$('#btn-signup').hide(); $('.form-signin').show(); $('.form-signup').hide();" class="btn btn-appoint animated infinite swing delay-1s">Go To Your Account</a></div>
                         </div>
                         <div class="overlay-detail text-center">
                             <a href="#service"><i class="fa fa-angle-down"></i></a>
@@ -285,7 +285,7 @@
                     <h2 class="ser-title">Payment Schedule</h2>
                     <hr class="botm-line">
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary animated pulse silver_gold" id="bronzeMember" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
+                <div class="col-lg-4 col-md-3 panel panel-primary animated pulse silver_gold"  onclick="$('.form-signin').hide(); $('.form-signup').show();" id="bronzeMember" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
                     <div class="row bronze" (click) = "bronzeClick()">
                         <div class="col-12"><img src="/assets/landing/img/bronze.png" alt="img" /></div>
                         <div class="col-12">
@@ -326,7 +326,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary silver pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
+                <div class="col-lg-4 col-md-3 panel panel-primary silver pulse silver_gold" onclick="$('.form-signin').hide(); $('.form-signup').show();" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
                     <div class="row silver " (click) = "silverClick()">
                         <div class="col-12"><img src="/assets/landing/img/silver.png" alt="img" /></div>
                         <div class="col-12">
@@ -367,7 +367,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-3 panel panel-primary gold pulse silver_gold" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
+                <div class="col-lg-4 col-md-3 panel panel-primary gold pulse silver_gold"  onclick="$('.form-signin').hide(); $('.form-signup').show();" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
                     <div class="row gold" (click) = "goldClick()">
                         <div class="col-12"><img src="/assets/landing/img/gold.png" alt="img" /></div>
                         <div class="col-12">
@@ -515,7 +515,7 @@
     </footer>
 
     <div id="mySidenav" class="sidenav pulse">
-        <div href="#aboutt" class="animated infinite pulse delay-1s"  (click)="trialClick()"data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div>
+        <div href="#aboutt" class="animated infinite pulse delay-1s"  (click)="trialClick()"  onclick="$('.form-signin').hide(); $('.form-signup').show();" data-toggle="modal" data-target="#exampleModal" id="aboutt">Click here for free trial</div>
         <!-- <div class="animated infinite pulse delay-1s" (click)="trialLogin()" id="aboutt">Click here for free trial</div> -->
     </div>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -525,11 +525,11 @@
                     <div id="logreg-forms">
                         <form class="form-signin" #myForm='ngForm' novalidate>
                             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
-                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
-                                <strong>User Name & Password </strong> is incorrect
+                                <strong>Please fill all Fields </strong> 
                               </div>
                             <div class="social-login text-center">
                                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
@@ -558,11 +558,11 @@
 
                             <p style="text-align:center">OR</p>
 
-                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
-                                <strong>User Name & Password </strong> is incorrect
+                                <strong>Please fill all fields</strong>
                               </div>
                             <div class="checkbox_company">
                                 <label for="individual_user_checkbox"><input type="checkbox" checked="checked" onclick="$('#company_checkbox').prop('checked', false)" class="radio float-left" id="individual_user_checkbox">  &nbsp;Individual</label>&nbsp;&nbsp;

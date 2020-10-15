@@ -15,7 +15,9 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+ // for validator if field is empty
   validator = true;
+  //validator end
   isLoggedIn = true;
   returnUrl: string;
 // for sign up variables
@@ -29,52 +31,19 @@ export class LandingComponent implements OnInit {
   signUpContact = "";
   signUpAddress = "";
 
-
   //for logging in variables
   signInName = "";
   signInPassword = "";
   signInId = "";
   constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef) { }
 
-
-  private setGlobals(response) {
-    this.globals.userId = response.data.userId;
-    this.globals.userName = response.data.name;
-    this.signInId = response.data.userId
-  }
-
   SignUp(){
     
-    if(this.signUpCity == ""){
-      alert("city")
-      this.validator = false;
-    }
    // var hide = divLoader();
-
-    if($('#individual_user_checkbox').prop("checked") == true){
-      this.signUpUserType = "individual";
-    }
-    else if($('#company_checkbox').prop("checked") == true){
-      this.signUpUserType = "company";
-    }
-
-    if(this.globals.paymentSchedule == "trial"){
-      this.signUpUserType = "trialUser"
-    }
-
-    var data = {
-      name: this.signUpUserName ,
-      email : this.signUpEmail,
-      city : this.signUpCity,
-      contactNumber: this.signUpContact,
-      companyAddress: this.signUpAddress,
-      currency : this.signUpCurency,
-      userType: this.signUpUserType,
-      password: this.signUpPassword,
-      confirmpassword: this.signUpRepeatPassword,
-      paymentSchedule: this.globals.paymentSchedule
-    };
+    this.checkSignUpEmptyFields();
+    var data = this.setSignUpFormData();
     alert(JSON.stringify(data))
+    if(this.validator){
     this.Signupservice.SignUp(data).then(response => {
     //  hide();
       $('#logreg-forms .form-signup').toggle();
@@ -83,14 +52,15 @@ export class LandingComponent implements OnInit {
        console.log(response.data)
    //    this.router.navigate(['/login']);  
     });
-
   }
+  else{
+    //div to be hidden here
+  }
+}
 
   login() {
-    if(this.signInName == ""){
-      alert("city")
-      this.validator = false;
-    }
+    
+    this.checkSignInEmptyFields();
     //var hide = divLoader();
     var data = {
       name: this.signInName,
@@ -99,23 +69,15 @@ export class LandingComponent implements OnInit {
     };
    
     $('#exampleModal').css('z-index','-1 !important');
+    if(this.validator){
     this.loginService(data);
-    //hide();
-    
-    divLoader();
-    
-    //hide();
+    alert("true")
+    }
+    else{
+      //loader to be hidedn here
+    }
   }
 
-  trialLogin() {
-    var data = {
-      name:"trialLogin",
-      password: "trialLogin",
-      id:this.signInId
-    };
-    
-    this.loginService(data);
-  }
   private loginService(data: { name: string; password: string; id: string; }) {
     //$('#exampleModal').css('z-index','-1 !important');
     this.loginservice.signIn(data).then(response => {
@@ -127,23 +89,10 @@ export class LandingComponent implements OnInit {
         
         //$('#exampleModal').hide();
         this.setGlobals(response);
-        localStorage.setItem('isLoggedIn', "true");
-        localStorage.setItem('userType', response.data.userType);
-        localStorage.setItem('name', data.name);
-        localStorage.setItem('pass', data.password);
-        localStorage.setItem('userId', response.data.userId);
-        localStorage.setItem('paymentSchedule', response.data.paymentSchedule)
-
+        setLocalStorageVariable(response, data);
         alert(localStorage.getItem('paymentSchedule'));
-
         this.router.navigate([this.returnUrl]);
-        if(localStorage.getItem('userType') == "company" ){
-          $('#addUSerOption').show();
-          
-        }
-        else{
-          $('#addUSerOption').hide();
-        }
+        showAddUserOptionInNavBar();
        
         $('.modal-backdrop').attr('style','display:none !important');
         $('body').css({'overflow':'auto','padding-right':'0px'});
@@ -157,23 +106,64 @@ export class LandingComponent implements OnInit {
   }
 
   bronzeClick() {
-    alert("bronze")
     this.globals.paymentSchedule = "bronze";
     };
   silverClick() {
-    alert("silver")
     this.globals.paymentSchedule = "silver";
     };
   goldClick() {
-    alert("gold")
     this.globals.paymentSchedule = "gold";
     };
   trialClick() {
-    alert("trials")
     this.globals.paymentSchedule = "trial";
     };
+    private setSignUpFormData() {
+      if($('#individual_user_checkbox').prop("checked") == true){
+        this.signUpUserType = "individual";
+      }
+      else if($('#company_checkbox').prop("checked") == true){
+        this.signUpUserType = "company";
+      }
   
+      if(this.globals.paymentSchedule == "trial"){
+        this.signUpUserType = "trialUser"
+      }
 
+      return {
+        name: this.signUpUserName,
+        email: this.signUpEmail,
+        city: this.signUpCity,
+        contactNumber: this.signUpContact,
+        companyAddress: this.signUpAddress,
+        currency: this.signUpCurency,
+        userType: this.signUpUserType,
+        password: this.signUpPassword,
+        confirmpassword: this.signUpRepeatPassword,
+        paymentSchedule: this.globals.paymentSchedule
+      };
+    }
+
+    private setGlobals(response) {
+      this.globals.userId = response.data.userId;
+      this.globals.userName = response.data.name;
+      this.signInId = response.data.userId
+    }
+    private checkSignInEmptyFields() {
+      if (this.signInName == "" || this.signInId == "" || this.signInPassword == "") {
+        this.validator = false;
+      }
+      else{
+        this.validator = true;
+      }
+    }
+    private checkSignUpEmptyFields() {
+      if (this.signUpUserName == "" || this.signUpPassword == "" || this.signUpRepeatPassword == ""|| this.signUpCity == ""|| this.signUpContact == ""|| this.signUpCurency == ""|| this.signUpUserType == "") {
+        this.validator = false;
+      }
+      else{
+        this.validator = true;
+      }
+    }
   divLoader() {
     var myDiv = document.getElementById("overlaylogin"),
 
@@ -191,6 +181,9 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
 
+    this.divLoader();
+    this.returnUrl = '/home';
+    this.authService.logout();
     $('#user-name').on('input', function() {
       var input=$(this);
       var is_name=input.val();
@@ -220,11 +213,6 @@ export class LandingComponent implements OnInit {
     });
     //pass
 
-    this.divLoader();
-    this.returnUrl = '/home';
-    this.authService.logout();
-
-    
     $('.modal-backdrop').hide();
 
     (function($) {
@@ -278,25 +266,30 @@ export class LandingComponent implements OnInit {
     
     });
     
-    // function readURL(input) {
-    //   if (input.files && input.files[0]) {
-    //     var reader = new FileReader();
-    
-    //     reader.onload = function (e) {
-    //         $('#blah')
-    //             .attr('src', e.target.result);
-    //     };
-    
-    //     reader.readAsDataURL(input.files[0]);
-    //   }
-    // }
-    
-    
     $( document ).ready(function() {
       $('#mainNavBar').hide();
   });
   }
 }
+function setLocalStorageVariable(response, data: { name: string; password: string; id: string; }) {
+  localStorage.setItem('isLoggedIn', "true");
+  localStorage.setItem('userType', response.data.userType);
+  localStorage.setItem('name', data.name);
+  localStorage.setItem('pass', data.password);
+  localStorage.setItem('userId', response.data.userId);
+  localStorage.setItem('paymentSchedule', response.data.paymentSchedule);
+}
+
+function showAddUserOptionInNavBar() {
+  if (localStorage.getItem('userType') == "company") {
+    $('#addUSerOption').show();
+
+  }
+  else {
+    $('#addUSerOption').hide();
+  }
+}
+
 function divLoader() {
   var myDiv = document.getElementById("overlaylogin"),
 
