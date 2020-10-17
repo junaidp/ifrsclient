@@ -525,7 +525,7 @@
                     <div id="logreg-forms">
                         <form class="form-signin" #myForm='ngForm' novalidate>
                             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
-                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible " role="alert">
+                            <div *ngIf="!validatorSignIn" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -558,7 +558,7 @@
 
                             <p style="text-align:center">OR</p>
 
-                            <div *ngIf="!validator" class="alert alert-danger alert-dismissible " role="alert">
+                            <div *ngIf="!validatorSignUp" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                   <span aria-hidden="true">&times;</span>
                                 </button>

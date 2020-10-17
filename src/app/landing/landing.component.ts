@@ -16,7 +16,8 @@ declare var $: any;
 })
 export class LandingComponent implements OnInit {
  // for validator if field is empty
-  validator = true;
+  validatorSignUp = true;
+  validatorSignIn = true;
   //validator end
   isLoggedIn = true;
   returnUrl: string;
@@ -42,8 +43,7 @@ export class LandingComponent implements OnInit {
    // var hide = divLoader();
     this.checkSignUpEmptyFields();
     var data = this.setSignUpFormData();
-    alert(JSON.stringify(data))
-    if(this.validator){
+    if(this.validatorSignUp){
     this.Signupservice.SignUp(data).then(response => {
     //  hide();
       $('#logreg-forms .form-signup').toggle();
@@ -59,7 +59,6 @@ export class LandingComponent implements OnInit {
 }
 
   login() {
-    
     this.checkSignInEmptyFields();
     //var hide = divLoader();
     var data = {
@@ -69,9 +68,8 @@ export class LandingComponent implements OnInit {
     };
    
     $('#exampleModal').css('z-index','-1 !important');
-    if(this.validator){
+    if(this.validatorSignIn){
     this.loginService(data);
-    alert("true")
     }
     else{
       //loader to be hidedn here
@@ -117,6 +115,12 @@ export class LandingComponent implements OnInit {
   trialClick() {
     this.globals.paymentSchedule = "trial";
     };
+
+    closeAlert() {
+      this.validatorSignIn = true;
+      this.validatorSignUp = true;
+       // this.alert.nativeElement.classList.remove('show');
+      }
     private setSignUpFormData() {
       if($('#individual_user_checkbox').prop("checked") == true){
         this.signUpUserType = "individual";
@@ -149,19 +153,19 @@ export class LandingComponent implements OnInit {
       this.signInId = response.data.userId
     }
     private checkSignInEmptyFields() {
-      if (this.signInName == "" || this.signInId == "" || this.signInPassword == "") {
-        this.validator = false;
+      if (this.signInName == "" || this.signInPassword == "") {
+        this.validatorSignIn = false;
       }
       else{
-        this.validator = true;
+        this.validatorSignIn = true;
       }
     }
     private checkSignUpEmptyFields() {
       if (this.signUpUserName == "" || this.signUpPassword == "" || this.signUpRepeatPassword == ""|| this.signUpCity == ""|| this.signUpContact == ""|| this.signUpCurency == ""|| this.signUpUserType == "") {
-        this.validator = false;
+        this.validatorSignUp = false;
       }
       else{
-        this.validator = true;
+        this.validatorSignUp = true;
       }
     }
   divLoader() {
