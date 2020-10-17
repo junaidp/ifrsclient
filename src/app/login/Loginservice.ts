@@ -15,4 +15,11 @@ export class Loginservice {
     );
     return response;
   }
+
+  async getUserData(data) {
+    const url = this.globals.APP_URL+"/data/getData";
+     const response = await axios.post(url, data).then(
+    );
+    return response;
+  }
 }

@@ -91,15 +91,28 @@ export class LandingComponent implements OnInit {
         alert(localStorage.getItem('paymentSchedule'));
         this.router.navigate([this.returnUrl]);
         showAddUserOptionInNavBar();
-       
+        alert(this.globals.userId);
         $('.modal-backdrop').attr('style','display:none !important');
         $('body').css({'overflow':'auto','padding-right':'0px'});
+        this.getUserDetails();
       }
 
       else {
         this.isLoggedIn = false;
       }
       //$('.modal-backdrop').attr('style','display:none !important');
+    });
+  }
+
+  private getUserDetails() {
+    var getUserData = {
+      userId: this.globals.userId
+    };
+
+    this.loginservice.getUserData(getUserData).then(response => {
+      //  hide();
+      console.log(response.data);
+      alert(JSON.stringify(response.data));
     });
   }
 
@@ -307,5 +320,10 @@ function divLoader() {
 
   showww();
   return hide;
+}
+
+function getUserSavedData(userId) {
+
+ 
 }
 
