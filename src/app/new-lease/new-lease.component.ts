@@ -168,10 +168,10 @@ export class NewLeaseComponent implements OnInit {
     this.globals.escalation= this.escalation,
     this.globals. escalationAfterEvery= this.escalationAfterEvery
 
-    console.log(JSON.stringify(data))
+    
     this.leaseService.SaveData(data).then(response => {
-    
-    
+      console.log(JSON.stringify(response))
+    //  $('#saveSuccess span').text('Hi I am replace');
     
    });
   }
