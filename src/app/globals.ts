@@ -28,6 +28,7 @@ export class Globals {
   escalationAfterEvery = "";
   presentValue = 0;
   paymentSchedule = "";
+  companyId = 0;
 
 
 }
