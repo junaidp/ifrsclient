@@ -102,7 +102,7 @@ export class NewLeaseComponent implements OnInit {
    // alert("calculation for " + this.globals.userName)
     this.leaseService.calculate(data).then(response => {
       this.map = new Map(Object.entries(response.data));
-  console.log(response.data)
+      console.log(response.data)
       this.map1 = this.map.get("17");
       this.presentValue = this.map1[9];
  //     alert(this.presentValue)
@@ -168,10 +168,10 @@ export class NewLeaseComponent implements OnInit {
     this.globals.escalation= this.escalation,
     this.globals. escalationAfterEvery= this.escalationAfterEvery
 
-    console.log(JSON.stringify(data))
+    
     this.leaseService.SaveData(data).then(response => {
-    
-    
+      console.log(JSON.stringify(response))
+      $('#saveSuccess span').text(JSON.stringify(response.data));
     
    });
   }
