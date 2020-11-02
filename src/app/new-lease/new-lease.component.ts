@@ -171,7 +171,7 @@ export class NewLeaseComponent implements OnInit {
     
     this.leaseService.SaveData(data).then(response => {
       console.log(JSON.stringify(response))
-      $('#saveSuccess span').text('Hi I am replace');
+      $('#saveSuccess span').text(JSON.stringify(response.data));
     
    });
   }
