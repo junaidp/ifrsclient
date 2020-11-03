@@ -295,7 +295,7 @@ function setLocalStorageVariable(response, data: { name: string; password: strin
   localStorage.setItem('pass', data.password);
   localStorage.setItem('userId', response.data.userId);
   localStorage.setItem('paymentSchedule', response.data.paymentSchedule);
-  localStorage.setItem('companId' , response.data.companyId)
+  localStorage.setItem('companyId' , response.data.companyId);
 }
 
 function showAddUserOptionInNavBar() {

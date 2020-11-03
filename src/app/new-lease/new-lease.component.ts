@@ -126,6 +126,10 @@ export class NewLeaseComponent implements OnInit {
   saveData(){
  //   alert("sad")
     this.userId =   localStorage.getItem('userId');
+    if(this.userId === "undefined"){
+      this.userId = 0;
+    }
+
    // alert(this.userId)
     var data = {
       
@@ -144,7 +148,7 @@ export class NewLeaseComponent implements OnInit {
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery,
       userId: this.userId,
-      companyId: this.globals.companyId
+      companyId: localStorage.getItem('companyId')
       // contractCurrency:this.contractCurrency,
       // answer1:this.answer1,
       // answer2:this.answer2,
@@ -154,6 +158,8 @@ export class NewLeaseComponent implements OnInit {
       // answer6new:this.answer6new,
       // answer7:this.answer7
     };
+
+    console.log(data)
     this.globals.leaseContractNo= this.leaseContractNo,
     this.globals.classAsset= this.classAsset,
     this.globals.commencementDate= this.commencementDate,

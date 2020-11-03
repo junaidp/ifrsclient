@@ -52,9 +52,10 @@ export class HomeComponent implements OnInit {
   logout(): void {
     console.log("Logout");
     this.authService.logout();
-    localStorage.removeItem('name')
-    localStorage.removeItem('pass')
-    localStorage.removeItem('id')
+    localStorage.removeItem('name');
+    localStorage.removeItem('pass');
+    localStorage.removeItem('id');
+    localStorage.removeItem('compayId');
     this.router.navigate(['/login']);
   }
 }

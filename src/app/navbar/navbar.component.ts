@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Globals } from "../globals";
 import { AuthService } from '../auth.service';
+import {Signupservice} from "src/app/signup/Signupservice";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 declare var $: any 
 
@@ -13,15 +14,71 @@ declare var $: any
 
 export class NavbarComponent implements OnInit {
   addUSerOption = false;
+  signUpUserName = "";
+  signUpEmail = "";
+  signUpCity = "";
+  signUpCurency ="";
+  signUpPassword = "";
+  signUpRepeatPassword = "";
+  signUpUserType = "";
+  signUpContact = "";
+  signUpAddress = "";
+  signUpCompany ;
   
-  constructor(public globals: Globals ,public authService: AuthService ,private router: Router) {
+  constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice) {
   
   }
   name = localStorage.getItem('name');
   userId = localStorage.getItem('userId');
   
+  SignUp(){
+
+    this.signUpCompany = localStorage.getItem('companyId')
+    if(this.signUpCompany ==null || this.signUpCompany == 0){
+      this.logout();
+    }
+    
+    // var hide = divLoader();
+     var data = this.setSignUpFormData();
+    
+     this.Signupservice.SignUp(data).then(response => {
+
+        console.log(response.data)
+        alert(response.data);
+        $('#infoMessage span').text(JSON.stringify(response.data));
+    //    this.router.navigate(['/login']);  
+     });
+   
+ }
+
+
+ private setSignUpFormData() {
+  
+    this.signUpUserType = "individual";
+
+
+  // if(this.globals.paymentSchedule == "trial"){
+  //   this.signUpUserType = "trialUser"
+  // }
+
+  return {
+    name: this.signUpUserName,
+    email: this.signUpEmail,
+    city: this.signUpCity,
+    contactNumber: this.signUpContact,
+    companyAddress: this.signUpAddress,
+    currency: this.signUpCurency,
+    userType: this.signUpUserType,
+    password: this.signUpPassword,
+    confirmpassword: this.signUpRepeatPassword,
+    paymentSchedule: this.globals.paymentSchedule,
+    companyId: localStorage.getItem('companyId')
+  };
+}
 
   ngOnInit() {
+    
+    this.signUpCompany = this.globals.companyId;
 
     if(localStorage.getItem('userType') == "company" ){
       $('#addUSerOption').show();

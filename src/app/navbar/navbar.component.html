@@ -39,21 +39,32 @@
                 </div>
             </div>
             <div class="row">
+                <div class="alert alert-info"  id = "infoMessage" role="alert" >
+                    <span></span>
+                    
+                  </div>
                 <div class="col-12">
                     <form>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">UserName</label>
+                            <input type="email" class="form-control" id="exampleInputUserName"  name="signUpUserName" [(ngModel)]="signUpUserName" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control" id="exampleInputEmail1"  name="signUpEmail" [(ngModel)]="signUpEmail" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputcontact">Contact Number</label>
-                            <input type="email" class="form-control" id="exampleInputcontact" aria-describedby="emailHelp" placeholder="contact number">
+                            <input type="email" class="form-control" id="exampleInputcontact"  name="signUpContact" [(ngModel)]="signUpContact" aria-describedby="emailHelp" placeholder="contact number">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" class="form-control"  name="signUpPasword" [(ngModel)]="signUpPassword" id="exampleInputPassword1" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <input type="text" class="form-control"  name="signUpCompany" [(ngModel)]="signUpCompany" id="exampleCompany" placeholder="Company">
+
+                        <button type="submit" class="btn btn-primary" (click)="SignUp()">Submit</button>
                     </form>
                 </div>
             </div>
