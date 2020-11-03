@@ -88,10 +88,8 @@ export class LandingComponent implements OnInit {
         //$('#exampleModal').hide();
         this.setGlobals(response);
         setLocalStorageVariable(response, data);
-        alert(localStorage.getItem('paymentSchedule'));
         this.router.navigate([this.returnUrl]);
         showAddUserOptionInNavBar();
-        alert(this.globals.userId);
         $('.modal-backdrop').attr('style','display:none !important');
         $('body').css({'overflow':'auto','padding-right':'0px'});
         this.getUserDetails();
@@ -142,9 +140,9 @@ export class LandingComponent implements OnInit {
         this.signUpUserType = "company";
       }
   
-      if(this.globals.paymentSchedule == "trial"){
-        this.signUpUserType = "trialUser"
-      }
+      // if(this.globals.paymentSchedule == "trial"){
+      //   this.signUpUserType = "trialUser"
+      // }
 
       return {
         name: this.signUpUserName,
@@ -156,7 +154,8 @@ export class LandingComponent implements OnInit {
         userType: this.signUpUserType,
         password: this.signUpPassword,
         confirmpassword: this.signUpRepeatPassword,
-        paymentSchedule: this.globals.paymentSchedule
+        paymentSchedule: this.globals.paymentSchedule,
+        companyId: this.globals.companyId
       };
     }
 
@@ -164,6 +163,7 @@ export class LandingComponent implements OnInit {
       this.globals.userId = response.data.userId;
       this.globals.userName = response.data.name;
       this.signInId = response.data.userId
+      this.globals.companyId = response.data.companyId
     }
     private checkSignInEmptyFields() {
       if (this.signInName == "" || this.signInPassword == "") {
@@ -295,6 +295,7 @@ function setLocalStorageVariable(response, data: { name: string; password: strin
   localStorage.setItem('pass', data.password);
   localStorage.setItem('userId', response.data.userId);
   localStorage.setItem('paymentSchedule', response.data.paymentSchedule);
+  localStorage.setItem('companId' , response.data.companyId)
 }
 
 function showAddUserOptionInNavBar() {

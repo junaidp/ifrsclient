@@ -144,6 +144,7 @@ export class NewLeaseComponent implements OnInit {
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery,
       userId: this.userId,
+      companyId: this.globals.companyId
       // contractCurrency:this.contractCurrency,
       // answer1:this.answer1,
       // answer2:this.answer2,
