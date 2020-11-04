@@ -40,6 +40,7 @@ import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.comp
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
 import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entriesfta.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entries
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule
   ],
   providers: [
     Globals

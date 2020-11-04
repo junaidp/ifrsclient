@@ -7,6 +7,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import {Signupservice} from "src/app/signup/Signupservice";
 import {ChangeDetectorRef} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerService } from "ngx-spinner";
 
 declare var $: any;
 @Component({
@@ -36,7 +37,7 @@ export class LandingComponent implements OnInit {
   signInName = "";
   signInPassword = "";
   signInId = "";
-  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef) { }
+  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService) { }
 
   SignUp(){
     
@@ -44,7 +45,9 @@ export class LandingComponent implements OnInit {
     this.checkSignUpEmptyFields();
     var data = this.setSignUpFormData();
     if(this.validatorSignUp){
+      this.spinner.show();
     this.Signupservice.SignUp(data).then(response => {
+      this.spinner.hide();
     //  hide();
       $('#logreg-forms .form-signup').toggle();
       $('#logreg-forms .form-signin').toggle();
@@ -59,6 +62,7 @@ export class LandingComponent implements OnInit {
 }
 
   login() {
+    
     this.checkSignInEmptyFields();
     //var hide = divLoader();
     var data = {
@@ -69,6 +73,7 @@ export class LandingComponent implements OnInit {
    
     $('#exampleModal').css('z-index','-1 !important');
     if(this.validatorSignIn){
+    this.spinner.show();
     this.loginService(data);
     }
     else{
@@ -79,6 +84,7 @@ export class LandingComponent implements OnInit {
   private loginService(data: { name: string; password: string; id: string; }) {
     //$('#exampleModal').css('z-index','-1 !important');
     this.loginservice.signIn(data).then(response => {
+      this.spinner.hide();
       console.log(response.data);
       if(response.data == null){
         var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >UserName or Password is invalid</div>';
@@ -214,6 +220,7 @@ export class LandingComponent implements OnInit {
 };
 
   ngOnInit() {
+
 
     this.divLoader();
     this.returnUrl = '/home';

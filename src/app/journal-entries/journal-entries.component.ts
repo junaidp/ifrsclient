@@ -4,6 +4,7 @@ import { JournalService } from "./journalService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
 import {ChangeDetectorRef} from '@angular/core';
+import { NgxSpinnerService } from "ngx-spinner";
 declare var $: any;
 
 @Component({
@@ -19,7 +20,7 @@ export class JournalEntriesComponent implements OnInit {
   leaseBool = true;
   financeBool = true;
   // ending issue payment div is not showing
-  constructor(public journalService: JournalService, public globals: Globals , private cd : ChangeDetectorRef) {
+  constructor(public journalService: JournalService, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
 
   }
 
@@ -76,21 +77,22 @@ export class JournalEntriesComponent implements OnInit {
       month: month
     };
     alert(JSON.stringify(data))
-      var myDiv = document.getElementById("overlaylogin"),
+    this.spinner.show();
+      // var myDiv = document.getElementById("overlaylogin"),
 
-          showww = function() {
-              myDiv.style.display = "block";
-              //setTimeout(hide, 2000); // 5 seconds
-          },
-          hide = function() {
-            myDiv.style.display = "none";
-        };
+      //     showww = function() {
+      //         myDiv.style.display = "block";
+      //         //setTimeout(hide, 2000); // 5 seconds
+      //     },
+      //     hide = function() {
+      //       myDiv.style.display = "none";
+      //   };
         
-      showww();
+      // showww();
     this.journalService.calculate(data).then(response => {
      
-      hide();
-    
+   //   hide();
+      this.spinner.hide();
       console.log(response.data)
       var sumOfPrepaidExpense = 0
       var sumOfAccruedLiability = 0
