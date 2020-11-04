@@ -178,7 +178,7 @@ export class NewLeaseComponent implements OnInit {
 
     this.leaseService.SaveData(data).then(response => {
       console.log(JSON.stringify(response))
-      var msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >'+response.data +'</div>'
+      var msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >'+response.data +'</div>';
       $('#saveSuccess').html(msg);
       setTimeout(function () {
         $('#saveSuccess .alert').slideToggle();

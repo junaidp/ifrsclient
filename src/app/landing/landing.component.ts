@@ -80,6 +80,13 @@ export class LandingComponent implements OnInit {
     //$('#exampleModal').css('z-index','-1 !important');
     this.loginservice.signIn(data).then(response => {
       console.log(response.data);
+      if(response.data == null){
+        var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >UserName or Password is invalid</div>';
+        $('#signInResponsePanel').html(msg);
+        setTimeout(function () {
+          $('#signInResponsePanel .alert').slideToggle();
+        }, 6000);
+      }
       if (data.name == response.data.name && data.password == response.data.password) 
       {
         
@@ -92,7 +99,7 @@ export class LandingComponent implements OnInit {
         showAddUserOptionInNavBar();
         $('.modal-backdrop').attr('style','display:none !important');
         $('body').css({'overflow':'auto','padding-right':'0px'});
-        this.getUserDetails();
+     //   this.getUserDetails();
       }
 
       else {
@@ -168,6 +175,11 @@ export class LandingComponent implements OnInit {
     private checkSignInEmptyFields() {
       if (this.signInName == "" || this.signInPassword == "") {
         this.validatorSignIn = false;
+        var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Please Fill up All fields</div>';
+        $('#signInResponsePanel').html(msg);
+        setTimeout(function () {
+          $('#signInResponsePanel .alert').slideToggle();
+        }, 6000);
       }
       else{
         this.validatorSignIn = true;
@@ -176,6 +188,11 @@ export class LandingComponent implements OnInit {
     private checkSignUpEmptyFields() {
       if (this.signUpUserName == "" || this.signUpPassword == "" || this.signUpRepeatPassword == ""|| this.signUpCity == ""|| this.signUpContact == ""|| this.signUpCurency == ""|| this.signUpUserType == "") {
         this.validatorSignUp = false;
+        var msg = '<div class="alert alert-danger  id = "saveSuccess" role="alert" >Please Fill up All fields</div>';
+        $('#signUpResponsePanel').html(msg);
+        setTimeout(function () {
+          $('#signUpResponsePanel .alert').slideToggle();
+        }, 6000);
       }
       else{
         this.validatorSignUp = true;
