@@ -61,8 +61,12 @@ export class JournalEntriesComponent implements OnInit {
     // $('#paymentMonthBeginningDiv').show();
     // $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
-    this.companyId = localStorage.getItem('companyId')
-    var ret = ($('#dateSelector').val().split("-"))
+    this.companyId = localStorage.getItem('companyId');
+
+    if(this.userId === "undefined"){
+      this.userId = 0;
+    }
+    var ret = ($('#dateSelector').val().split("-"));
    
     var day = 10
     var year = ret[0];

@@ -183,17 +183,23 @@ export class NewLeaseComponent implements OnInit {
     this.leaseService.SaveData(data).then(response => {
       this.spinner.hide();
       console.log(JSON.stringify(response))
-      var msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >'+response.data +'</div>';
-      $('#saveSuccess').html(msg);
-      setTimeout(function () {
-        $('#saveSuccess .alert').slideToggle();
-      }, 6000);
+      var msg;
       if(response.data.includes("Fail")){
+         msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >'+response.data +'</div>';
       }
       else
       {
+        msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >'+response.data +'</div>';
         this.router.navigate(['/newlease/newleasejournalentry']); 
       }
+      $('#saveSuccess').html(msg);
+      $('html, body').animate({
+        'scrollTop' : $("#saveSuccess").offset().top
+    });
+      setTimeout(function () {
+        $('#saveSuccess .alert').slideToggle();
+      }, 6000);
+      
        //String ress = JSON.stringify(response.data);
       console.log(msg)
     
