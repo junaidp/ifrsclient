@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LeaseService } from "./leaseService";
 import {Globals} from "../globals";
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 declare var $: any;
 
@@ -10,7 +11,7 @@ declare var $: any;
   styleUrls: ["./new-lease.component.css"]
 })
 export class NewLeaseComponent implements OnInit {
-  constructor(public leaseService: LeaseService, public globals : Globals) { }
+  constructor(public leaseService: LeaseService, public globals : Globals, private router: Router) { }
 
 
   map1: Map<String, String>;
@@ -175,10 +176,21 @@ export class NewLeaseComponent implements OnInit {
     this.globals.escalation= this.escalation,
     this.globals. escalationAfterEvery= this.escalationAfterEvery
 
-    
     this.leaseService.SaveData(data).then(response => {
       console.log(JSON.stringify(response))
-      $('#saveSuccess span').text(JSON.stringify(response.data));
+      var msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >'+response.data +'</div>'
+      $('#saveSuccess').html(msg);
+      setTimeout(function () {
+        $('#saveSuccess .alert').slideToggle();
+      }, 6000);
+      if(response.data.includes("Fail")){
+      }
+      else
+      {
+        this.router.navigate(['/newlease/newleasejournalentry']); 
+      }
+       //String ress = JSON.stringify(response.data);
+      console.log(msg)
     
    });
   }
