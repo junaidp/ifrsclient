@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Globals } from "../globals";
 import { AuthService } from '../auth.service';
 import {Signupservice} from "src/app/signup/Signupservice";
+import { NgxSpinnerService } from "ngx-spinner";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 declare var $: any 
 
@@ -25,7 +26,7 @@ export class NavbarComponent implements OnInit {
   signUpAddress = "";
   signUpCompany ;
   
-  constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice) {
+  constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice , private spinner: NgxSpinnerService) {
   
   }
   name = localStorage.getItem('name');
@@ -40,9 +41,10 @@ export class NavbarComponent implements OnInit {
     
     // var hide = divLoader();
      var data = this.setSignUpFormData();
-    
+    this.spinner.show();
      this.Signupservice.SignUp(data).then(response => {
 
+      this.spinner.hide();
         console.log(response.data)
         alert(response.data);
         $('#infoMessage span').text(JSON.stringify(response.data));
