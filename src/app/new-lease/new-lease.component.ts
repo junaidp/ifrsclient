@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { LeaseService } from "./leaseService";
 import {Globals} from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 declare var $: any;
 
@@ -11,7 +12,7 @@ declare var $: any;
   styleUrls: ["./new-lease.component.css"]
 })
 export class NewLeaseComponent implements OnInit {
-  constructor(public leaseService: LeaseService, public globals : Globals, private router: Router) { }
+  constructor(public leaseService: LeaseService, public globals : Globals, private router: Router ,  private spinner: NgxSpinnerService)  { }
 
 
   map1: Map<String, String>;
@@ -98,10 +99,12 @@ export class NewLeaseComponent implements OnInit {
     this.globals.usefulLifeOfTheAsset= this.usefulLifeOfTheAsset,
     this.globals.escalation= this.escalation,
     this.globals. escalationAfterEvery= this.escalationAfterEvery
+    this.spinner.show();
 
 
    // alert("calculation for " + this.globals.userName)
     this.leaseService.calculate(data).then(response => {
+      this.spinner.hide();
       this.map = new Map(Object.entries(response.data));
       console.log(response.data)
       this.map1 = this.map.get("17");
@@ -175,8 +178,10 @@ export class NewLeaseComponent implements OnInit {
     this.globals.usefulLifeOfTheAsset= this.usefulLifeOfTheAsset,
     this.globals.escalation= this.escalation,
     this.globals. escalationAfterEvery= this.escalationAfterEvery
+    this.spinner.show();
 
     this.leaseService.SaveData(data).then(response => {
+      this.spinner.hide();
       console.log(JSON.stringify(response))
       var msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >'+response.data +'</div>';
       $('#saveSuccess').html(msg);
