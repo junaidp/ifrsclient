@@ -34,6 +34,7 @@ export class JournalEntriesComponent implements OnInit {
   leaseLiabilityEnding: any
   leaseLiabilityBeginning: any
   userId: any
+  companyId: any
   commencementDateService: Date
   dateSelectorMonth: any
 
@@ -59,6 +60,7 @@ export class JournalEntriesComponent implements OnInit {
     // $('#paymentMonthBeginningDiv').show();
     // $('#beginningView').show();
     this.userId = localStorage.getItem('userId');
+    this.companyId = localStorage.getItem('companyId')
     var ret = ($('#dateSelector').val().split("-"))
    
     var day = 10
@@ -69,9 +71,11 @@ export class JournalEntriesComponent implements OnInit {
     this.dateSelectorMonth = month
     var data = {
       userId: this.userId,
+      companyId: this.companyId,
       year: year,
       month: month
     };
+    alert(JSON.stringify(data))
       var myDiv = document.getElementById("overlaylogin"),
 
           showww = function() {
