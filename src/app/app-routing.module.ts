@@ -13,7 +13,7 @@ import { ReportsComponent } from './reports/reports.component'
 import { FirsttimeadoptionComponent } from './firsttimeadoption/firsttimeadoption.component'
 import { FirsttimeadoptionreportingperiodComponent } from './firsttimeadoptionreportingperiod/firsttimeadoptionreportingperiodcomponent'
 import { FirsttimeadoptioninitialComponent } from './firsttimeadoptioninitial/firsttimeadoptioninitial.component'
-
+import { ShowUsersComponent } from './show-users/show-users.component';
 import { PaymentReportComponent } from './payment-report/payment-report.component'
 import { RightOfUseComponent } from './right-of-use/right-of-use.component'
 import { LeaseReportComponent } from './lease-report/lease-report.component'
@@ -47,6 +47,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'companylogin', component: CompanyloginComponent },
+  { path: 'showusers', component: ShowUsersComponent },
   { path: 'firsttimeadoptionreportingperiod/firsttimeadoptionjournalentry', component: FirsttimeadoptionjournalentryComponent },
   { path: 'firsttimeadoptioninitial/firsttimeadoptionjournalentrycommulative', component: FirsttimeadoptionjournalentrycommulativeComponent },
 

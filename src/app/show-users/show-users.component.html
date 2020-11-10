@@ -1,0 +1,61 @@
+<div class="col-md-12">
+    <div class="row step_4">
+        <div class="col-12 new_add_headind ">
+            <div class="row assec_heading">
+                <h6 class="col-lg-4 col-md-12 col-12">Users List</h6>
+                <div class="col-lg-5 col-md-12 col-12"></div>
+                <div class="col-lg-3 col-md-12 col-12 text-lg-right">
+                    <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1 responsive_display">
+            <h6 class="mb-3">Sr. #</h6>
+            <ul class="list-unstyled text-center">
+                <li *ngFor="let row of map | keyvalue">
+                    {{row.value[0] | number:'1.0-0'}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+            <h6 class="mb-3">UserName</h6>
+            <ul class="list-unstyled text-center">
+                <li *ngFor="let row of map | keyvalue">
+                    {{row.value[2]| date:'mediumDate'}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+            <h6 class="mb-3">User Email</h6>
+            <ul class="list-unstyled text-center">
+                <li *ngFor="let row of map | keyvalue">
+                    {{row.value[3] | number:'1.0-0'}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+            <h6 class="mb-3">User Currency</h6>
+            <ul class="list-unstyled text-center">
+                <li *ngFor="let row of map | keyvalue">
+                    {{row.value[4] |number:'0.1-3'}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+            <h6 class="mb-3">User Password</h6>
+            <ul class="list-unstyled text-center">
+                <li *ngFor="let row of map | keyvalue">
+                    {{row.value[5] | number:'1.0-0'}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-3 text-right responsive_display"></div>
+        <div class="col-12">
+            <div class="row mt-3 mb-3">
+                <div class="col-5"></div>
+                <div class="col-2">User  &nbsp; = </div>
+                <div class="col-2 text-center"><strong>{{presentValue| number:'1.0-0'}}</strong></div>
+            </div>
+        </div>
+    </div>
+    </div>

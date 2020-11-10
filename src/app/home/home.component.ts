@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     $('#mainNavBar').show();
+    
+    
     this.id = localStorage.getItem('token');
   }
   logout(): void {

@@ -329,8 +329,6 @@ function showAddUserOptionInNavBar() {
   if (localStorage.getItem('userType') == "company") {
     $('#addUSerOption').show();
     $('#firstTimeAdoptionTab').hide();
-    
-
   }
   else {
     $('#addUSerOption').hide();

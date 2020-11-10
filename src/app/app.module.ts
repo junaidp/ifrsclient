@@ -41,6 +41,7 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
 import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entriesfta.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ShowUsersComponent } from './show-users/show-users.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PaymentscheduleComponent,
     AddNewUserComponent,
     FirsttimeadoptionjournalentrycommulativeComponent,
-    JournalEntriesftaComponent
+    JournalEntriesftaComponent,
+    ShowUsersComponent
   ],
   imports: [
     BrowserModule,
