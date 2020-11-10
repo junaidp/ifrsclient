@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   userId = localStorage.getItem('userId');
   
   SignUp(){
-
+    this.spinner.show();
     this.signUpCompany = localStorage.getItem('companyId')
     if(this.signUpCompany ==null || this.signUpCompany == 0){
       this.logout();
@@ -41,13 +41,22 @@ export class NavbarComponent implements OnInit {
     
     // var hide = divLoader();
      var data = this.setSignUpFormData();
-    this.spinner.show();
+    
      this.Signupservice.SignUp(data).then(response => {
 
       this.spinner.hide();
         console.log(response.data)
         alert(response.data);
-        $('#infoMessage span').text(JSON.stringify(response.data));
+       var msg = '<div class="alert alert-info"  role="alert" >'+response.data +'</div>';
+
+        $('#companyAddUserResponcePanel').html(msg);
+        $('html, body').animate({
+          'scrollTop' : $("#companyAddUserResponcePanel").offset().top
+      });
+        setTimeout(function () {
+          $('#companyAddUserResponcePanel .alert').slideToggle();
+        }, 6000);
+        //$('#infoMessage span').text(JSON.stringify(response.data));
     //    this.router.navigate(['/login']);  
      });
    

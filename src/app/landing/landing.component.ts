@@ -57,6 +57,7 @@ export class LandingComponent implements OnInit {
     });
   }
   else{
+    this.validatorSignUp = false
     //div to be hidden here
   }
 }
@@ -77,6 +78,7 @@ export class LandingComponent implements OnInit {
     this.loginService(data);
     }
     else{
+      this.validatorSignIn = false
       //loader to be hidedn here
     }
   }
@@ -192,7 +194,8 @@ export class LandingComponent implements OnInit {
       }
     }
     private checkSignUpEmptyFields() {
-      if (this.signUpUserName == "" || this.signUpPassword == "" || this.signUpRepeatPassword == ""|| this.signUpCity == ""|| this.signUpContact == ""|| this.signUpCurency == ""|| this.signUpUserType == "") {
+      if (this.signUpUserName == "" || this.signUpPassword == "" || this.signUpRepeatPassword == ""|| this.signUpCity == ""|| this.signUpContact == ""|| this.signUpCurency == "") {
+       
         this.validatorSignUp = false;
         var msg = '<div class="alert alert-danger  id = "saveSuccess" role="alert" >Please Fill up All fields</div>';
         $('#signUpResponsePanel').html(msg);
@@ -325,6 +328,8 @@ function setLocalStorageVariable(response, data: { name: string; password: strin
 function showAddUserOptionInNavBar() {
   if (localStorage.getItem('userType') == "company") {
     $('#addUSerOption').show();
+    $('#firstTimeAdoptionTab').hide();
+    
 
   }
   else {
