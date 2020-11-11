@@ -11,9 +11,9 @@ export class ShowUserService {
   }
 
   async showUser(data) {
-
-    const url = this.globals.APP_URL+"/users/getCompanyUsers";
-     const response = await axios.post(url,data).then(
+    console.log(data)
+    const url = this.globals.APP_URL+"users/getCompanyUsers";
+     const response = await axios.get(url,data).then(
     );
     console.log(response);
     return response;

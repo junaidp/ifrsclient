@@ -24,19 +24,20 @@ export class ShowUsersComponent implements OnInit {
 
     var data = {
 
-      companyId: localStorage.getItem('companyId')
+ //     companyId: localStorage.getItem('companyId')
+      companyId: '22'
    
    //   year:2019
     };
+    console.log(data)
   alert(JSON.stringify(data))
     this.ShowUserService.showUser(data).then(response => {
-   //   this.map = new Map(Object.entries(response.data));
+      this.map = new Map(Object.entries(response.data));
   
   
       console.log(response.data)
-  //     alert(this.map.size)
-      this.map1 = this.map.get("17");
-      this.presentValue = this.map1[9];
+      // this.map1 = this.map.get("17");
+      // this.presentValue = this.map1[9];
     });
   }
 
