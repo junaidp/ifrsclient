@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShowUserService } from "./showUserService";
 import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-show-users',
@@ -20,7 +21,17 @@ export class ShowUsersComponent implements OnInit {
   commencementDate: String;
 
   presentValue:number;
+  
   ngOnInit() {
+
+    $("#submit").on("click", function (){
+      alert("sad")
+    });
+    
+    //   $("#journal_entry_show").on("click", function () {
+    //     $("#journal_entry").toggle("show");
+    //     $("#journal_entry1").toggle("show");
+    //   });
 
     var data = {
 
