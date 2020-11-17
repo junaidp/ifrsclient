@@ -82,7 +82,7 @@ export class NavbarComponent implements OnInit {
     userType: this.signUpUserType,
     password: this.signUpPassword,
     confirmpassword: this.signUpRepeatPassword,
-    paymentSchedule: this.globals.paymentSchedule,
+    paymentSchedule: localStorage.getItem('paymentSchedule'),
     companyId: localStorage.getItem('companyId')
   };
 }
