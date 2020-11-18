@@ -49,9 +49,30 @@ export class LandingComponent implements OnInit {
     this.Signupservice.SignUp(data).then(response => {
       this.spinner.hide();
     //  hide();
+
+    var msg;
+    if(response.data.includes("Fail")){
+       msg = '<div class="alert alert-danger"  role="alert" >'+response.data +'</div>';
+       $('#signUpResponsePanel').html(msg);
+       setTimeout(function () {
+         $('#signUpResponsePanel .alert').slideToggle();
+       }, 6000);
+    
+      }
+    else
+    {
+      msg = '<div class="alert alert-info"  id = "signInResponsePanel" role="alert" >'+response.data +'</div>';
       $('#logreg-forms .form-signup').toggle();
       $('#logreg-forms .form-signin').toggle();
       this.isLoggedIn = false
+      $('#signInResponsePanel').html(msg);
+      setTimeout(function () {
+        $('#signInResponsePanel .alert').slideToggle();
+      }, 6000);
+    }
+   
+
+      
        console.log(response.data)
    //    this.router.navigate(['/login']);  
     });
