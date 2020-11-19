@@ -116,9 +116,8 @@ export class LandingComponent implements OnInit {
           $('#signInResponsePanel .alert').slideToggle();
         }, 6000);
       }
-      if (data.name == response.data.name && data.password == response.data.password) 
+      if (data.name == response.data.email && data.password == response.data.password) 
       {
-        
         $('.modal-backdrop').toggle();
         
         //$('#exampleModal').hide();
