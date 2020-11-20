@@ -8,7 +8,6 @@ import {Signupservice} from "src/app/signup/Signupservice";
 import {ChangeDetectorRef} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
-
 declare var $: any;
 @Component({
   selector: 'app-landing',
