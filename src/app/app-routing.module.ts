@@ -1,3 +1,4 @@
+import * as $ from 'jquery';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NewLeaseComponent } from './new-lease/new-lease.component';

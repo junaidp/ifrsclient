@@ -23,16 +23,12 @@ export class ShowUsersComponent implements OnInit {
   presentValue:number;
   
   ngOnInit() {
-
-    $("#submit").on("click", function (){
-      alert("sad")
+    $('#editUserTable tbody').on( 'click', '.editUser2', function () {
+        alert("td Click");
+        alert($(this).attr('id') + "jj");
     });
-    
-    //   $("#journal_entry_show").on("click", function () {
-    //     $("#journal_entry").toggle("show");
-    //     $("#journal_entry1").toggle("show");
-    //   });
 
+  
     var data = {
 
  //     companyId: localStorage.getItem('companyId')
