@@ -209,7 +209,13 @@ export class NewLeaseComponent implements OnInit {
   
   }
   ngOnInit() {
+    var data = {}
 
+    this.leaseService.getClassOfAsset(data).then(response => {
+      console.log(JSON.stringify(response.data))
+      alert(JSON.stringify(response.data));
+    //  
+   });
 
     $(document).ready(function () {
 
