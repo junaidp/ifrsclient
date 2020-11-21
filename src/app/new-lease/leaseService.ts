@@ -28,4 +28,13 @@ export class LeaseService {
     alert(response);
     return response;
   }
+
+  async saveClassOfAsset(data) {
+
+    const url = this.globals.APP_URL+"/data/saveClassOfAsset";
+     const response = await axios.post(url,data).then(
+    );
+    console.log(response);
+    return response;
+  }
 }

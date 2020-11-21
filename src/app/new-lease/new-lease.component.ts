@@ -3,6 +3,7 @@ import { LeaseService } from "./leaseService";
 import {Globals} from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { JsonPipe } from '@angular/common';
 
 declare var $: any;
 
@@ -14,7 +15,7 @@ declare var $: any;
 export class NewLeaseComponent implements OnInit {
   constructor(public leaseService: LeaseService, public globals : Globals, private router: Router ,  private spinner: NgxSpinnerService)  { }
 
-
+  mapClassOfAsset: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   presentValue: number;
   userId:any
@@ -205,6 +206,41 @@ export class NewLeaseComponent implements OnInit {
     
    });
   }
+
+  saveClassOfAsset() {
+ 
+    var data = {
+      classOfAsset: this.classAsset,
+    };
+    alert(JSON.stringify(data));
+    this.leaseService.saveClassOfAsset(data).then(response => {
+      this.spinner.hide();
+    //  hide();
+
+    // var msg;
+    // if(response.data.includes("Fail")){
+    //    msg = '<div class="alert alert-danger"  role="alert" >'+response.data +'</div>';
+    //    $('#signUpResponsePanel').html(msg);
+    //    setTimeout(function () {
+    //      $('#signUpResponsePanel .alert').slideToggle();
+    //    }, 6000);
+    
+    //   }
+    // else
+    // {
+    //   msg = '<div class="alert alert-info"  id = "signInResponsePanel" role="alert" >'+response.data +'</div>';
+    //   $('#logreg-forms .form-signup').toggle();
+    //   $('#logreg-forms .form-signin').toggle();
+    //   this.isLoggedIn = false
+    //   $('#signInResponsePanel').html(msg);
+    //   setTimeout(function () {
+    //     $('#signInResponsePanel .alert').slideToggle();
+    //   }, 6000);
+    // }
+       console.log(response.data)
+   //    this.router.navigate(['/login']);  
+    });
+  }
   private setGlobals() {
   
   }
@@ -212,6 +248,8 @@ export class NewLeaseComponent implements OnInit {
     var data = {}
 
     this.leaseService.getClassOfAsset(data).then(response => {
+      
+      this.mapClassOfAsset = new Map(Object.entries(response.data));
       console.log(JSON.stringify(response.data))
       alert(JSON.stringify(response.data));
     //  

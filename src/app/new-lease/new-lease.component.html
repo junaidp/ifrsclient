@@ -133,9 +133,9 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Class Of Asset</label>
-                                        <select name="contractNo2" [(ngModel)]="classAsset" class="form-control" onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
-                                            <option>Select here</option>
-                                            <option value="1">Add new</option>
+                                        <select  name="contractNo2" [(ngModel)]="classAsset" class="form-control" onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
+                                            <option value="{{row.value['classOfAsset']}}" *ngFor="let row of mapClassOfAsset | keyvalue">{{row.value['classOfAsset']}}</option>
+                                            <option  value="1">Add new</option>
                                         </select>
                                         <div class="invalid-feedback">
                                             Please provide a valid Class of asset.
