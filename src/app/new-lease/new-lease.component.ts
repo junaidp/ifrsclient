@@ -29,6 +29,7 @@ export class NewLeaseComponent implements OnInit {
   leasseeName = "";
   location = "";
   otherCondition = "";
+  classOfAsset = "";
 
 
 
@@ -207,61 +208,64 @@ export class NewLeaseComponent implements OnInit {
    });
   }
 
-  saveClassOfAsset() {
+  addClassOfAsset() {
+    this.spinner.show();
  
     var data = {
-      classOfAsset: this.classAsset,
+      classOfAsset: this.classOfAsset,
     };
     alert(JSON.stringify(data));
     this.leaseService.saveClassOfAsset(data).then(response => {
+      
       this.spinner.hide();
-    //  hide();
 
-    // var msg;
-    // if(response.data.includes("Fail")){
-    //    msg = '<div class="alert alert-danger"  role="alert" >'+response.data +'</div>';
-    //    $('#signUpResponsePanel').html(msg);
-    //    setTimeout(function () {
-    //      $('#signUpResponsePanel .alert').slideToggle();
-    //    }, 6000);
+    var msg;
+    if(response.data.includes("Fail")){
+       msg = '<div class="alert alert-danger"  role="alert" >'+response.data +'</div>';
+       $('#classOfAssetResponcePanel').html(msg);
+       setTimeout(function () {
+         $('#classOfAssetResponcePanel .alert').slideToggle();
+       }, 6000);
     
-    //   }
-    // else
-    // {
-    //   msg = '<div class="alert alert-info"  id = "signInResponsePanel" role="alert" >'+response.data +'</div>';
-    //   $('#logreg-forms .form-signup').toggle();
-    //   $('#logreg-forms .form-signin').toggle();
-    //   this.isLoggedIn = false
-    //   $('#signInResponsePanel').html(msg);
-    //   setTimeout(function () {
-    //     $('#signInResponsePanel .alert').slideToggle();
-    //   }, 6000);
-    // }
+      }
+    else
+    {
+      msg = '<div class="alert alert-info"  id = "" role="alert" >'+response.data +'</div>';
+      // $('#logreg-forms .form-signup').toggle();
+      // $('#logreg-forms .form-signin').toggle();
+      $('#classOfAssetResponcePanel').html(msg);
+      setTimeout(function () {
+        $('#classOfAssetResponcePanel .alert').slideToggle();
+      }, 6000);
+    }
        console.log(response.data)
    //    this.router.navigate(['/login']);  
     });
   }
-  private setGlobals() {
-  
-  }
-  ngOnInit() {
-    var data = {}
 
+
+  private getClassOfAsset() {
+    this.spinner.show();
+    var data = {};
+    
     this.leaseService.getClassOfAsset(data).then(response => {
-      
+      this.spinner.hide();
       this.mapClassOfAsset = new Map(Object.entries(response.data));
-      console.log(JSON.stringify(response.data))
-      alert(JSON.stringify(response.data));
-    //  
-   });
+      console.log(JSON.stringify(response.data));
+    });
+  }
+
+  ngOnInit() {
+    this.getClassOfAsset();
    $(document).on('change','#addnewclass',function () {
     var value1 = ($('option:selected', this).val());
-    alert(value1);
     if ((value1 === "100")) {
         // alert(value1);
         $('.addnewshow').show();
     }
 });
+
+
 
     $(document).ready(function () {
 
@@ -622,5 +626,6 @@ function journal_entry_dis(){
      
   
   }
+
 
 }

@@ -1209,20 +1209,21 @@
 
 </html>
 
-<div id="myModal" class="modal addnewshow">
+<div id="classOfAssetModal" class="modal addnewshow">
     <div class="modal-content">
-        <span class="closes col-12 text-right" onclick="$('.addnewshow').hide();">&times;</span>
+        <span class="closes col-12 text-right" (click)="getClassOfAsset()" onclick="$('.addnewshow').hide();">&times;</span>
         <form>
             <div class="row">
+                <div id = "classOfAssetResponcePanel"></div>
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom04">Add New Class of Asset</label>
-                    <input type="text" class="form-control" placeholder="Add New Class of Asset" required>
+                    <input type="text" class="form-control" name="asset" [(ngModel)]="classOfAsset"   placeholder="Add New Class of Asset" required>
                     <div class="invalid-feedback">
                         Please provide a valid Lease commencement data.
                     </div>
                 </div>
                 <div class="col-12 text-right">
-                    <button class="btn btn-success xtBtn btn-lg pull-right float-lg-right" type="submit">Add
+                    <button class="btn btn-success xtBtn btn-lg pull-right float-lg-right"  (click)="addClassOfAsset()" type="submit">Add
                         New</button>
                 </div>
             </div>

@@ -18,14 +18,12 @@ export class LeaseService {
   async SaveData(data) {
     const urlSaveData = this.globals.APP_URL+"/data/saveData";
     const response = await axios.post(urlSaveData, data).then();
-    alert(response.data);
     return response;
   }
 
   async getClassOfAsset(data) {
     const urlSaveData = this.globals.APP_URL+"/data/getClassOfAsset";
     const response = await axios.get(urlSaveData, data).then();
-    alert(response);
     return response;
   }
 
