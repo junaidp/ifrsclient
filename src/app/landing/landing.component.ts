@@ -101,7 +101,7 @@ export class LandingComponent implements OnInit {
       this.validatorSignIn = false
       //loader to be hidedn here
     }
-  }
+  } 
 
   private loginService(data: { name: string; password: string; id: string; }) {
     //$('#exampleModal').css('z-index','-1 !important');
