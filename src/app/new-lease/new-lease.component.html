@@ -15,13 +15,8 @@
     <!-- <script src="/assets/js/jquery.js"></script> -->
 </head>
 
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-atom"
->
-  <p style="font-size: 20px; color: white">Loading...</p>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-atom">
+    <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
 <body>
@@ -133,13 +128,10 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Class Of Asset</label>
-                                        <select  name="contractNo2" [(ngModel)]="classAsset" class="form-control" onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
+                                        <select id="addnewclass" name="contractNo2" [(ngModel)]="classAsset" class="form-control" onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
                                             <option value="{{row.value['classOfAsset']}}" *ngFor="let row of mapClassOfAsset | keyvalue">{{row.value['classOfAsset']}}</option>
-                                            <option  value="1">Add new</option>
+                                            <option  value="100">Add new</option>
                                         </select>
-                                        <div class="invalid-feedback">
-                                            Please provide a valid Class of asset.
-                                        </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Name</label>
@@ -1203,7 +1195,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right"  type="submit" (click)="  saveData()">Submit</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" type="submit" (click)="  saveData()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -1217,9 +1209,9 @@
 
 </html>
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal addnewshow">
     <div class="modal-content">
-        <span class="closes col-12 text-right" onclick="closess();">&times;</span>
+        <span class="closes col-12 text-right" onclick="$('.addnewshow').hide();">&times;</span>
         <form>
             <div class="row">
                 <div class="col-md-12 mb-3">

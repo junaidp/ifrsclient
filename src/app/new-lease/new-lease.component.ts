@@ -254,6 +254,14 @@ export class NewLeaseComponent implements OnInit {
       alert(JSON.stringify(response.data));
     //  
    });
+   $(document).on('change','#addnewclass',function () {
+    var value1 = ($('option:selected', this).val());
+    alert(value1);
+    if ((value1 === "100")) {
+        // alert(value1);
+        $('.addnewshow').show();
+    }
+});
 
     $(document).ready(function () {
 
