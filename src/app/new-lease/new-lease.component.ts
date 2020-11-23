@@ -245,6 +245,7 @@ export class NewLeaseComponent implements OnInit {
 
 
   private getClassOfAsset() {
+ 
     this.spinner.show();
     var data = {};
     
