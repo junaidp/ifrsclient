@@ -154,7 +154,11 @@ export class NewLeaseComponent implements OnInit {
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery,
       userId: this.userId,
-      companyId: localStorage.getItem('companyId')
+      companyId: localStorage.getItem('companyId'),
+      leaseName : this.leaseName ,
+      lessorName: this.lessorName ,
+      lesseeName : this.leasseeName
+      
       // contractCurrency:this.contractCurrency,
       // answer1:this.answer1,
       // answer2:this.answer2,
@@ -164,6 +168,7 @@ export class NewLeaseComponent implements OnInit {
       // answer6new:this.answer6new,
       // answer7:this.answer7
     };
+    alert(JSON.stringify(data))
 
     console.log(data)
     this.globals.leaseContractNo= this.leaseContractNo,
@@ -244,7 +249,7 @@ export class NewLeaseComponent implements OnInit {
   }
 
 
-  private getClassOfAsset() {
+  public getClassOfAsset() {
     this.spinner.show();
     var data = {};
     
