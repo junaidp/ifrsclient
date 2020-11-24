@@ -35,7 +35,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
                     <select class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
-                            <option *ngFor="let row of map | keyvalue">{{row.value[3]| date:'lessorName'}}</option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['lessorName']}}</option>
                         </select>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lease Name</div>
                     <select class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
-                            <option *ngFor="let row of map | keyvalue">{{row.value[2]| date:'leaseName'}}</option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseName']}}</option>
                         </select>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Vendor Name</div>
                     <select class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
-                            <option *ngFor="let row of map | keyvalue">{{row.value[5]| date:'vendername'}}</option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseContractNo']}}</option>
                         </select>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                     <select class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select class of asset</option>
-                            <option *ngFor="let row of map | keyvalue">{{row.value[4]| date:'classAsset'}}</option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['classOfAsset']}}</option>
                         </select>
                 </div>
             </div>

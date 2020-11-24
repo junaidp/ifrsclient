@@ -157,7 +157,9 @@ export class NewLeaseComponent implements OnInit {
       companyId: localStorage.getItem('companyId'),
       leaseName : this.leaseName ,
       lessorName: this.lessorName ,
-      lesseeName : this.leasseeName
+      lesseeName : this.leasseeName,
+      classOfAsset: this.classAsset,
+      location : this.location
       
       // contractCurrency:this.contractCurrency,
       // answer1:this.answer1,

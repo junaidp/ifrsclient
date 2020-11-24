@@ -19,9 +19,16 @@ export class rightService {
   }
 
   async getUsersData(data) {
-    const urlSaveData = this.globals.APP_URL+"/data/getUsersData";
-    const response = await axios.post(urlSaveData, data).then();
+    console.log(data)
+    var  userId = localStorage.getItem('userId')
+    const url = this.globals.APP_URL+"data/getData?userId=" +userId;
+     const response = await axios.get(url,data).then(
+    );
+    console.log(response);
     return response;
   }
+
+
+ 
 
 }
