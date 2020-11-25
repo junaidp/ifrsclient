@@ -47,7 +47,7 @@
                         <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                         <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select class of asset</option>
-                            <option></option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['classOfAsset']}}</option>
                         </select>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
                         <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select here</option>
-                            <option></option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['lessorName']}}</option>
                         </select>  
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         <div class="col-lg-4 col-md-4 col-12 report_css">Name of Lease</div>
                         <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select here</option>
-                            <option></option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseName']}}</option>
                         </select>  
                     </div>
                 </div>
@@ -78,9 +78,7 @@
                         <div class="col-lg-4 col-md-4 col-12 report_css">Location of Lease</div>
                         <select class="form-control col-lg-8 col-md-4 col-12" >
                             <option>Select Location</option>
-                            <option>Location 1</option>
-                            <option>Location 1</option>
-                            <option>Location 1</option>
+                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['location']}}</option>
                         </select>  
                     </div>
                 </div>

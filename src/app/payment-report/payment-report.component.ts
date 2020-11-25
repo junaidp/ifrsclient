@@ -12,7 +12,7 @@ declare var $: any;
 })
 export class PaymentReportComponent implements OnInit {
 
-  constructor(public paymentService: paymentService, public globals: Globals,public rightService: rightService,) { }
+  constructor(public paymentService: paymentService, public globals: Globals,public rightService: rightService) { }
   mapUserData: Map<string, Map<string, string>>;
   presentValue: number;
  
