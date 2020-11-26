@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="row mt-4 mb-4">
-            <div class="col-lg-6 col-md-6 col-12">
+            <!-- <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Vendor Name</div>
                     <select class="form-control col-lg-8 col-md-4 col-12">
@@ -58,19 +58,19 @@
                             <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseContractNo']}}</option>
                         </select>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                     <select class="form-control col-lg-8 col-md-4 col-12">
-                            <option>Select class of asset</option>
-                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['classOfAsset']}}</option>
-                        </select>
+                        <option>Select class of asset</option>
+                        <option *ngFor="let row of mapUserData | keyvalue">{{row.value['classOfAsset']}}</option>
+                    </select>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="container-fluid"> 
+    <div class="container-fluid">
         <div class="row mt-4 responsive_display border-top  ">
             <div class="col-12 mt-4">
                 <div class="row right_of_use_heading border">
@@ -83,14 +83,11 @@
                     <div class="col-2">
                         <h6>Lessor Name</h6>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         <h6>Lease Name</h6>
                     </div>
-                    <div class="col-1">
-                        <h6>Class of Asset</h6>
-                    </div>
                     <div class="col-2">
-                        <h6> Vendor Name </h6>
+                        <h6>Class of Asset</h6>
                     </div>
                     <div class="col-1">
                         <h6>Location </h6>
@@ -104,45 +101,40 @@
                 </div>
             </div>
             <div class="col-12 mt-sm-1">
-                <div class="row right_of_use_heading">
+                <div class="row right_of_use_heading border-bottom">
                     <div class="col-1">
                         <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue"> {{row.value[0]}}</li>
+                            <li>1</li>
                         </ul>
                     </div>
                     <div class="col-1">
                         <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue"> {{row.value[1]| date:'leaseContractNo'}}</li>
+                            <li>123</li>
                         </ul>
                     </div>
                     <div class="col-2">
                         <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue">1{{row.value[3]| date:'lessorName'}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-1">
-                        <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue">1{{row.value[2]| date:'leaseName'}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-1">
-                        <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue">1{{row.value[4]| date:'classAsset'}}</li>
+                            <li>leases name</li>
                         </ul>
                     </div>
                     <div class="col-2">
                         <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue">{{row.value[5]| date:'vendername'}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-1">
-                        <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue">{{location}}</li>
+                            <li>lease Name</li>
                         </ul>
                     </div>
                     <div class="col-2">
                         <ul class="list-unstyled text-center">
-                            <li *ngFor="let row of map | keyvalue">{{row.value[8]| date:'Rightofuseofasset'}}</li>
+                            <li>classAsset</li>
+                        </ul>
+                    </div>
+                    <div class="col-1">
+                        <ul class="list-unstyled text-center">
+                            <li>location</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <ul class="list-unstyled text-center">
+                            <li>Rightofuseofasset</li>
                         </ul>
                     </div>
                     <div class="col-1">
@@ -151,8 +143,8 @@
                 </div>
             </div>
         </div>
-        
-    </div>-->
+
+    </div>
 </body>
 
 </html>
