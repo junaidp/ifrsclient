@@ -70,7 +70,55 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container mt-4 border-top">
+        <div class="row mt-4 responsive_display">
+            <div class="col-1">
+                <h6>Sr. #</h6>
+            </div>
+            <div class="col-1">
+                <h6>Ref. No.</h6>
+            </div>
+            <div class="col-2">
+                <h6>Lessor Name</h6>
+            </div>
+            <div class="col-2">
+                <h6>Lease Name</h6>
+            </div>
+            <div class="col-2">
+                <h6>Class of Asset</h6>
+            </div>
+            <div class="col-2">
+                <h6>Location </h6>
+            </div>
+            <div class="col-2">
+                <h6>Right Of Use Of Asset</h6>
+            </div>
+            <div class="col-1">
+                <h6>Action</h6>
+            </div>
+        </div>
+        
+        <div class="row mt-3 border-top">
+            <div class="col-12" style="padding: 0;">
+                <ul class="draft_close_section mt-4 mb-3">
+                    <li *ngFor="let row of mapUserData | keyvalue" onclick="displayfunctiontab3();">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-6 col-6">-</div>
+                            <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['location']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
+                            <div class="col-lg-1 col-md-6 col-6"><a  style="font-size: 18px;" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-minus-circle"></i></a></div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container-fluid">
         <div class="row mt-4 responsive_display border-top  ">
             <div class="col-12 mt-4">
                 <div class="row right_of_use_heading border">
@@ -144,7 +192,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 </body>
 
 </html>
