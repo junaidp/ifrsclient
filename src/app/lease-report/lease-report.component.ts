@@ -9,7 +9,29 @@ import { Globals } from "../globals";
 })
 export class LeaseReportComponent implements OnInit {
   mapUserData: Map<string, Map<string, string>>;
+
+  leaseName = "";
+  lessorName = "";
+  classOfAsset = "";
+  location  = "";
+  date = "";
+  vendorName = "";
+  startingDate = "";
+  endingDate = "";
+  quickReport = "";
   constructor( public globals: Globals,public rightService: rightService) { }
+
+  public getFilterUserData() {
+    //  this.spinner.show();
+     alert(this.leaseName);
+     alert(this.lessorName);
+     alert(this.classOfAsset);
+     alert(this.location);
+     alert(this.startingDate);
+     alert(this.endingDate);
+     alert(this.vendorName);
+     alert(this.quickReport);
+    }
 
   ngOnInit() {
     var data = {};

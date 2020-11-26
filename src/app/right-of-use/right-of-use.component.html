@@ -33,7 +33,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
-                    <select class="form-control col-lg-8 col-md-4 col-12">
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
                             <option *ngFor="let row of mapUserData | keyvalue">{{row.value['lessorName']}}</option>
                         </select>
@@ -42,12 +42,13 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lease Name</div>
-                    <select class="form-control col-lg-8 col-md-4 col-12">
+                    <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
                             <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseName']}}</option>
                         </select>
                 </div>
             </div>
+            <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
         </div>
         <div class="row mt-4 mb-4">
             <!-- <div class="col-lg-6 col-md-6 col-12">
@@ -62,7 +63,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
-                    <select class="form-control col-lg-8 col-md-4 col-12">
+                    <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
                         <option>Select class of asset</option>
                         <option *ngFor="let row of mapUserData | keyvalue">{{row.value['classOfAsset']}}</option>
                     </select>

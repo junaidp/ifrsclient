@@ -12,6 +12,15 @@ import { JsonPipe } from '@angular/common';
 })
 export class RightOfUseComponent implements OnInit {
 
+  leaseName = "";
+  lessorName = "";
+  classOfAsset = "";
+  location  = "";
+  date = "";
+  vendorName = "";
+  startingDate = "";
+  endingDate = "";
+
   constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals) { }
   map1: Map<String, String>;
   mapUserData: Map<string, Map<string, string>>;
@@ -30,6 +39,13 @@ export class RightOfUseComponent implements OnInit {
       console.log(JSON.stringify(response.data));
     });
   }
+
+  public getFilterUserData() {
+    //  this.spinner.show();
+     alert(this.leaseName);
+     alert(this.lessorName);
+     alert(this.classOfAsset);
+    }
 
 
   ngOnInit() {

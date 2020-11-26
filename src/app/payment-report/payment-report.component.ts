@@ -12,6 +12,15 @@ declare var $: any;
 })
 export class PaymentReportComponent implements OnInit {
 
+  leaseName = "";
+  lessorName = "";
+  classOfAsset = "";
+  location  = "";
+  date = "";
+  vendorName = "";
+  startingDate = "";
+  endingDate = "";
+
   constructor(public paymentService: paymentService, public globals: Globals,public rightService: rightService) { }
   mapUserData: Map<string, Map<string, string>>;
   presentValue: number;
@@ -20,6 +29,16 @@ export class PaymentReportComponent implements OnInit {
   
   }
 
+  public getFilterUserData() {
+    //  this.spinner.show();
+     alert(this.leaseName);
+     alert(this.lessorName);
+     alert(this.classOfAsset);
+     alert(this.location);
+    
+     alert(this.vendorName);
+     alert(this.date);
+    }
   ngOnInit() {
     var data = {};
     this.rightService.getUsersData(data).then(response => {
