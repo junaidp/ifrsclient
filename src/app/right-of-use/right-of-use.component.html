@@ -50,15 +50,6 @@
             </div>
         </div>
         <div class="row mt-4 mb-4">
-            <!-- <div class="col-lg-6 col-md-6 col-12">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Vendor Name</div>
-                    <select class="form-control col-lg-8 col-md-4 col-12">
-                            <option>Select here</option>
-                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseContractNo']}}</option>
-                        </select>
-                </div>
-            </div> -->
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
@@ -67,6 +58,9 @@
                         <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
                     </select>
                 </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12 text-center">
+                <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
             </div>
         </div>
     </div>
@@ -81,6 +75,9 @@
                 <h6>Ref. No.</h6>
             </div>
             <div class="col-2">
+                <h6>Location </h6>
+            </div>
+            <div class="col-2">
                 <h6>Lessor Name</h6>
             </div>
             <div class="col-2">
@@ -90,111 +87,714 @@
                 <h6>Class of Asset</h6>
             </div>
             <div class="col-2">
-                <h6>Location </h6>
+                <h6> Vendor Name </h6>
             </div>
-            <div class="col-2">
-                <h6>Right Of Use Of Asset</h6>
-            </div>
-            <div class="col-1">
-                <h6>Action</h6>
-            </div>
+            <div class="col-1"></div>
         </div>
-        
-        <div class="row mt-3 border-top">
+    </div>
+    <div class="container">
+        <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3">
-                    <li *ngFor="let row of mapUserData | keyvalue" onclick="displayfunctiontab3();">
+                    <li *ngFor="let row of mapUserData | keyvalue" onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
                             <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['location']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['location']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
-                            <div class="col-lg-1 col-md-6 col-6"><a  style="font-size: 18px;" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-minus-circle"></i></a></div>
-
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <!-- <div class="container-fluid">
-        <div class="row mt-4 responsive_display border-top  ">
-            <div class="col-12 mt-4">
-                <div class="row right_of_use_heading border">
-                    <div class="col-1">
-                        <h6>Sr. #</h6>
-                    </div>
-                    <div class="col-1">
-                        <h6>Ref.No.</h6>
-                    </div>
-                    <div class="col-2">
-                        <h6>Lessor Name</h6>
-                    </div>
-                    <div class="col-2">
-                        <h6>Lease Name</h6>
-                    </div>
-                    <div class="col-2">
-                        <h6>Class of Asset</h6>
-                    </div>
-                    <div class="col-1">
-                        <h6>Location </h6>
-                    </div>
-                    <div class="col-2">
-                        <h6>Right of use of asset</h6>
-                    </div>
-                    <div class="col-1">
-                        <h6>Action</h6>
+    <div class="modall leasetab">
+        <div class="modall-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <span onclick="$('.leasetab').hide();" class="closee">&times;</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 mt-sm-1">
-                <div class="row right_of_use_heading border-bottom">
-                    <div class="col-1">
-                        <ul class="list-unstyled text-center">
-                            <li>1</li>
-                        </ul>
-                    </div>
-                    <div class="col-1">
-                        <ul class="list-unstyled text-center">
-                            <li>123</li>
-                        </ul>
-                    </div>
-                    <div class="col-2">
-                        <ul class="list-unstyled text-center">
-                            <li>leases name</li>
-                        </ul>
-                    </div>
-                    <div class="col-2">
-                        <ul class="list-unstyled text-center">
-                            <li>lease Name</li>
-                        </ul>
-                    </div>
-                    <div class="col-2">
-                        <ul class="list-unstyled text-center">
-                            <li>classAsset</li>
-                        </ul>
-                    </div>
-                    <div class="col-1">
-                        <ul class="list-unstyled text-center">
-                            <li>location</li>
-                        </ul>
-                    </div>
-                    <div class="col-2">
-                        <ul class="list-unstyled text-center">
-                            <li>Rightofuseofasset</li>
-                        </ul>
-                    </div>
-                    <div class="col-1">
-                        <a href="#" style="font-size: 18px;" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-minus-circle"></i></a>
+                <div class="row">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="text-lg-right"><a href="#" download>Download report &nbsp; <i class="fas fa-download"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12 first_adoption_css">
+                                <!-- <h5>Select one option of the following: </h5> -->
+                                <div class="mb-4">
+                                    <a href="firsttimeadoptionform.html">
+                                        (b) &nbsp; Retrospectively with the comulative effect of initially applying IFRS 16
+                                        recognized at the date of initial application.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class=" mt-4">
+                                    <div class="row mt-4">
+                                        <div class="col-lg-10 col-md-6 col-12">
+                                            <h6><a href="#">CONTRACT FORM &nbsp; <i class="fas fa-pencil-alt"></i></a></h6>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-12"></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-lg-10 col-md-10 col-12">
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom03">Contract Reference Number</label>
+                                                    <input type="number" readonly class="form-control" placeholder="Contract Reference Number" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide a valid Contract Reference Number.
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Lease commencement data</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Lease commencement data" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide a valid Lease commencement data.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom03">Class of asset</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Class of asset" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide a valid Class of asset.
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Lease Name</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Lease Name" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Lease Name.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom03">Lessor Name</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Lessor Name" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Lessor Name.
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Lessee Name</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Lessee Name" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Lessee Name.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom03">Location</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Location" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Location.
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Other condition</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Other condition" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Other condition.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-12 mt-4 final_p_decorate">
+                                            <p>Attachment(s):</p>
+                                            <span class='label label-info' id="upload-file-info"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <h6><a href="#">IDENTIFY LEASE></a></h6>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div class="row second_step">
+                                            <div class="col-1 font-weight-bold">Sr. #</div>
+                                            <div class="col-6 text-center font-weight-bold" style="padding: 0;">Question</div>
+                                            <div class="col-1"></div>
+                                            <div class="col-4 text-center font-weight-bold">Answer</div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">1.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Is the lease contract for short term period or underlying asset is flow value?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">2.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Is there any identified assect?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">3.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the supplier have a substantive right to substitute the asset?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">4.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the customer have the right to obtain substantially all of the economic benefits from use of the asset threughtout the period of use?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">5.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the customer, have the supplier or neither party have the right to direct how and for what purpose the asset is used threughtout the period of user?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">6.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the customer have the right to operate the asset throught the priod of use, without the supplier having the right change those operating instructions?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">7.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Did the customer design the asset in a way that predetermines how ans for what purpose the assect will be used throughout the period od use?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select class="form-control" disabled="true">
+                                                    <option>Select here</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <p><strong>CONCLUSION:</strong> Contains a lease / Does not contain a lease</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <h6><a href="#">TECHNICAL DETAILS</a></h6>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Commencement date:</label>
+                                                <input type="date" readonly class="form-control" placeholder="Contract Reference Number" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide a commencement date.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Payment In</label>
+                                                <select class="form-control" disabled>
+                                                    <option>Select here</option>
+                                                    <option>Beginning</option>
+                                                    <option>Ending</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Annual discount rate</label>
+                                                <input type="text" readonly class="form-control" placeholder="in %" required>
+                                                <div class="invalid-feedback">
+                                                    Annual discount.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Lease term period</label>
+                                                <input type="text" readonly class="form-control" placeholder="in years" required>
+                                                <div class="invalid-feedback">
+                                                    Lease term period.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Expected period</label>
+                                                <input type="text" readonly class="form-control" placeholder="in years" required>
+                                                <div class="invalid-feedback">
+                                                    Annual discount.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Lease payment</label>
+                                                <input type="text" readonly class="form-control" placeholder="in amount" required>
+                                                <div class="invalid-feedback">
+                                                    Lease payment.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Payment interval</label>
+                                                <select class="form-control" disabled>
+                                                    <option>Select period</option>
+                                                    <option>Monthly</option>
+                                                    <option>Quarterly</option>
+                                                    <option>Semi-annually</option>
+                                                    <option>Yearly</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    payment interval.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Guaranteed residual value</label>
+                                                <input type="text" readonly class="form-control" placeholder="in amount" required>
+                                                <div class="invalid-feedback">
+                                                    Guaranteed residual value.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Use full life of the Asset (years)</label>
+                                                <input type="text" readonly class="form-control" placeholder="in years" required>
+                                                <div class="invalid-feedback">
+                                                    Use full life of the Asset (years).
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Initial direct cost</label>
+                                                <input type="text" readonly class="form-control" placeholder="in amount" required>
+                                                <div class="invalid-feedback">
+                                                    initial direct cost.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Escalation %-age</label>
+                                                <input type="text" readonly class="form-control" placeholder="in percentage" required>
+                                                <div class="invalid-feedback">
+                                                    Escalation %-age.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Escalation after every</label>
+                                                <input type="text" readonly class="form-control" placeholder="in years" required>
+                                                <div class="invalid-feedback">
+                                                    Escalation after every.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Cotract Currency</label>
+                                                <input type="text" readonly class="form-control" placeholder="contract currency" required>
+                                                <div class="invalid-feedback">
+                                                    Escalation after every.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 border-top">
+                                    <div class="col-12 mt-4">
+                                        <h6><a href="#">PAYMENT SCHEDULE </a></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-5">
+                                        <div class="row step_4">
+                                            <div class="col-12 new_add_headind ">
+                                                <div class="row">
+                                                    <h6 class="col-lg-3 col-md-12 col-12">Asset schedule</h6>
+                                                    <div class="col-lg-6 col-md-12 col-12"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new responsive_display">
+                                                    <div class="col-1">
+                                                        <h6>Sr. #</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Year</h6>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h6>NBV Opening (1st Jan)</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Description</h6>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h6>NBV Closing (31st Dec)</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new">
+                                                    <div class="col-1 responsive_display">1</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">yyyy</div>
+                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
+                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new">
+                                                    <div class="col-1 responsive_display">2</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">yyyy</div>
+                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
+                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row step_4">
+                                            <div class="col-12 new_add_headind mt-4">
+                                                <h6 class="text-lg-left">Present Value Calculation</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new responsive_display">
+                                                    <div class="col-1">
+                                                        <h6>Sr. #</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Date of Payment</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Payment</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Discount Factor (5%)</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Discount Amount</h6>
+                                                    </div>
+                                                    <div class="col-3 text-lg-right"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new">
+                                                    <div class="col-1 responsive_display">1</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">mm:dd:yyyy</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-3 text-lg-right responsive_display"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new">
+                                                    <div class="col-1 responsive_display">2</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">mm:dd:yyyy</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-3 text-lg-right responsive_display"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row mt-3 mb-3">
+                                                    <div class="col-5 responsive_display"></div>
+                                                    <div class="col-lg-2 col-md-6 col-6">Present Value &nbsp; = </div>
+                                                    <div class="col-lg-2 col-md-6 col-6 text-center"><strong>100,0000.00</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row step_4 mb-4">
+                                            <div class="col-12 new_add_headind ">
+                                                <h6 class="text-lg-left">Lease Payment Schedule</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row journal_new responsive_display">
+                                                    <div class="col-1">
+                                                        <h6>Sr. #</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Date of Payment</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Opening Balance</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Finance Charge</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Payment</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>Closing Balance</h6>
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                </div>
+                                                <div class="row journal_new">
+                                                    <div class="col-1 responsive_display">1</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">mm:dd:yyyy</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">90,000</div>
+                                                    <div class="col-1 responsive_display"></div>
+                                                </div>
+                                                <div class="row journal_new">
+                                                    <div class="col-1 responsive_display">2</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">mm:dd:yyyy</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">100,000.00</div>
+                                                    <div class="col-lg-2 col-md-6 col-6">90,000</div>
+                                                    <div class="col-1 responsive_display"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-4 border-top">
+                                        <h6><a href="#" class="mt-4">JOURNAL ENTRIES</a></h6>
+                                    </div>
+                                </div>
+                                <div class="row step_4 mb-4 mt-4">
+                                    <div class="col-12">
+                                        <div class="row responsive_display journal_new">
+                                            <h6 class="col-1">Sr. #</h6>
+                                            <h6 class="col-2">Date</h6>
+                                            <h6 class="col-3 text-lg-left">Head Of Account</h6>
+                                            <h6 class="col-2">Dr.</h6>
+                                            <h6 class="col-2">Cr.</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-2">
+                                        <div class="row responsive_display journal_new">
+                                            <div class="col-1">1</div>
+                                            <div class="col-2">mm:dd:yyyy</div>
+                                            <div class="col-3">
+                                                <div class="row text-lg-left">
+                                                    <div class="col-12">Right Of Use Asset</div>
+                                                    <div class="col-12">Retained Earnings</div>
+                                                    <div class="col-12">Lease Liability</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-12">800,000</div>
+                                                    <div class="col-12">20,000</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-12"></div>
+                                                    <div class="col-12 mt-5">100,000</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-6"></div>
+                                </div>
+                                <div class="row mt-4 mb-3">
+                                    <div class="col-12 mt-3">
+                                        <div class="row journal_new" id="show2">
+                                            <div class="col-1">2</div>
+                                            <div class="col-2">mm:dd:yyyy</div>
+                                            <div class="col-3">
+                                                <div class="row text-lg-left">
+                                                    <div class="col-12">Finance Cost</div>
+                                                    <div class="col-12 mt-2">Lease Liability</div>
+                                                    <div class="col-12 mt-2">Cash / Bank</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-12">22,771</div>
+                                                    <div class="col-12 mt-2">171,566</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4">
+                                                <div class="row">
+                                                    <div class="col-12 mt-4">250,000</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-3">
+                                    <div class="col-12 mt-3">
+                                        <div class="row journal_new" id="show2">
+                                            <div class="col-1">3</div>
+                                            <div class="col-2">mm:dd:yyyy</div>
+                                            <div class="col-3">
+                                                <div class="row text-lg-left">
+                                                    <div class="col-12">Finance Cost</div>
+                                                    <div class="col-12 mt-2">Lease Liability</div>
+                                                    <div class="col-12 mt-2">Cash / Bank</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-12">22,771</div>
+                                                    <div class="col-12 mt-2">171,566</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4">
+                                                <div class="row">
+                                                    <div class="col-12 mt-4">250,000</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-3">
+                                    <div class="col-12 mt-3">
+                                        <div class="row journal_new" id="show2">
+                                            <div class="col-1">4</div>
+                                            <div class="col-2">mm:dd:yyyy</div>
+                                            <div class="col-3">
+                                                <div class="row text-lg-left">
+                                                    <div class="col-12">Finance Cost</div>
+                                                    <div class="col-12 mt-2">Lease Liability</div>
+                                                    <div class="col-12 mt-2">Cash / Bank</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-12">22,771</div>
+                                                    <div class="col-12 mt-2">171,566</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4">
+                                                <div class="row">
+                                                    <div class="col-12 mt-4">250,000</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-12 mt-3">
+                                        <div class="row journal_new" id="show2">
+                                            <div class="col-1">5</div>
+                                            <div class="col-2">mm:dd:yyyy</div>
+                                            <div class="col-3">
+                                                <div class="row text-lg-left">
+                                                    <div class="col-12">Finance Cost</div>
+                                                    <div class="col-12 mt-2">Lease Liability</div>
+                                                    <div class="col-12 mt-2">Cash / Bank</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-12">22,771</div>
+                                                    <div class="col-12 mt-2">171,566</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4">
+                                                <div class="row">
+                                                    <div class="col-12 mt-4">250,000</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mt-4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="float-lg-right ml-2 btn btn-success" download>Download &nbsp; <i
+                                        class="fas fa-download"></i></a>
+                                <button class="btn btn-secondary btn-lg pull-right float-lg-right" style="width: 135px;line-height: 21px;" type="submit">Back</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </div> -->
 </body>
 
 </html>
