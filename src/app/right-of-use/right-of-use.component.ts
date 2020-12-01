@@ -24,6 +24,7 @@ export class RightOfUseComponent implements OnInit {
   constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals) { }
   map1: Map<String, String>;
   mapUserData: Map<string, Map<string, string>>;
+  mapUserFilter: Map<string, Map<string, string>>;
   mapClassOfAsset: Map<string, Map<string, string>>;
 
   presentValue: number;
@@ -41,10 +42,21 @@ export class RightOfUseComponent implements OnInit {
   }
 
   public getFilterUserData() {
+
+    var data = {
+      leaseName: this.leaseName ,
+      lessorName: this.lessorName,
+      classOfAsset: this.classOfAsset,
+      userId: localStorage.getItem('userId'),
+      companyId: localStorage.getItem('companyId')
+    };
     //  this.spinner.show();
-     alert(this.leaseName);
-     alert(this.lessorName);
-     alert(this.classOfAsset);
+     alert(data);
+     this.rightService.getReportData(data).then(response => {
+      alert(response.data)
+      this.mapUserData = new Map(Object.entries(response.data));
+      console.log(response.data)
+   });
     }
 
 
@@ -52,6 +64,8 @@ export class RightOfUseComponent implements OnInit {
     alert("called page")
     var data = {};
     this.rightService.getUsersData(data).then(response => {
+      this.mapUserFilter = new Map(Object.entries(response.data));
+
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data)
     });

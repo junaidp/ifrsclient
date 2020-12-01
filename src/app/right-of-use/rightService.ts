@@ -24,6 +24,17 @@ export class rightService {
     const url = this.globals.APP_URL+"data/getData?userId=" +userId;
      const response = await axios.get(url,data).then(
     );
+
+    
+    console.log(response);
+    return response;
+  }
+
+  async getReportData(data) {
+
+    const url = this.globals.APP_URL+"reports/getReportData";
+     const response = await axios.post(url,data).then(
+    );
     console.log(response);
     return response;
   }
