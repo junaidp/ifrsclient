@@ -49,7 +49,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                     <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select class of asset</option>
-                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['classOfAsset']}}</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
                         </select>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
                     <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
-                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['lessorName']}}</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option>
                         </select>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Name of Lease</div>
                     <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select here</option>
-                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['leaseName']}}</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
                         </select>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Location of Lease</div>
                     <select [(ngModel)]="location" class="form-control col-lg-8 col-md-4 col-12">
                             <option>Select Location</option>
-                            <option *ngFor="let row of mapUserData | keyvalue">{{row.value['location']}}</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['location']}}</option>
                         </select>
                 </div>
             </div>
