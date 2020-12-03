@@ -94,8 +94,8 @@
     <div class="container">
         <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
-                <ul class="draft_close_section mt-4 mb-3">
-                    <li *ngFor="let row of mapUserData | keyvalue" onclick="$('.leasetab').show();">
+                <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
+                    <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['dataId']}}"  class="dataListLi"  onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
                             <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
@@ -797,3 +797,9 @@
 </body>
 
 </html>
+<script>
+   $(".data1").click(function(){
+  // action goes here!!
+  alert("hi")
+});
+</script>

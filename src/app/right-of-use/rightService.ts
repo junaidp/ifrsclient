@@ -39,6 +39,16 @@ export class rightService {
     return response;
   }
 
+  async getIndividualReportDataByDataId(data) {
+    alert(data)
+
+    const url = this.globals.APP_URL+"data/getUserDataByDataId?dataId=" +data;
+     const response = await axios.post(url,data).then(
+    );
+    console.log(response);
+    return response;
+  }
+
 
  
 
