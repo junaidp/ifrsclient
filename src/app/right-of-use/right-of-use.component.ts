@@ -13,6 +13,7 @@ declare var $: any;
 })
 export class RightOfUseComponent implements OnInit {
 
+  //////////////////////////// for report dropdown and table below //////////////
   leaseName = "";
   lessorName = "";
   classOfAsset = "";
@@ -21,6 +22,54 @@ export class RightOfUseComponent implements OnInit {
   vendorName = "";
   startingDate = "";
   endingDate = "";
+  ///////////////////////////////// for individual report data ////////////////////
+
+  leaseContractNo = "";
+  classAsset = "";
+  commencementDate ="2019-03-11";
+  leaseNameIndividual = "";
+  lessorNameIndividual = "";
+  leasseeName = "";
+  locationIndividual = "";
+  otherCondition = "";
+  classOfAssetIndividual = "";
+
+
+
+
+  //2nd tab question/answer
+
+  answer1 = "Select here";
+  answer2 = "Select here";
+  answer3 = "Select here";
+  answer4 = "Select here";
+  answer5 = "Select here";
+  answer6 = "Select here";
+  answer6new = "Select here";
+  answer7 = "Select here";
+
+
+  //3rd tab
+  paymentsAt = "Beginning";
+  annualDiscountRate = "3";
+  leaseTerm = "10";
+  expectedPeriod = "10";
+  leasePayment = "2670000";
+  paymentIntervals = "Yearly";
+  initialDirectCost = "0";
+  guaranteedResidualValue = "1000000";
+  usefulLifeOfTheAsset = "10";
+  escalation = "30";
+  escalationAfterEvery = "10";
+  contractCurrency = "";
+  //mapIndividualUserDetails: Map<String, String>;
+  mapIndividualUserDetails: Map<string, string>;
+
+
+
+
+
+
 
   constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals) { }
   map1: Map<String, String>;
@@ -63,10 +112,12 @@ alert("Sdasd")
 
 
   ngOnInit() {
+    var globalLInk = this.globals.APP_URL
     $("#dataListUl").on("click", ".dataListLi", function(event){
       var dataId =$(this).attr('id');
+      alert($(this).attr('id'))
         var data = {
-          dataId: '5fbd57a24828ed1551913a68'
+          dataId: dataId
         };
       //  this.spinner.show();s
     //    alert(data);
@@ -77,14 +128,20 @@ alert("Sdasd")
     //     console.log(this.mapIndividualUserData)
     //  });
     $.ajax({
+      
       type: "GET",
-      url: "http://cace04f49d3c.ngrok.io/data/getUserDataByDataId",
+      url: globalLInk+"data/getUserDataByDataId",
       data: data,
       datatype:"json",
   contentType: "application/json;charset-UTF-8",
 	    success: function(result, status, xhr){
-        alert(status)
-        console.log(result);
+        this.mapIndividualUserDetails = result
+        alert(this.mapIndividualUserDetails.get("leaseName"))
+        console.log(this.mapIndividualUserDetails);
+        alert(this.mapIndividualUserDetails.value['leaseName'])
+       
+        // alert(this.mapIndividualUserDetails.value["classOfAsset"])
+        // alert(this.mapIndividualUserDetails.get("classOfAsset"))
 	    //	$("#fu-filter-selection").html(result)
       },
       error: function() {
@@ -93,7 +150,6 @@ alert("Sdasd")
 	});
   });
  
-    alert("called page")
     var data = {};
     this.rightService.getUsersData(data).then(response => {
       this.mapUserFilter = new Map(Object.entries(response.data));
