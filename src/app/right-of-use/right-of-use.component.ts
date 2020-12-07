@@ -63,7 +63,7 @@ export class RightOfUseComponent implements OnInit {
   escalationAfterEvery = "10";
   contractCurrency = "";
   //mapIndividualUserDetails: Map<String, String>;
-  mapIndividualUserDetails: Map<string, string>;
+  mapIndividualUserDetails:  Map<string, string>;
 
 
 
@@ -132,13 +132,18 @@ alert("Sdasd")
       type: "GET",
       url: globalLInk+"data/getUserDataByDataId",
       data: data,
-      datatype:"json",
   contentType: "application/json;charset-UTF-8",
 	    success: function(result, status, xhr){
-        this.mapIndividualUserDetails = result
-        alert(this.mapIndividualUserDetails.get("leaseName"))
-        console.log(this.mapIndividualUserDetails);
-        alert(this.mapIndividualUserDetails.value['leaseName'])
+        
+        console.log(jQuery.parseJSON(result))
+        var jsondata = jQuery.parseJSON(result)
+        alert(jsondata.leaseName)
+        this.mapIndividualUserDetails = new Map(Object.values(jsondata))
+        console.log(this.mapIndividualUserDetails)
+        // this.mapIndividualUserDetails = new Map(Object.arguments(result))
+        // console.log(this.mapIndividualUserDetails)
+        // console.log(this.mapIndividualUserDetails.dataId)
+        // alert(this.mapIndividualUserDetails.leaseName)
        
         // alert(this.mapIndividualUserDetails.value["classOfAsset"])
         // alert(this.mapIndividualUserDetails.get("classOfAsset"))
