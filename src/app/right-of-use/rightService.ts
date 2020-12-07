@@ -40,10 +40,10 @@ export class rightService {
   }
 
   async getIndividualReportDataByDataId(data) {
-    alert(data)
+    alert(data.dataId +"sadsadsadsdaasd")
 
-    const url = this.globals.APP_URL+"data/getUserDataByDataId?dataId=" +data;
-     const response = await axios.post(url,data).then(
+    const url = this.globals.APP_URL+"data/getUserDataByDataId?dataId=" +data.dataId;
+     const response = await axios.get(url,data).then(
     );
     console.log(response);
     return response;

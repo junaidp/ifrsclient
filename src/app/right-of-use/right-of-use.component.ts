@@ -30,7 +30,7 @@ export class RightOfUseComponent implements OnInit {
   leaseNameIndividual = "";
   lessorNameIndividual = "";
   leasseeName = "";
-  locationIndividual = "";
+  locationIndividual = "hh";
   otherCondition = "";
   classOfAssetIndividual = "";
 
@@ -112,6 +112,7 @@ alert("Sdasd")
 
 
   ngOnInit() {
+    var me =this
     var globalLInk = this.globals.APP_URL
     $("#dataListUl").on("click", ".dataListLi", function(event){
       var dataId =$(this).attr('id');
@@ -119,40 +120,80 @@ alert("Sdasd")
         var data = {
           dataId: dataId
         };
-      //  this.spinner.show();s
-    //    alert(data);
-    //    this.getFilterUserData();
-    //    this.rightService.getIndividualReportDataByDataId(data, dataId).then(response => {
-    //     alert(response.data)
-    //     this.mapIndividualUserData = new Map(Object.entries(response.data));
-    //     console.log(this.mapIndividualUserData)
-    //  });
-    $.ajax({
-      
-      type: "GET",
-      url: globalLInk+"data/getUserDataByDataId",
-      data: data,
-  contentType: "application/json;charset-UTF-8",
-	    success: function(result, status, xhr){
-        
-        console.log(jQuery.parseJSON(result))
-        var jsondata = jQuery.parseJSON(result)
-        alert(jsondata.leaseName)
-        this.mapIndividualUserDetails = new Map(Object.values(jsondata))
-        console.log(this.mapIndividualUserDetails)
-        // this.mapIndividualUserDetails = new Map(Object.arguments(result))
-        // console.log(this.mapIndividualUserDetails)
-        // console.log(this.mapIndividualUserDetails.dataId)
-        // alert(this.mapIndividualUserDetails.leaseName)
+        me.rightService.getIndividualReportDataByDataId(data).then(response => {
+          alert(response.data)
+          var userDetails = response.data
+        me.leaseNameIndividual = userDetails.leaseName;
+        me.lessorNameIndividual = userDetails.lessorName;
+        me.classOfAssetIndividual = userDetails.classOfAsset;
+        me.leaseContractNo = userDetails.leaseContractNo;
+        me.commencementDate = userDetails.commencementDate;
+        me.locationIndividual = userDetails.location;
        
-        // alert(this.mapIndividualUserDetails.value["classOfAsset"])
-        // alert(this.mapIndividualUserDetails.get("classOfAsset"))
-	    //	$("#fu-filter-selection").html(result)
-      },
-      error: function() {
-        alert('There was some error performing the AJAX call!');
-      }
-	});
+        //for second tab
+        me.paymentsAt = userDetails.paymentsAt;
+        me.annualDiscountRate = userDetails.annualDiscountRate;
+        me.leaseTerm = userDetails.leaseTerm;
+        me.expectedPeriod = userDetails.expectedPeriod;
+        me.leasePayment = userDetails.leasePayment;
+        me.paymentIntervals = userDetails.paymentIntervals;
+        me.initialDirectCost = userDetails.initialDirectCost;
+        me.guaranteedResidualValue = userDetails.guaranteedResidualValue;
+        me.usefulLifeOfTheAsset = userDetails.usefulLifeOfTheAsset;
+        me.escalation = userDetails.escalation;
+        me.escalationAfterEvery = userDetails.escalationAfterEvery;
+       //   this.mapUserData = new Map(response.data);
+          console.log(response.data)
+       });
+  //     //  this.spinner.show();s
+  //   //    alert(data);
+  //   //    this.getFilterUserData();
+  //   //    this.rightService.getIndividualReportDataByDataId(data, dataId).then(response => {
+  //   //     alert(response.data)
+  //   //     this.mapIndividualUserData = new Map(Object.entries(response.data));
+  //   //     console.log(this.mapIndividualUserData)
+  //   //  });
+  //   $.ajax({
+      
+  //     type: "GET",
+  //     url: globalLInk+"data/getUserDataByDataId",
+  //     data: data,
+  // contentType: "application/json;charset-UTF-8",
+	//     success: function(result, status, xhr){
+        
+  //       console.log(jQuery.parseJSON(result))
+  //       var userDetails = jQuery.parseJSON(result)
+  //       alert(userDetails.leaseName)
+  //       this.leaseNameIndividual = userDetails.leaseName;
+  //       this.lessorNameIndividual = userDetails.lessorName;
+  //       this.classOfAssetIndividual = userDetails.classOfAsset;
+  //       this.leaseContractNo = userDetails.leaseContractNo;
+  //       this.commencementDate = userDetails.commencementDate;
+  //       this.locationIndividual = userDetails.location;
+       
+  //       //for second tab
+  //       this.paymentsAt = userDetails.paymentsAt;
+  //       this.annualDiscountRate = userDetails.annualDiscountRate;
+  //       this.leaseTerm = userDetails.leaseTerm;
+  //       this.expectedPeriod = userDetails.expectedPeriod;
+  //       this.leasePayment = userDetails.leasePayment;
+  //       this.paymentIntervals = userDetails.paymentIntervals;
+  //       this.initialDirectCost = userDetails.initialDirectCost;
+  //       this.guaranteedResidualValue = userDetails.guaranteedResidualValue;
+  //       this.usefulLifeOfTheAsset = userDetails.usefulLifeOfTheAsset;
+  //       this.escalation = userDetails.escalation;
+  //       this.escalationAfterEvery = userDetails.escalationAfterEvery;
+
+  //       alert(this.classOfAssetIndividual)
+  //   //    this.contractCurrency = userDetails.;
+
+  //       // this.mapIndividualUserDetails = new Map(Object.values(userDetails))
+  //       // console.log(this.mapIndividualUserDetails)
+  //     },
+  //     error: function() {
+  //       alert('There was some error performing the AJAX call!');
+  //     }
+	// });
   });
  
     var data = {};

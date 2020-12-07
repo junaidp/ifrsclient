@@ -47,15 +47,15 @@ export class NewLeaseComponent implements OnInit {
 
 
   //3rd tab
-  paymentsAt = "Beginning";
+  paymentsAt = "";
   annualDiscountRate = "3";
-  leaseTerm = "10";
-  expectedPeriod = "10";
-  leasePayment = "2670000";
-  paymentIntervals = "Yearly";
-  initialDirectCost = "0";
-  guaranteedResidualValue = "1000000";
-  usefulLifeOfTheAsset = "10";
+  leaseTerm = "";
+  expectedPeriod = "";
+  leasePayment = "";
+  paymentIntervals = "";
+  initialDirectCost = "";
+  guaranteedResidualValue = "";
+  usefulLifeOfTheAsset = "";
   escalation = "30";
   escalationAfterEvery = "10";
   contractCurrency = "";
