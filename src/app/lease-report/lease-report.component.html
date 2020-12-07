@@ -87,7 +87,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Starting Date</div>
-                    <input [(ngModel)]="startingDate" type="date" class="form-control col-lg-8 col-md-4 col-12" placeholder="date">
+                    <input [(ngModel)]="startingDate" type="month" class="form-control col-lg-8 col-md-4 col-12" placeholder="date">
                 </div>
             </div>
         </div>
@@ -95,13 +95,15 @@
             <div class="col-lg-6 col-md-12 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Ending Date</div>
-                    <input [(ngModel)]="endingDate" type="date" class="form-control col-lg-8 col-md-4 col-12" placeholder="data" name="" />
+                    <input [(ngModel)]="endingDate" type="month" class="form-control col-lg-8 col-md-4 col-12" placeholder="data" name="" />
                 </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-12 text-center">
+                <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
             </div>
         </div>
     </div>
 
-    <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
 
     <div class="container mt-4 border-top">
         <div class="row mt-4 responsive_display">

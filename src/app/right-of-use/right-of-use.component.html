@@ -70,13 +70,10 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-1">
+            <div class="col-2">
                 <h6>Ref. No.</h6>
             </div>
-            <div class="col-2">
-                <h6>Location </h6>
-            </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
             <div class="col-2">
@@ -85,23 +82,20 @@
             <div class="col-2">
                 <h6>Class of Asset</h6>
             </div>
-
             <div class="col-2">
-                <h6> Vendor Name </h6>
+                <h6> Amount </h6>
             </div>
-            <div class="col-1"></div>
         </div>
     </div>
     <div class="container">
         <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
-                    <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['id']}}"  class="dataListLi"  onclick="$('.leasetab').show();">
+                    <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['location']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
@@ -151,7 +145,7 @@
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Contract Reference Number</label>
-                                                    <input type="number" readonly class="form-control"  placeholder="Contract Reference Number" required>
+                                                    <input type="number" readonly class="form-control" placeholder="Contract Reference Number" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Contract Reference Number.
                                                     </div>
@@ -169,14 +163,14 @@
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Class of asset</label>
-                                                    <input type="text" *ngFor="let row of mapIndividualUserDetails | keyvalue" value="{{row.value['leaseName']}}" readonly class="form-control"  placeholder="Class of asset" required>
+                                                    <input type="text" *ngFor="let row of mapIndividualUserDetails | keyvalue" value="{{row.value['leaseName']}}" readonly class="form-control" placeholder="Class of asset" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Class of asset.
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Lease Name</label>
-                                                    <input type="text" readonly class="form-control" value ="sad" placeholder="Lease Name" required>
+                                                    <input type="text" readonly class="form-control" value="sad" placeholder="Lease Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lease Name.
                                                     </div>
@@ -636,12 +630,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-12 mt-4 border-top">
                                         <h6><a href="#" class="mt-4">JOURNAL ENTRIES</a></h6>
                                     </div>
-                                </div>
-                                <div class="row step_4 mb-4 mt-4">
+                                </div> -->
+                                <!-- <div class="row step_4 mb-4 mt-4">
                                     <div class="col-12">
                                         <div class="row responsive_display journal_new">
                                             <h6 class="col-1">Sr. #</h6>
@@ -785,7 +779,7 @@
                                             <div class="col-2 mt-4"></div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <a href="#" class="float-lg-right ml-2 btn btn-success" download>Download &nbsp; <i
                                         class="fas fa-download"></i></a>
                                 <button class="btn btn-secondary btn-lg pull-right float-lg-right" style="width: 135px;line-height: 21px;" type="submit">Back</button>
@@ -801,8 +795,8 @@
 
 </html>
 <script>
-   $(".data1").click(function(){
-  // action goes here!!
-  alert("hi")
-});
+    $(".data1").click(function() {
+        // action goes here!!
+        alert("hi")
+    });
 </script>

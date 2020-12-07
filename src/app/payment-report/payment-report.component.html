@@ -27,7 +27,7 @@
                 </nav>
             </div>
         </div>
-        <div class="row mt-4">
+        <!-- <div class="row mt-4">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
@@ -59,17 +59,6 @@
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Vendor Name</div>
-                    <select [(ngModel)]="vendorName" class="form-control col-lg-8 col-md-4 col-12">
-                        <option>Select here</option>
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseContractNo']}}</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4 mb-4">
-            <div class="col-lg-6 col-md-6 col-12">
-                <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                     <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
                         <option>Select class of asset</option>
@@ -77,15 +66,15 @@
                     </select>
                 </div>
             </div>
+        </div> -->
+        <div class="row mt-4 mb-4">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Date</div>
-                    <input [(ngModel)]="date" type="date" class="form-control col-lg-8 col-md-4 col-12" placeholder="data" name="" />
+                    <input [(ngModel)]="date" type="month" class="form-control col-lg-8 col-md-4 col-12" placeholder="data" name="" />
                 </div>
             </div>
-        </div>
-        <div class="row mt-4 mb-4">
-            <div class="col-12 text-right">
+            <div class="col-lg-6 col-md-6 col-12 text-center">
                 <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
             </div>
         </div>
@@ -95,13 +84,10 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-1">
+            <div class="col-2">
                 <h6>Ref. No.</h6>
             </div>
-            <div class="col-2">
-                <h6>Location </h6>
-            </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
             <div class="col-2">
@@ -111,9 +97,8 @@
                 <h6>Class of Asset</h6>
             </div>
             <div class="col-2">
-                <h6> Vendor Name </h6>
+                <h6> Amount </h6>
             </div>
-            <div class="col-1"></div>
         </div>
     </div>
     <div class="container">
@@ -123,9 +108,8 @@
                     <li *ngFor="let row of mapUserData | keyvalue" onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['location']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
@@ -658,12 +642,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-12 mt-4 border-top">
                                         <h6><a href="#" class="mt-4">JOURNAL ENTRIES</a></h6>
                                     </div>
-                                </div>
-                                <div class="row step_4 mb-4 mt-4">
+                                </div> -->
+                                <!-- <div class="row step_4 mb-4 mt-4">
                                     <div class="col-12">
                                         <div class="row responsive_display journal_new">
                                             <h6 class="col-1">Sr. #</h6>
@@ -807,7 +791,7 @@
                                             <div class="col-2 mt-4"></div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <a href="#" class="float-lg-right ml-2 btn btn-success" download>Download &nbsp; <i
                                         class="fas fa-download"></i></a>
                                 <button class="btn btn-secondary btn-lg pull-right float-lg-right" style="width: 135px;line-height: 21px;" type="submit">Back</button>
