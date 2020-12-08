@@ -64,6 +64,10 @@ export class RightOfUseComponent implements OnInit {
   contractCurrency = "";
   //mapIndividualUserDetails: Map<String, String>;
   mapIndividualUserDetails:  Map<string, string>;
+  map: Map<string, Map<string, string>>;
+  map1: Map<String, String>;
+  presentValue: number;
+
 
 
 
@@ -72,13 +76,11 @@ export class RightOfUseComponent implements OnInit {
 
 
   constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals) { }
-  map1: Map<String, String>;
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
   mapClassOfAsset: Map<string, Map<string, string>>;
 
-  presentValue: number;
   
   
   public getClassOfAsset() {
@@ -93,7 +95,6 @@ export class RightOfUseComponent implements OnInit {
   }
 
   public getFilterUserData() {
-alert("Sdasd")
     var data = {
       leaseName: this.leaseName ,
       lessorName: this.lessorName,
@@ -102,7 +103,6 @@ alert("Sdasd")
       companyId: localStorage.getItem('companyId')
     };
     //  this.spinner.show();
-     alert(data);
      this.rightService.getReportData(data).then(response => {
       alert(response.data)
       this.mapUserData = new Map(Object.entries(response.data));
@@ -120,31 +120,64 @@ alert("Sdasd")
         var data = {
           dataId: dataId
         };
-        me.rightService.getIndividualReportDataByDataId(data).then(response => {
-          alert(response.data)
-          var userDetails = response.data
-        me.leaseNameIndividual = userDetails.leaseName;
-        me.lessorNameIndividual = userDetails.lessorName;
-        me.classOfAssetIndividual = userDetails.classOfAsset;
-        me.leaseContractNo = userDetails.leaseContractNo;
-        me.commencementDate = userDetails.commencementDate;
-        me.locationIndividual = userDetails.location;
-       
-        //for second tab
-        me.paymentsAt = userDetails.paymentsAt;
-        me.annualDiscountRate = userDetails.annualDiscountRate;
-        me.leaseTerm = userDetails.leaseTerm;
-        me.expectedPeriod = userDetails.expectedPeriod;
-        me.leasePayment = userDetails.leasePayment;
-        me.paymentIntervals = userDetails.paymentIntervals;
-        me.initialDirectCost = userDetails.initialDirectCost;
-        me.guaranteedResidualValue = userDetails.guaranteedResidualValue;
-        me.usefulLifeOfTheAsset = userDetails.usefulLifeOfTheAsset;
-        me.escalation = userDetails.escalation;
-        me.escalationAfterEvery = userDetails.escalationAfterEvery;
-       //   this.mapUserData = new Map(response.data);
-          console.log(response.data)
-       });
+        me.populateUserData(me, data);
+        me.populateDataTables(me, data);
+
+  });
+ 
+    var data = {};
+    this.rightService.getUsersData(data).then(response => {
+      this.mapUserFilter = new Map(Object.entries(response.data));
+      this.mapUserData = new Map(Object.entries(response.data));
+      console.log(response.data)
+    });
+  }
+
+
+  private populateUserData(me: this, data: { dataId: any; }) {
+    me.rightService.getIndividualReportDataByDataId(data).then(response => {
+      alert(response.data);
+      var userDetails = response.data;
+      me.leaseNameIndividual = userDetails.leaseName;
+      me.lessorNameIndividual = userDetails.lessorName;
+      me.classOfAssetIndividual = userDetails.classOfAsset;
+      me.leaseContractNo = userDetails.leaseContractNo;
+      me.commencementDate = userDetails.commencementDate;
+      me.locationIndividual = userDetails.location;
+
+      //for second tab
+      me.paymentsAt = userDetails.paymentsAt;
+      me.annualDiscountRate = userDetails.annualDiscountRate;
+      me.leaseTerm = userDetails.leaseTerm;
+      me.expectedPeriod = userDetails.expectedPeriod;
+      me.leasePayment = userDetails.leasePayment;
+      me.paymentIntervals = userDetails.paymentIntervals;
+      me.initialDirectCost = userDetails.initialDirectCost;
+      me.guaranteedResidualValue = userDetails.guaranteedResidualValue;
+      me.usefulLifeOfTheAsset = userDetails.usefulLifeOfTheAsset;
+      me.escalation = userDetails.escalation;
+      me.escalationAfterEvery = userDetails.escalationAfterEvery;
+      //   this.mapUserData = new Map(response.data);
+      console.log(response.data);
+    });
+  }
+
+  private populateDataTables(me: this, data: { dataId: any; }) {
+    alert("calc method called in ts file")
+    me.rightService.calculateDataTables(data).then(response => {
+      alert(response.data);
+      var userDetails = response.data;
+      me.map = new Map(Object.entries(response.data));
+      console.log(response.data)
+      me.map1 = this.map.get("17");
+      me.presentValue = this.map1[9];
+     
+      console.log(response.data);
+    });
+  }
+}
+
+
   //     //  this.spinner.show();s
   //   //    alert(data);
   //   //    this.getFilterUserData();
@@ -194,14 +227,3 @@ alert("Sdasd")
   //       alert('There was some error performing the AJAX call!');
   //     }
 	// });
-  });
- 
-    var data = {};
-    this.rightService.getUsersData(data).then(response => {
-      this.mapUserFilter = new Map(Object.entries(response.data));
-      this.mapUserData = new Map(Object.entries(response.data));
-      console.log(response.data)
-    });
-  }
-
-}

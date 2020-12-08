@@ -40,8 +40,6 @@ export class rightService {
   }
 
   async getIndividualReportDataByDataId(data) {
-    alert(data.dataId +"sadsadsadsdaasd")
-
     const url = this.globals.APP_URL+"data/getUserDataByDataId?dataId=" +data.dataId;
      const response = await axios.get(url,data).then(
     );
@@ -49,7 +47,12 @@ export class rightService {
     return response;
   }
 
-
+  async calculateDataTables(data) {
+    alert("calculateDataTableCalled")
+    const url = this.globals.APP_URL+"/calculation/lease/yearlyByDataId?dataId=" +data.dataId;
+   const response = await axios.get(url, data);
+    return response;
+  }
  
 
 }
