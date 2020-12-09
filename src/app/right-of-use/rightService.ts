@@ -48,7 +48,6 @@ export class rightService {
   }
 
   async calculateDataTables(data) {
-    alert("calculateDataTableCalled")
     const url = this.globals.APP_URL+"/calculation/lease/yearlyByDataId?dataId=" +data.dataId;
    const response = await axios.get(url, data);
     return response;

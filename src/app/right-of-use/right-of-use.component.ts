@@ -4,6 +4,7 @@ import { LeaseService } from "../new-lease/leaseService";
 import { rightService } from "./rightService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
+import { NgxSpinnerService } from "ngx-spinner";
 declare var $: any;
 
 @Component({
@@ -75,7 +76,7 @@ export class RightOfUseComponent implements OnInit {
 
 
 
-  constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals) { }
+  constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals,  private spinner: NgxSpinnerService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
@@ -95,6 +96,7 @@ export class RightOfUseComponent implements OnInit {
   }
 
   public getFilterUserData() {
+    this.spinner.show();
     var data = {
       leaseName: this.leaseName ,
       lessorName: this.lessorName,
@@ -104,7 +106,7 @@ export class RightOfUseComponent implements OnInit {
     };
     //  this.spinner.show();
      this.rightService.getReportData(data).then(response => {
-      alert(response.data)
+       this.spinner.hide();
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data)
    });
@@ -115,18 +117,20 @@ export class RightOfUseComponent implements OnInit {
     var me =this
     var globalLInk = this.globals.APP_URL
     $("#dataListUl").on("click", ".dataListLi", function(event){
+      me.spinner.show();
       var dataId =$(this).attr('id');
-      alert($(this).attr('id'))
         var data = {
           dataId: dataId
         };
         me.populateUserData(me, data);
         me.populateDataTables(me, data);
+        me.spinner.hide();
 
   });
- 
+    me.spinner.show();
     var data = {};
     this.rightService.getUsersData(data).then(response => {
+      me.spinner.hide();
       this.mapUserFilter = new Map(Object.entries(response.data));
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data)
@@ -136,7 +140,6 @@ export class RightOfUseComponent implements OnInit {
 
   private populateUserData(me: this, data: { dataId: any; }) {
     me.rightService.getIndividualReportDataByDataId(data).then(response => {
-      alert(response.data);
       var userDetails = response.data;
       me.leaseNameIndividual = userDetails.leaseName;
       me.lessorNameIndividual = userDetails.lessorName;
@@ -172,9 +175,7 @@ export class RightOfUseComponent implements OnInit {
   }
 
   private populateDataTables(me: this, data: { dataId: any; }) {
-    alert("calc method called in ts file")
     me.rightService.calculateDataTables(data).then(response => {
-      alert(response.data);
       var userDetails = response.data;
       me.map = new Map(Object.entries(response.data));
       console.log(response.data)
