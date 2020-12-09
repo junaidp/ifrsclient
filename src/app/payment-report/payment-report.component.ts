@@ -4,6 +4,8 @@ import { paymentService } from "./paymentService";
 import { rightService } from "src/app/right-of-use/rightService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
+import { JournalService } from '../journal-entries/journalService';
+import { JournalEntriesComponent } from '../journal-entries/journal-entries.component';
 declare var $: any;
 @Component({
   selector: 'app-payment-report',
@@ -20,8 +22,12 @@ export class PaymentReportComponent implements OnInit {
   vendorName = "";
   startingDate = "";
   endingDate = "";
+  userId
+  companyId
+  finalDate
+  dateSelectorMonth
 
-  constructor(public paymentService: paymentService, public globals: Globals, public rightService: rightService) { }
+  constructor(public paymentService: paymentService, public globals: Globals, public rightService: rightService, public journalService: JournalService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
 
@@ -32,31 +38,56 @@ export class PaymentReportComponent implements OnInit {
   }
 
   public getFilterUserData() {
-    //  this.spinner.show();
-    // alert(this.leaseName);
-    // alert(this.lessorName);
-    // alert(this.classOfAsset);
-    // alert(this.location);
 
-    // alert(this.vendorName);
-    // alert(this.date);
 
+    this.userId = localStorage.getItem('userId');
+    this.companyId = localStorage.getItem('companyId');
+
+    if(this.userId === "undefined"){
+      this.userId = 0;
+    }
+    alert($('#dateSelector').val());
+    var ret = ($('#dateSelector').val().split("-"));
+   
+    var day = 10
+    var year = ret[0];
+    var month = ret[1];
+
+    this.finalDate =  (30 +"-" +month + "-" + year)
+    this.dateSelectorMonth = month
     var data = {
-      leaseName: this.leaseName ,
-      lessorName: this.lessorName,
-      classOfAsset: this.classOfAsset,
-      userId: localStorage.getItem('userId'),
-      companyId: localStorage.getItem('companyId'),
-      location: this.location,
-      date: this.date
+      userId: this.userId,
+      companyId: this.companyId,
+      year: year,
+      month: month
     };
-    //  this.spinner.show();
-     alert(JSON.stringify(data));
-     this.rightService.getReportData(data).then(response => {
-      alert(response.data)
-      this.mapUserData = new Map(Object.entries(response.data));
+    alert(JSON.stringify(data))
+    this.journalService.calculate(data).then(response => {
       console.log(response.data)
-   });
+      $.each(response.data, function (index) {
+        this.map = new Map(Object.entries(response.data[index]));
+        console.log(this.map)
+
+      });
+
+    });
+
+  //   var data = {
+  //     leaseName: this.leaseName ,
+  //     lessorName: this.lessorName,
+  //     classOfAsset: this.classOfAsset,
+  //     userId: localStorage.getItem('userId'),
+  //     companyId: localStorage.getItem('companyId'),
+  //     location: this.location,
+  //     date: this.date
+  //   };
+  //   //  this.spinner.show();
+  //    alert(JSON.stringify(data));
+  //    this.rightService.getReportData(data).then(response => {
+  //     alert(response.data)
+  //     this.mapUserData = new Map(Object.entries(response.data));
+  //     console.log(response.data)
+  //  });
 
   }
   ngOnInit() {
