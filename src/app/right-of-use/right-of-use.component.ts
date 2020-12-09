@@ -39,14 +39,14 @@ export class RightOfUseComponent implements OnInit {
 
   //2nd tab question/answer
 
-  answer1 = "Select here";
-  answer2 = "Select here";
-  answer3 = "Select here";
-  answer4 = "Select here";
-  answer5 = "Select here";
-  answer6 = "Select here";
-  answer6new = "Select here";
-  answer7 = "Select here";
+  answer1 = "";
+  answer2 = "";
+  answer3 = "";
+  answer4 = "";
+  answer5 = "";
+  answer6 = "";
+  answer6new = "";
+  answer7 = "";
 
 
   //3rd tab
@@ -158,6 +158,15 @@ export class RightOfUseComponent implements OnInit {
       me.escalation = userDetails.escalation;
       me.escalationAfterEvery = userDetails.escalationAfterEvery;
       //   this.mapUserData = new Map(response.data);
+
+      //for question tab
+      me.answer1 = userDetails.answer1
+      me.answer2 = userDetails.answer2
+      me.answer3 = userDetails.answer3
+      me.answer4 = userDetails.answer4
+      me.answer5 = userDetails.answer5
+      me.answer6 = userDetails.answer6
+      me.answer7 = userDetails.answer7
       console.log(response.data);
     });
   }
