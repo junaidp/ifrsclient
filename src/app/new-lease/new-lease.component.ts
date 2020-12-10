@@ -36,14 +36,14 @@ export class NewLeaseComponent implements OnInit {
 
   //2nd tab question/answer
 
-  answer1 = "Select here";
-  answer2 = "Select here";
-  answer3 = "Select here";
-  answer4 = "Select here";
-  answer5 = "Select here";
-  answer6 = "Select here";
-  answer6new = "Select here";
-  answer7 = "Select here";
+  answer1 = "";
+  answer2 = "";
+  answer3 = "";
+  answer4 = "";
+  answer5 = "";
+  answer6 = "";
+  answer6new = "";
+  answer7 = "";
 
 
   //3rd tab
@@ -159,16 +159,16 @@ export class NewLeaseComponent implements OnInit {
       lessorName: this.lessorName ,
       lesseeName : this.leasseeName,
       classOfAsset: this.classAsset,
-      location : this.location
+      location : this.location,
       
       // contractCurrency:this.contractCurrency,
-      // answer1:this.answer1,
-      // answer2:this.answer2,
-      // answer3:this.answer3,
-      // answer4:this.answer4,
-      // answer5:this.answer5,
-      // answer6new:this.answer6new,
-      // answer7:this.answer7
+      answer1:this.answer1,
+      answer2:this.answer2,
+      answer3:this.answer3,
+      answer4:this.answer4,
+      answer5:this.answer5,
+      answer6:this.answer6,
+      answer7:this.answer7
     };
     alert(JSON.stringify(data))
 
