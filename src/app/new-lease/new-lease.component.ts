@@ -398,14 +398,16 @@ export class NewLeaseComponent implements OnInit {
 
 function show(select_item) {
 if (select_item == 1) {
+    //document.getElementById("lease_no").innerHTML = "whatever";
     document.getElementById('hiddenDiv').style.visibility='visible';
     document.getElementById('hiddenDiv').style.display='block';
-    document.getElementById('lease_no').style.display='none';
-    document.getElementById('lease_no').style.visibility='hidden';
+    //document.getElementById('lease_no').style.display='none';
+    //document.getElementById('lease_no').style.visibility='hidden';
 } 
 else if(select_item == 0){
   document.getElementById('hiddenDiv').style.visibility='hidden';
   document.getElementById('hiddenDiv').style.display='none';
+  
   document.getElementById('lease_no').style.display='block'
   document.getElementById('lease_no').style.visibility='visible';
   document.getElementById('hiddenDiv1').style.visibility='hidden';
@@ -422,6 +424,7 @@ else if(select_item == 0){
 }
 function show1(select_item) {
   if (select_item == 1) {
+    
     document.getElementById('hiddenDiv1').style.visibility='visible';
     document.getElementById('hiddenDiv1').style.display='block';
     document.getElementById('lease_no').style.display='none';

@@ -185,7 +185,7 @@
                                 <div class="col-12 btn_mg">
                                     <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" type="button">Next</button>
                                     <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"  type="button">Cancel</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -333,24 +333,26 @@
                                 </div>
                             </div>
                             <div class="row display_inline_block" style="width: 100%;">
-
-                                <div class="row" id="lease_no">
+                                <div class="row">
+                                    <strong class="col-2">CONCLUSION: </strong><span class="col-4" id="lease_no"></span>
+                                </div>
+                                <!-- <div class="row" id="lease_no">
                                     <strong class="col-2">CONCLUSION: </strong>
                                     <span class="col-4"><i style="color: red; font-weight: bold;"> Does not contain a
                                             lease </i></span>
                                 </div>
                                 <div class="row" id="lease_yes">
                                     <strong class="col-2">CONCLUSION: </strong>
-                                    <span class="col-4" id=""><i style="color: green;font-weight: bold;">Contains a
-                                            lease </i></span>
-                                </div>
-
+                                    <span class="col-4" id="">
+                                        <i style="color: green;font-weight: bold;">Contains a lease </i>
+                                    </span>
+                                </div> -->
                             </div>
                             <div class="row">
                                 <div class="col-12 btn_mg">
                                     <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" type="button">Next</button>
                                     <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"  type="button">Cancel</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -554,7 +556,7 @@
                             <div class="col-12 btn_mg">
                                 <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" (click)="  calculate()" type="button">Next</button>
                                 <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"  type="button">Cancel</button>
+                                <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -684,7 +686,7 @@
                                 <div class="col-12 btn_mg">
                                     <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" type="button">Next</button>
                                     <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"  type="button">Cancel</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -1214,16 +1216,16 @@
         <span class="closes col-12 text-right" (click)="getClassOfAsset()" onclick="$('.addnewshow').hide();">&times;</span>
         <form>
             <div class="row">
-                <div id = "classOfAssetResponcePanel"></div>
+                <div id="classOfAssetResponcePanel"></div>
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom04">Add New Class of Asset</label>
-                    <input type="text" class="form-control" name="asset" [(ngModel)]="classOfAsset"   placeholder="Add New Class of Asset" required>
+                    <input type="text" class="form-control" name="asset" [(ngModel)]="classOfAsset" placeholder="Add New Class of Asset" required>
                     <div class="invalid-feedback">
                         Please provide a valid Lease commencement data.
                     </div>
                 </div>
                 <div class="col-12 text-right">
-                    <button class="btn btn-success xtBtn btn-lg pull-right float-lg-right"  (click)="addClassOfAsset()" type="submit">Add
+                    <button class="btn btn-success xtBtn btn-lg pull-right float-lg-right" (click)="addClassOfAsset()" type="submit">Add
                         New</button>
                 </div>
             </div>
