@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Injectable } from "@angular/core";
 const url = "//compliancetool.herokuapp.com/calculation/lease/yearly";
+import { HttpParams, HttpClient } from '@angular/common/http';
 import { Globals } from "../globals";
 
 const urlSaveData = "//compliancetool.herokuapp.com/data/saveData";
@@ -20,8 +21,12 @@ export class rightService {
 
   async getUsersData(data) {
     console.log(data)
-    var  userId = localStorage.getItem('userId')
-    const url = this.globals.APP_URL+"data/getData?userId=" +userId;
+    var  userId = localStorage.getItem('userId');
+    var  companyId = localStorage.getItem('companyId');
+  //   const params = new HttpParams()
+  //  .set('userId', userId)
+  //  .set('para2', companyId);
+    const url = this.globals.APP_URL+"data/getData?userId=" +userId +"&companyId="+companyId;
      const response = await axios.get(url,data).then(
     );
 
