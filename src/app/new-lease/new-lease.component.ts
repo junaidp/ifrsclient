@@ -130,6 +130,8 @@ export class NewLeaseComponent implements OnInit {
  
   }
   saveData(){
+    var conclusion = $('#lease_no').text();
+    alert(conclusion)
  //   alert("sad")
     this.userId =   localStorage.getItem('userId');
     if(this.userId === "undefined"){
@@ -168,7 +170,8 @@ export class NewLeaseComponent implements OnInit {
       answer4:this.answer4,
       answer5:this.answer5,
       answer6:this.answer6,
-      answer7:this.answer7
+      answer7:this.answer7,
+      consluson: conclusion
     };
     alert(JSON.stringify(data))
 
@@ -190,6 +193,7 @@ export class NewLeaseComponent implements OnInit {
     this.spinner.show();
 
     this.leaseService.SaveData(data).then(response => {
+
       this.spinner.hide();
       console.log(JSON.stringify(response))
       var msg;
