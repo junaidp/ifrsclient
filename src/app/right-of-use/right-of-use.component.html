@@ -75,8 +75,8 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-2">
-                <h6>Ref. No.</h6>
+            <div class="col-3">
+                <h6>Contract Ref. No.</h6>
             </div>
             <div class="col-3">
                 <h6>Lessor Name</h6>
@@ -84,11 +84,8 @@
             <div class="col-2">
                 <h6>Lease Name</h6>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Class of Asset</h6>
-            </div>
-            <div class="col-2">
-                <h6> Amount </h6>
             </div>
         </div>
     </div>
@@ -99,11 +96,10 @@
                     <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
                         </div>
                     </li>
                 </ul>
@@ -583,7 +579,7 @@
                                         <div class="row step_4">
                                             <div class="col-12 new_add_headind ">
                                                 <div class="row assec_heading">
-                                                    <h6 class="col-lg-4 col-md-12 col-12">Present value of MIN Lease Payment</h6>
+                                                    <h6 class="col-lg-4 col-md-12 col-12">PRESENT VALUE CALCULATION</h6>
                                                     <div class="col-lg-5 col-md-12 col-12"></div>
                                                     <div class="col-lg-3 col-md-12 col-12 text-lg-right">
                                                         <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>

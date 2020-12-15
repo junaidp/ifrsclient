@@ -148,7 +148,7 @@ function show(select_item) {
         hiddenDiv.style.display = 'block';
         //lease_no.style.display = 'none';
         //lease_no.style.visibility = 'hidden';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         $('#lease_no').css('color', 'green');
     } else if (select_item == 0) {
         hiddenDiv.style.visibility = 'hidden';
@@ -176,7 +176,7 @@ function show1(select_item) {
         hiddenDiv1.style.display = 'block';
         // lease_no.style.display = 'none';
         // lease_no.style.visibility = 'hidden';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         //document.getElementById("lease_no").css({ 'url': '../img/locding.gif' });
         $('#lease_no').css('color', 'green');
 
@@ -196,7 +196,7 @@ function show2(select_item) {
         hiddenDiv2.style.display = 'block';
         // lease_no.style.display = 'none';
         // lease_no.style.visibility = 'hidden';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         $('#lease_no').css('color', 'green');
     } else if (select_item == 1) {
         hiddenDiv2.style.visibility = 'hidden';
@@ -214,7 +214,7 @@ function show3(select_item) {
         hiddenDiv3.style.display = 'block';
         // lease_no.style.display = 'none';
         // lease_no.style.visibility = 'hidden';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         $('#lease_no').css('color', 'green');
     } else if (select_item == 0) {
         hiddenDiv3.style.visibility = 'hidden';
@@ -232,7 +232,7 @@ function show4(select_item) {
         hiddenDiv4.style.display = 'block';
         // lease_no.style.display = 'none';
         // lease_no.style.visibility = 'hidden';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         $('#lease_no').css('color', 'green');
     } else {
         hiddenDiv4.style.visibility = 'hidden';
@@ -250,7 +250,7 @@ function show5(select_item) {
         hiddenDiv4.style.display = 'block';
         // lease_no.style.display = 'none';
         // lease_no.style.visibility = 'hidden';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         $('#lease_no').css('color', 'green');
     } else if (select_item == 0) {
         hiddenDiv5.style.visibility = 'hidden';
@@ -281,7 +281,7 @@ function show6(select_item) {
     if (select_item == 1) {
         hiddenDiv5.style.visibility = 'visible';
         hiddenDiv5.style.display = 'block';
-        document.getElementById("lease_no").innerHTML = "wait";
+        document.getElementById("lease_no").innerHTML = "---";
         $('#lease_no').css('color', 'green');
     } else if (select_item == 0) {
         //lease_yes.style.visibility = 'hidden';
