@@ -171,7 +171,7 @@ export class NewLeaseComponent implements OnInit {
       answer5:this.answer5,
       answer6:this.answer6,
       answer7:this.answer7,
-      consluson: conclusion
+      conclusion: conclusion
     };
     alert(JSON.stringify(data))
 

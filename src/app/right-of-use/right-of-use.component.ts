@@ -48,6 +48,7 @@ export class RightOfUseComponent implements OnInit {
   answer6 = "";
   answer6new = "";
   answer7 = "";
+  conclusion = "";
 
 
   //3rd tab
@@ -170,6 +171,7 @@ export class RightOfUseComponent implements OnInit {
       me.answer5 = userDetails.answer5
       me.answer6 = userDetails.answer6
       me.answer7 = userDetails.answer7
+      me.conclusion = userDetails.conclusion
       console.log(response.data);
     });
   }
