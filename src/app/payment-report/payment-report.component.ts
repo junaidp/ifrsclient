@@ -94,6 +94,11 @@ export class PaymentReportComponent implements OnInit {
     var day = 10;
     var year = ret[0];
     var month = ret[1];
+    var paymentIntervalsService;
+    var payment;
+    var paymentInGlobal;
+    var paymentEnding = "Ending"
+    var paymentBeginning = "Beginning"
 
     this.finalDate =  (30 +"-" +month + "-" + year)
     this.dateSelectorMonth = month
@@ -105,9 +110,44 @@ export class PaymentReportComponent implements OnInit {
     };
     this.journalService.calculate(data).then(response => {
       this.spinner.hide();
+      console.log(response.data)
+      $.each(response.data, function (index) {
+        this.map = new Map(Object.entries(response.data[index]));
+        payment = response.data[index].payment;
+        // commencementDateSer = (response.data[index].commencementDate)
+         var paymentIntervalsService = response.data[index].paymentIntervals;
+          var paymentInGlobal = response.data[index].paymentsAt;
+          var commencementDateSer = (response.data[index].commencementDate)
+          var commencementDateService = (commencementDateSer.split(" "))
+          var monthService = commencementDateService[1]
+
+          if (typeof payment == "undefined"|| typeof payment == null){
+            payment = 0
+            }
+       
+          if(payment>=0){
+            response.data[index].payment = payment
+          }
+
+         const monthServiceInt = calculateMonth(monthService);
+
+     //   alert(paymentIntervalsService)
+        if(paymentIntervalsService.toLowerCase() == "yearly"){
+          if ((monthServiceInt == month) ) {
+          //  alert("asd if")
+              response.data[index].payment = response.data[index].payment 
+          }
+          else{
+            alert("else")
+            response.data[index].payment = 0
+          }
+        }
+    //     alert(response.data[index].payment)
+      });
       this.mapUserData = new Map(Object.entries(response.data))
 
-       console.log(this.mapUserData)
+      console.log(response.data)
+   //    console.log(this.mapUserData)
       // $.each(response.data, function (index) {
       //   this.map = new Map(Object.entries(response.data[index]));
       //   console.log(this.map)
@@ -116,22 +156,45 @@ export class PaymentReportComponent implements OnInit {
 
     });
 
-  //   var data = {
-  //     leaseName: this.leaseName ,
-  //     lessorName: this.lessorName,
-  //     classOfAsset: this.classOfAsset,
-  //     userId: localStorage.getItem('userId'),
-  //     companyId: localStorage.getItem('companyId'),
-  //     location: this.location,
-  //     date: this.date
-  //   };
-  //   //  this.spinner.show();
-  //    alert(JSON.stringify(data));
-  //    this.rightService.getReportData(data).then(response => {
-  //     alert(response.data)
-  //     this.mapUserData = new Map(Object.entries(response.data));
-  //     console.log(response.data)
-  //  });
+    function calculateMonth(monthService) {
+      if (monthService.toLowerCase() == "Jan".toLowerCase()) {
+        return "01"
+      }
+      if (monthService.toLowerCase() == "Feb".toLowerCase()) {
+        return "02"
+      }
+      if (monthService.toLowerCase() == "Mar".toLowerCase()) {
+        return "03"
+      }
+      if (monthService.toLowerCase() == "Apr".toLowerCase()) {
+        return "04"
+      }
+      if (monthService.toLowerCase() == "May".toLowerCase()) {
+        return "05"
+      }
+      if (monthService.toLowerCase() == "Jun".toLowerCase()) {
+        return "06"
+      }
+      if (monthService.toLowerCase() == "Jul".toLowerCase()) {
+        return "07"
+      }
+      if (monthService.toLowerCase() == "Aug".toLowerCase()) {
+        return "08"
+      }
+      if (monthService.toLowerCase() == "Sep".toLowerCase()) {
+        return "09"
+      }
+      if (monthService.toLowerCase() == "Oct".toLowerCase()) {
+        return "10"
+      }
+      if (monthService.toLowerCase() == "Nov".toLowerCase()) {
+        return "11"
+      }
+      if (monthService.toLowerCase() == "Dec".toLowerCase()) {
+        return "12"
+      }
+
+    }
 
   }
   ngOnInit() {
