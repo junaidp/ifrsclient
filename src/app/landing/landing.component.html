@@ -25,14 +25,10 @@
     <!-- <link rel="stylesheet" href="/assets/landing/css/aos.css" /> -->
     <!-- <link href="/assets/landing/css/login.css" rel="stylesheet" /> -->
 </head>
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-atom"
->
-  <p style="font-size: 20px; color: white">Loading...</p>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-atom">
+    <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <!--banner-->
     <section id="banner" class="banner">
@@ -334,7 +330,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 panel panel-primary silver pulse silver_gold" onclick="$('.form-signin').hide(); $('.form-signup').show();" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
-                    <div class="row silver " (click)="silverClick()">
+                    <div class="row silver bronze" (click)="silverClick()">
                         <div class="col-12"><img src="/assets/landing/img/silver.png" alt="img" /></div>
                         <div class="col-12">
                             <h2>SILVER</h2>
@@ -375,7 +371,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 panel panel-primary gold pulse silver_gold" onclick="$('.form-signin').hide(); $('.form-signup').show();" data-aos="fade-right" data-toggle="modal" data-target="#exampleModal">
-                    <div class="row gold" (click)="goldClick()">
+                    <div class="row gold bronze" (click)="goldClick()">
                         <div class="col-12"><img src="/assets/landing/img/gold.png" alt="img" /></div>
                         <div class="col-12">
                             <h2>GOLD</h2>
@@ -532,7 +528,7 @@
                     <div id="logreg-forms">
                         <form class="form-signin" #myForm='ngForm' novalidate>
                             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
-                            <div id="signInResponsePanel"></div> 
+                            <div id="signInResponsePanel"></div>
                             <!-- <div *ngIf="!validatorSignIn" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                   <span aria-hidden="true">&times;</span>
@@ -565,7 +561,7 @@
                             </div>
 
                             <p style="text-align:center">OR</p>
-                                  <div id="signUpResponsePanel"></div>  
+                            <div id="signUpResponsePanel"></div>
                             <!-- <div *ngIf="!validatorSignUp" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                   <span aria-hidden="true">&times;</span>
