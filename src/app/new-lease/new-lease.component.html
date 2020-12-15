@@ -134,8 +134,8 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Lease Name</label>
-                                        <input type="text" class="form-control" name="contractNo3" [(ngModel)]="leaseName" placeholder="Enter Lease Name" required>
+                                        <label for="validationCustom04">Lessee Name</label>
+                                        <input type="text" class="form-control" name="contractNo3" [(ngModel)]="leaseName" placeholder="Enter Lessee Name" required>
                                         <div class="invalid-feedback">
                                             Please provide Lease Name.
                                         </div>
@@ -310,7 +310,6 @@
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
-
                                 </div>
                             </div>
                             <div class="row mt-2 mb-2" id="hiddenDiv5">
@@ -333,7 +332,7 @@
                                 </div>
                             </div>
                             <div class="row display_inline_block" style="width: 100%;">
-                                <div class="row">
+                                <div class="row show_con">
                                     <strong class="col-2">CONCLUSION: </strong><span class="col-4" id="lease_no"></span>
                                 </div>
                                 <!-- <div class="row" id="lease_no">
@@ -389,7 +388,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Expected Usage Period </label>
-                                        <input type="number" class="form-control" [(ngModel)]="leaseTerm" name="contractNo11" placeholder="in years" required>
+                                        <input type="number" class="form-control" [(ngModel)]="leaseTerm" name="contractNo11" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Lease term period.
                                         </div>
@@ -398,7 +397,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Lease Term Period</label>
-                                        <input type="number" [(ngModel)]="expectedPeriod" name="contractNo12" class="form-control" placeholder="in years" required>
+                                        <input type="number" [(ngModel)]="expectedPeriod" name="contractNo12" class="form-control" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Annual discount.
                                         </div>
@@ -434,7 +433,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom03">Useful Life Of The Asset (years)</label>
+                                        <label for="validationCustom03">Useful Life Of The Asset</label>
                                         <input type="number" class="form-control" [(ngModel)]="usefulLifeOfTheAsset" name="contractNo16" placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
@@ -451,7 +450,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
-                                        <input type="text" class="form-control" [(ngModel)]="escalation" name="contractNo18" placeholder="in percentage" required>
+                                        <input type="text" class="form-control" [(ngModel)]="escalation" name="contractNo18" placeholder="/Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Escalation %-age.
                                         </div>
@@ -567,7 +566,7 @@
                             <div class="row step_4">
                                 <div class="col-12 new_add_headind ">
                                     <div class="row assec_heading">
-                                        <h6 class="col-lg-4 col-md-12 col-12">Present value of MIN Lease Payment</h6>
+                                        <h6 class="col-lg-4 col-md-12 col-12">Present value Calculation</h6>
                                         <div class="col-lg-5 col-md-12 col-12"></div>
                                         <div class="col-lg-3 col-md-12 col-12 text-lg-right">
                                             <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>
@@ -732,8 +731,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="validationCustom04">Lease Name</label>
-                                            <input type="text" readonly class="form-control" name="contractNo33" [(ngModel)]="leaseName" placeholder="Lease Name" required>
+                                            <label for="validationCustom04">Lessee Name</label>
+                                            <input type="text" readonly class="form-control" name="contractNo33" [(ngModel)]="leaseName" placeholder="Lessee Name" required>
                                             <div class="invalid-feedback">
                                                 Please provide Lease Name.
                                             </div>
@@ -1042,7 +1041,7 @@
                                         <div class="row step_4">
                                             <div class="col-12 new_add_headind ">
                                                 <div class="row assec_heading">
-                                                    <h6 class="col-lg-3 col-md-12 col-12">Asset schedule</h6>
+                                                    <h6 class="col-lg-3 col-md-12 col-12">PRESENT VALUE CALCULATION</h6>
                                                     <div class="col-lg-6 col-md-12 col-12"></div>
                                                     <div class="col-lg-3 col-md-12 col-12 text-lg-right"></div>
                                                 </div>

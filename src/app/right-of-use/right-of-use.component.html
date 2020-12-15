@@ -168,23 +168,30 @@
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Class of asset</label>
-                                                    <input type="text"  readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Class of asset" required>
+                                                    <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Class of asset" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Class of asset.
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom04">Lease Name</label>
-                                                    <input type="text" readonly class="form-control" value="{{leaseNameIndividual}}" placeholder="Lease Name" required>
+                                                <!-- <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Lessee Name</label>
+                                                    <input type="text" readonly class="form-control" value="{{leaseNameIndividual}}" placeholder="Lessee Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lease Name.
+                                                    </div>
+                                                </div> -->
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Other condition</label>
+                                                    <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Other condition" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Other condition.
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Lessor Name</label>
-                                                    <input type="text" readonly class="form-control" value="{{lessorNameIndividual}}"placeholder="Lessor Name" required>
+                                                    <input type="text" readonly class="form-control" value="{{lessorNameIndividual}}" placeholder="Lessor Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lessor Name.
                                                     </div>
@@ -205,13 +212,7 @@
                                                         Please provide Location.
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom04">Other condition</label>
-                                                    <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Other condition" required>
-                                                    <div class="invalid-feedback">
-                                                        Please provide Other condition.
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-12 mt-4 final_p_decorate">
@@ -226,135 +227,135 @@
                                     </div>
                                 </div>
                                 <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">1.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Is the lease contract for short term period or underlying asset is flow value?</p>
+                                    <div class="col-12">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">1.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Is the lease contract for short term period or underlying asset is flow value?</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo001" [(ngModel)]="answer1" class="form-control" value="{{answer1}}" disabled="true">
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo001" [(ngModel)]="answer1" class="form-control" value="{{answer1}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="0">Yes</option>
                                             <option value="1">No</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">2.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Is there any identified asset?</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo002" [(ngModel)]="answer2" class="form-control" value="{{answer2}}" disabled="true">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">2.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Is there any identified asset?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo002" [(ngModel)]="answer2" class="form-control" value="{{answer2}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">3.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Does the supplier have a substantive right to substitute the asset?
-                                                </p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo003" [(ngModel)]="answer3" class="form-control" value="{{answer3}}" disabled="true">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">3.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the supplier have a substantive right to substitute the asset?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo003" [(ngModel)]="answer3" class="form-control" value="{{answer3}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">4.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Does the customer have the right to obtain substantially all of the economic benefits from use of the asset threughtout the period of use?
-                                                </p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo004" [(ngModel)]="answer4" class="form-control" value="{{answer4}}" disabled="true">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">4.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the customer have the right to obtain substantially all of the economic benefits from use of the asset threughtout the period of use?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo004" [(ngModel)]="answer4" class="form-control" value="{{answer4}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">5.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Does the customer, have the supplier or neither party have the right to direct how and for what purpose the asset is used threughtout the period of user?</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo005" [(ngModel)]="answer5" class="form-control" value="{{answer5}}" disabled="true">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">5.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the customer, have the supplier or neither party have the right to direct how and for what purpose the asset is used threughtout the period of user?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo005" [(ngModel)]="answer5" class="form-control" value="{{answer5}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="2">Customer</option>
                                             <option value="0">Supplier</option>
                                             <option value="1">Neither Party</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">6.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Does the customer have the right to operate the asset throught the priod of use, without the supplier having the right change those operating instructions?</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo006" [(ngModel)]="answer6" class="form-control" value="{{answer6}}" disabled="true">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">6.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Does the customer have the right to operate the asset throught the priod of use, without the supplier having the right change those operating instructions?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo006" [(ngModel)]="answer6" class="form-control" value="{{answer6}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-1">7.</div>
-                                            <div class="col-11 p_decoration">
-                                                <p>Did the customer design the asset in a way that predetermines how ans for what purpose the assect will be used throughout the period od use?
-                                                </p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <select name="contractNo007" [(ngModel)]="answer7" class="form-control" value="{{answer7}}" disabled="true">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-1">7.</div>
+                                                    <div class="col-11 p_decoration">
+                                                        <p>Did the customer design the asset in a way that predetermines how ans for what purpose the assect will be used throughout the period od use?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 text-center">
+                                                <select name="contractNo007" [(ngModel)]="answer7" class="form-control" value="{{answer7}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <strong class="col-2">CONCLUSION: </strong><span class="col-4" id="lease_no"></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <p><strong>CONCLUSION:</strong> Contains a lease / Does not contain a lease</p>
-                                </div>
-                            </div>
-                        </div>
                                 <div class="row mt-4">
                                     <div class="col-12">
                                         <h6><a href="#">TECHNICAL DETAILS</a></h6>

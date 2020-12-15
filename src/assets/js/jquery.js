@@ -177,6 +177,7 @@ function show1(select_item) {
         // lease_no.style.display = 'none';
         // lease_no.style.visibility = 'hidden';
         document.getElementById("lease_no").innerHTML = "wait";
+        //document.getElementById("lease_no").css({ 'url': '../img/locding.gif' });
         $('#lease_no').css('color', 'green');
 
     } else if (select_item == 0) {
