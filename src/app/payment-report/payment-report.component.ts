@@ -253,6 +253,7 @@ export class PaymentReportComponent implements OnInit {
       me.answer5 = userDetails.answer5
       me.answer6 = userDetails.answer6
       me.answer7 = userDetails.answer7
+      me.contractCurrency = userDetails.contractCurrency
       console.log(response.data);
     });
   }

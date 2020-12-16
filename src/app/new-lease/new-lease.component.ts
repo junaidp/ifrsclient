@@ -86,6 +86,7 @@ export class NewLeaseComponent implements OnInit {
       escalationAfterEvery: this.escalationAfterEvery,
       contractCurrency : this.contractCurrency
       
+      
     };
    
     this.globals.leaseContractNo= this.leaseContractNo,
@@ -163,6 +164,7 @@ export class NewLeaseComponent implements OnInit {
       lesseeName : this.leasseeName,
       classOfAsset: this.classAsset,
       location : this.location,
+      contractCurrency : this.contractCurrency,
       
       // contractCurrency:this.contractCurrency,
       answer1:this.answer1,
