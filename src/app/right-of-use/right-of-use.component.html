@@ -104,6 +104,10 @@
                             <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-3 col-md-6 col-6">{{row.value['leaseName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
+<<<<<<< HEAD
+=======
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['commencementDate'] | date:'mediumDate'}}</div>
+>>>>>>> de4c993699e96c2a32aebf66df189fc9632cc473
                         </div>
                     </li>
                 </ul>
@@ -157,7 +161,7 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Lease commencement data</label>
-                                                    <input type="text" readonly class="form-control" value="{{commencementDate}}" placeholder="Lease commencement data" required>
+                                                    <input type="text" readonly class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Lease commencement data.
                                                     </div>
@@ -367,7 +371,7 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Commencement date:</label>
                                                 <!-- <input type="date" readonly class="form-control" value= "{{commencementDate}}"  placeholder="Contract Reference Number" required> -->
-                                                <input type="text" readonly class="form-control" value="{{commencementDate}}" placeholder="Lease commencement data" required>
+                                                <input type="text" readonly class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
                                                 <div class="invalid-feedback">
                                                     Please provide a commencement date.
                                                 </div>
