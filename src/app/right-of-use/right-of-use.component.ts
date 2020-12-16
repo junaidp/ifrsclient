@@ -171,7 +171,8 @@ export class RightOfUseComponent implements OnInit {
       me.answer5 = userDetails.answer5
       me.answer6 = userDetails.answer6
       me.answer7 = userDetails.answer7
-      me.conclusion = userDetails.conclusion
+      me.conclusion = userDetails.conclusion,
+      me.contractCurrency = userDetails.contractCurrency
       console.log(response.data);
     });
   }
