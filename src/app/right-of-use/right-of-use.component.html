@@ -75,7 +75,7 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <h6>Contract Ref. No.</h6>
             </div>
             <div class="col-3">
@@ -84,8 +84,11 @@
             <div class="col-2">
                 <h6>Lease Name</h6>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <h6>Class of Asset</h6>
+            </div>
+            <div class="col-2">
+                <h6>Date</h6>
             </div>
         </div>
     </div>
@@ -96,10 +99,11 @@
                     <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-3 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
-                            <div class="col-lg-3 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">12/12/12</div>
                         </div>
                     </li>
                 </ul>
