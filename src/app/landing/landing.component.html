@@ -568,8 +568,10 @@
                                 <input type="text" id="user-name" class="form-control login_form" placeholder="User Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
                                 <span class="error">This field is required</span>
                                 <input type="email" pattern="" id="user-email" class="form-control login_form" name="signUpEmail" [(ngModel)]="signUpEmail" placeholder="Email" required autofocus="">
-                                <input type="text" class="form-control login_form" placeholder="City" name="signUpCity" [(ngModel)]="signUpCity" required autofocus="">
+
                                 <input type="text" class="form-control login_form" name="signUpAddress" placeholder="Address" [(ngModel)]="signUpAddress">
+                                <input type="text" class="form-control login_form" placeholder="City" name="signUpCity" [(ngModel)]="signUpCity" required autofocus="">
+                                <input type="text" class="form-control login_form" placeholder="Country" name="signUpCity" required autofocus="">
                                 <input type="text" class="form-control login_form" id="contact_number" name="signUpContact" placeholder="Contact Number" [(ngModel)]="signUpContact">
                                 <span class="error">This field is required</span>
                                 <select class="form-control login_form" [(ngModel)]="signUpCurency" name="contractNo119">
