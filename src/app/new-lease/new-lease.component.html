@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Other Conditions</label>
+                                        <label for="validationCustom04">Asset Description</label>
                                         <textarea type="text" class="form-control" name="contractNo7" [(ngModel)]="otherCondition" placeholder="Describe Contract Conditions (if any)" required></textarea>
                                         <div class="invalid-feedback">
                                             Please provide Other condition.
@@ -392,7 +392,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Expected Usage Period </label>
+                                        <label for="validationCustom04">Lease Term Period</label>
                                         <input type="number" class="form-control" [(ngModel)]="leaseTerm" name="contractNo11" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Lease term period.
@@ -401,7 +401,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom03">Lease Term Period</label>
+                                        <label for="validationCustom03">Expected Usage Period </label>
                                         <input type="number" [(ngModel)]="expectedPeriod" name="contractNo12" class="form-control" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Annual discount.
@@ -462,13 +462,13 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Escalation After Every</label>
-                                        <input type="number" min="1" [(ngModel)]="escalationAfterEvery" name="contractNo19" class="form-control" placeholder="in years" required>
+                                        <input type="number" min="1" [(ngModel)]="escalationAfterEvery" name="contractNo19" class="form-control" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Escalation after every.
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Contract Currency</label>
                                         <select class="form-control" [(ngModel)]="contractCurrency" name="contractNo119">
@@ -553,7 +553,7 @@
                                             <option value="XPT">Platinum Ounces</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                         <div class="row">
@@ -573,9 +573,9 @@
                                     <div class="row assec_heading">
                                         <h6 class="col-lg-4 col-md-12 col-12">Present value Calculation</h6>
                                         <div class="col-lg-5 col-md-12 col-12"></div>
-                                        <div class="col-lg-3 col-md-12 col-12 text-lg-right">
+                                        <!-- <div class="col-lg-3 col-md-12 col-12 text-lg-right">
                                             <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="col-1 responsive_display">
@@ -705,9 +705,9 @@
                                         <h6>CONTRACT FORM &nbsp; <i class="fas fa-pencil-alt"></i></h6>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-md-6 col-12 text-lg-right"><a href="#" class="text-decoration-none" download> &nbsp; <i class="fas fa-download"
+                                <!-- <div class="col-lg-2 col-md-6 col-12 text-lg-right"><a href="#" class="text-decoration-none" download> &nbsp; <i class="fas fa-download"
                                     data-toggle="tooltip" data-placement="top" title="Download Report"></i></a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row mt-3">
                                 <div class="col-lg-10 col-md-10 col-12">
@@ -761,7 +761,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="validationCustom04">Other Condition</label>
+                                            <label for="validationCustom04">Asset Description</label>
                                             <textarea type="text" readonly class="form-control" name="contractNo37" [(ngModel)]="otherCondition" placeholder="Other condition" required></textarea>
                                             <div class="invalid-feedback">
                                                 Please provide Other condition.
@@ -1024,14 +1024,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Contract Currency</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="contractCurrency" name="contractNo1091" placeholder="currency" required>
                                         <div class="invalid-feedback">
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-12">
                                 <div class="row mt-4 border-top">
@@ -1054,7 +1054,7 @@
                                         </div>
                                         <div class="col-1 responsive_display setting">
                                             <h6 class="mb-3">Sr. #</h6>
-                                            <ul class="list-unstyled text-center">
+                                            <ul class="list-unstyled">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[0] | number:'1.0-0'}}
                                                 </li>
@@ -1062,7 +1062,7 @@
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6 setting">
                                             <h6 class="mb-3">Date Of Payment</h6>
-                                            <ul class="list-unstyled text-center">
+                                            <ul class="list-unstyled">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[2]| date:'mediumDate'}}
                                                 </li>
@@ -1070,7 +1070,7 @@
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6 setting">
                                             <h6 class="mb-3">Payment</h6>
-                                            <ul class="list-unstyled text-center">
+                                            <ul class="list-unstyled">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[3] | number:'1.0-0'}}
                                                 </li>
@@ -1078,7 +1078,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-6 setting">
                                             <h6 class="mb-3">Discount Factor ( % )</h6>
-                                            <ul class="list-unstyled text-center">
+                                            <ul class="list-unstyled">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[4] |number:'0.1-3'}}
                                                 </li>
@@ -1086,7 +1086,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-6 setting">
                                             <h6 class="mb-3">Discounted Amount</h6>
-                                            <ul class="list-unstyled text-center">
+                                            <ul class="list-unstyled">
                                                 <li *ngFor="let row of map | keyvalue">
                                                     {{row.value[5] | number:'1.0-0'}}
                                                 </li>
@@ -1147,7 +1147,7 @@
                                                 <div class="row step_4 mb-4">
                                                     <div class="col-1 responsive_display">
                                                         <h6 class="mb-3">Sr. #</h6>
-                                                        <ul class="list-unstyled text-center">
+                                                        <ul class="list-unstyled">
                                                             <li *ngFor="let row of map | keyvalue">
                                                                 {{row.value[14] | number:'1.0-0'}}
                                                             </li>
@@ -1155,7 +1155,7 @@
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Date Of Payment</h6>
-                                                        <ul class="list-unstyled text-center">
+                                                        <ul class="list-unstyled">
                                                             <li *ngFor="let row of map | keyvalue">
                                                                 {{row.value[8] | date:'mediumDate'}}
                                                             </li>
@@ -1163,7 +1163,7 @@
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Opening Balance</h6>
-                                                        <ul class="list-unstyled text-center">
+                                                        <ul class="list-unstyled">
                                                             <li *ngFor="let row of map | keyvalue">
                                                                 {{row.value[9] | number:'1.0-0'}}
                                                             </li>
@@ -1171,7 +1171,7 @@
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Finance Charge</h6>
-                                                        <ul class="list-unstyled text-center">
+                                                        <ul class="list-unstyled">
                                                             <li *ngFor="let row of map | keyvalue">
                                                                 {{row.value[10] | number:'1.0-0'}}
                                                             </li>
@@ -1179,7 +1179,7 @@
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Payment</h6>
-                                                        <ul class="list-unstyled text-center">
+                                                        <ul class="list-unstyled">
                                                             <li *ngFor="let row of map | keyvalue">
                                                                 {{row.value[11] | number:'1.0-0'}}
                                                             </li>
@@ -1187,7 +1187,7 @@
                                                     </div>
                                                     <div class="col-lg-2 col-md-6 col-6">
                                                         <h6 class="mb-3">Closing Balance</h6>
-                                                        <ul class="list-unstyled text-center">
+                                                        <ul class="list-unstyled">
                                                             <li *ngFor="let row of map | keyvalue">
                                                                 {{row.value[12] | number:'1.0-0'}}
                                                             </li>

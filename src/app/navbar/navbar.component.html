@@ -1,11 +1,6 @@
-<div id = "saveSuccess"></div>
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-atom"
->
-  <p style="font-size: 20px; color: white">Loading...</p>
+<div id="saveSuccess"></div>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-atom">
+    <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavBar">
     <div class="container">
@@ -21,8 +16,8 @@
               <li class="nav-item"><a class="nav-link" href="login.html">Log In<span class="sr-only"></span></a></li> -->
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <div class="col-2 nav-item dropdown text-center">
-                    <a class="nav-link  img_nav_bar" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-item dropdown text-center">
+                    <a class="nav-link pr-0 img_nav_bar" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <p [(ngModel)]="name" ngDefaultControl [ngModelOptions]="{standalone: true}">{{ name }} </p>
                         <img src='/assets/img/thumb.png' alt="img">
                     </a>
@@ -48,30 +43,29 @@
                 </div>
             </div>
             <div class="row">
-                
                 <div class="col-12">
                     <div class="row" id="companyAddUserResponcePanel"></div>
                     <form>
-
                         <div class="form-group">
                             <label for="exampleInputEmail1">UserName</label>
-                            <input type="email" class="form-control" id="exampleInputUserName"  name="signUpUserName" [(ngModel)]="signUpUserName" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control" id="exampleInputUserName" name="signUpUserName" [(ngModel)]="signUpUserName" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"  name="signUpEmail" [(ngModel)]="signUpEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="signUpEmail" [(ngModel)]="signUpEmail" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputcontact">Contact Number</label>
-                            <input type="email" class="form-control" id="exampleInputcontact"  name="signUpContact" [(ngModel)]="signUpContact" aria-describedby="emailHelp" placeholder="contact number">
+                            <input type="email" class="form-control" id="exampleInputcontact" name="signUpContact" [(ngModel)]="signUpContact" aria-describedby="emailHelp" placeholder="contact number">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control"  name="signUpPasword" [(ngModel)]="signUpPassword" id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" class="form-control" name="signUpPasword" [(ngModel)]="signUpPassword" id="exampleInputPassword1" placeholder="Password">
                         </div>
-                        <input type="text" class="form-control"  name="signUpCompany" [(ngModel)]="signUpCompany" id="exampleCompany" placeholder="Company">
-
-                        <button type="submit" class="btn btn-primary" (click)="SignUp()">Submit</button>
+                        <input type="hidden" class="form-control" name="signUpCompany" [(ngModel)]="signUpCompany" id="exampleCompany" placeholder="Company">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" (click)="SignUp()">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

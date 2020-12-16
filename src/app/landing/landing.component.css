@@ -1,5 +1,4 @@
 #logreg-forms {
-    width: 412px;
     margin: 3px auto;
     border-radius: 4px;
     background-color: #f3f3f3;
@@ -9,7 +8,6 @@
 
 #logreg-forms form {
     width: 100%;
-    max-width: 410px;
     padding: 15px;
     margin: auto;
 }
@@ -89,6 +87,12 @@
 .form-signup .social-login {
     width: 210px !important;
     margin: 0 auto;
+}
+
+.login_form {
+    width: 49%;
+    float: left;
+    margin-left: 2px;
 }
 
 

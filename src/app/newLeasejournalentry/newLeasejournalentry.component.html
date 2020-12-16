@@ -1,115 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>New Lease</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+
+<head>
+    <title>New Lease</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet"> 
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script> -->
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="row mt-3 mb-3 new_lease">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            
-                            <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page"><i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i> &nbsp;New Lease</li>
-                            <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Journal Entry</li>
-                        </ol>
-                    </nav>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-3 mb-3 new_lease">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page"><i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i> &nbsp;New Lease</li>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Journal Entry</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
+                <!-- <h6>Name of Lease: &nbsp; <span>xxxxx</span></h6> -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
+                <!-- <h6>Starting Date: &nbsp; <span>xxxxx</span></h6> -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
+
+            </div>
+            <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-right text-sm-center">
+                <!-- <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a> -->
+                <button class="btn btn-success" id="myBtnn">Integration</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p style="font-weight: 600; color: #007bff; cursor: pointer;" id="journal_entry_show">Journal entries for entire lease period</p>
+            </div>
+        </div>
+        <div class="row step_4 mb-4 mt-4">
+            <div class="col-12">
+                <div class="row responsive_display journal_new">
+                    <h6 class="col-1">Sr. #</h6>
+                    <h6 class="col-2">Date</h6>
+                    <h6 class="col-3 text-lg-left">Head Of Account</h6>
+                    <h6 class="col-2">Dr.</h6>
+                    <h6 class="col-2">Cr.</h6>
                 </div>
             </div>
-            <div class="row">
-                
-                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
-                    <h6>Name of Lease: &nbsp; <span>xxxxx</span></h6>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
-                    <h6>Starting Date: &nbsp; <span>xxxxx</span></h6>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-left text-sm-center">
-                    
-                </div>
-                <div class="col-lg-3 col-md-6 col-12 text-md-center text-lg-right text-sm-center">
-                    <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p  style="font-weight: 600; color: #007bff; cursor: pointer;" id="journal_entry_show">Journal entries for entire lease period</p>
-                </div>
-            </div>
-            <div class="row step_4 mb-4 mt-4">
-                <div class="col-12">
-                    <div class="row responsive_display journal_new">
-                        <h6 class="col-1">Sr. #</h6>
-                        <h6 class="col-2">Date</h6>
-                        <h6 class="col-3 text-lg-left">Head Of Account</h6>
-                        <h6 class="col-2">Dr.</h6>
-                        <h6 class="col-2">Cr.</h6>
-                    </div>
-                </div>
-                <div class="col-12 mt-2 border-bottom">
-                    <div class="row responsive_display journal_new">
-                        <div class="col-1">0</div>
-                        <div class="col-2">{{commencementDate}}</div>
-                        <div class="col-3">
-                            <div class="row text-lg-left">
-                                <div class="col-12">Right Of Use Asset</div>
-                                <div class="col-12">Lease Liability</div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-12">{{presentValue|  number:'1.0-0'}}</div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-12"></div>
-                                <div class="col-12 mt-4">{{presentValue|  number:'1.0-0'}}</div>
-                            </div>
+            <div class="col-12 mt-2 border-bottom">
+                <div class="row responsive_display journal_new">
+                    <div class="col-1">0</div>
+                    <div class="col-2">{{commencementDate}}</div>
+                    <div class="col-3">
+                        <div class="row text-lg-left">
+                            <div class="col-12">Right Of Use Asset</div>
+                            <div class="col-12">Lease Liability</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-6"></div>
-            </div>
-            <div class="row mt-4 mb-4 border-bottom" id="journal_entry"> 
-                <div class="col-12 mt-3">
-                    <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue" >
-                        <div class="col-1">{{row.value[0] | number:'1.0-0'}}</div>
-                        <div class="col-2">{{row.value[2]| date:'mediumDate'}}</div>
-                        <div class="col-3">
-                            <div class="row text-lg-left mb-3">
-                                <div class="col-12">Finance Cost</div>
-                                <div class="col-12 mt-2">Lease Liability</div>
-                                <div class="col-12 mt-2">Cash / Bank</div>
-                            </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-12">{{presentValue| number:'1.0-0'}}</div>
                         </div>
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-12">{{row.value[10] |  number:'1.0-0'}}</div>
-                                <div class="col-12 mt-2">{{(row.value[11])- row.value[10] |  number:'1.0-0'}} </div>
-                            </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-12"></div>
+                            <div class="col-12 mt-4">{{presentValue| number:'1.0-0'}}</div>
                         </div>
-                        <div class="col-2 mt-4">
-                            <div class="row">
-                                <div class="col-12 mt-4">{{(row.value[11])|  number:'1.0-0'}}</div>
-                            </div>
-                        </div>
-                        <div class="col-2 mt-4"></div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-4 mb-4 " id="journal_entry1">
-                <div class="col-12 mt-3">
-                    <!-- <div class="row journal_new">
+            <div class="col-lg-2 col-md-6 col-6"></div>
+        </div>
+        <div class="row mt-4 mb-4 border-bottom" id="journal_entry">
+            <div class="col-12 mt-3">
+                <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue">
+                    <div class="col-1">{{row.value[0] | number:'1.0-0'}}</div>
+                    <div class="col-2">{{row.value[2]| date:'mediumDate'}}</div>
+                    <div class="col-3">
+                        <div class="row text-lg-left mb-3">
+                            <div class="col-12">Finance Cost</div>
+                            <div class="col-12 mt-2">Lease Liability</div>
+                            <div class="col-12 mt-2">Cash / Bank</div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-12">{{row.value[10] | number:'1.0-0'}}</div>
+                            <div class="col-12 mt-2">{{(row.value[11])- row.value[10] | number:'1.0-0'}} </div>
+                        </div>
+                    </div>
+                    <div class="col-2 mt-4">
+                        <div class="row">
+                            <div class="col-12 mt-4">{{(row.value[11])| number:'1.0-0'}}</div>
+                        </div>
+                    </div>
+                    <div class="col-2 mt-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4 " id="journal_entry1">
+            <div class="col-12 mt-3">
+                <!-- <div class="row journal_new">
                         <div class="col-1">122</div>
                         <div class="col-2">mm:dd:yyyy</div>
                         <div class="col-3">
@@ -132,17 +133,44 @@
                         </div>
                         <div class="col-2 mt-4"></div>
                     </div> -->
+            </div>
+        </div>
+        <a routerLink="/home" class="btn btn-success btn-lg pull-right float-lg-right" style="margin-left: 20px;">Close</a>
+        <a routerLink="/newlease" class="btn btn-success btn-lg pull-right float-lg-right">Add new</a>
+    </div>
+    <div id="myModall" class="modall">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <span class="closee" onclick="$('#myModall').hide();">&times;</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row" id="companyAddUserResponcePanel"></div>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Add Api link</label>
+                                <input type="text" class="form-control" name="" placeholder="Api link">
+                            </div>
+                            <input type="hidden" class="form-control" name="signUpCompany" [(ngModel)]="signUpCompany" id="exampleCompany" placeholder="Company">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" (click)="SignUp()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit" style="margin-left: 20px;">Close</button>
-            <button class="btn btn-success btn-lg pull-right float-lg-right" type="submit">Add new</button>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
 
 <script>
-    $("#journal_entry_show").on("click", function (){
-    $("#journal_entry").toggle("show");
-    $("#journal_entry1").toggle("show");
-});
+    $("#journal_entry_show").on("click", function() {
+        $("#journal_entry").toggle("show");
+        $("#journal_entry1").toggle("show");
+    });
 </script>

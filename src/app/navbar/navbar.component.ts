@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   signUpUserType = "";
   signUpContact = "";
   signUpAddress = "";
-  signUpCompany ;
+  signUpCompany ; 
   
   constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice , private spinner: NgxSpinnerService) {
   

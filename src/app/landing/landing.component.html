@@ -522,7 +522,7 @@
         <!-- <div class="animated infinite pulse delay-1s" (click)="trialLogin()" id="aboutt">Click here for free trial</div> -->
     </div>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="max-width: 422px;">
+        <div class="modal-dialog" role="document" style="max-width: 600px;">
             <div class="modal-content" style="padding: 0 !important; width: 100% !important;background-color: transparent">
                 <div class="modal-body p-0">
                     <div id="logreg-forms">
@@ -535,10 +535,6 @@
                                 </button>
                                 <strong>Please fill all Fields </strong>
                             </div> -->
-                            <div class="social-login text-center">
-                                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
-                            </div>
-                            <p style="text-align:center"> OR </p>
                             <input type="email" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="inputEmail" class="form-control" placeholder="Email address" name="signUname" required="" autofocus="" [(ngModel)]="signInName">
                             <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="signPass" required="" [(ngModel)]="signInPassword">
 
@@ -556,11 +552,7 @@
                         </form>
 
                         <form action="/signup/" #myForm='ngForm' class="form-signup" novalidate>
-                            <div class="social-login">
-                                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google+</span> </button>
-                            </div>
-
-                            <p style="text-align:center">OR</p>
+                            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> SignUp</h1>
                             <div id="signUpResponsePanel"></div>
                             <!-- <div *ngIf="!validatorSignUp" class="alert alert-danger alert-dismissible " role="alert">
                                 <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
@@ -572,15 +564,15 @@
                                 <label for="individual_user_checkbox"><input type="checkbox" checked="checked" onclick="$('#company_checkbox').prop('checked', false)" class="radio float-left" id="individual_user_checkbox">  &nbsp;Individual</label>&nbsp;&nbsp;
                                 <label for="company_checkbox"><input type="checkbox" class="radio float-left" onclick="$('#individual_user_checkbox').prop('checked', false)" id="company_checkbox"> &nbsp;Company</label>
                             </div>
-                            <div class="individual_user_checkbox" id="individualCheckBox">
-                                <input type="text" id="user-name" class="form-control" placeholder="User Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
+                            <div class="individual_user_checkbox mb-2" id="individualCheckBox">
+                                <input type="text" id="user-name" class="form-control login_form" placeholder="User Name / Company Name" name="signUpUserName" required="" autofocus="" [(ngModel)]="signUpUserName">
                                 <span class="error">This field is required</span>
-                                <input type="email" pattern="" id="user-email" class="form-control" name="signUpEmail" [(ngModel)]="signUpEmail" placeholder="Email" required autofocus="">
-                                <input type="text" class="form-control" placeholder="City" name="signUpCity" [(ngModel)]="signUpCity" required autofocus="">
-                                <input type="text" class="form-control" name="signUpAddress" placeholder="Address" [(ngModel)]="signUpAddress">
-                                <input type="text" class="form-control" id="contact_number" name="signUpContact" placeholder="Contact Number" [(ngModel)]="signUpContact">
+                                <input type="email" pattern="" id="user-email" class="form-control login_form" name="signUpEmail" [(ngModel)]="signUpEmail" placeholder="Email" required autofocus="">
+                                <input type="text" class="form-control login_form" placeholder="City" name="signUpCity" [(ngModel)]="signUpCity" required autofocus="">
+                                <input type="text" class="form-control login_form" name="signUpAddress" placeholder="Address" [(ngModel)]="signUpAddress">
+                                <input type="text" class="form-control login_form" id="contact_number" name="signUpContact" placeholder="Contact Number" [(ngModel)]="signUpContact">
                                 <span class="error">This field is required</span>
-                                <select class="form-control" [(ngModel)]="signUpCurency" name="contractNo119">
+                                <select class="form-control login_form" [(ngModel)]="signUpCurency" name="contractNo119">
                                     <option value="" selected="selected">Functional Currency</option>
                                     <option value="USD">United States Dollars</option>
                                     <option value="EUR">Euro</option>
@@ -662,11 +654,12 @@
                                     <option value="XPD">Palladium Ounces</option>
                                     <option value="XPT">Platinum Ounces</option>
                                 </select>
-                                <input type="password" id="user-pass" class="form-control mt-1" placeholder="Password" name="signUpPassword" [(ngModel)]="signUpPassword" required autofocus="">
-                                <input type="password" id="user-repeatpass" class="form-control mt-1" placeholder="Repeat Password" name="signUpRepeatPassword" required autofocus="" [(ngModel)]="signUpRepeatPassword">
+                                <input type="password" id="user-pass" class="form-control mt-1 login_form" placeholder="Password" name="signUpPassword" [(ngModel)]="signUpPassword" required autofocus="">
+                                <input type="password" id="user-repeatpass" class="form-control mt-1 login_form" placeholder="Repeat Password" name="signUpRepeatPassword" required autofocus="" [(ngModel)]="signUpRepeatPassword">
                                 <span id='message'></span>
                             </div>
-                            <button class="btn btn-primary btn-block" (click)="SignUp()" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+                            <div id="signUpResponsePanel"></div>
+                            <button style="display: inline-block;" class="btn btn-primary btn-block mt-2" (click)="SignUp()" type="submit"><i class="fas fa-user-plus"></i> Submit</button>
                             <a onclick="$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-angle-left"></i> Back</a>
                         </form>
                         <br>

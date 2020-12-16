@@ -1034,7 +1034,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    right: -6%;
+    right: -3%;
     padding: 8px 16px;
     transform: translate(0%, -50%);
 }
@@ -1048,6 +1048,35 @@ input::-webkit-inner-spin-button {
 
 
 /* popup */
+
+.background_img_etl {
+    background-image: url(../img/e2l.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 91vh;
+}
+
+.vcenter-item {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.overlay {
+    background-color: #00000094;
+    width: 100%;
+    float: left;
+    height: 91vh;
+}
+
+.vcenter-item>a {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}
 
 
 /* csss animation */
@@ -1102,6 +1131,17 @@ input::-webkit-inner-spin-button {
 
 
 /* csss animation */
+
+.home_button {
+    background-color: #001769;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 10px;
+}
+
+.home_button:hover {
+    background-color: #001769;
+}
 
 @media only screen and (min-width:100px) and (max-width:480px) {
     .second_step {

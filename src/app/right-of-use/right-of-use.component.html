@@ -24,10 +24,10 @@
         <div class="row mt-3 mb-3 new_lease">
             <div class="col-12">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb pl-0">
                         <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
                         <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Reports</li>
-                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Right Of Use</li>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Leases Report</li>
                     </ol>
                 </nav>
             </div>
@@ -39,18 +39,18 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
                     <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
-                            <option>All</option>
-                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option>
-                        </select>
+                        <option>All</option>
+                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option>
+                    </select>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lease Name</div>
                     <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
-                            <option>All</option>
-                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
-                        </select>
+                        <option>All</option>
+                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -75,20 +75,20 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-2">
+            <!-- <div class="col-2">
+                <h6>Date</h6>
+            </div> -->
+            <div class="col-3">
                 <h6>Contract Ref. No.</h6>
             </div>
             <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Lease Name</h6>
             </div>
             <div class="col-2">
                 <h6>Class of Asset</h6>
-            </div>
-            <div class="col-2">
-                <h6>Date</h6>
             </div>
         </div>
     </div>
@@ -99,11 +99,11 @@
                     <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <!-- <div class="col-lg-2 col-md-6 col-6">12/12/12</div> -->
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['leaseName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">12/12/12</div>
                         </div>
                     </li>
                 </ul>
@@ -128,12 +128,12 @@
                         <div class="row mt-4">
                             <div class="col-12 first_adoption_css">
                                 <!-- <h5>Select one option of the following: </h5> -->
-                                <div class="mb-4">
+                                <!-- <div class="mb-4">
                                     <a href="firsttimeadoptionform.html">
                                         (b) &nbsp; Retrospectively with the comulative effect of initially applying IFRS 16
                                         recognized at the date of initial application. hello
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="row">
@@ -181,10 +181,10 @@
                                                     </div>
                                                 </div> -->
                                                 <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom04">Other condition</label>
-                                                    <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Other condition" required>
+                                                    <label for="validationCustom04">Lessee Name</label>
+                                                    <input type="text" readonly class="form-control" placeholder="Lessee Name" required>
                                                     <div class="invalid-feedback">
-                                                        Please provide Other condition.
+                                                        Please provide Lessee Name.
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,22 +197,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom04">Lessee Name</label>
-                                                    <input type="text" readonly class="form-control" placeholder="Lessee Name" required>
-                                                    <div class="invalid-feedback">
-                                                        Please provide Lessee Name.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Location</label>
                                                     <input type="text" readonly class="form-control" value="{{locationIndividual}}" placeholder="Location" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Location.
                                                     </div>
                                                 </div>
-
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom04">Asset Description</label>
+                                                    <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Other condition" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Other condition.
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-12 mt-4 final_p_decorate">
@@ -468,7 +467,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-row">
+                                        <!-- <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Cotract Currency</label>
                                                 <input type="text" value="{{contractCurrency}}" readonly class="form-control" placeholder="contract currency" required>
@@ -476,7 +475,7 @@
                                                     Escalation after every.
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="row mt-4 border-top">
@@ -852,8 +851,7 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                <a href="#" class="float-lg-right ml-2 btn btn-success" download>Download &nbsp; <i
-                                        class="fas fa-download"></i></a>
+                                <a href="#" class="float-lg-right ml-2 btn btn-success" download>Download &nbsp; <i class="fas fa-download"></i></a>
                                 <button class="btn btn-secondary btn-lg pull-right float-lg-right" style="width: 135px;line-height: 21px;" type="submit">Back</button>
                             </div>
                         </div>

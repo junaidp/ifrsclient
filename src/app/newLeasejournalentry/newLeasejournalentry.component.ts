@@ -3,22 +3,22 @@ import { NewLeasejournalentryService } from "./NewLeasejournalentryService";
 import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ViewChild, ElementRef } from '@angular/core';
+import { ViewChild, ElementRef } from '@angular/core';
 import { allResolved } from "q";
 declare var $: any;
 
 @Component({
   selector: "app-newLeasejournalentry",
   templateUrl: "./newLeasejournalentry.component.html",
-  styleUrls:  ["./newLeasejournalentry.component.css"]
+  styleUrls: ["./newLeasejournalentry.component.css"]
 })
 export class NewLeasejournalentryComponent implements OnInit {
 
 
 
-   constructor(public newLeasejournalentryservice: NewLeasejournalentryService, public globals: Globals, private router: Router) {}
-   year :Date;
-   month:Date;
+  constructor(public newLeasejournalentryservice: NewLeasejournalentryService, public globals: Globals, private router: Router) { }
+  year: Date;
+  month: Date;
 
   map: Map<string, Map<string, string>>;
   map1: Map<String, String>;
@@ -32,7 +32,7 @@ export class NewLeasejournalentryComponent implements OnInit {
   drValue6: String;
   drValue7: String;
 
-// for cr
+  // for cr
   crValue: String;
   crValue1: String;
   crValue2: String;
@@ -44,7 +44,7 @@ export class NewLeasejournalentryComponent implements OnInit {
 
 
 
-//for head of account
+  //for head of account
   headOfAccount: String;
   headOfAccount1: String;
   headOfAccount2: String;
@@ -60,8 +60,8 @@ export class NewLeasejournalentryComponent implements OnInit {
 
   commencementDate: String;
 
-  presentValue:number;
-  date: ""; 
+  presentValue: number;
+  date: "";
   date1: "";
   date2: "";
   date3: "";
@@ -72,43 +72,54 @@ export class NewLeasejournalentryComponent implements OnInit {
 
 
 
-   
-   ngOnInit() {
-    $("#journal_entry_show").on("click", function (){
+
+  ngOnInit() {
+    $("#journal_entry_show").on("click", function () {
       $("#journal_entry").toggle("show");
       $("#journal_entry1").toggle("show");
-  });
 
-  var data = {
+    });
+    var modal = document.getElementById("myModall");
+    var btn = document.getElementById("myBtnn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    var data = {
 
-    leaseContractNo: this.globals.leaseContractNo,
-    classAsset: this.globals.classAsset,
-    commencementDate: this.globals.commencementDate,
-    paymentsAt: this.globals.paymentsAt,
-    annualDiscountRate: this.globals.annualDiscountRate,
-    leaseTerm: this.globals.leaseTerm,
-    expectedPeriod: this.globals.expectedPeriod,
-    leasePayment: this.globals.leasePayment,
-    paymentIntervals: this.globals.paymentIntervals,
-    initialDirectCost: this.globals.initialDirectCost,
-    guaranteedResidualValue: this.globals.guaranteedResidualValue,
-    usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
-    escalation: this.globals.escalation,
-    escalationAfterEvery: this.globals.escalationAfterEvery,
- //   year:2019
-  };
+      leaseContractNo: this.globals.leaseContractNo,
+      classAsset: this.globals.classAsset,
+      commencementDate: this.globals.commencementDate,
+      paymentsAt: this.globals.paymentsAt,
+      annualDiscountRate: this.globals.annualDiscountRate,
+      leaseTerm: this.globals.leaseTerm,
+      expectedPeriod: this.globals.expectedPeriod,
+      leasePayment: this.globals.leasePayment,
+      paymentIntervals: this.globals.paymentIntervals,
+      initialDirectCost: this.globals.initialDirectCost,
+      guaranteedResidualValue: this.globals.guaranteedResidualValue,
+      usefulLifeOfTheAsset: this.globals.usefulLifeOfTheAsset,
+      escalation: this.globals.escalation,
+      escalationAfterEvery: this.globals.escalationAfterEvery,
+      //   year:2019
+    };
 
-  this.commencementDate= this.globals.commencementDate,
-  this.newLeasejournalentryservice.calculate(data).then(response => {
-    this.map = new Map(Object.entries(response.data));
+    this.commencementDate = this.globals.commencementDate,
+      this.newLeasejournalentryservice.calculate(data).then(response => {
+        this.map = new Map(Object.entries(response.data));
 
-    console.log(response.data)
-//     alert(this.map.size)
-    this.map1 = this.map.get("17");
-    this.presentValue = this.map1[9];
-  });
-}
-    
+        console.log(response.data)
+        //     alert(this.map.size)
+        this.map1 = this.map.get("17");
+        this.presentValue = this.map1[9];
+      });
+  }
+
 }
 // $(document).ready(function () {
 //   for (var i = 1; i <= 3; i++) {
