@@ -84,6 +84,7 @@ export class NewLeaseComponent implements OnInit {
       usefulLifeOfTheAsset: this.usefulLifeOfTheAsset,
       escalation: this.escalation,
       escalationAfterEvery: this.escalationAfterEvery,
+      contractCurrency : this.contractCurrency
       
     };
    
