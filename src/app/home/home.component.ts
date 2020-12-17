@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../auth.service';
+import {Signupservice} from "src/app/signup/Signupservice";
+import { NgxSpinnerService } from "ngx-spinner";
 declare var $: any;
 
 @Component({
@@ -13,7 +15,18 @@ export class HomeComponent implements OnInit {
   id: string;
   selected = "";
   signUpCompany ; 
-  constructor(public globals: Globals, private router: Router, public authService: AuthService) {
+
+
+  signUpUserName = "";
+  signUpEmail = "";
+  signUpCity = "";
+  signUpCurency ="";
+  signUpPassword = "";
+  signUpRepeatPassword = "";
+  signUpUserType = "";
+  signUpContact = "";
+  signUpAddress = "";
+  constructor(public globals: Globals, private router: Router, public authService: AuthService , public Signupservice: Signupservice, private spinner: NgxSpinnerService ) {
     if (localStorage.getItem('name') == null && localStorage.getItem('pass') == null) {
       this.router.navigate(['/landing']);
 
@@ -44,6 +57,63 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/journalEntriesfta']);
     }
   }
+
+
+  SignUp(){
+    this.spinner.show();
+    this.signUpCompany = localStorage.getItem('companyId')
+    if(this.signUpCompany ==null || this.signUpCompany == 0){
+      this.logout();
+    }
+    
+    // var hide = divLoader();
+     var data = this.setSignUpFormData();
+    
+     this.Signupservice.SignUp(data).then(response => {
+
+      this.spinner.hide();
+        console.log(response.data)
+        alert(response.data);
+       var msg = '<div class="alert alert-info"  role="alert" >'+response.data +'</div>';
+
+        $('#companyAddUserResponcePanelHome').html(msg);
+        $('html, body').animate({
+          'scrollTop' : $("#companyAddUserResponcePanelHome").offset().top
+      });
+        setTimeout(function () {
+          $('#companyAddUserResponcePanelHome .alert').slideToggle();
+        }, 6000);
+        //$('#infoMessage span').text(JSON.stringify(response.data));
+    //    this.router.navigate(['/login']);  
+     });
+   
+ }
+
+
+ private setSignUpFormData() {
+  
+    this.signUpUserType = "individual";
+
+
+  // if(this.globals.paymentSchedule == "trial"){
+  //   this.signUpUserType = "trialUser"
+  // }
+
+  return {
+    name: this.signUpUserName,
+    email: this.signUpEmail,
+    city: this.signUpCity,
+    contactNumber: this.signUpContact,
+    companyAddress: this.signUpAddress,
+    currency: this.signUpCurency,
+    userType: this.signUpUserType,
+    password: this.signUpPassword,
+    confirmpassword: this.signUpRepeatPassword,
+    paymentSchedule: localStorage.getItem('paymentSchedule'),
+    companyId: localStorage.getItem('companyId')
+  };
+}
+
 
   ngOnInit() {
     this.signUpCompany = this.globals.companyId;
