@@ -352,6 +352,7 @@ function setLocalStorageVariable(response, data: { name: string; password: strin
   localStorage.setItem('userId', response.data.userId);
   localStorage.setItem('paymentSchedule', response.data.paymentSchedule);
   localStorage.setItem('companyId' , response.data.companyId);
+  localStorage.setItem('currency' , response.data.currency);
 }
 
 function showAddUserOptionInNavBar() {
