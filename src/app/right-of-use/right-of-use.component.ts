@@ -15,9 +15,9 @@ declare var $: any;
 export class RightOfUseComponent implements OnInit {
 
   //////////////////////////// for report dropdown and table below //////////////
-  leaseName = "";
-  lessorName = "";
-  classOfAsset = "";
+  leaseName = "All";
+  lessorName = "All";
+  classOfAsset = "All";
   location  = "";
   date = "";
   vendorName = "";
