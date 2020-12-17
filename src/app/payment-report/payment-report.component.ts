@@ -138,7 +138,6 @@ export class PaymentReportComponent implements OnInit {
               response.data[index].payment = response.data[index].payment 
           }
           else{
-            alert("else")
             response.data[index].payment = 0
           }
         }

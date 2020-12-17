@@ -116,14 +116,14 @@ export class LandingComponent implements OnInit {
         }, 6000);
       }
 
-      if(response.data.includes("Activation")){
+      // if(response.data.includes("Activation")){
 
-        var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Your account is not verified yet by the admin</div>';
-        $('#signInResponsePanel').html(msg);
-        setTimeout(function () {
-          $('#signInResponsePanel .alert').slideToggle();
-        }, 6000);
-      }
+      //   var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Your account is not verified yet by the admin</div>';
+      //   $('#signInResponsePanel').html(msg);
+      //   setTimeout(function () {
+      //     $('#signInResponsePanel .alert').slideToggle();
+      //   }, 6000);
+      // }
 
       if (data.name == response.data.email && data.password == response.data.password) 
       {
