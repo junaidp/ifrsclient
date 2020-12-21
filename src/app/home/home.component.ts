@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   selected = "";
   signUpCompany ; 
 
-
+  currency= "";
   signUpUserName = "";
   signUpEmail = "";
   signUpCity = "";
@@ -116,7 +116,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    this.currency = localStorage.getItem('currency');
     this.signUpCompany = this.globals.companyId;
+
 debugger
     if(localStorage.getItem('userType') == "company" ){
       $('#company_hidden').hide();

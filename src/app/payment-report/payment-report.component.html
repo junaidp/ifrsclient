@@ -112,10 +112,11 @@
         <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
-                    <li *ngFor="let row of mapUserData | keyvalue" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
+                    <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
                         <div class="row">
-                            <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-1 col-md-6 col-6">12/12/12</div>
+                            <div class="col-lg-1 col-md-6 col-6">{{i}}</div>
+                            <!-- <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']| date:'mediumDate'}}</div> -->
+                            <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['referenceNo']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
