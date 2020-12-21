@@ -88,9 +88,9 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-1">
+            <!-- <div class="col-1">
                 <h6>Date</h6>
-            </div>
+            </div> -->
             <div class="col-2">
                 <h6>Contract Ref. No.</h6>
             </div>
@@ -114,9 +114,9 @@
                 <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
                     <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi" onclick="$('.leasetab').show();">
                         <div class="row">
-                            <div class="col-lg-1 col-md-6 col-6">{{i}}</div>
+                            <div class="col-lg-1 col-md-6 col-6">{{i+1}}</div>
                             <!-- <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']| date:'mediumDate'}}</div> -->
-                            <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']}}</div>
+                            <!-- <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']}}</div> -->
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['referenceNo']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
