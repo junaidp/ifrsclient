@@ -12,7 +12,7 @@ export class RequeestApprovedComponent implements OnInit {
   ngOnInit() {
     $( document ).ready(function() {
       $('#mainNavBar').hide();
-  });
+    });
   }
 
 }
