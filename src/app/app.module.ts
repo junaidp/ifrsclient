@@ -43,9 +43,10 @@ import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entries
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ShowUsersComponent } from './show-users/show-users.component';
 import { ApproverequestComponent } from './approverequest/approverequest.component';
+import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
     HomeComponent,
     NavbarComponent,
@@ -80,7 +81,8 @@ import { ApproverequestComponent } from './approverequest/approverequest.compone
     FirsttimeadoptionjournalentrycommulativeComponent,
     JournalEntriesftaComponent,
     ShowUsersComponent,
-      ApproverequestComponent
+      ApproverequestComponent,
+      RequeestApprovedComponent
    ],
   imports: [
     BrowserModule,

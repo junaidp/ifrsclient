@@ -31,7 +31,7 @@
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <!--banner-->
-    <section id="banner" class="banner">
+    <section id="banner" #banner class="banner">
         <div class="bg-color">
             <nav class="navbar navbar-default navbar-fixed-top pt-0 pb-0">
                 <div class="container">
@@ -46,11 +46,11 @@
                         </div>
                         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                             <ul class="nav navbar-nav" style="display: inline-block;">
-                                <li class="active"><a href="#banner">Home</a></li>
-                                <li class=""><a href="#service">Services</a></li>
-                                <li class=""><a href='#about'>About</a></li>
-                                <li class=""><a href="#testimonial">Testimonial</a></li>
-                                <li class=""><a href='#contact'>Contact</a></li>
+                                <li class="active"><a (click)="scrollToElement(banner)">Home</a></li>
+                                <li class=""><a (click)="scrollToElement(service)">Services</a></li>
+                                <li class=""><a (click)="scrollToElement(about)">About</a></li>
+                                <li class=""><a (click)="scrollToElement(testimonial)">Testimonial</a></li>
+                                <li class=""><a (click)="scrollToElement(contact)">Contact</a></li>
                                 <li class=""><a href="#" data-toggle="modal" data-target="#exampleModal" onclick="$('#btn-signup').hide(); $('.form-signin').show(); $('.form-signup').hide();">Login</a></li>
                             </ul>
                         </div>
@@ -76,7 +76,7 @@
             </div>
         </div>
     </section>
-    <section id="service" class="section-padding">
+    <section id="service" #service class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 mb-4" style="margin-bottom: 30px;">
@@ -166,7 +166,7 @@
             </div>
         </div>
     </section>
-    <section id="about" class="section-padding">
+    <section id="about" #about class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-4 col-xs-12">
@@ -281,7 +281,7 @@
             </div>
         </div>
     </section>
-    <section id="testimonial" style="background-color: #fff !important" class="section-padding">
+    <section id="testimonial" #testimonial style="background-color: #fff !important" class="section-padding">
         <div class="container">
             <div class=" row">
                 <div class="col-md-12">
@@ -418,7 +418,7 @@
             </div>
         </div>
     </section>
-    <section id="contact" style="background-color: #eee;" class="section-padding" style="background-color: #eee;">
+    <section id="contact" #contact style="background-color: #eee;" class="section-padding" style="background-color: #eee;">
         <div class="container">
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-md-12">
@@ -744,6 +744,21 @@
     <div id="overlaylogin">
         <div class="cv-spinner">
             <span class="spinner"></span>
+        </div>
+    </div>
+    <div class="modal" id="pending_apprive" tabindex="-1" role="dialog" aria-labelledby="pending_apprive" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: 422px;">
+            <div class="modal-content" style="padding: 0 !important; width: 100% !important;background-color: transparent">
+                <div class="modal-body p-0">
+                    <div class="container payment_card" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-12">
+                                <p>your account is under review</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

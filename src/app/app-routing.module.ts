@@ -34,11 +34,13 @@ import { NewLeasejournalentryComponent } from './newLeasejournalentry/newLeasejo
 import { PaymentgetwayComponent } from './paymentgetway/paymentgetway.component';
 import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.component';
 import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
-import { ApproverequestComponent } from './approverequest/approverequest.component'
+import { ApproverequestComponent } from './approverequest/approverequest.component';
+import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
+  { path: 'RequeestApproved', component: RequeestApprovedComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent},
   { path: 'journalEntriesfta', component: JournalEntriesftaComponent},
