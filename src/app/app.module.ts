@@ -42,9 +42,10 @@ import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimead
 import { JournalEntriesftaComponent } from './journal-entriesfta/journal-entriesfta.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ShowUsersComponent } from './show-users/show-users.component';
+import { ApproverequestComponent } from './approverequest/approverequest.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     HomeComponent,
     NavbarComponent,
@@ -78,8 +79,9 @@ import { ShowUsersComponent } from './show-users/show-users.component';
     AddNewUserComponent,
     FirsttimeadoptionjournalentrycommulativeComponent,
     JournalEntriesftaComponent,
-    ShowUsersComponent
-  ],
+    ShowUsersComponent,
+      ApproverequestComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
