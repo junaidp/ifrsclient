@@ -36,8 +36,11 @@ export class LandingComponent implements OnInit {
   signInName = "";
   signInPassword = "";
   signInId = "";
-  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService) { }
-
+  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService) {
+    
+   }
+   
+  
   SignUp(){
     
    // var hide = divLoader();
@@ -250,9 +253,13 @@ export class LandingComponent implements OnInit {
 
     showww();
 };
+scrollToElement($element): void {
+  console.log($element);
+  $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+}
 
   ngOnInit() {
-
+    
 
     this.divLoader();
     this.returnUrl = '/home';
