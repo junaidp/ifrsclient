@@ -47,10 +47,12 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessee Name</div>
-                    <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
-                        <option>All</option>
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
-                    </select>
+                    <div class="col-lg-8 col-md-4 col-12">
+                        <input class="form-control" type="text" list="brow" name="" id="">
+                        <datalist id="brow" [(ngModel)]="leaseName">
+                            <option *ngFor="let row of mapUserFilter | keyvalue" value="{{row.value['leaseName']}}">
+                        </datalist>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +87,7 @@
                 <h6>Lessor Name</h6>
             </div>
             <div class="col-3">
-                <h6>Lease Name</h6>
+                <h6>Lessee Name</h6>
             </div>
             <div class="col-2">
                 <h6>Class of Asset</h6>

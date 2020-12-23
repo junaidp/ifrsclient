@@ -402,3 +402,13 @@ function closes7() {
 function journal_entry_dis() {
     $(".journal_display").togle("slow");
 }
+// $('select option').each(function() {
+//     if ($.inArray(this.value, optionValues) > -1) {
+//         $(this).remove()
+//     } else {
+//         optionValues.push(this.value);
+//     }
+// });
+$("#color option").val(function(idx, val) {
+    $(this).siblings("[value='" + val + "']").remove();
+});

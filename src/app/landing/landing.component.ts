@@ -131,14 +131,23 @@ export class LandingComponent implements OnInit {
       if (data.name == response.data.email && data.password == response.data.password) 
       {
         $('.modal-backdrop').toggle();
-        
-        //$('#exampleModal').hide();
         this.setGlobals(response);
         setLocalStorageVariable(response, data);
-        this.router.navigate([this.returnUrl]);
-        showAddUserOptionInNavBar();
-        $('.modal-backdrop').attr('style','display:none !important');
-        $('body').css({'overflow':'auto','padding-right':'0px'});
+        console.log(response.data.active);
+        if(response.data.active == true){
+          //alert('active');
+          this.router.navigate([this.returnUrl]);
+          showAddUserOptionInNavBar();
+          $('.modal-backdrop').attr('style','display:none !important');
+          $('body').css({'overflow':'auto','padding-right':'0px'});
+        }else{
+          alert('This user is not active yet!');
+          $('.modal-backdrop').attr('style','display:none !important');
+          $('body').css({'overflow':'auto','padding-right':'0px'});
+        }
+        //$('#exampleModal').hide();
+        
+        
      //   this.getUserDetails();
       }
 
