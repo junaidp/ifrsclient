@@ -71,7 +71,14 @@ export class RightOfUseComponent implements OnInit {
   presentValue: number;
 
 
-
+ answer1Bool = true;
+ answer2Bool = true;
+ answer3Bool = true;
+ answer4Bool = true;
+ answer5Bool = true;
+ answer6Bool = true;
+ answer7Bool = true;
+ 
 
 
 
@@ -174,6 +181,29 @@ export class RightOfUseComponent implements OnInit {
       me.conclusion = userDetails.conclusion,
       me.contractCurrency = userDetails.contractCurrency
       console.log(response.data);
+
+      if(me.answer1 == ""){
+        me.answer1Bool = false;
+      }
+      if(me.answer2 == ""){
+        me.answer2Bool = false;
+      }
+      if(me.answer3 == ""){
+        me.answer3Bool = false;
+      }
+      if(me.answer4 == ""){
+        me.answer4Bool = false;
+      }
+      if(me.answer5 == ""){
+        me.answer5Bool = false;
+      }
+      if(me.answer6 == ""){
+        me.answer6Bool = false;
+      }
+      if(me.answer7 == ""){
+        me.answer7Bool = false;
+      }
+
     });
   }
 
