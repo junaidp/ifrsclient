@@ -106,9 +106,10 @@ public getLessorFilterValues() {
   var data = {
     filterName: "lessorName"
   };
+  //alert(data)
   this.rightService.getFiltersData(data).then(response => {
-  this.mapUserFilter = new Map(Object.entries(response.data));
-  this.mapUserData = new Map(Object.entries(response.data));
+  // this.mapUserFilter = new Map(Object.entries(response.data));
+  // this.mapUserData = new Map(Object.entries(response.data));
   console.log(response.data)
 });
 }
@@ -154,6 +155,11 @@ public getClassOfAssetFilterValues() {
 
 
   ngOnInit() {
+
+
+      this.getClassOfAssetFilterValues();
+
+    
     var me =this
     var globalLInk = this.globals.APP_URL
     $("#dataListUl").on("click", ".dataListLi", function(event){
