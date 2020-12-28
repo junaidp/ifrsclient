@@ -558,7 +558,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 btn_mg">
-                                <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" (click)="  calculate()" type="button">Next</button>
+                                <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" (click)="  calculate();" type="button">Next</button>
                                 <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
                                 <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
                             </div>
@@ -688,7 +688,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 btn_mg">
-                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" type="button">Next</button>
+                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" onclick="getvalue();" type="button">Next</button>
                                     <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
                                     <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
                                 </div>
@@ -909,8 +909,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <strong class="col-6">CONCLUSION: Does not contain a lease</strong>
-                                        <span class="col-4" id="lease_no"></span>
+                                        <div class="row" id="show_con">
+                                            <strong class="col-2">CONCLUSION: </strong>
+                                            <span class="col-4 step_five font-weight-bolder" id="showvalue"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

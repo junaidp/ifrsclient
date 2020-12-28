@@ -315,6 +315,12 @@ function show7(select_item) {
     }
 }
 
+function getvalue() {
+    var firstDivContent = $('#lease_no').text();
+    //alert(firstDivContent);
+    document.getElementById("showvalue").innerHTML = $('#lease_no').text();
+}
+
 function showpopup(select_item) {
     if (select_item == 1) {
         myModal.style.visibility = 'visible';
