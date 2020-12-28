@@ -35,6 +35,25 @@ export class rightService {
     return response;
   }
 
+
+
+  async getFiltersData(data) {
+    console.log(data)
+    var filterName = data.filterName
+    var  userId = localStorage.getItem('userId');
+    var  companyId = localStorage.getItem('companyId');
+  //   const params = new HttpParams()
+  //  .set('userId', userId)
+  //  .set('para2', companyId);
+    const url = this.globals.APP_URL+"data/getDataForFilters?userId=" +userId +"&companyId="+companyId + "&filterName="+filterName;
+     const response = await axios.get(url,data).then(
+    );
+
+    
+    console.log(response);
+    return response;
+  }
+
   async getReportData(data) {
 
     const url = this.globals.APP_URL+"reports/getReportData";

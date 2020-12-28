@@ -89,8 +89,40 @@ export class RightOfUseComponent implements OnInit {
   mapIndividualUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
   mapClassOfAsset: Map<string, Map<string, string>>;
-
   
+  
+  public getLeaseFilterValues() {
+    var data = {
+      filterName: "leaseName"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+    this.mapUserFilter = new Map(Object.entries(response.data));
+    this.mapUserData = new Map(Object.entries(response.data));
+    console.log(response.data)
+  });
+}
+
+public getLessorFilterValues() {
+  var data = {
+    filterName: "lessorName"
+  };
+  this.rightService.getFiltersData(data).then(response => {
+  this.mapUserFilter = new Map(Object.entries(response.data));
+  this.mapUserData = new Map(Object.entries(response.data));
+  console.log(response.data)
+});
+}
+
+public getClassOfAssetFilterValues() {
+  var data = {
+    filterName: "classOfAsset"
+  };
+  this.rightService.getFiltersData(data).then(response => {
+  this.mapUserFilter = new Map(Object.entries(response.data));
+  this.mapUserData = new Map(Object.entries(response.data));
+  console.log(response.data)
+});
+}
   
   public getClassOfAsset() {
   //  this.spinner.show();
