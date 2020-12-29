@@ -319,6 +319,75 @@ function getvalue() {
     var firstDivContent = $('#lease_no').text();
     //alert(firstDivContent);
     document.getElementById("showvalue").innerHTML = $('#lease_no').text();
+    var q1 = $('.quest1_answer option:selected').text();
+    var q2 = $('.quest2_answer option:selected').text();
+    var q3 = $('.quest3_answer option:selected').text();
+    var q4 = $('.quest4_answer option:selected').text();
+    var q5 = $('.quest5_answer option:selected').text();
+    var q6 = $('.quest6_answer option:selected').text();
+    if (q1 == "Yes") {
+        $('.quest2').hide();
+        $('.quest3').hide();
+        $('.quest4').hide();
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    } else if (q1 == "No") {
+        $('.quest2').show();
+        $('.quest3').hide();
+        $('.quest4').hide();
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    }
+    if (q2 == "Yes") {
+        $('.quest3').show();
+        $('.quest4').hide();
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    } else if (q2 == "No") {
+        $('.quest3').hide();
+        $('.quest4').hide();
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    }
+    if (q3 == "Yes") {
+        $('.quest4').hide();
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    } else if (q3 == "No") {
+        $('.quest4').show();
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    }
+    if (q4 == "Yes") {
+        $('.quest5').show();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    } else if (q4 == "No") {
+        $('.quest5').hide();
+        $('.quest6').hide();
+        $('.quest7').hide();
+    }
+    if (q5 == "Customer") {
+        $('.quest6').hide();
+        $('.quest7').hide();
+    } else if (q5 == "Supplier") {
+        $('.quest6').hide();
+        $('.quest7').hide();
+    } else if (q5 == "Neither Party") {
+        $('.quest6').show();
+        $('.quest7').hide();
+    }
+    if (q6 == "Yes") {
+        $('.quest7').show();
+    } else if (q6 == "No") {
+        $('.quest7').hide();
+    }
 }
 
 function showpopup(select_item) {

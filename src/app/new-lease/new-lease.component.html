@@ -206,7 +206,7 @@
                                 </div>
                                 <div class="col-1 tool responsive_display"><i class="fas fa-info-circle" onclick="showpopupq1();"></i></div>
                                 <div class="col-lg-3 text-center">
-                                    <select class="form-control" name="contractNo40" [(ngModel)]="answer1" onchange="java_script_:show(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest1_answer" name="contractNo40" [(ngModel)]="answer1" onchange="java_script_:show(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="0">Yes</option>
                                         <option value="1">No</option>
@@ -225,7 +225,7 @@
                                 <div class="col-lg-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq2();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block">
-                                    <select class="form-control" name="contractNo41" [(ngModel)]="answer2" onchange="java_script_:show1(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest2_answer" name="contractNo41" [(ngModel)]="answer2" onchange="java_script_:show1(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -244,7 +244,7 @@
                                 <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq3();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block">
-                                    <select class="form-control" name="contractNo42" [(ngModel)]="answer3" onchange="java_script_:show2(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest3_answer" name="contractNo42" [(ngModel)]="answer3" onchange="java_script_:show2(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -264,7 +264,7 @@
                                 <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq4();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block">
-                                    <select class="form-control" name="contractNo43" [(ngModel)]="answer4" onchange="java_script_:show3(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest4_answer" name="contractNo43" [(ngModel)]="answer4" onchange="java_script_:show3(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -284,7 +284,7 @@
                                 <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq5();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block mt-3">
-                                    <select class="form-control" name="contractNo44" [(ngModel)]="answer5" onchange="java_script_:show5(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest5_answer" name="contractNo44" [(ngModel)]="answer5" onchange="java_script_:show5(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="2">Customer</option>
                                         <option value="0">Supplier</option>
@@ -304,7 +304,7 @@
                                 <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq6();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block mt-3">
-                                    <select class="form-control" name="contractNo4444" [(ngModel)]="answer6" onchange="java_script_:show6(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest6_answer" name="contractNo4444" [(ngModel)]="answer6" onchange="java_script_:show6(this.options[this.selectedIndex].value)">
                                        
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
@@ -324,7 +324,7 @@
                                 <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq7();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block mt-3">
-                                    <select class="form-control" name="contractNo46" [(ngModel)]="answer7" onchange="java_script_:show7(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest7_answer" name="contractNo46" [(ngModel)]="answer7" onchange="java_script_:show7(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -794,14 +794,14 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo001" [(ngModel)]="answer1" class="form-control" value="{{answer1}}" disabled="true">
+                                        <select name="contractNo001" [(ngModel)]="answer1" class="form-control step_fiv_question1" value="{{answer1}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="0">Yes</option>
                                             <option value="1">No</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mt-2 mb-2">
+                                <div class="row mt-2 mb-2 quest2">
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-1">2.</div>
@@ -818,7 +818,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mt-2 mb-2">
+                                <div class="row mt-2 mb-2 quest3">
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-1">3.</div>
@@ -836,7 +836,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mt-2 mb-2">
+                                <div class="row mt-2 mb-2 quest4">
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-1">4.</div>
@@ -854,7 +854,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mt-2 mb-2">
+                                <div class="row mt-2 mb-2 quest5">
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-1">5.</div>
@@ -872,7 +872,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mt-2 mb-2">
+                                <div class="row mt-2 mb-2 quest6">
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-1">6.</div>
@@ -889,7 +889,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mt-2 mb-2">
+                                <div class="row mt-2 mb-2 quest7">
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-1">7.</div>
