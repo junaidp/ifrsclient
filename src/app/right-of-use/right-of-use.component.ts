@@ -52,17 +52,17 @@ export class RightOfUseComponent implements OnInit {
 
 
   //3rd tab
-  paymentsAt = "Beginning";
-  annualDiscountRate = "3";
-  leaseTerm = "10";
-  expectedPeriod = "10";
-  leasePayment = "2670000";
-  paymentIntervals = "Yearly";
-  initialDirectCost = "0";
-  guaranteedResidualValue = "1000000";
-  usefulLifeOfTheAsset = "10";
-  escalation = "30";
-  escalationAfterEvery = "10";
+  paymentsAt = "";
+  annualDiscountRate = "";
+  leaseTerm = "";
+  expectedPeriod = "";
+  leasePayment = "";
+  paymentIntervals = "";
+  initialDirectCost = "";
+  guaranteedResidualValue = "";
+  usefulLifeOfTheAsset = "";
+  escalation = "";
+  escalationAfterEvery = "";
   contractCurrency = "";
   //mapIndividualUserDetails: Map<String, String>;
   mapIndividualUserDetails:  Map<string, string>;
@@ -70,7 +70,7 @@ export class RightOfUseComponent implements OnInit {
   map1: Map<String, String>;
   presentValue: number;
 
-
+//for quetsions hide 
  answer1Bool = true;
  answer2Bool = true;
  answer3Bool = true;
@@ -79,11 +79,6 @@ export class RightOfUseComponent implements OnInit {
  answer6Bool = true;
  answer7Bool = true;
  
-
-
-
-
-
   constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals,  private spinner: NgxSpinnerService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
