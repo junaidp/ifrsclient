@@ -225,23 +225,44 @@ public getClassOfAssetFilterValues() {
       if(me.answer1 == ""){
         me.answer1Bool = false;
       }
+      else{
+        me.answer1Bool = true;
+      }
       if(me.answer2 == ""){
         me.answer2Bool = false;
+      }
+      else{
+        me.answer2Bool = true;
       }
       if(me.answer3 == ""){
         me.answer3Bool = false;
       }
+      else{
+        me.answer3Bool = true;
+      }
       if(me.answer4 == ""){
         me.answer4Bool = false;
+      }
+      else{
+        me.answer4Bool = true;
       }
       if(me.answer5 == ""){
         me.answer5Bool = false;
       }
+      else{
+        me.answer5Bool = true;
+      }
       if(me.answer6 == ""){
         me.answer6Bool = false;
       }
+      else{
+        me.answer6Bool = true;
+      }
       if(me.answer7 == ""){
         me.answer7Bool = false;
+      }
+      else{
+        me.answer7Bool = true;
       }
 
     });
