@@ -89,6 +89,10 @@ export class RightOfUseComponent implements OnInit {
   mapIndividualUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
   mapClassOfAsset: Map<string, Map<string, string>>;
+  mapClassOfAssetFilter : Map<string,string>
+  mapLeaseNameFilter : Map<string,string>
+  mapLessorNameFilter : Map<string,string>
+  
   
   
   public getLeaseFilterValues() {
@@ -96,9 +100,8 @@ export class RightOfUseComponent implements OnInit {
       filterName: "leaseName"
     };
     this.rightService.getFiltersData(data).then(response => {
-    this.mapUserFilter = new Map(Object.entries(response.data));
-    this.mapUserData = new Map(Object.entries(response.data));
-    console.log(response.data)
+      this.mapLeaseNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLeaseNameFilter)
   });
 }
 
@@ -108,9 +111,8 @@ public getLessorFilterValues() {
   };
   //alert(data)
   this.rightService.getFiltersData(data).then(response => {
-  // this.mapUserFilter = new Map(Object.entries(response.data));
-  // this.mapUserData = new Map(Object.entries(response.data));
-  console.log(response.data)
+    this.mapLessorNameFilter = new Map(Object.entries(response.data));
+    console.log(this.mapLessorNameFilter)
 });
 }
 
@@ -119,9 +121,8 @@ public getClassOfAssetFilterValues() {
     filterName: "classOfAsset"
   };
   this.rightService.getFiltersData(data).then(response => {
-  this.mapUserFilter = new Map(Object.entries(response.data));
-  this.mapUserData = new Map(Object.entries(response.data));
-  console.log(response.data)
+   this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
+  console.log(this.mapClassOfAssetFilter)
 });
 }
   
@@ -158,8 +159,9 @@ public getClassOfAssetFilterValues() {
 
 
       this.getClassOfAssetFilterValues();
+      this.getLeaseFilterValues();
+      this.getLessorFilterValues();
 
-    
     var me =this
     var globalLInk = this.globals.APP_URL
     $("#dataListUl").on("click", ".dataListLi", function(event){
