@@ -133,7 +133,7 @@ export class NewLeaseComponent implements OnInit {
   }
   saveData() {
     var conclusion = $('#lease_no').text();
-    alert(conclusion)
+   // alert(conclusion)
     //   alert("sad")
     this.userId = localStorage.getItem('userId');
     if (this.userId === "undefined") {
@@ -176,7 +176,6 @@ export class NewLeaseComponent implements OnInit {
       answer7: this.answer7,
       conclusion: conclusion
     };
-    alert(JSON.stringify(data))
 
     console.log(data)
     this.globals.leaseContractNo = this.leaseContractNo,
@@ -227,7 +226,6 @@ export class NewLeaseComponent implements OnInit {
     var data = {
       classOfAsset: this.classOfAsset,
     };
-    alert(JSON.stringify(data));
     this.leaseService.saveClassOfAsset(data).then(response => {
 
       this.spinner.hide();

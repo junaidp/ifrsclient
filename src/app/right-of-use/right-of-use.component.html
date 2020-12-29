@@ -40,7 +40,9 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
                     <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option>
+                        
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option> -->
+                        <option *ngFor="let row of mapLessorNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
                     </select>
                 </div>
             </div>
@@ -49,7 +51,8 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lesse Name</div>
                     <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
+                        <option *ngFor="let row of mapLeaseNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option> -->
                     </select>
                 </div>
                 <!-- <div class="row">
@@ -70,7 +73,8 @@
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                     <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option> -->
+                        <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
                     </select>
                 </div>
             </div>
