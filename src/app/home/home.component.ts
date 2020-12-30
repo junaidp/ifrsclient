@@ -49,13 +49,13 @@ export class HomeComponent implements OnInit {
   clickJournal() {
     //just added console.log which will display the event details in browser on click of the button.
 
-    if (this.globals.selectedJournal == "/journalEntries") {
+    //if (this.globals.selectedJournal == "/journalEntries") {
 
       this.router.navigate(['/journalEntries']);
-    }
-    if (this.globals.selectedJournal == "/journalEntriesfta") {
-      this.router.navigate(['/journalEntriesfta']);
-    }
+   // }
+    // if (this.globals.selectedJournal == "/journalEntriesfta") {
+    //   this.router.navigate(['/journalEntriesfta']);
+    // }
   }
 
 
