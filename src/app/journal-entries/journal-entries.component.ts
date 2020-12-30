@@ -67,12 +67,19 @@ export class JournalEntriesComponent implements OnInit {
       this.userId = 0;
     }
     var ret = ($('#dateSelector').val().split("-"));
+
+    alert($('#dateSelector').val())
    
     var day = 10
     var year = ret[0];
     var month = ret[1];
 
-    this.finalDate =  (30 +"-" +month + "-" + year)
+    
+
+  //  var lastDayWithSlashes = (lastDay.getDate()) + '/' + (lastDay.getMonth() + 1) + '/' + lastDay.getFullYear();
+  //getting last day of month
+    var lastDay = new Date(year, month , 0);
+    this.finalDate =  (lastDay.getDate() +"-" +month + "-" + year)
     this.dateSelectorMonth = month
     var data = {
       userId: this.userId,
