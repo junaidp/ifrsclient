@@ -141,6 +141,7 @@ export class LandingComponent implements OnInit {
           $('.modal-backdrop').attr('style','display:none !important');
           $('body').css({'overflow':'auto','padding-right':'0px'});
         }else{
+          localStorage.clear();
           alert('This user is not active yet!');
           $('.modal-backdrop').attr('style','display:none !important');
           $('body').css({'overflow':'auto','padding-right':'0px'});
