@@ -58,8 +58,8 @@
             </div>
             <div class="col-12 mt-2 border-bottom">
                 <div class="row responsive_display journal_new">
-                    <div class="col-1">0</div>
-                    <div class="col-2">{{commencementDate}}</div>
+                    <div class="col-1">1</div>
+                    <div class="col-2">{{commencementDate | date:'mediumDate'}}</div>
                     <div class="col-3">
                         <div class="row text-lg-left">
                             <div class="col-12">Right Of Use Asset</div>
@@ -83,8 +83,8 @@
         </div>
         <div class="row mt-4 mb-4 border-bottom" id="journal_entry">
             <div class="col-12 mt-3">
-                <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue">
-                    <div class="col-1">{{row.value[0] | number:'1.0-0'}}</div>
+                <div class="row journal_new" id="show2" *ngFor="let row of map | keyvalue ; let i = index">
+                    <div class="col-1">{{i+2}}</div>
                     <div class="col-2">{{row.value[2]| date:'mediumDate'}}</div>
                     <div class="col-3">
                         <div class="row text-lg-left mb-3">
