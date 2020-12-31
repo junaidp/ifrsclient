@@ -18,6 +18,7 @@ export class LandingComponent implements OnInit {
  // for validator if field is empty
   validatorSignUp = true;
   validatorSignIn = true;
+  validatorContactUs = true;
   //validator end
   isLoggedIn = true;
   returnUrl: string;
@@ -36,6 +37,12 @@ export class LandingComponent implements OnInit {
   signInName = "";
   signInPassword = "";
   signInId = "";
+
+  // for contact us form variables
+  contactName = "";
+  contactEmail = "";
+  contactSubject = "";
+  contactMessage = "";
   constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService) {
     
    }
@@ -106,58 +113,28 @@ export class LandingComponent implements OnInit {
     }
   } 
 
-  private loginService(data: { name: string; password: string; id: string; }) {
-    //$('#exampleModal').css('z-index','-1 !important');
-    this.loginservice.signIn(data).then(response => {
-      this.spinner.hide();
-      console.log(response.data);
-      if(response.data == null){
-        var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >UserName or Password is invalid</div>';
-        $('#signInResponsePanel').html(msg);
-        setTimeout(function () {
-          $('#signInResponsePanel .alert').slideToggle();
-        }, 6000);
+  sendContactFormEmail() {
+
+    this.checkContactUsEmptyFields();
+    var data = {
+      name: this.contactName,
+      emailFrom: this.contactEmail,
+      emailTo: '',
+      subject: this.contactSubject,
+      message :this.contactMessage 
+     
+    };
+
+    if(this.validatorContactUs){
+      this.spinner.show();
+
+      this.contactUsService(data);
       }
-
-      // if(response.data.includes("Activation")){
-
-      //   var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Your account is not verified yet by the admin</div>';
-      //   $('#signInResponsePanel').html(msg);
-      //   setTimeout(function () {
-      //     $('#signInResponsePanel .alert').slideToggle();
-      //   }, 6000);
-      // }
-
-      if (data.name == response.data.email && data.password == response.data.password) 
-      {
-        $('.modal-backdrop').toggle();
-        this.setGlobals(response);
-        setLocalStorageVariable(response, data);
-        console.log(response.data.active);
-        if(response.data.active == true){
-          //alert('active');
-          this.router.navigate([this.returnUrl]);
-          showAddUserOptionInNavBar();
-          $('.modal-backdrop').attr('style','display:none !important');
-          $('body').css({'overflow':'auto','padding-right':'0px'});
-        }else{
-          localStorage.clear();
-          alert('This user is not active yet!');
-          $('.modal-backdrop').attr('style','display:none !important');
-          $('body').css({'overflow':'auto','padding-right':'0px'});
-        }
-        //$('#exampleModal').hide();
-        
-        
-     //   this.getUserDetails();
+      else{
+        this.validatorContactUs = false
+        //loader to be hidedn here
       }
-
-      else {
-        this.isLoggedIn = false;
-      }
-      //$('.modal-backdrop').attr('style','display:none !important');
-    });
-  }
+    };
 
   private getUserDetails() {
     var getUserData = {
@@ -188,6 +165,77 @@ export class LandingComponent implements OnInit {
       this.validatorSignIn = true;
       this.validatorSignUp = true;
        // this.alert.nativeElement.classList.remove('show');
+      }
+
+      private loginService(data: { name: string; password: string; id: string; }) {
+        //$('#exampleModal').css('z-index','-1 !important');
+        this.loginservice.signIn(data).then(response => {
+          this.spinner.hide();
+          console.log(response.data);
+          if(response.data == null){
+            var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >UserName or Password is invalid</div>';
+            $('#signInResponsePanel').html(msg);
+            setTimeout(function () {
+              $('#signInResponsePanel .alert').slideToggle();
+            }, 6000);
+          }
+    
+          // if(response.data.includes("Activation")){
+    
+          //   var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Your account is not verified yet by the admin</div>';
+          //   $('#signInResponsePanel').html(msg);
+          //   setTimeout(function () {
+          //     $('#signInResponsePanel .alert').slideToggle();
+          //   }, 6000);
+          // }
+    
+          if (data.name == response.data.email && data.password == response.data.password) 
+          {
+            $('.modal-backdrop').toggle();
+            this.setGlobals(response);
+            setLocalStorageVariable(response, data);
+            console.log(response.data.active);
+            if(response.data.active == true){
+              //alert('active');
+              this.router.navigate([this.returnUrl]);
+              showAddUserOptionInNavBar();
+              $('.modal-backdrop').attr('style','display:none !important');
+              $('body').css({'overflow':'auto','padding-right':'0px'});
+            }else{
+              localStorage.clear();
+              alert('This user is not active yet!');
+              $('.modal-backdrop').attr('style','display:none !important');
+              $('body').css({'overflow':'auto','padding-right':'0px'});
+            }
+            //$('#exampleModal').hide();
+            
+            
+         //   this.getUserDetails();
+          }
+    
+          else {
+            this.isLoggedIn = false;
+          }
+          //$('.modal-backdrop').attr('style','display:none !important');
+        });
+      }
+      
+      private contactUsService(data: { name: string; emailFrom: string; emailTo: string; subject: string; message: string;}) {
+        this.loginservice.sendContactUsEmail(data).then(response => {
+          this.spinner.hide();
+          console.log(response.data);
+          var msg;
+          if (response.data.includes("Fail")) {
+            msg = '<div class="alert alert-danger"  role="alert" >' + response.data + '</div>';
+          }
+          else {
+            msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
+          }
+          $('#contactUsResponcePanel').html(msg);
+          setTimeout(function () {
+            $('#contactUsResponcePanel .alert').slideToggle();
+          }, 6000);
+        });
       }
     private setSignUpFormData() {
       if($('#individual_user_checkbox').prop("checked") == true){
@@ -249,6 +297,22 @@ export class LandingComponent implements OnInit {
         this.validatorSignUp = true;
       }
     }
+
+    private checkContactUsEmptyFields() {
+      if (this.contactName == "" || this.contactEmail == "" || this.contactMessage == ""|| this.contactSubject == "") {
+       
+        this.validatorContactUs = false;
+        var msg = '<div class="alert alert-danger   role="alert" >Please Fill up All fields</div>';
+        $('#contactUsResponcePanel').html(msg);
+        setTimeout(function () {
+          $('#contactUsResponcePanel .alert').slideToggle();
+        }, 6000);
+      }
+      else{
+        this.validatorContactUs = true;
+      }
+    }
+
   divLoader() {
     var myDiv = document.getElementById("overlaylogin"),
 
