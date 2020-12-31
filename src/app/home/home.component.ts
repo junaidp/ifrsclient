@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
     city: this.signUpCity,
     contactNumber: this.signUpContact,
     companyAddress: this.signUpAddress,
-    currency: this.signUpCurency,
+    currency: localStorage.getItem('currency'),
     userType: this.signUpUserType,
     password: this.signUpPassword,
     confirmpassword: this.signUpRepeatPassword,
