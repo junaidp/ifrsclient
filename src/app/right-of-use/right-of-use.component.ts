@@ -18,7 +18,7 @@ export class RightOfUseComponent implements OnInit {
   leaseName = "All";
   lessorName = "All";
   classOfAsset = "All";
-  location  = "";
+  location = "";
   date = "";
   vendorName = "";
   startingDate = "";
@@ -27,7 +27,7 @@ export class RightOfUseComponent implements OnInit {
 
   leaseContractNo = "";
   classAsset = "";
-  commencementDate ="2019-03-11";
+  commencementDate = "2019-03-11";
   leaseNameIndividual = "";
   lessorNameIndividual = "";
   leasseeName = "";
@@ -65,31 +65,31 @@ export class RightOfUseComponent implements OnInit {
   escalationAfterEvery = "";
   contractCurrency = "";
   //mapIndividualUserDetails: Map<String, String>;
-  mapIndividualUserDetails:  Map<string, string>;
+  mapIndividualUserDetails: Map<string, string>;
   map: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   presentValue: number;
 
-//for quetsions hide 
- answer1Bool = true;
- answer2Bool = true;
- answer3Bool = true;
- answer4Bool = true;
- answer5Bool = true;
- answer6Bool = true;
- answer7Bool = true;
- 
-  constructor(public rightService: rightService, public leaseService: LeaseService,public globals: Globals,  private spinner: NgxSpinnerService) { }
+  //for quetsions hide 
+  answer1Bool = true;
+  answer2Bool = true;
+  answer3Bool = true;
+  answer4Bool = true;
+  answer5Bool = true;
+  answer6Bool = true;
+  answer7Bool = true;
+
+  constructor(public rightService: rightService, public leaseService: LeaseService, public globals: Globals, private spinner: NgxSpinnerService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
   mapClassOfAsset: Map<string, Map<string, string>>;
-  mapClassOfAssetFilter : Map<string,string>
-  mapLeaseNameFilter : Map<string,string>
-  mapLessorNameFilter : Map<string,string>
-  
-  
-  
+  mapClassOfAssetFilter: Map<string, string>
+  mapLeaseNameFilter: Map<string, string>
+  mapLessorNameFilter: Map<string, string>
+
+
+
   public getLeaseFilterValues() {
     var data = {
       filterName: "leaseName"
@@ -97,36 +97,36 @@ export class RightOfUseComponent implements OnInit {
     this.rightService.getFiltersData(data).then(response => {
       this.mapLeaseNameFilter = new Map(Object.entries(response.data));
       console.log(this.mapLeaseNameFilter)
-  });
-}
+    });
+  }
 
-public getLessorFilterValues() {
-  var data = {
-    filterName: "lessorName"
-  };
-  //alert(data)
-  this.rightService.getFiltersData(data).then(response => {
-    this.mapLessorNameFilter = new Map(Object.entries(response.data));
-    console.log(this.mapLessorNameFilter)
-});
-}
+  public getLessorFilterValues() {
+    var data = {
+      filterName: "lessorName"
+    };
+    //alert(data)
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLessorNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLessorNameFilter)
+    });
+  }
 
-public getClassOfAssetFilterValues() {
-  var data = {
-    filterName: "classOfAsset"
-  };
-  this.rightService.getFiltersData(data).then(response => {
-   this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
-  console.log(this.mapClassOfAssetFilter)
-});
-}
-  
+  public getClassOfAssetFilterValues() {
+    var data = {
+      filterName: "classOfAsset"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfAssetFilter)
+    });
+  }
+
   public getClassOfAsset() {
-  //  this.spinner.show();
+    //  this.spinner.show();
     var data = {};
-    
+
     this.leaseService.getClassOfAsset(data).then(response => {
-   //   this.spinner.hide();
+      //   this.spinner.hide();
       this.mapClassOfAsset = new Map(Object.entries(response.data));
       console.log(JSON.stringify(response.data));
     });
@@ -135,41 +135,44 @@ public getClassOfAssetFilterValues() {
   public getFilterUserData() {
     this.spinner.show();
     var data = {
-      leaseName: this.leaseName ,
+      leaseName: this.leaseName,
       lessorName: this.lessorName,
       classOfAsset: this.classOfAsset,
       userId: localStorage.getItem('userId'),
       companyId: localStorage.getItem('companyId')
     };
     //  this.spinner.show();
-     this.rightService.getReportData(data).then(response => {
-       this.spinner.hide();
+    this.rightService.getReportData(data).then(response => {
+      this.spinner.hide();
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data)
-   });
-    }
+    });
+  }
 
 
   ngOnInit() {
 
 
-      this.getClassOfAssetFilterValues();
-      this.getLeaseFilterValues();
-      this.getLessorFilterValues();
+    this.getClassOfAssetFilterValues();
+    this.getLeaseFilterValues();
+    this.getLessorFilterValues();
 
-    var me =this
+    var me = this
     var globalLInk = this.globals.APP_URL
-    $("#dataListUl").on("click", ".dataListLi", function(event){
+    $("#dataListUl").on("click", ".dataListLi", function (event) {
       me.spinner.show();
-      var dataId =$(this).attr('id');
-        var data = {
-          dataId: dataId
-        };
-        me.populateUserData(me, data);
-        me.populateDataTables(me, data);
-        me.spinner.hide();
+      var dataId = $(this).attr('id');
+      var data = {
+        dataId: dataId
+      };
+      me.populateUserData(me, data);
+      me.populateDataTables(me, data);
+      me.spinner.hide();
 
-  });
+    });
+    $('#confirm').on('click', function() {
+      confirm("Press a button!");
+    });
     me.spinner.show();
     var data = {};
     this.rightService.getUsersData(data).then(response => {
@@ -214,49 +217,49 @@ public getClassOfAssetFilterValues() {
       me.answer6 = userDetails.answer6
       me.answer7 = userDetails.answer7
       me.conclusion = userDetails.conclusion,
-      me.contractCurrency = userDetails.contractCurrency
+        me.contractCurrency = userDetails.contractCurrency
       console.log(response.data);
 
-      if(me.answer1 == ""){
+      if (me.answer1 == "") {
         me.answer1Bool = false;
       }
-      else{
+      else {
         me.answer1Bool = true;
       }
-      if(me.answer2 == ""){
+      if (me.answer2 == "") {
         me.answer2Bool = false;
       }
-      else{
+      else {
         me.answer2Bool = true;
       }
-      if(me.answer3 == ""){
+      if (me.answer3 == "") {
         me.answer3Bool = false;
       }
-      else{
+      else {
         me.answer3Bool = true;
       }
-      if(me.answer4 == ""){
+      if (me.answer4 == "") {
         me.answer4Bool = false;
       }
-      else{
+      else {
         me.answer4Bool = true;
       }
-      if(me.answer5 == ""){
+      if (me.answer5 == "") {
         me.answer5Bool = false;
       }
-      else{
+      else {
         me.answer5Bool = true;
       }
-      if(me.answer6 == ""){
+      if (me.answer6 == "") {
         me.answer6Bool = false;
       }
-      else{
+      else {
         me.answer6Bool = true;
       }
-      if(me.answer7 == ""){
+      if (me.answer7 == "") {
         me.answer7Bool = false;
       }
-      else{
+      else {
         me.answer7Bool = true;
       }
 
@@ -270,7 +273,7 @@ public getClassOfAssetFilterValues() {
       console.log(response.data)
       me.map1 = this.map.get("17");
       me.presentValue = this.map1[9];
-     
+
       console.log(response.data);
     });
   }
@@ -286,13 +289,13 @@ public getClassOfAssetFilterValues() {
   //   //     console.log(this.mapIndividualUserData)
   //   //  });
   //   $.ajax({
-      
+
   //     type: "GET",
   //     url: globalLInk+"data/getUserDataByDataId",
   //     data: data,
   // contentType: "application/json;charset-UTF-8",
 	//     success: function(result, status, xhr){
-        
+
   //       console.log(jQuery.parseJSON(result))
   //       var userDetails = jQuery.parseJSON(result)
   //       alert(userDetails.leaseName)
@@ -302,7 +305,7 @@ public getClassOfAssetFilterValues() {
   //       this.leaseContractNo = userDetails.leaseContractNo;
   //       this.commencementDate = userDetails.commencementDate;
   //       this.locationIndividual = userDetails.location;
-       
+
   //       //for second tab
   //       this.paymentsAt = userDetails.paymentsAt;
   //       this.annualDiscountRate = userDetails.annualDiscountRate;
