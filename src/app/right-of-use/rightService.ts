@@ -54,6 +54,18 @@ export class rightService {
     return response;
   }
 
+  async deleteSelectedLease(data) {
+    console.log(data)
+    var leaseId = data.leaseId
+    const url = this.globals.APP_URL+"data/deleteSelectedLease?leaseId=" +leaseId ;
+     const response = await axios.get(url,data).then(
+    );
+
+    
+    console.log(response);
+    return response;
+  }
+
   async getReportData(data) {
 
     const url = this.globals.APP_URL+"reports/getReportData";

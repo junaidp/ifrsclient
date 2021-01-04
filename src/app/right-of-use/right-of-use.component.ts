@@ -111,6 +111,20 @@ export class RightOfUseComponent implements OnInit {
     });
   }
 
+  
+  public deleteLease(event, id) {
+    alert("i am clicked" + id + "hello ")
+    alert($(this).attr('id') + "jj");
+    var data = {
+      leaseId: "00"
+    };
+    //alert(data)
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLessorNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLessorNameFilter)
+    });
+  }
+
   public getClassOfAssetFilterValues() {
     var data = {
       filterName: "classOfAsset"
@@ -152,6 +166,9 @@ export class RightOfUseComponent implements OnInit {
 
   ngOnInit() {
 
+    // $("#dataListUl").on("click", ".dataListLi > .deleteLease", function (event) {
+    //     alert("jquery run")
+    // })
 
     this.getClassOfAssetFilterValues();
     this.getLeaseFilterValues();
@@ -172,6 +189,7 @@ export class RightOfUseComponent implements OnInit {
     });
     $('#confirm').on('click', function() {
       confirm("Press a button!");
+      alert($(this).attr('id') + "jj");
     });
     me.spinner.show();
     var data = {};
