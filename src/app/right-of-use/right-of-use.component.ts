@@ -104,21 +104,6 @@ export class RightOfUseComponent implements OnInit {
     var data = {
       filterName: "lessorName"
     };
-    //alert(data)
-    this.rightService.getFiltersData(data).then(response => {
-      this.mapLessorNameFilter = new Map(Object.entries(response.data));
-      console.log(this.mapLessorNameFilter)
-    });
-  }
-
-  
-  public deleteLease(event, id) {
-    alert("i am clicked" + id + "hello ")
-    alert($(this).attr('id') + "jj");
-    var data = {
-      leaseId: "00"
-    };
-    //alert(data)
     this.rightService.getFiltersData(data).then(response => {
       this.mapLessorNameFilter = new Map(Object.entries(response.data));
       console.log(this.mapLessorNameFilter)
@@ -165,17 +150,31 @@ export class RightOfUseComponent implements OnInit {
 
 
   ngOnInit() {
+    // me will be used instead of this here
+    var me = this
+    //for click on delete icon for deleting userdara
+     this.deleteUsersData(me);
 
-    // $("#dataListUl").on("click", ".dataListLi > .deleteLease", function (event) {
-    //     alert("jquery run")
-    // })
 
     this.getClassOfAssetFilterValues();
     this.getLeaseFilterValues();
     this.getLessorFilterValues();
 
-    var me = this
+// for opening of userDetails modal wile clicking on details
+    this.openUserDetailModal(me);
+
     var globalLInk = this.globals.APP_URL
+    
+    $('#confirm').on('click', function() {
+      confirm("Press a button!");
+      alert($(this).attr('id') + "jj");
+    });
+    me.spinner.show();
+    this.populateInitialUsersData(me);
+  }
+
+
+  private openUserDetailModal(me: this) {
     $("#dataListUl").on("click", ".dataListLi", function (event) {
       me.spinner.show();
       var dataId = $(this).attr('id');
@@ -187,20 +186,55 @@ export class RightOfUseComponent implements OnInit {
       me.spinner.hide();
 
     });
-    $('#confirm').on('click', function() {
-      confirm("Press a button!");
+  }
+
+  private deleteUsersData(me: this) {
+    $("#dataListUl").on("click", ".dataListLi .row .deleteLease .deleteLeaseIcon", function (event) {
+      var leaseId = $(this).attr('id');
       alert($(this).attr('id') + "jj");
+
+      var data = {
+        leaseId: leaseId
+      };
+      //alert(data)
+      me.rightService.deleteSelectedLease(data).then(response => {
+        // this.mapLessorNameFilter = new Map(Object.entries(response.data));
+        console.log(response.data);
+
+        var msg;
+        if (response.data.includes("Fail")) {
+          msg = '<div class="alert alert-danger"  role="alert" >' + response.data + '</div>';
+          $('#rightOfUseResponsePanel').html(msg);
+          setTimeout(function () {
+            $('#rightOfUseResponsePanel .alert').slideToggle();
+          }, 6000);
+
+        }
+
+        else {
+          msg = '<div class="alert alert-info"  role="alert" >' + response.data + '</div>';
+          $('#rightOfUseResponsePanel').html(msg);
+          setTimeout(function () {
+            $('#rightOfUseResponsePanel .alert').slideToggle();
+          }, 6000);
+        }
+
+
+        me.populateInitialUsersData(me);
+      });
+
     });
-    me.spinner.show();
+  }
+
+  private populateInitialUsersData(me: this) {
     var data = {};
     this.rightService.getUsersData(data).then(response => {
       me.spinner.hide();
       this.mapUserFilter = new Map(Object.entries(response.data));
       this.mapUserData = new Map(Object.entries(response.data));
-      console.log(response.data)
+      console.log(response.data);
     });
   }
-
 
   private populateUserData(me: this, data: { dataId: any; }) {
     me.rightService.getIndividualReportDataByDataId(data).then(response => {
@@ -296,54 +330,3 @@ export class RightOfUseComponent implements OnInit {
     });
   }
 }
-
-
-  //     //  this.spinner.show();s
-  //   //    alert(data);
-  //   //    this.getFilterUserData();
-  //   //    this.rightService.getIndividualReportDataByDataId(data, dataId).then(response => {
-  //   //     alert(response.data)
-  //   //     this.mapIndividualUserData = new Map(Object.entries(response.data));
-  //   //     console.log(this.mapIndividualUserData)
-  //   //  });
-  //   $.ajax({
-
-  //     type: "GET",
-  //     url: globalLInk+"data/getUserDataByDataId",
-  //     data: data,
-  // contentType: "application/json;charset-UTF-8",
-	//     success: function(result, status, xhr){
-
-  //       console.log(jQuery.parseJSON(result))
-  //       var userDetails = jQuery.parseJSON(result)
-  //       alert(userDetails.leaseName)
-  //       this.leaseNameIndividual = userDetails.leaseName;
-  //       this.lessorNameIndividual = userDetails.lessorName;
-  //       this.classOfAssetIndividual = userDetails.classOfAsset;
-  //       this.leaseContractNo = userDetails.leaseContractNo;
-  //       this.commencementDate = userDetails.commencementDate;
-  //       this.locationIndividual = userDetails.location;
-
-  //       //for second tab
-  //       this.paymentsAt = userDetails.paymentsAt;
-  //       this.annualDiscountRate = userDetails.annualDiscountRate;
-  //       this.leaseTerm = userDetails.leaseTerm;
-  //       this.expectedPeriod = userDetails.expectedPeriod;
-  //       this.leasePayment = userDetails.leasePayment;
-  //       this.paymentIntervals = userDetails.paymentIntervals;
-  //       this.initialDirectCost = userDetails.initialDirectCost;
-  //       this.guaranteedResidualValue = userDetails.guaranteedResidualValue;
-  //       this.usefulLifeOfTheAsset = userDetails.usefulLifeOfTheAsset;
-  //       this.escalation = userDetails.escalation;
-  //       this.escalationAfterEvery = userDetails.escalationAfterEvery;
-
-  //       alert(this.classOfAssetIndividual)
-  //   //    this.contractCurrency = userDetails.;
-
-  //       // this.mapIndividualUserDetails = new Map(Object.values(userDetails))
-  //       // console.log(this.mapIndividualUserDetails)
-  //     },
-  //     error: function() {
-  //       alert('There was some error performing the AJAX call!');
-  //     }
-	// });

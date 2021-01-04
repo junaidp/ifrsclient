@@ -84,6 +84,8 @@
         </div>
     </div>
 
+    <div id="rightOfUseResponsePanel"></div>
+
     <div class="container mt-4 border-top">
         <div class="row mt-4 responsive_display">
             <div class="col-1">
@@ -122,7 +124,7 @@
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
                             <input type="hidden" value= "{{row.value['id']}}"  name = hiddenDataId >
-                            <div class="col-lg-1 col-md-6 col-6"><i class="far fa-times-circle deleteLease" (click)="deleteLease();" id="{{row.value['id']}}"></i></div>
+                            <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon"  id="{{row.value['id']}}"></i></div>
                         </div>
                     </li>
                 </ul>
