@@ -29,4 +29,11 @@ export class Loginservice {
     );
     return response;
   }
+
+  async resetPassword(data) {
+    const url = this.globals.APP_URL+"/users/resetPasswordEmail";
+     const response = await axios.post(url, data).then(
+    );
+    return response;
+  }
 }

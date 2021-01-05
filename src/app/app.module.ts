@@ -44,6 +44,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ShowUsersComponent } from './show-users/show-users.component';
 import { ApproverequestComponent } from './approverequest/approverequest.component';
 import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
+import { RequestApprovedCompanyComponent } from './request-approved-company/request-approved-company.component';
 
 @NgModule({
   declarations: [		
@@ -82,7 +83,8 @@ import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.c
     JournalEntriesftaComponent,
     ShowUsersComponent,
       ApproverequestComponent,
-      RequeestApprovedComponent
+      RequeestApprovedComponent,
+      RequestApprovedCompanyComponent
    ],
   imports: [
     BrowserModule,

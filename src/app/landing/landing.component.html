@@ -543,11 +543,11 @@
                             <a id="forgot_pswd" onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();">Forgot password?</a>
                             <hr>
                             <!-- <p>Don't have an account!</p>  -->
-                            <button class="btn btn-primary btn-block" type="button" id="btn-signup" onclick="$('.Company_login').hide();$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+                            <button class="btn btn-primary btn-block" type="button"  id="btn-signup" onclick="$('.Company_login').hide();$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-user-plus"></i> Sign up New Account</button>
                         </form>
 
                         <form action="/reset/password/" class="form-reset" #myForm='ngForm'>
-                            <input type="email" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <input type="email"  [(ngModel)] = "resetPasswordEmail" name = "resetPasswordEmail" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
                             <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
                             <a onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();"><i class="fas fa-angle-left"></i> Back</a>
                         </form>

@@ -43,6 +43,9 @@ export class LandingComponent implements OnInit {
   contactEmail = "";
   contactSubject = "";
   contactMessage = "";
+
+  //for reset email password
+  resetPasswordEmail = ""
   constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService) {
     
    }
@@ -160,6 +163,20 @@ export class LandingComponent implements OnInit {
   trialClick() {
     this.globals.paymentSchedule = "trial";
     };
+
+
+    private resetPassword() {
+      var data = {
+        email: this.resetPasswordEmail
+      };
+  
+      this.loginservice.resetPassword(data).then(response => {
+        //  hide();
+        console.log(response.data);
+        alert(JSON.stringify(response.data));
+      });
+    }
+
 
     closeAlert() {
       this.validatorSignIn = true;

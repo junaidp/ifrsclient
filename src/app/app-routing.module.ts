@@ -36,11 +36,13 @@ import { PaymentscheduleComponent } from './paymentschedule/paymentschedule.comp
 import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimeadoptionjournalentrycommulative/firsttimeadoptionjournalentrycommulative.component';
 import { ApproverequestComponent } from './approverequest/approverequest.component';
 import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
+import { RequestApprovedCompanyComponent} from './request-approved-company/request-approved-company.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'RequeestApproved', component: RequeestApprovedComponent },
+  { path: 'requestApprovedCompany', component: RequeestApprovedComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent},
   { path: 'journalEntriesfta', component: JournalEntriesftaComponent},
