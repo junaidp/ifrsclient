@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'RequeestApproved', component: RequeestApprovedComponent },
-  { path: 'requestApprovedCompany', component: RequeestApprovedComponent },
+  { path: 'requestApprovedCompany', component: RequestApprovedCompanyComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent},
   { path: 'journalEntriesfta', component: JournalEntriesftaComponent},
