@@ -221,6 +221,9 @@ export class RightOfUseComponent implements OnInit {
 
 
         me.populateInitialUsersData(me);
+        me.getLeaseFilterValues();
+        me.getLessorFilterValues();
+        me.getClassOfAssetFilterValues();
       });
 
     });
