@@ -153,19 +153,19 @@ export class RightOfUseComponent implements OnInit {
     // me will be used instead of this here
     var me = this
     //for click on delete icon for deleting userdara
-     this.deleteUsersData(me);
+    this.deleteUsersData(me);
 
 
     this.getClassOfAssetFilterValues();
     this.getLeaseFilterValues();
     this.getLessorFilterValues();
 
-// for opening of userDetails modal wile clicking on details
+    // for opening of userDetails modal wile clicking on details
     this.openUserDetailModal(me);
 
     var globalLInk = this.globals.APP_URL
-    
-    $('#confirm').on('click', function() {
+
+    $('#confirm').on('click', function () {
       confirm("Press a button!");
       alert($(this).attr('id') + "jj");
     });
@@ -190,41 +190,43 @@ export class RightOfUseComponent implements OnInit {
 
   private deleteUsersData(me: this) {
     $("#dataListUl").on("click", ".dataListLi .row .deleteLease .deleteLeaseIcon", function (event) {
-      var leaseId = $(this).attr('id');
-      alert($(this).attr('id') + "jj");
+      if (confirm("Press okay if you want to delete this!")) {
+        var leaseId = $(this).attr('id');
+        alert($(this).attr('id') + "jj");
 
-      var data = {
-        leaseId: leaseId
-      };
-      //alert(data)
-      me.rightService.deleteSelectedLease(data).then(response => {
-        // this.mapLessorNameFilter = new Map(Object.entries(response.data));
-        console.log(response.data);
+        var data = {
+          leaseId: leaseId
+        };
+        //alert(data)
+        me.rightService.deleteSelectedLease(data).then(response => {
+          // this.mapLessorNameFilter = new Map(Object.entries(response.data));
+          console.log(response.data);
 
-        var msg;
-        if (response.data.includes("Fail")) {
-          msg = '<div class="alert alert-danger"  role="alert" >' + response.data + '</div>';
-          $('#rightOfUseResponsePanel').html(msg);
-          setTimeout(function () {
-            $('#rightOfUseResponsePanel .alert').slideToggle();
-          }, 6000);
+          var msg;
+          if (response.data.includes("Fail")) {
+            msg = '<div class="alert alert-danger"  role="alert" >' + response.data + '</div>';
+            $('#rightOfUseResponsePanel').html(msg);
+            setTimeout(function () {
+              $('#rightOfUseResponsePanel .alert').slideToggle();
+            }, 6000);
 
-        }
+          }
 
-        else {
-          msg = '<div class="alert alert-info"  role="alert" >' + response.data + '</div>';
-          $('#rightOfUseResponsePanel').html(msg);
-          setTimeout(function () {
-            $('#rightOfUseResponsePanel .alert').slideToggle();
-          }, 6000);
-        }
+          else {
+            msg = '<div class="alert alert-info"  role="alert" >' + response.data + '</div>';
+            $('#rightOfUseResponsePanel').html(msg);
+            setTimeout(function () {
+              $('#rightOfUseResponsePanel .alert').slideToggle();
+            }, 6000);
+          }
 
 
-        me.populateInitialUsersData(me);
-        me.getLeaseFilterValues();
-        me.getLessorFilterValues();
-        me.getClassOfAssetFilterValues();
-      });
+          me.populateInitialUsersData(me);
+          me.getLeaseFilterValues();
+          me.getLessorFilterValues();
+          me.getClassOfAssetFilterValues();
+        });
+      }
 
     });
   }
