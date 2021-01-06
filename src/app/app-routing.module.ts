@@ -37,12 +37,14 @@ import { FirsttimeadoptionjournalentrycommulativeComponent } from './firsttimead
 import { ApproverequestComponent } from './approverequest/approverequest.component';
 import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
 import { RequestApprovedCompanyComponent} from './request-approved-company/request-approved-company.component';
+import { ResetPasswordComponent} from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'RequeestApproved', component: RequeestApprovedComponent },
   { path: 'requestApprovedCompany', component: RequestApprovedCompanyComponent },
+  { path: 'resetPassword', component: ResetPasswordComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent},
   { path: 'journalEntriesfta', component: JournalEntriesftaComponent},

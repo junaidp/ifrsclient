@@ -45,6 +45,7 @@ import { ShowUsersComponent } from './show-users/show-users.component';
 import { ApproverequestComponent } from './approverequest/approverequest.component';
 import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
 import { RequestApprovedCompanyComponent } from './request-approved-company/request-approved-company.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [		
@@ -84,7 +85,8 @@ import { RequestApprovedCompanyComponent } from './request-approved-company/requ
     ShowUsersComponent,
       ApproverequestComponent,
       RequeestApprovedComponent,
-      RequestApprovedCompanyComponent
+      RequestApprovedCompanyComponent,
+      ResetPasswordComponent
    ],
   imports: [
     BrowserModule,

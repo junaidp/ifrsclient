@@ -139,6 +139,18 @@ export class LandingComponent implements OnInit {
       }
     };
 
+  resetPassword() {
+    var data = {
+      email: this.resetPasswordEmail
+    };
+    alert(data)
+    this.loginservice.resetPassword(data).then(response => {
+      //  hide();
+      console.log(response.data);
+      alert(JSON.stringify(response.data));
+    });
+    }
+
   private getUserDetails() {
     var getUserData = {
       userId: this.globals.userId
@@ -165,17 +177,7 @@ export class LandingComponent implements OnInit {
     };
 
 
-    private resetPassword() {
-      var data = {
-        email: this.resetPasswordEmail
-      };
-  
-      this.loginservice.resetPassword(data).then(response => {
-        //  hide();
-        console.log(response.data);
-        alert(JSON.stringify(response.data));
-      });
-    }
+
 
 
     closeAlert() {

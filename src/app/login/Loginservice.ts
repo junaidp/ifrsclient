@@ -31,8 +31,9 @@ export class Loginservice {
   }
 
   async resetPassword(data) {
-    const url = this.globals.APP_URL+"/users/resetPasswordEmail";
-     const response = await axios.post(url, data).then(
+    var email = data.email
+    const url = this.globals.APP_URL+"/users/resetPasswordEmail?email="+ email;
+     const response = await axios.get(url, data).then(
     );
     return response;
   }
