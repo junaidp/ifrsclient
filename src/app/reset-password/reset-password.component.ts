@@ -17,8 +17,8 @@ export class ResetPasswordComponent implements OnInit {
 
   resetPassword() {
     var data = {
-      email: this.resetPasswordEmail,
-      id: this.userId
+      password: this.resetPasswordEmail,
+      userId: this.userId
     };
     alert(JSON.stringify(data));
     this.resetPasswordService.resetPassword(data).then(response => {
@@ -34,6 +34,7 @@ export class ResetPasswordComponent implements OnInit {
     var vars = query.split("=");
     var ID = vars[1];
     this.userId = ID
+    alert(this.userId)
 
 
 

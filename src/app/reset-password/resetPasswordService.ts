@@ -11,7 +11,7 @@ export class resetPasswordService {
   }
 
   async resetPassword(data) {
-    var userId = data.id
+    var userId = data.userId
     var password = data.password
     const url = this.globals.APP_URL+"users/resetPassword?userId=" +userId +"&password="+password;
 
