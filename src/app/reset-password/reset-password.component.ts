@@ -56,6 +56,12 @@ export class ResetPasswordComponent implements OnInit {
 
       $('#mainNavBar').hide();
     });
+    $('#user-pass, #user-repeatpass').on('keyup', function () {
+      if ($('#user-pass').val() == $('#user-repeatpass').val()) {
+        $('#message').html('Matching').css('color', 'green');
+      } else 
+        $('#message').html('Not Matching').css('color', 'red');
+    });
   }
 
 }
