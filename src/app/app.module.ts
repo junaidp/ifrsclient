@@ -46,6 +46,7 @@ import { ApproverequestComponent } from './approverequest/approverequest.compone
 import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
 import { RequestApprovedCompanyComponent } from './request-approved-company/request-approved-company.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordCompanyComponent } from './reset-password-company/reset-password-company.component';
 
 @NgModule({
   declarations: [		
@@ -86,7 +87,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
       ApproverequestComponent,
       RequeestApprovedComponent,
       RequestApprovedCompanyComponent,
-      ResetPasswordComponent
+      ResetPasswordComponent,
+      ResetPasswordCompanyComponent
    ],
   imports: [
     BrowserModule,
