@@ -13,9 +13,12 @@ import { NgxSpinnerService } from "ngx-spinner";
 
 export class RequeestApprovedComponent implements OnInit {
   userId = ""
-  constructor(private route: ActivatedRoute) { }
+  url = ""
+
+  constructor(private route: ActivatedRoute , public globals: Globals) { }
 
   ngOnInit() {
+    //const url = this.globals.APP_URL+"/data/getData";
     //console.log(this.route.snapshot.paramMap)
     //this.userId = this.route.snapshot.paramMap.get("id")
 
@@ -23,6 +26,7 @@ export class RequeestApprovedComponent implements OnInit {
     // var id = url.substring(url.lastIndexOf('/') + 1);
     // console.log(this.userId);
     // alert(id);
+    this.url = this.globals.APP_URL
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
@@ -31,7 +35,7 @@ export class RequeestApprovedComponent implements OnInit {
 
 
     $.ajax({
-      url: 'http://3f67e325e8e6.ngrok.io/users/activateUser?userId='+ ID,
+      url: this.url+'/users/activateUser?userId='+ ID,
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json; charset=utf-8',
