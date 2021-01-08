@@ -24,8 +24,25 @@ export class ResetPasswordComponent implements OnInit {
     this.resetPasswordService.resetPassword(data).then(response => {
       //  hide();
       console.log(response.data);
-      alert(JSON.stringify(response.data));
-    });
+      var msg;
+      if(response.data.includes("Fail")){
+         msg = '<div class="alert alert-danger"  role="alert" > Failed to reset Email please contact your technical department</div>';
+         $('#resetUserPasswordResponcePanel').html(msg);
+         setTimeout(function () {
+           $('#resetUserPasswordResponcePanel .alert').slideToggle();
+         }, 6000);
+      
+        }
+      else
+      {
+        msg = '<div class="alert alert-info"   role="alert" >'+response.data +'</div>';
+        $('#resetUserPasswordResponcePanel').html(msg);
+        setTimeout(function () {
+          $('#resetUserPasswordResponcePanel .alert').slideToggle();
+        }, 6000);
+      }
+     
+      });
     }
 
   ngOnInit() {

@@ -147,7 +147,25 @@ export class LandingComponent implements OnInit {
     this.loginservice.resetPassword(data).then(response => {
       //  hide();
       console.log(response.data);
-      alert(JSON.stringify(response.data));
+
+      var msg;
+    if(response.data.includes("Fail")){
+       msg = '<div class="alert alert-danger"  role="alert" > Failed to send reset email.you may contact technical team</div>';
+       $('#resetPasswordResponsePanel').html(msg);
+       setTimeout(function () {
+         $('#resetPasswordResponsePanel .alert').slideToggle();
+       }, 6000);
+    
+      }
+    else
+    {
+      msg = '<div class="alert alert-info"   role="alert" >'+response.data +'</div>';
+      $('#resetPasswordResponsePanel').html(msg);
+      setTimeout(function () {
+        $('#resetPasswordResponsePanel .alert').slideToggle();
+      }, 6000);
+    }
+   
     });
     }
 
@@ -222,7 +240,11 @@ export class LandingComponent implements OnInit {
               $('body').css({'overflow':'auto','padding-right':'0px'});
             }else{
               localStorage.clear();
-              alert('This user is not active yet!');
+              var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >This user is not active yet!</div>';
+            $('#signInResponsePanel').html(msg);
+            setTimeout(function () {
+              $('#signInResponsePanel .alert').slideToggle();
+            }, 6000);
               $('.modal-backdrop').attr('style','display:none !important');
               $('body').css({'overflow':'auto','padding-right':'0px'});
             }
