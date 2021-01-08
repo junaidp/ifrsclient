@@ -140,11 +140,12 @@ export class LandingComponent implements OnInit {
     };
 
   resetPassword() {
+    this.spinner.show();
     var data = {
       email: this.resetPasswordEmail
     };
-    alert(data)
     this.loginservice.resetPassword(data).then(response => {
+      this.spinner.hide();
       //  hide();
       console.log(response.data);
 
@@ -217,15 +218,6 @@ export class LandingComponent implements OnInit {
             }, 6000);
           }
     
-          // if(response.data.includes("Activation")){
-    
-          //   var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Your account is not verified yet by the admin</div>';
-          //   $('#signInResponsePanel').html(msg);
-          //   setTimeout(function () {
-          //     $('#signInResponsePanel .alert').slideToggle();
-          //   }, 6000);
-          // }
-    
           if (data.name == response.data.email && data.password == response.data.password) 
           {
             $('.modal-backdrop').toggle();
@@ -285,10 +277,7 @@ export class LandingComponent implements OnInit {
       else if($('#company_checkbox').prop("checked") == true){
         this.signUpUserType = "company";
       }
-  
-      // if(this.globals.paymentSchedule == "trial"){
-      //   this.signUpUserType = "trialUser"
-      // }
+
 
       return {
         name: this.signUpUserName,

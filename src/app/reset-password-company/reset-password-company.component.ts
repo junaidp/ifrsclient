@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { resetPasswordCompanyService } from "./resetPasswordCompanyService";
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-reset-password-company',
   templateUrl: './reset-password-company.component.html',
@@ -10,15 +11,16 @@ export class ResetPasswordCompanyComponent implements OnInit {
 
   resetPasswordEmail =""
   companyId="" 
-  constructor(private route: ActivatedRoute, private resetPasswordCompanyService : resetPasswordCompanyService) { }
+  constructor(private route: ActivatedRoute, private resetPasswordCompanyService : resetPasswordCompanyService,  private spinner: NgxSpinnerService) { }
 
   resetPassword() {
+    this.spinner.show();
     var data = {
       password: this.resetPasswordEmail,
       companyId: this.companyId
     };
-    alert(JSON.stringify(data));
     this.resetPasswordCompanyService.resetPasswordCompany(data).then(response => {
+      this.spinner.hide();
       //  hide();
       console.log(response.data);
       var msg;
@@ -50,24 +52,7 @@ export class ResetPasswordCompanyComponent implements OnInit {
     var vars = query.split("=");
     var ID = vars[1];
     this.companyId = ID
-    alert(this.companyId)
-
-
-
-    // $.ajax({
-    //   url: 'http://3f67e325e8e6.ngrok.io/users/activateUser?userId='+ ID,
-    //   type: 'POST',
-    //   dataType: 'json',
-    //   contentType: 'application/json; charset=utf-8',
-    //   data: JSON.stringify({
-    //     userId: ID
-    //   }),
-
-    //   success: function (data) {
-    //     alert("Saved successfully");
-    //   }
-
-    // });
+  
     $(document).ready(function () {
 
       $('#mainNavBar').hide();

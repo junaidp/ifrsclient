@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { resetPasswordService } from "./resetPasswordService";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-reset-password',
@@ -11,17 +12,18 @@ import { resetPasswordService } from "./resetPasswordService";
 export class ResetPasswordComponent implements OnInit {
   resetPasswordEmail =""
   userId="" 
-  constructor(private route: ActivatedRoute, private resetPasswordService : resetPasswordService) { }
+  constructor(private route: ActivatedRoute, private resetPasswordService : resetPasswordService,  private spinner: NgxSpinnerService) { }
 
 
 
   resetPassword() {
+    this.spinner.show();
     var data = {
       password: this.resetPasswordEmail,
       userId: this.userId
     };
-    alert(JSON.stringify(data));
     this.resetPasswordService.resetPassword(data).then(response => {
+      this.spinner.hide();
       //  hide();
       console.log(response.data);
       var msg;
@@ -51,24 +53,6 @@ export class ResetPasswordComponent implements OnInit {
     var vars = query.split("=");
     var ID = vars[1];
     this.userId = ID
-    alert(this.userId)
-
-
-
-    // $.ajax({
-    //   url: 'http://3f67e325e8e6.ngrok.io/users/activateUser?userId='+ ID,
-    //   type: 'POST',
-    //   dataType: 'json',
-    //   contentType: 'application/json; charset=utf-8',
-    //   data: JSON.stringify({
-    //     userId: ID
-    //   }),
-
-    //   success: function (data) {
-    //     alert("Saved successfully");
-    //   }
-
-    // });
     $(document).ready(function () {
 
       $('#mainNavBar').hide();
