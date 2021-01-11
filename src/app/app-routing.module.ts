@@ -38,6 +38,7 @@ import { ApproverequestComponent } from './approverequest/approverequest.compone
 import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.component';
 import { RequestApprovedCompanyComponent} from './request-approved-company/request-approved-company.component';
 import { ResetPasswordComponent} from './reset-password/reset-password.component';
+import { ResetPasswordCompanyComponent} from './reset-password-company/reset-password-company.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'RequeestApproved', component: RequeestApprovedComponent },
   { path: 'requestApprovedCompany', component: RequestApprovedCompanyComponent },
   { path: 'resetPassword', component: ResetPasswordComponent },
+  { path: 'resetPasswordCompany', component: ResetPasswordCompanyComponent },
   { path: 'home', component: HomeComponent },
   { path: 'journalEntries', component: JournalEntriesComponent},
   { path: 'journalEntriesfta', component: JournalEntriesftaComponent},

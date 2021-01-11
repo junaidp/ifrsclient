@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import {Globals} from "../globals";
 
 @Component({
   selector: 'app-request-approved-company',
@@ -8,9 +9,12 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class RequestApprovedCompanyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute , public globals: Globals) { }
   userId = ""
-  ngOnInit() {//console.log(this.route.snapshot.paramMap)
+  url = ""
+  ngOnInit() {
+    this.url = this.globals.APP_URL
+    //console.log(this.route.snapshot.paramMap)
     //this.userId = this.route.snapshot.paramMap.get("id")
 
     // var url = window.location.pathname;
@@ -25,7 +29,7 @@ export class RequestApprovedCompanyComponent implements OnInit {
 
 
     $.ajax({
-      url: 'http://3f67e325e8e6.ngrok.io/users/activateCompany?companyId='+ ID,
+      url: this.url+'users/activateCompany?companyId='+ ID,
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json; charset=utf-8',

@@ -547,6 +547,7 @@
                         </form>
 
                         <form action="/reset/password/" class="form-reset" #myForm='ngForm'>
+                            <div id="resetPasswordResponsePanel"></div>
                             <input type="email"  [(ngModel)] = "resetPasswordEmail" name = "resetPasswordEmail" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
                             <button class="btn btn-primary btn-block" (click) = "resetPassword()" type="submit">Reset Password</button>
                             <a onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();"><i class="fas fa-angle-left"></i> Back</a>

@@ -1,58 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { resetPasswordService } from "./resetPasswordService";
+import { resetPasswordCompanyService } from "./resetPasswordCompanyService";
 import { NgxSpinnerService } from "ngx-spinner";
-
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  selector: 'app-reset-password-company',
+  templateUrl: './reset-password-company.component.html',
+  styleUrls: ['./reset-password-company.component.css']
 })
+export class ResetPasswordCompanyComponent implements OnInit {
 
-export class ResetPasswordComponent implements OnInit {
   resetPasswordEmail =""
-  userId="" 
-  constructor(private route: ActivatedRoute, private resetPasswordService : resetPasswordService,  private spinner: NgxSpinnerService) { }
-
-
+  companyId="" 
+  constructor(private route: ActivatedRoute, private resetPasswordCompanyService : resetPasswordCompanyService,  private spinner: NgxSpinnerService) { }
 
   resetPassword() {
     this.spinner.show();
     var data = {
       password: this.resetPasswordEmail,
-      userId: this.userId
+      companyId: this.companyId
     };
-    this.resetPasswordService.resetPassword(data).then(response => {
+    this.resetPasswordCompanyService.resetPasswordCompany(data).then(response => {
       this.spinner.hide();
       //  hide();
       console.log(response.data);
       var msg;
       if(response.data.includes("Fail")){
          msg = '<div class="alert alert-danger"  role="alert" > Failed to reset Email please contact your technical department</div>';
-         $('#resetUserPasswordResponcePanel').html(msg);
+         $('#resetCompanyPasswordResponsePanel').html(msg);
          setTimeout(function () {
-           $('#resetUserPasswordResponcePanel .alert').slideToggle();
+           $('#resetCompanyPasswordResponsePanel .alert').slideToggle();
          }, 6000);
       
         }
       else
       {
         msg = '<div class="alert alert-info"   role="alert" >'+response.data +'</div>';
-        $('#resetUserPasswordResponcePanel').html(msg);
+        $('#resetCompanyPasswordResponsePanel').html(msg);
         setTimeout(function () {
-          $('#resetUserPasswordResponcePanel .alert').slideToggle();
+          $('#resetCompanyPasswordResponsePanel .alert').slideToggle();
         }, 6000);
       }
      
       });
     }
-
+  
   ngOnInit() {
+
+    
 
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
-    this.userId = ID
+    this.companyId = ID
+  
     $(document).ready(function () {
 
       $('#mainNavBar').hide();

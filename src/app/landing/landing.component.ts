@@ -140,14 +140,33 @@ export class LandingComponent implements OnInit {
     };
 
   resetPassword() {
+    this.spinner.show();
     var data = {
       email: this.resetPasswordEmail
     };
-    alert(data)
     this.loginservice.resetPassword(data).then(response => {
+      this.spinner.hide();
       //  hide();
       console.log(response.data);
-      alert(JSON.stringify(response.data));
+
+      var msg;
+    if(response.data.includes("Fail")){
+       msg = '<div class="alert alert-danger"  role="alert" > Failed to send reset email.you may contact technical team</div>';
+       $('#resetPasswordResponsePanel').html(msg);
+       setTimeout(function () {
+         $('#resetPasswordResponsePanel .alert').slideToggle();
+       }, 6000);
+    
+      }
+    else
+    {
+      msg = '<div class="alert alert-info"   role="alert" >'+response.data +'</div>';
+      $('#resetPasswordResponsePanel').html(msg);
+      setTimeout(function () {
+        $('#resetPasswordResponsePanel .alert').slideToggle();
+      }, 6000);
+    }
+   
     });
     }
 
@@ -199,15 +218,6 @@ export class LandingComponent implements OnInit {
             }, 6000);
           }
     
-          // if(response.data.includes("Activation")){
-    
-          //   var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >Your account is not verified yet by the admin</div>';
-          //   $('#signInResponsePanel').html(msg);
-          //   setTimeout(function () {
-          //     $('#signInResponsePanel .alert').slideToggle();
-          //   }, 6000);
-          // }
-    
           if (data.name == response.data.email && data.password == response.data.password) 
           {
             $('.modal-backdrop').toggle();
@@ -222,7 +232,11 @@ export class LandingComponent implements OnInit {
               $('body').css({'overflow':'auto','padding-right':'0px'});
             }else{
               localStorage.clear();
-              alert('This user is not active yet!');
+              var msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >This user is not active yet!</div>';
+            $('#signInResponsePanel').html(msg);
+            setTimeout(function () {
+              $('#signInResponsePanel .alert').slideToggle();
+            }, 6000);
               $('.modal-backdrop').attr('style','display:none !important');
               $('body').css({'overflow':'auto','padding-right':'0px'});
             }
@@ -263,10 +277,7 @@ export class LandingComponent implements OnInit {
       else if($('#company_checkbox').prop("checked") == true){
         this.signUpUserType = "company";
       }
-  
-      // if(this.globals.paymentSchedule == "trial"){
-      //   this.signUpUserType = "trialUser"
-      // }
+
 
       return {
         name: this.signUpUserName,
