@@ -15,6 +15,7 @@ declare var $: any;
 export class NewLeaseComponent implements OnInit {
   constructor(public leaseService: LeaseService, public globals: Globals, private router: Router, private spinner: NgxSpinnerService) { }
 
+  fileToUpload: File = null;
   mapClassOfAsset: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   presentValue: number;
@@ -62,6 +63,20 @@ export class NewLeaseComponent implements OnInit {
   map: Map<string, Map<string, string>>;
 
   //getting user
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+    alert(this.fileToUpload.name)
+}
+
+
+uploadFileToActivity() {
+  this.leaseService.postFile(this.fileToUpload).subscribe(data => {
+    // do something, if upload success
+    }, error => {
+      console.log(error);
+    });
+}
 
   calculate() {
 
