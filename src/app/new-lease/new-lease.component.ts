@@ -16,6 +16,7 @@ export class NewLeaseComponent implements OnInit {
   constructor(public leaseService: LeaseService, public globals: Globals, private router: Router, private spinner: NgxSpinnerService) { }
 
   fileToUpload: File = null;
+  myFiles: any;
   mapClassOfAsset: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   presentValue: number;
@@ -64,6 +65,30 @@ export class NewLeaseComponent implements OnInit {
 
   //getting user
 
+  getFileDetails (e) {
+    this.myFiles = []
+    console.log (e.target.files);
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.myFiles.push(e.target.files[i]);
+    }
+  }
+  
+  addFollowUp1() {            
+    const frmData = new FormData();
+  
+    for (var i = 0; i < this.myFiles.length; i++) {
+      frmData.append("file", this.myFiles[i]);
+    }
+    console.log(frmData)
+    this.leaseService.addFollowUpAttachment(frmData).subscribe();
+  }
+
+
+
+
+
+
+
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
     alert(this.fileToUpload.name)
@@ -71,12 +96,26 @@ export class NewLeaseComponent implements OnInit {
 
 
 uploadFileToActivity() {
-  this.leaseService.postFile(this.fileToUpload).subscribe(data => {
-    // do something, if upload success
-    }, error => {
-      console.log(error);
-    });
-}
+  // this.leaseService.postFile(this.fileToUpload).subscribe(data => {
+  //  // alert(data)
+  //   // do something, if upload success
+  //   }, error => {
+  //     console.log(error);
+  var data = {
+    fileToUpload: this.fileToUpload,
+    paymentsAt: "asd",
+      annualDiscountRate: "def",
+      leaseTerm: "ghi",
+      expectedPeriod:"klm",
+      leasePayment: "nop",
+      paymentIntervals: "wwe",
+  }
+  this.leaseService.postFile(data).then(response => {
+     });
+    }
+
+
+
 
   calculate() {
 
