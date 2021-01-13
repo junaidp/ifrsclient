@@ -72,9 +72,14 @@ export class LeaseService {
   }
 
 
-  public addFollowUpAttachment(file: FormData): Observable<any> {
+  // public addFollowUpAttachment(file: FormData): Observable<any> {
+  //   alert(FormData)
+  //   return this.http.post(this.globals.APP_URL+"/data/addAttachment", file );
+  // }
+
+  public addFollowUpAttachment(file: FormData,data): Observable<any> {
     alert(FormData)
-    return this.http.post(this.globals.APP_URL+"/data/addAttachment", file );
+    return this.http.post(this.globals.APP_URL+"/data/addAttachment", {file},{headers: data} );
   }
 }
 //return this.http.post(this.url+'upload',{"file" : formData},{headers: headers})
