@@ -73,90 +73,20 @@ export class NewLeaseComponent implements OnInit {
     }
   }
   
-  addFollowUp1() {            
+  saveFileWithLeaseId() {            
     const frmData = new FormData();
+    console.log(this.myFiles)
   
     for (var i = 0; i < this.myFiles.length; i++) {
       frmData.append("file", this.myFiles[i]);
+      frmData.append("id" , "2");
     }
-
-    var data = {
-
-      leaseContractNo: this.leaseContractNo,
-      classAsset: this.classAsset,
-      commencementDate: this.commencementDate,
-      paymentsAt: this.paymentsAt,
-      annualDiscountRate: this.annualDiscountRate,
-      leaseTerm: this.leaseTerm,
-      expectedPeriod: this.expectedPeriod,
-      leasePayment: this.leasePayment,
-      paymentIntervals: this.paymentIntervals,
-      initialDirectCost: this.initialDirectCost,
-      guaranteedResidualValue: this.guaranteedResidualValue,
-      usefulLifeOfTheAsset: this.usefulLifeOfTheAsset,
-      escalation: this.escalation,
-      escalationAfterEvery: this.escalationAfterEvery,
-      userId: this.userId,
-      companyId: localStorage.getItem('companyId'),
-      leaseName: this.leaseName,
-      lessorName: this.lessorName,
-      lesseeName: this.leasseeName,
-      classOfAsset: this.classAsset,
-      location: this.location,
-      contractCurrency: this.contractCurrency,
-
-      // contractCurrency:this.contractCurrency,
-      answer1: this.answer1,
-      answer2: this.answer2,
-      answer3: this.answer3,
-      answer4: this.answer4,
-      answer5: this.answer5,
-      answer6: this.answer6,
-      answer7: this.answer7,
-    };
-
     console.log(frmData)
-    this.leaseService.addFollowUpAttachment(frmData,data).subscribe();
+    this.leaseService.addFollowUpAttachment(frmData).subscribe();
   }
-
-
-
-
-
-
-
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    alert(this.fileToUpload.name)
-}
-
-
-uploadFileToActivity() {
-  // this.leaseService.postFile(this.fileToUpload).subscribe(data => {
-  //  // alert(data)
-  //   // do something, if upload success
-  //   }, error => {
-  //     console.log(error);
-  var data = {
-    fileToUpload: this.fileToUpload,
-    paymentsAt: "asd",
-      annualDiscountRate: "def",
-      leaseTerm: "ghi",
-      expectedPeriod:"klm",
-      leasePayment: "nop",
-      paymentIntervals: "wwe",
-  }
-  this.leaseService.postFile(data).then(response => {
-     });
-    }
-
-
 
 
   calculate() {
-
-
-
 
     var data = {
 
