@@ -72,14 +72,16 @@ export class NewLeaseComponent implements OnInit {
       this.myFiles.push(e.target.files[i]);
     }
   }
+
   
-  saveFileWithLeaseId() {            
+  saveFileWithLeaseId(dataId) {   
+    alert(dataId)         
     const frmData = new FormData();
     console.log(this.myFiles)
   
     for (var i = 0; i < this.myFiles.length; i++) {
       frmData.append("file", this.myFiles[i]);
-      frmData.append("id" , "2");
+      frmData.append("id" , dataId);
     }
     console.log(frmData)
     this.leaseService.addFollowUpAttachment(frmData).subscribe();
@@ -220,15 +222,24 @@ export class NewLeaseComponent implements OnInit {
     this.leaseService.SaveData(data).then(response => {
 
       this.spinner.hide();
-      console.log(JSON.stringify(response))
-      var msg;
-      if (response.data.includes("Fail")) {
-        msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
+      console.log(JSON.stringify(response.data))
+
+      var dataId = response.data.id
+    
+
+      if(this.myFiles.length > 0){
+        this.saveFileWithLeaseId(dataId);
+
       }
-      else {
+
+      var msg;
+      // if (response.data.includes("Fail")) {
+      //   msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
+      // }
+      // else {
         msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
         this.router.navigate(['/newlease/newleasejournalentry']);
-      }
+   //   }
       $('#saveSuccess').html(msg);
       $('html, body').animate({
         'scrollTop': $("#saveSuccess").offset().top
@@ -289,6 +300,7 @@ export class NewLeaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.myFiles = []
     this.getClassOfAsset();
     $(document).on('change', '#addnewclass', function () {
       var value1 = ($('option:selected', this).val());
