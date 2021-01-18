@@ -75,6 +75,14 @@ export class rightService {
     return response;
   }
 
+  async getIndividualReportFileByDataId(data) {
+    const url = this.globals.APP_URL+"data/getUserFileByDataId?dataId=" +data.dataId;
+     const response = await axios.get(url,data).then(
+    );
+    console.log(response);
+    return response;
+  }
+
   async getIndividualReportDataByDataId(data) {
     const url = this.globals.APP_URL+"data/getUserDataByDataId?dataId=" +data.dataId;
      const response = await axios.get(url,data).then(

@@ -84,7 +84,12 @@ export class NewLeaseComponent implements OnInit {
       frmData.append("id" , dataId);
     }
     console.log(frmData)
-    this.leaseService.addFollowUpAttachment(frmData).subscribe();
+ //   this.leaseService.addFollowUpAttachment(frmData).subscribe();
+    this.leaseService.addFollowUpAttachment(frmData).subscribe(response => {
+      console.log(response)
+    });
+    //);
+    console.log(frmData)
   }
 
 

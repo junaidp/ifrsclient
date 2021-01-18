@@ -15,6 +15,7 @@ declare var $: any;
 export class RightOfUseComponent implements OnInit {
 
   //////////////////////////// for report dropdown and table below //////////////
+  
   leaseName = "All";
   lessorName = "All";
   classOfAsset = "All";
@@ -24,7 +25,7 @@ export class RightOfUseComponent implements OnInit {
   startingDate = "";
   endingDate = "";
   ///////////////////////////////// for individual report data ////////////////////
-
+  dataId = ""
   leaseContractNo = "";
   classAsset = "";
   commencementDate = "2019-03-11";
@@ -64,6 +65,7 @@ export class RightOfUseComponent implements OnInit {
   escalation = "";
   escalationAfterEvery = "";
   contractCurrency = "";
+  savedFileDb = ""
   //mapIndividualUserDetails: Map<String, String>;
   mapIndividualUserDetails: Map<string, string>;
   map: Map<string, Map<string, string>>;
@@ -96,6 +98,18 @@ export class RightOfUseComponent implements OnInit {
     };
     this.rightService.getFiltersData(data).then(response => {
       this.mapLeaseNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLeaseNameFilter)
+    });
+  }
+
+
+  public getFile() {
+    var data = {
+      dataId: this.dataId
+    };
+    alert(JSON.stringify(data))
+    this.rightService.getIndividualReportFileByDataId(data).then(response => {
+   //   this.mapLeaseNameFilter = new Map(Object.entries(response.data));
       console.log(this.mapLeaseNameFilter)
     });
   }
@@ -150,6 +164,7 @@ export class RightOfUseComponent implements OnInit {
 
 
   ngOnInit() {
+    this.savedFileDb ="sadasdasd"
     // me will be used instead of this here
     var me = this
     //for click on delete icon for deleting userdara
@@ -244,6 +259,7 @@ export class RightOfUseComponent implements OnInit {
   private populateUserData(me: this, data: { dataId: any; }) {
     me.rightService.getIndividualReportDataByDataId(data).then(response => {
       var userDetails = response.data;
+      me.dataId = userDetails.id
       me.leaseNameIndividual = userDetails.leaseName;
       me.lessorNameIndividual = userDetails.lessorName;
       me.classOfAssetIndividual = userDetails.classOfAsset;
@@ -275,6 +291,7 @@ export class RightOfUseComponent implements OnInit {
       me.answer7 = userDetails.answer7
       me.conclusion = userDetails.conclusion,
         me.contractCurrency = userDetails.contractCurrency
+        me.savedFileDb = userDetails.fileName
       console.log(response.data);
 
       if (me.answer1 == "") {
