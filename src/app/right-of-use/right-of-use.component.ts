@@ -107,10 +107,37 @@ export class RightOfUseComponent implements OnInit {
     var data = {
       dataId: this.dataId
     };
+    let thefile = {};
     alert(JSON.stringify(data))
     this.rightService.getIndividualReportFileByDataId(data).then(response => {
+
+      thefile = new Blob([response.config.url], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
+      console.log(thefile)
+    let url = (response.config.url);
+    console.log(url)
+    window.open(url);
+     // window.location.href = response.data;
    //   this.mapLeaseNameFilter = new Map(Object.entries(response.data));
-      console.log(this.mapLeaseNameFilter)
+
+
+    // var file = new Blob([response.headers], {type:  'application/docx' });
+    // var fileURL = URL.createObjectURL(file);
+    // window.open(fileURL);
+      
+    // var binaryData = [];
+    // binaryData.push(response);
+    // var url = window.URL.createObjectURL(new Blob(binaryData, {type: "application/docx"}));
+    // var a = document.createElement('a');
+    // document.body.appendChild(a);
+    // a.setAttribute('style', 'display: none');
+    // a.setAttribute('target', 'blank');
+    // a.href = url;
+    // a.download = response.data.filename;
+    // a.click();
+    // window.URL.revokeObjectURL(url);
+    // a.remove();
+
+
     });
   }
 
