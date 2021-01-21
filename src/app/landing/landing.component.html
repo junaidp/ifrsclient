@@ -65,7 +65,7 @@
                         </div>
                         <div class="banner-text text-center">
                             <h1 class="white animated bounceIn delay-1s">Easy 2 Lease!!</h1>
-                            <p class="" data-aos="fade-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <!-- <p class="" data-aos="fade-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p> -->
                             <div><a data-toggle="modal" data-target="#exampleModal" onclick="$('#btn-signup').hide(); $('.form-signin').show(); $('.form-signup').hide();" class="btn btn-appoint animated infinite swing delay-1s">Go To Your Account</a></div>
                         </div>
                         <div class="overlay-detail text-center">
@@ -295,17 +295,13 @@
                             <h2>BRONZE</h2>
                         </div>
                         <div class="the-price col-12">
-                            <h1>$99<span class="subscript">/<small> month</small></span></h1>
-                            <small>$1080 / YEAR</small>
+                            <h1>$49<span class="subscript">/<small> month</small></span></h1>
+                            <small>$588 / YEAR</small>
                         </div>
                         <div class="col-12 subscript">
                             <h3>FOR 1 - 10 LEASE</h3>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12 mt-4 lease_points">
-                            <div class="row mt-4">
-                                <div class="col-lg-2 col-md-3 col-3"><i class="fas fa-check"></i></div>
-                                <div class="col-lg-10 col-md-8 col-9 text-left">New Lease and First Time Adoption</div>
-                            </div>
                             <div class="row mt-4">
                                 <div class="col-lg-2 col-md-3 col-3"><i class="fas fa-check"></i></div>
                                 <div class="col-lg-10 col-md-8 col-9 text-left">Lease Identification Questionnaire</div>
@@ -336,17 +332,13 @@
                             <h2>SILVER</h2>
                         </div>
                         <div class="the-price col-12">
-                            <h1>$149<span class="subscript">/<small> month</small></span></h1>
-                            <small>$1,630 / YEAR</small>
+                            <h1>$99<span class="subscript">/<small> month</small></span></h1>
+                            <small>$1,188 / YEAR</small>
                         </div>
                         <div class="col-12 subscript">
                             <h3>FOR 10 - 30 LEASE</h3>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12 mt-4 lease_points">
-                            <div class="row mt-4">
-                                <div class="col-lg-2 col-md-3 col-3"><i class="fas fa-check"></i></div>
-                                <div class="col-lg-10 col-md-8 col-9 text-left">New Lease and First Time Adoption</div>
-                            </div>
                             <div class="row mt-4">
                                 <div class="col-lg-2 col-md-3 col-3"><i class="fas fa-check"></i></div>
                                 <div class="col-lg-10 col-md-8 col-9 text-left">Lease Identification Questionnaire</div>
@@ -377,17 +369,13 @@
                             <h2>GOLD</h2>
                         </div>
                         <div class="the-price col-12">
-                            <h1>$199<span class="subscript">/<small> month</small></span></h1>
-                            <small>$2,180 / YEAR</small>
+                            <h1>$149<span class="subscript">/<small> month</small></span></h1>
+                            <small>$1,788 / YEAR</small>
                         </div>
                         <div class="col-12 subscript">
                             <h3>FOR 30 LEASE & ABOVE</h3>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12 mt-4 lease_points_gold">
-                            <div class="row mt-4">
-                                <div class="col-lg-2 col-md-3 col-3"><i class="fas fa-check"></i></div>
-                                <div class="col-lg-10 col-md-8 col-9 text-left">New Lease and First Time Adoption</div>
-                            </div>
                             <div class="row mt-4">
                                 <div class="col-lg-2 col-md-3 col-3"><i class="fas fa-check"></i></div>
                                 <div class="col-lg-10 col-md-8 col-9 text-left">Lease Identification Questionnaire</div>
@@ -476,7 +464,7 @@
                             <h4 class="white no-padding">About Us</h4>
                         </div>
                         <div class="info-sec">
-                            <p>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
+                            <p>With the introduction of IFRS 16, Companies will be required to classify a large number of leases as “Finance lease”, and not “Operating lease” as previously done under IAS 17.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 marb20">
@@ -485,9 +473,9 @@
                         </div>
                         <div class="info-sec">
                             <ul class="quick-info">
-                                <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
-                                <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
-                                <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+                                <li><a (click)="scrollToElement(banner)"><i class="fa fa-circle"></i>Home</a></li>
+                                <li><a (click)="scrollToElement(service)"><i class="fa fa-circle"></i>Service</a></li>
+                                <li><a (click)="scrollToElement(contact)"><i class="fa fa-circle"></i>Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -511,7 +499,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        © Copyright by <a href="https://thenextway.000webhostapp.com/" target="_blank">Adnan Khokhar</a>
+                        © Copyright by <a href="http://hyphenconsultancy.com/" target="_blank">Hyphen Consultancy</a>
                     </div>
                 </div>
             </div>
@@ -543,13 +531,13 @@
                             <a id="forgot_pswd" onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();">Forgot password?</a>
                             <hr>
                             <!-- <p>Don't have an account!</p>  -->
-                            <button class="btn btn-primary btn-block" type="button"  id="btn-signup" onclick="$('.Company_login').hide();$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+                            <button class="btn btn-primary btn-block" type="button" id="btn-signup" onclick="$('.Company_login').hide();$('#logreg-forms .form-signup').toggle();$('#logreg-forms .form-signin').toggle();"><i class="fas fa-user-plus"></i> Sign up New Account</button>
                         </form>
 
                         <form action="/reset/password/" class="form-reset" #myForm='ngForm'>
                             <div id="resetPasswordResponsePanel"></div>
-                            <input type="email"  [(ngModel)] = "resetPasswordEmail" name = "resetPasswordEmail" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                            <button class="btn btn-primary btn-block" (click) = "resetPassword()" type="submit">Reset Password</button>
+                            <input type="email" [(ngModel)]="resetPasswordEmail" name="resetPasswordEmail" pattern="/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <button class="btn btn-primary btn-block" (click)="resetPassword()" type="submit">Reset Password</button>
                             <a onclick="$('#logreg-forms .form-signin').toggle();$('#logreg-forms .form-reset').toggle();"><i class="fas fa-angle-left"></i> Back</a>
                         </form>
 
