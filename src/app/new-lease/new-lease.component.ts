@@ -75,7 +75,7 @@ export class NewLeaseComponent implements OnInit {
 
   
   saveFileWithLeaseId(dataId) {   
-    alert(dataId)         
+    //alert(dataId)         
     const frmData = new FormData();
     console.log(this.myFiles)
   
@@ -242,7 +242,7 @@ export class NewLeaseComponent implements OnInit {
       //   msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
       // }
       // else {
-        msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
+        msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
         this.router.navigate(['/newlease/newleasejournalentry']);
    //   }
       $('#saveSuccess').html(msg);

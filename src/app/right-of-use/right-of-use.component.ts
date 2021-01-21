@@ -108,7 +108,6 @@ export class RightOfUseComponent implements OnInit {
       dataId: this.dataId
     };
     let thefile = {};
-    alert(JSON.stringify(data))
     this.rightService.getIndividualReportFileByDataId(data).then(response => {
 
       thefile = new Blob([response.config.url], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
@@ -209,7 +208,6 @@ export class RightOfUseComponent implements OnInit {
 
     $('#confirm').on('click', function () {
       confirm("Press a button!");
-      alert($(this).attr('id') + "jj");
     });
     me.spinner.show();
     this.populateInitialUsersData(me);
@@ -234,7 +232,6 @@ export class RightOfUseComponent implements OnInit {
     $("#dataListUl").on("click", ".dataListLi .row .deleteLease .deleteLeaseIcon", function (event) {
       if (confirm("Press okay if you want to delete this!")) {
         var leaseId = $(this).attr('id');
-        alert($(this).attr('id') + "jj");
 
         var data = {
           leaseId: leaseId

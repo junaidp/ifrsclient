@@ -73,7 +73,6 @@ export class HomeComponent implements OnInit {
 
       this.spinner.hide();
         console.log(response.data)
-        alert(response.data);
        var msg = '<div class="alert alert-info"  role="alert" >'+response.data +'</div>';
 
         $('#companyAddUserResponcePanelHome').html(msg);

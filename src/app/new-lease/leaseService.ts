@@ -39,7 +39,6 @@ export class LeaseService {
   }
 
   public addFollowUpAttachment(file: FormData): Observable<any> {
-    alert(FormData)
     return this.http.post(this.globals.APP_URL+"/data/addAttachment", file );
   }
 }

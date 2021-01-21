@@ -178,7 +178,6 @@ export class LandingComponent implements OnInit {
     this.loginservice.getUserData(getUserData).then(response => {
       //  hide();
       console.log(response.data);
-      alert(JSON.stringify(response.data));
     });
   }
 
@@ -418,7 +417,6 @@ scrollToElement($element): void {
     });
 
        $('#bronzeMember').on('click' , function(){
-        alert("sad");
        });
       // Add smooth scrolling to all links in navbar
       $(".navbar a,a.btn-appoint, .quick-info li a, .overlay-detail a").on('click', function(event) {
