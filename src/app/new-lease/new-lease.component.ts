@@ -264,6 +264,10 @@ export class NewLeaseComponent implements OnInit {
 
     var data = {
       classOfAsset: this.classOfAsset,
+      companyId: localStorage.getItem('companyId'),
+      userId : localStorage.getItem('userId')
+      
+
     };
     this.leaseService.saveClassOfAsset(data).then(response => {
 
@@ -295,7 +299,10 @@ export class NewLeaseComponent implements OnInit {
 
   public getClassOfAsset() {
     this.spinner.show();
-    var data = {};
+    var data = {
+      companyId: localStorage.getItem('companyId'),
+      userId : localStorage.getItem('userId')
+    };
 
     this.leaseService.getClassOfAsset(data).then(response => {
       this.spinner.hide();
