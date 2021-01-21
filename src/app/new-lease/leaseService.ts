@@ -25,7 +25,7 @@ export class LeaseService {
 
   async getClassOfAsset(data) {
     const urlSaveData = this.globals.APP_URL+"/data/getClassOfAsset";
-    const response = await axios.get(urlSaveData, data).then();
+    const response = await axios.post(urlSaveData, data).then();
     return response;
   }
 
