@@ -47,14 +47,14 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessee Name</div>
                     <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
                         <option *ngFor="let row of mapLeaseNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
-                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option> -->
+                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option> 
                     </select>
-                </div>
+                </div> -->
                 <!-- <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Lessee Name</div>
                     <div class="col-lg-8 col-md-4 col-12">
@@ -65,10 +65,6 @@
                         </datalist>
                     </div>
                 </div> -->
-            </div>
-        </div>
-        <div class="row mt-4 mb-4">
-            <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
                     <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
@@ -78,7 +74,10 @@
                     </select>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-12 text-center">
+        </div>
+        <div class="row mt-4 mb-4">
+
+            <div class="col-lg-12 col-md-6 col-12 text-right">
                 <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
             </div>
         </div>
