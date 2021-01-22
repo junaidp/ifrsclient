@@ -381,7 +381,7 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Commencement date:</label>
-                                                <!-- <input type="date" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Contract Reference Number" required> -->
+                                                <!-- <input type="date" readonly class="form-control" value= "{{commencementDate}}"  placeholder="Contract Reference Number" required> -->
                                                 <input type="text" readonly class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
                                                 <div class="invalid-feedback">
                                                     Please provide a commencement date.
@@ -405,19 +405,33 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="validationCustom04">Lease term period</label>
-                                                <input type="text" value="{{leaseTerm}}" readonly class="form-control" placeholder="in years" required>
+                                                <label for="validationCustom03">Payment interval</label>
+                                                <select value="{{paymentIntervals}}" class="form-control" disabled>
+                                                    <option>Select period</option>
+                                                    <option>Monthly</option>
+                                                    <option>Quarterly</option>
+                                                    <option>Semi-annually</option>
+                                                    <option>Yearly</option>
+                                                </select>
                                                 <div class="invalid-feedback">
-                                                    Lease term period.
+                                                    payment interval.
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-md-6 mb-3">
+                                            <!-- <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Expected period</label>
                                                 <input type="text" value="{{expectedPeriod}}" readonly class="form-control" placeholder="in years" required>
                                                 <div class="invalid-feedback">
                                                     Annual discount.
+                                                </div>
+                                            </div> -->
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Lease term period</label>
+                                                <input type="text" value="{{leaseTerm}}" readonly class="form-control" placeholder="in years" required>
+                                                <div class="invalid-feedback">
+                                                    Lease term period.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -430,16 +444,10 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
-                                                <label for="validationCustom03">Payment interval</label>
-                                                <select value="{{paymentIntervals}}" class="form-control" disabled>
-                                                    <option>Select period</option>
-                                                    <option>Monthly</option>
-                                                    <option>Quarterly</option>
-                                                    <option>Semi-annually</option>
-                                                    <option>Yearly</option>
-                                                </select>
+                                                <label for="validationCustom04">Initial direct cost</label>
+                                                <input type="text" value="{{initialDirectCost}}" readonly class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
-                                                    payment interval.
+                                                    initial direct cost.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -458,13 +466,7 @@
                                                     Use full life of the Asset (years).
                                                 </div>
                                             </div> -->
-                                            <div class="col-md-6 mb-3">
-                                                <label for="validationCustom04">Initial direct cost</label>
-                                                <input type="text" value="{{initialDirectCost}}" readonly class="form-control" placeholder="in amount" required>
-                                                <div class="invalid-feedback">
-                                                    initial direct cost.
-                                                </div>
-                                            </div>
+
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Escalation %-age</label>
                                                 <input type="text" value="{{escalation}}" readonly class="form-control" placeholder="in percentage" required>
@@ -472,8 +474,6 @@
                                                     Escalation %-age.
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Escalation after every</label>
                                                 <input type="text" value="{{escalationAfterEvery}}" readonly class="form-control" placeholder="in years" required>
