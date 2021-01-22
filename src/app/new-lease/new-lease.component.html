@@ -404,7 +404,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Lease Term Period</label>
+                                        <label for="validationCustom04">Lease Term Period <i class="fas fa-info-circle" onclick="showpopuptermperiod();"></i></label>
                                         <input type="number" class="form-control" [(ngModel)]="leaseTerm" name="contractNo11" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Lease term period.
@@ -1455,6 +1455,19 @@
                 <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: <br> The customer designed the asset (or specific aspects of the asset) in a way that predetermines how and for what purpose the asset will
                     be used throughout the period of use.
                 </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="question_popuptermperiod" class="modal">
+    <div class="modal-content">
+        <span class="closes col-12 text-right" onclick="closestermpriod();">&times;</span>
+        <div class="row">
+            <div class="col-12">
+                <h6>How lease term is determined</h6>
+                <p>An entity shall determine the lease term as the non-cancellable period of a lease, together with both:</p>
+                <p>(a) Periods covered by an option to extend the lease if the lessee is reasonably certain to exercise that option;</p>
+                <p>(b) Periods covered by an option to terminate the lease if the lessee is reasonably certain not to exercise that option.</p>
             </div>
         </div>
     </div>

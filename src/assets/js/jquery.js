@@ -440,6 +440,15 @@ function showpopupq7() {
     question_popup7.style.display = 'block';
 }
 
+function showpopuptermperiod() {
+    question_popuptermperiod.style.visibility = 'visible';
+    question_popuptermperiod.style.display = 'block';
+}
+
+function closestermpriod() {
+    question_popuptermperiod.style.display = 'none';
+}
+
 function shownext() {
     $(".shownext1").toggle("slow");
 }
