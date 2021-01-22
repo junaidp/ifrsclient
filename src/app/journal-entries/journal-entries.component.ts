@@ -67,15 +67,10 @@ export class JournalEntriesComponent implements OnInit {
       this.userId = 0;
     }
     var ret = ($('#dateSelector').val().split("-"));
-
-   
     var day = 10
     var year = ret[0];
     var month = ret[1];
 
-    
-
-  //  var lastDayWithSlashes = (lastDay.getDate()) + '/' + (lastDay.getMonth() + 1) + '/' + lastDay.getFullYear();
   //getting last day of month
     var lastDay = new Date(year, month , 0);
     this.finalDate =  (lastDay.getDate() +"-" +month + "-" + year)
@@ -88,17 +83,7 @@ export class JournalEntriesComponent implements OnInit {
     };
     //alert(JSON.stringify(data))
     this.spinner.show();
-      // var myDiv = document.getElementById("overlaylogin"),
-
-      //     showww = function() {
-      //         myDiv.style.display = "block";
-      //         //setTimeout(hide, 2000); // 5 seconds
-      //     },
-      //     hide = function() {
-      //       myDiv.style.display = "none";
-      //   };
-        
-      // showww();
+ 
     this.journalService.calculate(data).then(response => {
      
    //   hide();
@@ -164,8 +149,6 @@ export class JournalEntriesComponent implements OnInit {
         dayService = commencementDateService[2]
         yearService = commencementDateService[5]
 
-
-        
         // settign valuesfrom api call srive 
         drValueFinanceCost = this.map.get('dr')
          // sum of g,h,i
@@ -231,6 +214,9 @@ export class JournalEntriesComponent implements OnInit {
           crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
           //alert(this.paymentCashBank  +   "fc "   + this.financeCost)
           leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
+          if(isNaN(leaseLiabilityBeginning) ===true){
+            leaseLiabilityBeginning = 0
+          }
         //  alert(leaseLiabilityBeginning)
           if(crValuePrepaidExpence > 0){
 
@@ -265,6 +251,9 @@ export class JournalEntriesComponent implements OnInit {
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - totalOfMonthAccrued - this.repeatedMonthValue)
+            if(isNaN(leaseLiabilityEnding) ===true){
+              leaseLiabilityEnding = 0
+            }
 
 
           }
@@ -286,7 +275,6 @@ export class JournalEntriesComponent implements OnInit {
             this.aboveColj = Math.round(this.aboveColj)
             this.paymentCashBank = Math.round(this.paymentCashBank)
            
-        //    this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             //for every quarter start month dr should be subtracted from 1 value above the J column
 
@@ -312,6 +300,7 @@ export class JournalEntriesComponent implements OnInit {
             this.monthTotal = parseInt(totalOfMonthAccrued, 10);
             this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
+            
            // sumOfPrepaidExpense = 0;
           }
           crValueAccrued = Math.round(crValueAccrued)
@@ -326,13 +315,17 @@ export class JournalEntriesComponent implements OnInit {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
           sumOfpaymentCashBank = Math.round(sumOfpaymentCashBank)
-          if (this.leaseLiabilityEnding > 0) {
+      //    if (this.leaseLiabilityEnding > 0) {
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
+    //      }
+         
+          if(isNaN(sumOfleaseLiabilityEnding) ===true){
+            sumOfleaseLiabilityEnding = 0
           }
           // removed due to error identified by hassan in yearly begiining entry 21-01-2021
         //  if (leaseLiabilityBeginning > 0) {
           sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
-         // }
+      //    }
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
           if(this.repeatedMonthValue > 0){
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
@@ -350,7 +343,7 @@ export class JournalEntriesComponent implements OnInit {
           if (financeCostPrepaidExpence > 0) {
             sumOfPrepaidExpense += parseInt(financeCostPrepaidExpence)
           }
-          sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding)
+          sumOfLeaseLiability += parseInt(leaseLiabilityBeginning + leaseLiabilityEnding + "line 369")
         }
       });
       this.leaseLiabilityEnding = sumOfleaseLiabilityEnding
