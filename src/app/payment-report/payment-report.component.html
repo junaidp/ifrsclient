@@ -91,19 +91,19 @@
             <!-- <div class="col-1">
                 <h6>Date</h6>
             </div> -->
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Contract Ref. No.</h6>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
-            <div class="col-2">
+            <!-- <div class="col-2">
                 <h6>Lease Name</h6>
-            </div>
-            <div class="col-2">
+            </div> -->
+            <div class="col-3">
                 <h6>Class of Asset</h6>
             </div>
-            <div class="col-2">
+            <div class="col-1">
                 <h6> Amount </h6>
             </div>
         </div>
@@ -117,11 +117,11 @@
                             <div class="col-lg-1 col-md-6 col-6">{{i+1}}</div>
                             <!-- <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']| date:'mediumDate'}}</div> -->
                             <!-- <div class="col-lg-1 col-md-6 col-6">{{row.value['commencementDate']}}</div> -->
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['referenceNo']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['payment'] | number}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['referenceNo']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['lessorName']}}</div>
+                            <!-- <div class="col-lg-2 col-md-6 col-6">{{row.value['leaseName']}}</div> -->
+                            <div class="col-lg-3 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-1 col-md-6 col-6">{{row.value['payment'] | number}}</div>
                         </div>
                     </li>
                 </ul>
@@ -191,13 +191,13 @@
                                                         Please provide a valid Class of asset.
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 mb-3">
+                                                <!-- <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Lessee Name</label>
                                                     <input type="text" readonly class="form-control" placeholder="Lessee Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lessee Name.
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Lease Name</label>
                                                     <input type="text" readonly class="form-control" value="{{leaseNameIndividual}}" placeholder="Lease Name" required>
@@ -205,8 +205,6 @@
                                                         Please provide Lease Name.
                                                     </div>
                                                 </div> -->
-                                            </div>
-                                            <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Lessor Name</label>
                                                     <input type="text" readonly class="form-control" value="{{lessorNameIndividual}}" placeholder="Lessor Name" required>
@@ -214,6 +212,8 @@
                                                         Please provide Lessor Name.
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Asset Description</label>
                                                     <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Other condition" required>
@@ -221,8 +221,6 @@
                                                         Please provide Other condition.
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Location</label>
                                                     <input type="text" readonly class="form-control" value="{{locationIndividual}}" placeholder="Location" required>
@@ -453,13 +451,13 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-md-6 mb-3">
+                                            <!-- <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Use full life of the Asset (years)</label>
                                                 <input type="text" value="{{usefulLifeOfTheAsset}}" readonly class="form-control" placeholder="in years" required>
                                                 <div class="invalid-feedback">
                                                     Use full life of the Asset (years).
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Initial direct cost</label>
                                                 <input type="text" value="{{initialDirectCost}}" readonly class="form-control" placeholder="in amount" required>
@@ -467,8 +465,6 @@
                                                     initial direct cost.
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Escalation %-age</label>
                                                 <input type="text" value="{{escalation}}" readonly class="form-control" placeholder="in percentage" required>
@@ -476,6 +472,8 @@
                                                     Escalation %-age.
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Escalation after every</label>
                                                 <input type="text" value="{{escalationAfterEvery}}" readonly class="form-control" placeholder="in years" required>
@@ -484,7 +482,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-row">
+                                        <!-- <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Cotract Currency</label>
                                                 <input type="text" value="{{contractCurrency}}" readonly class="form-control" placeholder="contract currency" required>
@@ -492,7 +490,7 @@
                                                     Escalation after every.
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="row mt-4 border-top">
