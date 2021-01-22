@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Commencement Date</label>
-                                        <input type="date" class="form-control"  name="contractNo1" [(ngModel)]="commencementDate" placeholder="Enter Lease Commencement Date" required="required" />
+                                        <input type="date" class="form-control" name="contractNo1" [(ngModel)]="commencementDate" placeholder="Enter Lease Commencement Date" required="required" />
                                         <div class="invalid-feedback">
                                             Please provide a valid Lease commencement Date.
                                         </div>
@@ -133,22 +133,27 @@
                                             <option  value="100">Add new</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <!-- <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lessee Name</label>
                                         <input type="text" class="form-control" name="contractNo3" [(ngModel)]="leaseName" placeholder="Enter Lessee Name" required>
                                         <div class="invalid-feedback">
                                             Please provide Lease Name.
                                         </div>
-                                    </div>
-                                </div>
-                               
-
-                                <div class="form-row">
+                                    </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Lessor Name</label>
                                         <input type="text" class="form-control" name="contractNo005" [(ngModel)]="lessorName" placeholder="Enter Lessor Name" required>
                                         <div class="invalid-feedback">
                                             Please provide Lessor Name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Asset Description</label>
+                                        <textarea type="text" class="form-control" name="contractNo7" [(ngModel)]="otherCondition" placeholder="Describe Contract Conditions (if any)" required></textarea>
+                                        <div class="invalid-feedback">
+                                            Please provide Other condition.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
@@ -161,13 +166,11 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Asset Description</label>
-                                        <textarea type="text" class="form-control" name="contractNo7" [(ngModel)]="otherCondition" placeholder="Describe Contract Conditions (if any)" required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please provide Other condition.
-                                        </div>
+                                        <ng-container>
+                                            <input type="file" id="uploadFile" multiple (change)="getFileDetails($event)">
+                                        </ng-container>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="validationCustom04"></label>
                                         <div style="position:relative; margin-top: 10px; margin-left: 10px;">
                                             <a class='btn btn-primary blue_color' href='javascript:;'>
@@ -179,7 +182,7 @@
                                             </a> &nbsp;
                                             <span class='label label-info' id="upload-file-info"></span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
 
@@ -189,11 +192,6 @@
                                            id="file"
                                            (change)="handleFileInput($event.target.files)">
                                 </div> -->
-                                <div>
-                                <ng-container>
-                                    <input type="file" id="uploadFile" multiple (change)="getFileDetails($event)">
-                                  </ng-container>
-                                </div>
                             </form>
                             <div class="row">
                                 <div class="col-12 btn_mg">
@@ -451,13 +449,13 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-md-6 mb-3">
+                                    <!-- <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Useful Life Of The Asset</label>
                                         <input type="number" class="form-control" [(ngModel)]="usefulLifeOfTheAsset" name="contractNo16" placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
                                         <input type="number" class="form-control" [(ngModel)]="initialDirectCost" name="contractNo17" placeholder="in amount" required>
@@ -465,8 +463,6 @@
                                             initial direct cost.
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
                                         <input type="text" class="form-control" [(ngModel)]="escalation" name="contractNo18" placeholder="/Year/Month/Quarter" required>
@@ -474,6 +470,8 @@
                                             Escalation %-age.
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Escalation After Every</label>
                                         <input type="number" min="1" [(ngModel)]="escalationAfterEvery" name="contractNo19" class="form-control" placeholder="In Year/Month/Quarter" required>
@@ -749,15 +747,13 @@
                                                 Please provide a valid Class of asset.
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <!-- <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lessee Name</label>
                                             <input type="text" readonly class="form-control" name="contractNo33" [(ngModel)]="leaseName" placeholder="Lessee Name" required>
                                             <div class="invalid-feedback">
                                                 Please provide Lease Name.
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
+                                        </div> -->
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Lessor Name</label>
                                             <input type="text" readonly class="form-control" name="contractNo333" [(ngModel)]="lessorName" placeholder="Lessor Name" required>
@@ -765,6 +761,8 @@
                                                 Please provide Lessor Name.
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Location</label>
                                             <input type="text" readonly class="form-control" name="contractNo36" [(ngModel)]="location" placeholder="Location" required>
@@ -772,8 +770,6 @@
                                                 Please provide Location.
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Asset Description</label>
                                             <textarea type="text" readonly class="form-control" name="contractNo37" [(ngModel)]="otherCondition" placeholder="Other condition" required></textarea>
@@ -782,6 +778,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-12 mt-4 final_p_decorate">
                                     <p>Attachment(s):</p>
@@ -1012,13 +1009,13 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-md-6 mb-3">
+                                    <!-- <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Useful Life Of The Asset (years)</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="usefulLifeOfTheAsset" name="qwee" placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="initialDirectCost" name="contractNo171" placeholder="in amount" required>
@@ -1026,8 +1023,6 @@
                                             initial direct cost.
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="escalation" name="contractNo181" placeholder="in percentage" required>
@@ -1035,6 +1030,8 @@
                                             Escalation %-age.
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Escalation After Every</label>
                                         <input type="text" readonly class="form-control" [(ngModel)]="escalationAfterEvery" name="contractNo191" placeholder="in years" required>

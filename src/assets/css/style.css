@@ -1078,6 +1078,15 @@ input::-webkit-inner-spin-button {
     font-weight: bold;
 }
 
+.download_files_css>p i {
+    cursor: pointer;
+    color: black;
+}
+
+.download_files_css>p i:hover {
+    color: #FFB600;
+}
+
 
 /* csss animation */
 

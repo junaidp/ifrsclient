@@ -100,10 +100,10 @@
             <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
-            <div class="col-2">
+            <!-- <div class="col-2">
                 <h6>Lessee Name</h6>
-            </div>
-            <div class="col-2">
+            </div> -->
+            <div class="col-4">
                 <h6>Class of Asset</h6>
             </div>
             <div class="col-1">
@@ -121,10 +121,10 @@
                             <!-- <div class="col-lg-2 col-md-6 col-6">12/12/12</div> -->
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
-                            <input type="hidden" value= "{{row.value['id']}}"  name = hiddenDataId >
-                            <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon"  id="{{row.value['id']}}"></i></div>
+                            <!-- <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div> -->
+                            <div class="col-lg-4 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
+                            <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
+                            <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon" id="{{row.value['id']}}"></i></div>
                         </div>
                     </li>
                 </ul>
@@ -167,7 +167,7 @@
                                         <div class="col-lg-2 col-md-6 col-12"></div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-lg-10 col-md-10 col-12">
+                                        <div class="col-lg-9 col-md-10 col-12">
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Contract Reference Number</label>
@@ -201,27 +201,18 @@
                                                         Please provide Lease Name.
                                                     </div>
                                                 </div> -->
-                                                <div class="col-md-6 mb-3">
+                                                <!-- <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Lessee Name</label>
                                                     <input type="text" value="{{leaseNameIndividual}}" readonly class="form-control" placeholder="Lessee Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lessee Name.
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
+                                                </div> -->
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Lessor Name</label>
                                                     <input type="text" readonly class="form-control" value="{{lessorNameIndividual}}" placeholder="Lessor Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lessor Name.
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom03">Location</label>
-                                                    <input type="text" readonly class="form-control" value="{{locationIndividual}}" placeholder="Location" required>
-                                                    <div class="invalid-feedback">
-                                                        Please provide Location.
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,11 +224,22 @@
                                                         Please provide Other condition.
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom03">Location</label>
+                                                    <input type="text" readonly class="form-control" value="{{locationIndividual}}" placeholder="Location" required>
+                                                    <div class="invalid-feedback">
+                                                        Please provide Location.
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-12 mt-4 final_p_decorate">
+                                        <div class="col-lg-3 col-md-2 col-12 mt-4 final_p_decorate">
                                             <p>Attachment(s):</p>
-                                            <span class='label label-info' id="upload-file-info"></span>
+                                            <div class="row">
+                                                <div class="col-12 download_files_css">
+                                                    <p> {{savedFileDb}} &nbsp; <i (click)="getFile()" class="fas fa-download"></i></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -460,13 +462,13 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-md-6 mb-3">
+                                            <!-- <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Use full life of the Asset (years)</label>
                                                 <input type="text" value="{{usefulLifeOfTheAsset}}" readonly class="form-control" placeholder="in years" required>
                                                 <div class="invalid-feedback">
                                                     Use full life of the Asset (years).
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Initial direct cost</label>
                                                 <input type="text" value="{{initialDirectCost}}" readonly class="form-control" placeholder="in amount" required>
@@ -474,8 +476,6 @@
                                                     initial direct cost.
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Escalation %-age</label>
                                                 <input type="text" value="{{escalation}}" readonly class="form-control" placeholder="in percentage" required>
@@ -483,16 +483,14 @@
                                                     Escalation %-age.
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Escalation after every</label>
                                                 <input type="text" value="{{escalationAfterEvery}}" readonly class="form-control" placeholder="in years" required>
                                                 <div class="invalid-feedback">
                                                     Escalation after every.
                                                 </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="text-lg-right"><a href="#"  download> {{savedFileDb}} &nbsp; <i  (click)="getFile()" class="fas fa-download"></i></a></div>
                                             </div>
                                         </div>
                                         <!-- <div class="form-row">
@@ -613,10 +611,6 @@
                                             <div class="col-12 new_add_headind ">
                                                 <div class="row assec_heading">
                                                     <h6 class="col-lg-4 col-md-12 col-12">PRESENT VALUE CALCULATION</h6>
-                                                    <div class="col-lg-5 col-md-12 col-12"></div>
-                                                    <div class="col-lg-3 col-md-12 col-12 text-lg-right">
-                                                        <a href="#" download data-toggle="tooltip" data-placement="top" title="Download"> <i class="fas fa-download"></i></a>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-1 responsive_display">
