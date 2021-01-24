@@ -50,7 +50,7 @@ export class NewLeaseComponent implements OnInit {
 
   //3rd tab
   paymentsAt = "";
-  annualDiscountRate = "3";
+  annualDiscountRate = "";
   leaseTerm = "";
   expectedPeriod = "";
   leasePayment = "";
@@ -58,8 +58,8 @@ export class NewLeaseComponent implements OnInit {
   initialDirectCost = "";
   guaranteedResidualValue = "";
   usefulLifeOfTheAsset = "";
-  escalation = "30";
-  escalationAfterEvery = "10";
+  escalation = "";
+  escalationAfterEvery = "";
   contractCurrency = "";
   map: Map<string, Map<string, string>>;
 
