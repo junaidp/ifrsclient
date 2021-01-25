@@ -214,9 +214,11 @@ export class JournalEntriesComponent implements OnInit {
           crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
           //alert(this.paymentCashBank  +   "fc "   + this.financeCost)
           leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
-          if(isNaN(leaseLiabilityBeginning) ===true){
-            leaseLiabilityBeginning = 0
-          }
+         // if(leaseLiabilityBeginning > 0){
+          
+         // if(isNaN(leaseLiabilityBeginning) ===true){
+         //   leaseLiabilityBeginning = 0
+        //  }
         //  alert(leaseLiabilityBeginning)
           if(crValuePrepaidExpence > 0){
 
@@ -251,7 +253,8 @@ export class JournalEntriesComponent implements OnInit {
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - totalOfMonthAccrued - this.repeatedMonthValue)
-            if(isNaN(leaseLiabilityEnding) ===true){
+           if(leaseLiabilityEnding > 0){
+           // if(isNaN(leaseLiabilityEnding) ===true){
               leaseLiabilityEnding = 0
             }
 
@@ -315,17 +318,17 @@ export class JournalEntriesComponent implements OnInit {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
           sumOfpaymentCashBank = Math.round(sumOfpaymentCashBank)
-      //    if (this.leaseLiabilityEnding > 0) {
+          if (this.leaseLiabilityEnding > 0) {
           sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
-    //      }
-         
-          if(isNaN(sumOfleaseLiabilityEnding) ===true){
-            sumOfleaseLiabilityEnding = 0
           }
+         
+          // if(isNaN(sumOfleaseLiabilityEnding) ===true){
+          //   sumOfleaseLiabilityEnding = 0
+          // }
           // removed due to error identified by hassan in yearly begiining entry 21-01-2021
-        //  if (leaseLiabilityBeginning > 0) {
+          if (leaseLiabilityBeginning > 0) {
           sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
-      //    }
+          }
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
           if(this.repeatedMonthValue > 0){
           sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
