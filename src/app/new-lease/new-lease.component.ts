@@ -25,12 +25,12 @@ export class NewLeaseComponent implements OnInit {
   //first tab
   leaseContractNo = "";
   classAsset = "";
-  commencementDate = "2019-03-11";
+  commencementDate = "";
   leaseName = "";
   lessorName = "";
   leasseeName = "";
   location = "";
-  otherCondition = "";
+  assetDescription = "";
   classOfAsset = "";
 
 
@@ -195,6 +195,7 @@ export class NewLeaseComponent implements OnInit {
       classOfAsset: this.classAsset,
       location: this.location,
       contractCurrency: this.contractCurrency,
+      assetDescription: this.assetDescription,
 
       // contractCurrency:this.contractCurrency,
       answer1: this.answer1,
