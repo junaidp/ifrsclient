@@ -23,9 +23,19 @@ export class ShowUsersComponent implements OnInit {
   presentValue:number;
   
   ngOnInit() {
+    var me =this
     $('#editUserTable tbody').on( 'click', '.editUser2', function () {
-        alert("td Click");
-        alert($(this).attr('id') + "jj");
+      var userId = $(this).attr('id');
+      alert(userId)
+
+      var data = {
+        userId: userId
+      };
+      //alert(data)
+      me.ShowUserService.deleteSelectedUser(data).then(response => {
+        alert(response.data)
+
+   });
     });
 
   

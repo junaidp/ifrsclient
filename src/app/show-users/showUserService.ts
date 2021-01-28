@@ -19,4 +19,15 @@ export class ShowUserService {
     console.log(response);
     return response;
   }
+
+  async deleteSelectedUser(data) {
+      console.log(data)
+      var userId = data.userId
+      const url = this.globals.APP_URL+"users/deleteSelectedUser?userId=" +userId ;
+      const response = await axios.get(url,data).then(
+      );
+      console.log(response);
+      return response;
+     }
+
 }
