@@ -139,6 +139,31 @@ debugger
         modal.style.display = "none";
       }
     }
+
+    var modall = document.getElementById("myModall_fordownload");
+    var btnn = document.getElementById("myBtnnn");
+    var span = document.getElementsByClassName("close")[0];
+    btnn.onclick = function() {
+      modall.style.display = "block";
+    }
+    window.onclick = function(event) {
+      if (event.target == modall) {
+        modall.style.display = "none";
+      }
+    }
+
+    var modalll = document.getElementById("myModall_forupload");
+    var btnnn = document.getElementById("myBtnupload");
+    var span = document.getElementsByClassName("close")[0];
+    btnnn.onclick = function() {
+      modalll.style.display = "block";
+    }
+    window.onclick = function(event) {
+      if (event.target == modalll) {
+        modalll.style.display = "none";
+      }
+    }
+
     this.id = localStorage.getItem('token');
   }
   logout(): void {

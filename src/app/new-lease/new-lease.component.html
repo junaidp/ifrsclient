@@ -86,19 +86,19 @@
                         <p class="bolder">Contract Form</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-2" type="text" class="btn btn-default btn-circle bolder1" disabled="true">2</a>
+                        <a href="#step-2" type="text" class="btn btn-default btn-circle bolder1 disabledd" disabled="true">2</a>
                         <p class="bolder1">Identify Lease</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-3" type="text" class="btn btn-default btn-circle bolder2" disabled="disabled">3</a>
+                        <a href="#step-3" type="text" class="btn btn-default btn-circle bolder2 disabledd" disabled="disabled">3</a>
                         <p class="bolder2">Lease Information</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-4" type="text" class="btn btn-default btn-circle bolder3" disabled="disabled">4</a>
+                        <a href="#step-4" type="text" class="btn btn-default btn-circle bolder3 disabledd" disabled="disabled">4</a>
                         <p class="bolder3">Lease Schedule</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-5" type="text" class="btn btn-default btn-circle bolder4" disabled="disabled">5</a>
+                        <a href="#step-5" type="text" class="btn btn-default btn-circle bolder4 disabledd" disabled="disabled">5</a>
                         <p class="bolder4">Review / Submit</p>
                     </div>
                 </div>
@@ -124,6 +124,13 @@
                                             Please provide a valid Lease commencement Date.
                                         </div>
                                     </div> -->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Lessor Name</label>
+                                        <input type="text" class="form-control" name="contractNo005" [(ngModel)]="lessorName" placeholder="Enter Lessor Name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide Lessor Name.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
@@ -141,10 +148,10 @@
                                         </div>
                                     </div> -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom03">Lessor Name</label>
-                                        <input type="text" class="form-control" name="contractNo005" [(ngModel)]="lessorName" placeholder="Enter Lessor Name" required>
+                                        <label for="validationCustom03">Location</label>
+                                        <input type="text" class="form-control" name="contractNo6" [(ngModel)]="location" placeholder="Select Location" required>
                                         <div class="invalid-feedback">
-                                            Please provide Lessor Name.
+                                            Please provide Location.
                                         </div>
                                     </div>
                                 </div>
@@ -157,35 +164,12 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom03">Location</label>
-                                        <input type="text" class="form-control" name="contractNo6" [(ngModel)]="location" placeholder="Select Location" required>
-                                        <div class="invalid-feedback">
-                                            Please provide Location.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Upload</label>
                                         <ng-container>
-                                            <input type="file" id="uploadFile" multiple (change)="getFileDetails($event)">
+                                            <input type="file" class="form-control input_file" id="uploadFile" multiple (change)="getFileDetails($event)">
                                         </ng-container>
                                     </div>
-                                    <!-- <div class="form-group">
-                                        <label for="validationCustom04"></label>
-                                        <div style="position:relative; margin-top: 10px; margin-left: 10px;">
-                                            <a class='btn btn-primary blue_color' href='javascript:;'>
-                                                Upload File
-                                                <input type="file"
-                                                    style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
-                                                    name="file_source" size="40"
-                                                    onchange='$("#upload-file-info").html($(this).val());'>
-                                            </a> &nbsp;
-                                            <span class='label label-info' id="upload-file-info"></span>
-                                        </div>
-                                    </div> -->
                                 </div>
-
-
                                 <!-- <div class="form-group">
                                     <label for="file">Choose File</label>
                                     <input type="file"
@@ -729,11 +713,18 @@
                                                 Please provide a valid Contract Reference Number.
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <!-- <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Lease Commencement Date</label>
                                             <input type="text" readonly class="form-control" name="contractNo31" [(ngModel)]="commencementDate" placeholder="Lease commencement data" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Lease commencement data.
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-6 mb-3">
+                                            <label for="validationCustom03">Lessor Name</label>
+                                            <input type="text" readonly class="form-control" name="contractNo333" [(ngModel)]="lessorName" placeholder="Lessor Name" required>
+                                            <div class="invalid-feedback">
+                                                Please provide Lessor Name.
                                             </div>
                                         </div>
                                     </div>
@@ -753,21 +744,14 @@
                                             </div>
                                         </div> -->
                                         <div class="col-md-6 mb-3">
-                                            <label for="validationCustom03">Lessor Name</label>
-                                            <input type="text" readonly class="form-control" name="contractNo333" [(ngModel)]="lessorName" placeholder="Lessor Name" required>
-                                            <div class="invalid-feedback">
-                                                Please provide Lessor Name.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Location</label>
                                             <input type="text" readonly class="form-control" name="contractNo36" [(ngModel)]="location" placeholder="Location" required>
                                             <div class="invalid-feedback">
                                                 Please provide Location.
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Asset Description</label>
                                             <textarea type="text" readonly class="form-control" name="contractNo37" [(ngModel)]="assetDescription" placeholder="Other condition" required></textarea>
