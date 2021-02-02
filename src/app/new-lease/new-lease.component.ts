@@ -158,6 +158,18 @@ export class NewLeaseComponent implements OnInit {
 
 
   }
+  sectionone(){
+    $('#step-5').hide(); 
+    $('#step-1').show();
+  }
+  sectiontwo(){
+    $('#step-5').hide(); 
+    $('#step-2').show();
+  }
+  sectionthree(){
+    $('#step-5').hide(); 
+    $('#step-3').show()
+  }
   saveData() {
     var conclusion = $('#lease_no').text();
    // alert(conclusion)
@@ -447,6 +459,11 @@ export class NewLeaseComponent implements OnInit {
       if (event.target == modal) {
         modal.style.display = "none";
       }
+    }
+
+    function sectionone(){
+      $('#step-5').hide(); 
+      $('#step-1').show();
     }
 
     function show(select_item) {
