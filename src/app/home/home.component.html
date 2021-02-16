@@ -154,12 +154,15 @@
                                     <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
                                 </div>
                                 <!--<input type="file" id="file-upload">-->
-                                <p>Upload file <input type="file"></p>
+                                <!-- <p>Upload file <input type="file"></p> -->
+                                <ng-container>
+                                    <input type="file" class="form-control input_file" id="uploadFile" multiple (change)="getFileDetails($event)">
+                                </ng-container>
                             </div>
                         </div>
                         <div class="row mt-2 text-center">
                             <div class="col-12">
-                                <button class="btn btn-info">Submit</button>
+                                <button class="btn btn-info" (click)="uploadBulkFile()">Submit</button>
                             </div>
                         </div>
                     </form>
