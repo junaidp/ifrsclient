@@ -9,6 +9,7 @@ export class Globals {
   APP_URL  = "http://3f67e325e8e6.ngrok.io/";
   //APP_URL  = "//7d83bbbe.ngrok.io";
   APP_URL_HEROKU = "//compliancetool.herokuapp.com";
+  reportRighOfUseRoute = '/reports/rightofuse'
   userId: string = '';
   userName: string ="";
 
