@@ -48,9 +48,13 @@ import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.c
 import { RequestApprovedCompanyComponent } from './request-approved-company/request-approved-company.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ResetPasswordCompanyComponent } from './reset-password-company/reset-password-company.component';
+import { ClosingbalancesComponent } from './closingbalances/closingbalances.component';
+import { SelectjournalentriesComponent } from './selectjournalentries/selectjournalentries.component';
+import { DerecognitionJounrnalentriesComponent } from './derecognitionJounrnalentries/derecognitionJounrnalentries.component';
+import { ModificationjournalentriesComponent } from './modificationjournalentries/modificationjournalentries.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [						
     AppComponent,
     HomeComponent,
     NavbarComponent,
@@ -89,7 +93,11 @@ import { ResetPasswordCompanyComponent } from './reset-password-company/reset-pa
       RequeestApprovedComponent,
       RequestApprovedCompanyComponent,
       ResetPasswordComponent,
-      ResetPasswordCompanyComponent
+      ResetPasswordCompanyComponent,
+      ClosingbalancesComponent,
+      SelectjournalentriesComponent,
+      DerecognitionJounrnalentriesComponent,
+      ModificationjournalentriesComponent
    ],
   imports: [
     BrowserModule,

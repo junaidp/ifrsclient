@@ -39,6 +39,10 @@ import { RequeestApprovedComponent } from './requeestApproved/requeestApproved.c
 import { RequestApprovedCompanyComponent} from './request-approved-company/request-approved-company.component';
 import { ResetPasswordComponent} from './reset-password/reset-password.component';
 import { ResetPasswordCompanyComponent} from './reset-password-company/reset-password-company.component';
+import { ClosingbalancesComponent } from './closingbalances/closingbalances.component';
+import { SelectjournalentriesComponent } from './selectjournalentries/selectjournalentries.component';
+import { DerecognitionJounrnalentriesComponent } from './derecognitionJounrnalentries/derecognitionJounrnalentries.component';
+import { ModificationjournalentriesComponent } from './modificationjournalentries/modificationjournalentries.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -67,6 +71,10 @@ const routes: Routes = [
   { path: 'paymentgetway', component: PaymentgetwayComponent },
   { path: 'paymentschedule', component: PaymentscheduleComponent },
   { path: 'approverequest', component: ApproverequestComponent },
+  { path: 'closingbalances', component: ClosingbalancesComponent },
+  { path: 'selectjournalentries', component: SelectjournalentriesComponent },
+  { path: 'derecognitionJounrnalentries', component: DerecognitionJounrnalentriesComponent },
+  { path: 'modificationjournalentries', component: ModificationjournalentriesComponent },
 
   
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
