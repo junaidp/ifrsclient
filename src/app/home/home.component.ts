@@ -4,6 +4,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { AuthService } from '../auth.service';
 import {Signupservice} from "src/app/signup/Signupservice";
 import { NgxSpinnerService } from "ngx-spinner";
+import { LeaseService } from "src/app/new-lease/leaseService";
 declare var $: any;
 
 @Component({
@@ -26,12 +27,55 @@ export class HomeComponent implements OnInit {
   signUpUserType = "";
   signUpContact = "";
   signUpAddress = "";
-  constructor(public globals: Globals, private router: Router, public authService: AuthService , public Signupservice: Signupservice, private spinner: NgxSpinnerService ) {
+  myFiles: any;
+  constructor(public globals: Globals, private router: Router, public authService: AuthService , public leaseService: LeaseService, public Signupservice: Signupservice, private spinner: NgxSpinnerService ) {
     if (localStorage.getItem('name') == null && localStorage.getItem('pass') == null) {
       this.router.navigate(['/landing']);
 
     }
   }
+
+
+  getFileDetails (e) {
+    this.myFiles = []
+    console.log (e.target.files);
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.myFiles.push(e.target.files[i]);
+    }
+  }
+
+
+  uploadBulkFile() {   
+    //alert(dataId)         
+    const frmData = new FormData();
+    console.log(this.myFiles)
+    this.spinner.show();
+  
+    for (var i = 0; i < this.myFiles.length; i++) {
+      frmData.append("file", this.myFiles[i]);
+      frmData.append("id" , localStorage.getItem('userId'));
+    }
+    console.log(frmData)
+    this.leaseService.bulkUploadLease(frmData).subscribe(response => {
+      this.spinner.hide();
+      console.log(response)
+
+      var msg;
+      if (response.includes("Success")) {
+         msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
+      // }
+      // else {
+    //    msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
+        this.router.navigate([this.globals.reportRighOfUseRoute]);
+
+        $('#saveSuccess').html(msg);
+        setTimeout(function () {
+          $('#saveSuccess .alert').slideToggle();
+        }, 8000);
+      }
+    });
+  }
+
 
   clickLease() {
     //just added console.log which will display the event details in browser on click of the button.

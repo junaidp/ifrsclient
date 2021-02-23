@@ -41,5 +41,12 @@ export class LeaseService {
   public addFollowUpAttachment(file: FormData): Observable<any> {
     return this.http.post(this.globals.APP_URL+"/data/addAttachment", file );
   }
+
+
+  public  bulkUploadLease(file: FormData): Observable<any> {
+    return this.http.post(this.globals.APP_URL+"/data/bulkUploadLease", file );
+  }
 }
+
+
 //return this.http.post(this.url+'upload',{"file" : formData},{headers: headers})
