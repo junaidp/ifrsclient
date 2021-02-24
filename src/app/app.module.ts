@@ -52,9 +52,12 @@ import { ClosingbalancesComponent } from './closingbalances/closingbalances.comp
 import { SelectjournalentriesComponent } from './selectjournalentries/selectjournalentries.component';
 import { DerecognitionJounrnalentriesComponent } from './derecognitionJounrnalentries/derecognitionJounrnalentries.component';
 import { ModificationjournalentriesComponent } from './modificationjournalentries/modificationjournalentries.component';
+import { RightofusescheduleComponent } from './rightofuseschedule/rightofuseschedule.component';
+import { ModificationreportslistComponent } from './modificationreportslist/modificationreportslist.component';
+import { DgmodificationreportslistComponent } from './dgmodificationreportslist/dgmodificationreportslist.component';
 
 @NgModule({
-  declarations: [						
+  declarations: [									
     AppComponent,
     HomeComponent,
     NavbarComponent,
@@ -97,7 +100,10 @@ import { ModificationjournalentriesComponent } from './modificationjournalentrie
       ClosingbalancesComponent,
       SelectjournalentriesComponent,
       DerecognitionJounrnalentriesComponent,
-      ModificationjournalentriesComponent
+      ModificationjournalentriesComponent,
+      RightofusescheduleComponent,
+      ModificationreportslistComponent,
+      DgmodificationreportslistComponent
    ],
   imports: [
     BrowserModule,

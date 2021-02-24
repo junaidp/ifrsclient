@@ -26,47 +26,48 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb pl-0">
                         <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
-                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Reports</li>
-                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Closing Balances</li>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Modification</li>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Select Report</li>
                     </ol>
                 </nav>
             </div>
         </div>
+        <!-- <option value="{{row.value['classOfAsset']}}" *ngFor="let row of mapClassOfAsset | keyvalue">{{row.value['classOfAsset']}}</option> -->
+
         <div class="row mt-4">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Date</div>
-                    <div class="col-lg-9 col-md-4 col-12">
-                        <input type="date" class="form-control" />
-                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">CR Number</div>
+                    <select [(ngModel)]="leaseContractNo" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option> -->
+                        <option *ngFor="let row of leaseContractNo | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Lessor Name</div>
-                    <div class="col-lg-9 col-md-4 col-12">
-                        <select [(ngModel)]="lessorName" class="form-control">
-                            <option>All</option>
-                            <option *ngFor="let row of mapLessorNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
-                        </select>
-                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <option *ngFor="let row of mapLessorNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
         </div>
         <div class="row mt-4 mb-4">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Class of asset</div>
-                    <div class=" col-lg-9 col-md-4 col-12">
-                        <select [(ngModel)]="classOfAsset" class="form-control">
-                            <option>All</option>
-                            <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
-                        </select>
-                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
+                    <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option> -->
+                        <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12 text-right">
-                <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
+                <button class="btn btn-info" (click)="getFilterUserData()">Search Report</button>
             </div>
         </div>
     </div>
@@ -78,17 +79,17 @@
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h6>Contract Ref. No.</h6>
             </div>
             <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
-            <div class="col-3">
-                <h6>Class of asset</h6>
+            <div class="col-4">
+                <h6>Class of Asset</h6>
             </div>
-            <div class="col-3">
-                <h6>Lease liability balance</h6>
+            <div class="col-1">
+                <h6>Action</h6>
             </div>
         </div>
     </div>
@@ -99,12 +100,13 @@
                     <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{i+1}}</div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
+                            <!-- <div class="col-lg-2 col-md-6 col-6">12/12/12</div> -->
+                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
-                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">lease lib balance</div>
-
+                            <!-- <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div> -->
+                            <div class="col-lg-4 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
+                            <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon" id="{{row.value['id']}}"></i></div>
                         </div>
                     </li>
                 </ul>
@@ -151,46 +153,30 @@
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Contract Reference Number</label>
-                                                    <input type="text" readonly class="form-control" value="{{leaseContractNo}}" placeholder="Contract Reference Number" required>
+                                                    <input type="text" class="form-control" value="{{leaseContractNo}}" placeholder="Contract Reference Number" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Contract Reference Number.
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Lease commencement data</label>
-                                                    <input type="text" readonly class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
+                                                    <input type="text" class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Lease commencement data.
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- {{mapIndividualUserDetails.get('classOfAsset')}} -->
-
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Class of asset</label>
-                                                    <input type="text" readonly class="form-control" value="{{classOfAssetIndividual}}" placeholder="Class of asset" required>
+                                                    <input type="text" class="form-control" value="{{classOfAssetIndividual}}" placeholder="Class of asset" required>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid Class of asset.
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom04">Lessee Name</label>
-                                                    <input type="text" readonly class="form-control" value="{{leaseNameIndividual}}" placeholder="Lessee Name" required>
-                                                    <div class="invalid-feedback">
-                                                        Please provide Lease Name.
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="col-md-6 mb-3">
-                                                    <label for="validationCustom04">Lessee Name</label>
-                                                    <input type="text" value="{{leaseNameIndividual}}" readonly class="form-control" placeholder="Lessee Name" required>
-                                                    <div class="invalid-feedback">
-                                                        Please provide Lessee Name.
-                                                    </div>
-                                                </div> -->
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Lessor Name</label>
-                                                    <input type="text" readonly class="form-control" value="{{lessorNameIndividual}}" placeholder="Lessor Name" required>
+                                                    <input type="text" class="form-control" value="{{lessorNameIndividual}}" placeholder="Lessor Name" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Lessor Name.
                                                     </div>
@@ -199,14 +185,14 @@
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Asset Description</label>
-                                                    <input type="text" readonly class="form-control" value="{{assetDescriptionIndividual}}" placeholder="Asset Description" required>
+                                                    <input type="text" class="form-control" value="{{assetDescriptionIndividual}}" placeholder="Asset Description" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Other condition.
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom03">Location</label>
-                                                    <input type="text" readonly class="form-control" value="{{locationIndividual}}" placeholder="Location" required>
+                                                    <input type="text" class="form-control" value="{{locationIndividual}}" placeholder="Location" required>
                                                     <div class="invalid-feedback">
                                                         Please provide Location.
                                                     </div>
@@ -228,7 +214,7 @@
                                 </ng-template>
                                 <div class="row mt-4">
                                     <div class="col-12">
-                                        <h6><a href="#">IDENTIFY LEASE></a></h6>
+                                        <h6><a href="#">IDENTIFY LEASE <i class="fas fa-pencil-alt"></i></a></h6>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -243,7 +229,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo001" [(ngModel)]="answer1" class="form-control" value="{{answer1}}" disabled="true">
+                                                <select name="contractNo001" [(ngModel)]="answer1" class="form-control" value="{{answer1}}">
                                             <option>Select here</option>
                                             <option value="0">Yes</option>
                                             <option value="1">No</option>
@@ -260,7 +246,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo002" [(ngModel)]="answer2" class="form-control" value="{{answer2}}" disabled="true">
+                                                <select name="contractNo002" [(ngModel)]="answer2" class="form-control" value="{{answer2}}">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -278,7 +264,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo003" [(ngModel)]="answer3" class="form-control" value="{{answer3}}" disabled="true">
+                                                <select name="contractNo003" [(ngModel)]="answer3" class="form-control" value="{{answer3}}">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -296,7 +282,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo004" [(ngModel)]="answer4" class="form-control" value="{{answer4}}" disabled="true">
+                                                <select name="contractNo004" [(ngModel)]="answer4" class="form-control" value="{{answer4}}">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -313,12 +299,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo005" [(ngModel)]="answer5" class="form-control" value="{{answer5}}" disabled="true">
-                                            <option>Select here</option>
-                                            <option value="2">Customer</option>
-                                            <option value="0">Supplier</option>
-                                            <option value="1">Neither Party</option>
-                                        </select>
+                                                <select name="contractNo005" [(ngModel)]="answer5" class="form-control" value="{{answer5}}">
+                                                    <option>Select here</option>
+                                                    <option value="2">Customer</option>
+                                                    <option value="0">Supplier</option>
+                                                    <option value="1">Neither Party</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="row mt-2 mb-2" *ngIf="answer6Bool">
@@ -331,7 +317,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo006" [(ngModel)]="answer6" class="form-control" value="{{answer6}}" disabled="true">
+                                                <select name="contractNo006" [(ngModel)]="answer6" class="form-control" value="{{answer6}}">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -349,7 +335,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 text-center">
-                                                <select name="contractNo007" [(ngModel)]="answer7" class="form-control" value="{{answer7}}" disabled="true">
+                                                <select name="contractNo007" [(ngModel)]="answer7" class="form-control" value="{{answer7}}">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -364,7 +350,7 @@
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-12">
-                                        <h6><a href="#">TECHNICAL DETAILS</a></h6>
+                                        <h6><a href="#">TECHNICAL DETAILS <i class="fas fa-pencil-alt"></i></a></h6>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -372,15 +358,15 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Commencement date:</label>
-                                                <!-- <input type="date" readonly class="form-control" value= "{{commencementDate}}"  placeholder="Contract Reference Number" required> -->
-                                                <input type="text" readonly class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
+                                                <!-- <input type="date"  class="form-control" value= "{{commencementDate}}"  placeholder="Contract Reference Number" required> -->
+                                                <input type="text" class="form-control" value="{{commencementDate | date:'mediumDate'}}" placeholder="Lease commencement data" required>
                                                 <div class="invalid-feedback">
                                                     Please provide a commencement date.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Payment In</label>
-                                                <select value="{{paymentsAt}}" class="form-control" disabled>
+                                                <select value="{{paymentsAt}}" class="form-control">
                                                     <option>Select here</option>
                                                     <option>Beginning</option>
                                                     <option>Ending</option>
@@ -390,14 +376,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Annual discount rate</label>
-                                                <input value="{{annualDiscountRate}}" type="text" readonly class="form-control" placeholder="in %" required>
+                                                <input value="{{annualDiscountRate}}" type="text" class="form-control" placeholder="in %" required>
                                                 <div class="invalid-feedback">
                                                     Annual discount.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Payment interval</label>
-                                                <select value="{{paymentIntervals}}" class="form-control" disabled>
+                                                <select value="{{paymentIntervals}}" class="form-control">
                                                     <option>Select period</option>
                                                     <option>Monthly</option>
                                                     <option>Quarterly</option>
@@ -411,23 +397,16 @@
 
                                         </div>
                                         <div class="form-row">
-                                            <!-- <div class="col-md-6 mb-3">
-                                                <label for="validationCustom03">Expected period</label>
-                                                <input type="text" value="{{expectedPeriod}}" readonly class="form-control" placeholder="in years" required>
-                                                <div class="invalid-feedback">
-                                                    Annual discount.
-                                                </div>
-                                            </div> -->
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lease term period</label>
-                                                <input type="text" value="{{leaseTerm}}" readonly class="form-control" placeholder="in years" required>
+                                                <input type="text" value="{{leaseTerm}}" class="form-control" placeholder="in years" required>
                                                 <div class="invalid-feedback">
                                                     Lease term period.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lease payment</label>
-                                                <input type="text" value="{{leasePayment}}" readonly class="form-control" placeholder="in amount" required>
+                                                <input type="text" value="{{leasePayment}}" class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
                                                     Lease payment.
                                                 </div>
@@ -436,52 +415,35 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Initial direct cost</label>
-                                                <input type="text" value="{{initialDirectCost}}" readonly class="form-control" placeholder="in amount" required>
+                                                <input type="text" value="{{initialDirectCost}}" class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
                                                     initial direct cost.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Guaranteed residual value</label>
-                                                <input type="text" value="{{guaranteedResidualValue}}" readonly class="form-control" placeholder="in amount" required>
+                                                <input type="text" value="{{guaranteedResidualValue}}" class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
                                                     Guaranteed residual value.
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <!-- <div class="col-md-6 mb-3">
-                                                <label for="validationCustom03">Use full life of the Asset (years)</label>
-                                                <input type="text" value="{{usefulLifeOfTheAsset}}" readonly class="form-control" placeholder="in years" required>
-                                                <div class="invalid-feedback">
-                                                    Use full life of the Asset (years).
-                                                </div>
-                                            </div> -->
-
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom03">Escalation %-age</label>
-                                                <input type="text" value="{{escalation}}" readonly class="form-control" placeholder="in percentage" required>
+                                                <input type="text" value="{{escalation}}" class="form-control" placeholder="in percentage" required>
                                                 <div class="invalid-feedback">
                                                     Escalation %-age.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Escalation after every</label>
-                                                <input type="text" value="{{escalationAfterEvery}}" readonly class="form-control" placeholder="in years" required>
+                                                <input type="text" value="{{escalationAfterEvery}}" class="form-control" placeholder="in years" required>
                                                 <div class="invalid-feedback">
                                                     Escalation after every.
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="form-row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="validationCustom04">Cotract Currency</label>
-                                                <input type="text" value="{{contractCurrency}}" readonly class="form-control" placeholder="contract currency" required>
-                                                <div class="invalid-feedback">
-                                                    Escalation after every.
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="row mt-4 border-top">
@@ -491,102 +453,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 mt-5">
-                                        <!-- <div class="row step_4 mb-4 mt-4">
-                                            <div class="col-12 new_add_headind assec_heading">
-                                                <h6 class="text-lg-left">ASSET SCHEDULE</h6>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row step_4 mb-4">
-                                                    <div class="col-1 responsive_display">
-                                                        <h6 class="mb-3">Sr. #</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[14] | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Year</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[15]| date:'mediumDate'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 col-6">
-                                                        <h6 class="mb-3">NBV Opening</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[16]| number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Depreciation</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{-(row.value[17]) | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 col-6">
-                                                        <h6 class="mb-3">NBV Closing </h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[18]| number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-1 mb-4"></div>
-                                        </div> -->
-
-                                        <!-- <div class="row step_4">
-                                            <div class="col-12 new_add_headind ">
-                                                <div class="row">
-                                                    <h6 class="col-lg-3 col-md-12 col-12">Asset schedule</h6>
-                                                    <div class="col-lg-6 col-md-12 col-12"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row journal_new responsive_display">
-                                                    <div class="col-1">
-                                                        <h6>Sr. #</h6>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <h6>Year</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <h6>NBV Opening (1st Jan)</h6>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <h6>Description</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <h6>NBV Closing (31st Dec)</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row journal_new">
-                                                    <div class="col-1 responsive_display">1</div>
-                                                    <div class="col-lg-2 col-md-6 col-6">yyyy</div>
-                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
-                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
-                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row journal_new">
-                                                    <div class="col-1 responsive_display">2</div>
-                                                    <div class="col-lg-2 col-md-6 col-6">yyyy</div>
-                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
-                                                    <div class="col-lg-2 col-md-6 col-6">1.000</div>
-                                                    <div class="col-lg-3 col-md-6 col-6">100,000.00</div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                         <div class="row step_4">
                                             <div class="col-12 new_add_headind ">
                                                 <div class="row assec_heading">
@@ -703,158 +569,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="row">
-                                    <div class="col-12 mt-4 border-top">
-                                        <h6><a href="#" class="mt-4">JOURNAL ENTRIES</a></h6>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="row step_4 mb-4 mt-4">
-                                    <div class="col-12">
-                                        <div class="row responsive_display journal_new">
-                                            <h6 class="col-1">Sr. #</h6>
-                                            <h6 class="col-2">Date</h6>
-                                            <h6 class="col-3 text-lg-left">Head Of Account</h6>
-                                            <h6 class="col-2">Dr.</h6>
-                                            <h6 class="col-2">Cr.</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mt-2">
-                                        <div class="row responsive_display journal_new">
-                                            <div class="col-1">1</div>
-                                            <div class="col-2">mm:dd:yyyy</div>
-                                            <div class="col-3">
-                                                <div class="row text-lg-left">
-                                                    <div class="col-12">Right Of Use Asset</div>
-                                                    <div class="col-12">Retained Earnings</div>
-                                                    <div class="col-12">Lease Liability</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="row">
-                                                    <div class="col-12">800,000</div>
-                                                    <div class="col-12">20,000</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="row">
-                                                    <div class="col-12"></div>
-                                                    <div class="col-12 mt-5">100,000</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-md-6 col-6"></div>
-                                </div>
-                                <div class="row mt-4 mb-3">
-                                    <div class="col-12 mt-3">
-                                        <div class="row journal_new" id="show2">
-                                            <div class="col-1">2</div>
-                                            <div class="col-2">mm:dd:yyyy</div>
-                                            <div class="col-3">
-                                                <div class="row text-lg-left">
-                                                    <div class="col-12">Finance Cost</div>
-                                                    <div class="col-12 mt-2">Lease Liability</div>
-                                                    <div class="col-12 mt-2">Cash / Bank</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="row">
-                                                    <div class="col-12">22,771</div>
-                                                    <div class="col-12 mt-2">171,566</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4">
-                                                <div class="row">
-                                                    <div class="col-12 mt-4">250,000</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4 mb-3">
-                                    <div class="col-12 mt-3">
-                                        <div class="row journal_new" id="show2">
-                                            <div class="col-1">3</div>
-                                            <div class="col-2">mm:dd:yyyy</div>
-                                            <div class="col-3">
-                                                <div class="row text-lg-left">
-                                                    <div class="col-12">Finance Cost</div>
-                                                    <div class="col-12 mt-2">Lease Liability</div>
-                                                    <div class="col-12 mt-2">Cash / Bank</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="row">
-                                                    <div class="col-12">22,771</div>
-                                                    <div class="col-12 mt-2">171,566</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4">
-                                                <div class="row">
-                                                    <div class="col-12 mt-4">250,000</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4 mb-3">
-                                    <div class="col-12 mt-3">
-                                        <div class="row journal_new" id="show2">
-                                            <div class="col-1">4</div>
-                                            <div class="col-2">mm:dd:yyyy</div>
-                                            <div class="col-3">
-                                                <div class="row text-lg-left">
-                                                    <div class="col-12">Finance Cost</div>
-                                                    <div class="col-12 mt-2">Lease Liability</div>
-                                                    <div class="col-12 mt-2">Cash / Bank</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="row">
-                                                    <div class="col-12">22,771</div>
-                                                    <div class="col-12 mt-2">171,566</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4">
-                                                <div class="row">
-                                                    <div class="col-12 mt-4">250,000</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-12 mt-3">
-                                        <div class="row journal_new" id="show2">
-                                            <div class="col-1">5</div>
-                                            <div class="col-2">mm:dd:yyyy</div>
-                                            <div class="col-3">
-                                                <div class="row text-lg-left">
-                                                    <div class="col-12">Finance Cost</div>
-                                                    <div class="col-12 mt-2">Lease Liability</div>
-                                                    <div class="col-12 mt-2">Cash / Bank</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="row">
-                                                    <div class="col-12">22,771</div>
-                                                    <div class="col-12 mt-2">171,566</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4">
-                                                <div class="row">
-                                                    <div class="col-12 mt-4">250,000</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 mt-4"></div>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                <a routerLink="/modificationjournalentries" class="float-lg-right ml-2 btn btn-success">Submit</a>
                                 <a href="#" class="float-lg-right ml-2 btn btn-success" download>Download &nbsp; <i class="fas fa-download"></i></a>
-                                <button class="btn btn-secondary btn-lg pull-right float-lg-right" style="width: 135px;line-height: 21px;" type="submit">Back</button>
                             </div>
                         </div>
                     </div>
@@ -862,7 +578,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

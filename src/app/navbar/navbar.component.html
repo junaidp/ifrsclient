@@ -17,8 +17,18 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <div class="nav-item dropdown text-center">
-                    <a class="nav-link pr-0 img_nav_bar" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <p [(ngModel)]="name" ngDefaultControl [ngModelOptions]="{standalone: true}">{{ name }} </p>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-tools"></i> Others
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/selectjournalentries">Modification</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="myBtnnn">Bulk Upload</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown text-center">
+                    <a class="nav-link img_nav_bar dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [(ngModel)]="name" ngDefaultControl [ngModelOptions]="{standalone: true}">
+                        <b>{{ name }} <i class="fa fa-user"></i></b>
                         <!-- <img src='/assets/img/thumb.png' alt="img"> -->
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -68,6 +78,61 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModall_fordownload" class="modall">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <span class="closee" onclick="$('#myModall_fordownload').hide();">&times;</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <p>Download file <a href="/src/assets/file/file.xlsx" download>Click here</a></p>
+                </div>
+                <div class="col-12 mt-3">
+                    <button class="btn btn-info" id="myBtnupload">Upload here</button>
+                </div>
+            </div>
+            <div class="row"></div>
+        </div>
+    </div>
+</div>
+<div id="myModall_forupload" class="modall">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <span class="closee" onclick="$('#myModall_forupload').hide();">&times;</span>
+                </div>
+            </div>
+            <div class="row">
+                <form class="col-12">
+                    <h1>Upload a file</h1>
+                    <div class="upload-container mt-2">
+                        <div class="border-container">
+                            <div class="icons fa-4x">
+                                <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+                                <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+                                <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
+                            </div>
+                            <!--<input type="file" id="file-upload">-->
+                            <!-- <p>Upload file <input type="file"></p> -->
+                            <ng-container>
+                                <input type="file" class="form-control input_file" id="uploadFile" multiple (change)="getFileDetails($event)">
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row mt-2 text-center">
+                        <div class="col-12">
+                            <button class="btn btn-info" (click)="uploadBulkFile()">Submit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

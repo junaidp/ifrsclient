@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import {Signupservice} from "src/app/signup/Signupservice";
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { LeaseService } from "src/app/new-lease/leaseService";
 declare var $: any 
 
 @Component({
@@ -25,13 +26,53 @@ export class NavbarComponent implements OnInit {
   signUpContact = "";
   signUpAddress = "";
   signUpCompany ; 
-  
-  constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice , private spinner: NgxSpinnerService) {
+  myFiles: any;
+  constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice , public leaseService: LeaseService, private spinner: NgxSpinnerService) {
   
   }
   name = localStorage.getItem('name');
   userId = localStorage.getItem('userId');
   
+  getFileDetails (e) {
+    this.myFiles = []
+    console.log (e.target.files);
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.myFiles.push(e.target.files[i]);
+    }
+  }
+
+
+  uploadBulkFile() {   
+    //alert(dataId)         
+    const frmData = new FormData();
+    console.log(this.myFiles)
+    this.spinner.show();
+  
+    for (var i = 0; i < this.myFiles.length; i++) {
+      frmData.append("file", this.myFiles[i]);
+      frmData.append("id" , localStorage.getItem('userId'));
+    }
+    console.log(frmData)
+    this.leaseService.bulkUploadLease(frmData).subscribe(response => {
+      this.spinner.hide();
+      console.log(response)
+
+      var msg;
+      if (response.includes("Success")) {
+         msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
+      // }
+      // else {
+    //    msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
+        this.router.navigate([this.globals.reportRighOfUseRoute]);
+
+        $('#saveSuccess').html(msg);
+        setTimeout(function () {
+          $('#saveSuccess .alert').slideToggle();
+        }, 8000);
+      }
+    });
+  }
+
   SignUp(){
     this.spinner.show();
     this.signUpCompany = localStorage.getItem('companyId')
@@ -107,6 +148,30 @@ export class NavbarComponent implements OnInit {
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
+      }
+    }
+
+    var modall = document.getElementById("myModall_fordownload");
+    var btnn = document.getElementById("myBtnnn");
+    var span = document.getElementsByClassName("close")[0];
+    btnn.onclick = function() {
+      modall.style.display = "block";
+    }
+    window.onclick = function(event) {
+      if (event.target == modall) {
+        modall.style.display = "none";
+      }
+    }
+
+    var modalll = document.getElementById("myModall_forupload");
+    var btnnn = document.getElementById("myBtnupload");
+    var span = document.getElementsByClassName("close")[0];
+    btnnn.onclick = function() {
+      modalll.style.display = "block";
+    }
+    window.onclick = function(event) {
+      if (event.target == modalll) {
+        modalll.style.display = "none";
       }
     }
   }

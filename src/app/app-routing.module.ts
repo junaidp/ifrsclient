@@ -43,6 +43,9 @@ import { ClosingbalancesComponent } from './closingbalances/closingbalances.comp
 import { SelectjournalentriesComponent } from './selectjournalentries/selectjournalentries.component';
 import { DerecognitionJounrnalentriesComponent } from './derecognitionJounrnalentries/derecognitionJounrnalentries.component';
 import { ModificationjournalentriesComponent } from './modificationjournalentries/modificationjournalentries.component';
+import { RightofusescheduleComponent } from './rightofuseschedule/rightofuseschedule.component';
+import { ModificationreportslistComponent } from './modificationreportslist/modificationreportslist.component';
+import { DgmodificationreportslistComponent } from './dgmodificationreportslist/dgmodificationreportslist.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -75,6 +78,9 @@ const routes: Routes = [
   { path: 'selectjournalentries', component: SelectjournalentriesComponent },
   { path: 'derecognitionJounrnalentries', component: DerecognitionJounrnalentriesComponent },
   { path: 'modificationjournalentries', component: ModificationjournalentriesComponent },
+  { path: 'rightofuseschedule', component: RightofusescheduleComponent },
+  { path: 'modificationreportslist', component: ModificationreportslistComponent },
+  { path: 'dgmodificationreportslist', component: DgmodificationreportslistComponent },
 
   
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
