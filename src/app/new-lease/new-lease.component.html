@@ -117,13 +117,6 @@
                                             Please provide a valid Contract Reference Number.
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Lease Commencement Date</label>
-                                        <input type="date" class="form-control" name="contractNo1" [(ngModel)]="commencementDate" placeholder="Enter Lease Commencement Date" required="required" />
-                                        <div class="invalid-feedback">
-                                            Please provide a valid Lease commencement Date.
-                                        </div>
-                                    </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Lessor Name</label>
                                         <input type="text" class="form-control" name="contractNo005" [(ngModel)]="lessorName" placeholder="Enter Lessor Name" required>
@@ -140,19 +133,24 @@
                                             <option  value="100">Add new</option>
                                         </select>
                                     </div>
-                                    <!-- <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Lessee Name</label>
-                                        <input type="text" class="form-control" name="contractNo3" [(ngModel)]="leaseName" placeholder="Enter Lessee Name" required>
-                                        <div class="invalid-feedback">
-                                            Please provide Lease Name.
-                                        </div>
-                                    </div> -->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Asset Code</label>
+                                        <input type="text" class="form-control" placeholder="Asset Code" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Location</label>
                                         <input type="text" class="form-control" name="contractNo6" [(ngModel)]="location" placeholder="Select Location" required>
                                         <div class="invalid-feedback">
                                             Please provide Location.
                                         </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Upload</label>
+                                        <ng-container>
+                                            <input type="file" class="form-control input_file" id="uploadFile" multiple (change)="getFileDetails($event)">
+                                        </ng-container>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -162,12 +160,6 @@
                                         <div class="invalid-feedback">
                                             Please provide Other condition.
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Upload</label>
-                                        <ng-container>
-                                            <input type="file" class="form-control input_file" id="uploadFile" multiple (change)="getFileDetails($event)">
-                                        </ng-container>
                                     </div>
                                 </div>
                                 <!-- <div class="form-group">
@@ -440,13 +432,6 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <!-- <div class="col-md-6 mb-3">
-                                        <label for="validationCustom03">Useful Life Of The Asset</label>
-                                        <input type="number" class="form-control" [(ngModel)]="usefulLifeOfTheAsset" name="contractNo16" placeholder="in years" required>
-                                        <div class="invalid-feedback">
-                                            Use full life of the Asset (years).
-                                        </div>
-                                    </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
                                         <input type="text" class="form-control" [(ngModel)]="escalation" name="contractNo18" placeholder="/Year/Month/Quarter" required>
@@ -460,6 +445,24 @@
                                         <div class="invalid-feedback">
                                             Escalation after every.
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Extension Option</label>
+                                        <select class="form-control" name="contractNo14">
+                                            <option>Select Extension Option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom04">Termination option</label>
+                                        <select class="form-control" name="contractNo14">
+                                            <option>Select Termination option</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <!-- <div class="form-row">

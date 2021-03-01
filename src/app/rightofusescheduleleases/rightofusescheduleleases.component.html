@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Right oof use schedule leases</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet" id="bootstrap-css"> 
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script> -->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-3 mb-3 new_lease">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Right of Use</li>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Lease Schedule</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12  report_css">Quick Report</div>
+                    <select [(ngModel)]="quickReport" class="form-control col-lg-8 col-md-4 col-12">
+                            <option>Select</option>
+                            <option>All</option>
+                            <option>Today</option>
+                            <option>This Week</option>
+                            <option>This Week to date</option>
+                            <option>This Month</option>
+                            <option>Next Week</option>
+                            <option>Next Month</option>
+                            <option>Last Week</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
+                    <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
+                            <option>Select class of asset</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
+                        </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                            <option>Select here</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Name of Lease</div>
+                    <select [(ngModel)]="leaseName" class="form-control col-lg-8 col-md-4 col-12">
+                            <option>Select here</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
+                        </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Location of Lease</div>
+                    <select [(ngModel)]="location" class="form-control col-lg-8 col-md-4 col-12">
+                            <option>Select Location</option>
+                            <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['location']}}</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Date</div>
+                    <input [(ngModel)]="startingDate" type="month" class="form-control col-lg-8 col-md-4 col-12" placeholder="date">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-12 col-md-12 col-12 text-right">
+                <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-4 border-top">
+        <div class="row mt-4 ">
+            <div class="col-1">
+                <h6>Sr. #</h6>
+            </div>
+            <div class="col-1">
+                <h6>Ref. No.</h6>
+            </div>
+            <div class="col-1">
+                <h6>Asset Code</h6>
+            </div>
+            <div class="col-1">
+                <h6>Location </h6>
+            </div>
+            <div class="col-2">
+                <h6>Lessor Name</h6>
+            </div>
+            <div class="col-2">
+                <h6>Lease Name</h6>
+            </div>
+            <div class="col-2">
+                <h6>ROU Closing</h6>
+            </div>
+            <div class="col-1">
+                <h6>Depreciation</h6>
+            </div>
+            <div class="col-1">
+                <h6>ROU Closing</h6>
+            </div>
+        </div>
+
+        <div class="row mt-3 border-top">
+            <div class="col-12" style="padding: 0;">
+                <ul class="draft_close_section mt-4 mb-3">
+                    <li *ngFor="let row of mapUserData | keyvalue" onclick="displayfunctiontab3();" routerLink="/rightofuseschedule/">
+                        <div class="row m-0">
+                            <div class="col-lg-1 col-md-6 col-6">-</div>
+                            <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-1 col-md-6 col-6">ass code</div>
+                            <div class="col-lg-1 col-md-6 col-6">{{row.value['location']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6">rou</div>
+                            <div class="col-lg-1 col-md-6 col-6">dep</div>
+                            <div class="col-lg-1 col-md-6 col-6">clo</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-lg-1 col-md-6 col-6"></div>
+            <div class="col-lg-1 col-md-6 col-6"></div>
+            <div class="col-lg-1 col-md-6 col-6"></div>
+            <div class="col-lg-1 col-md-6 col-6"></div>
+            <div class="col-lg-2 col-md-6 col-6"></div>
+            <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">
+                <h6 class="m-0 font-weight-bolder ">Total</h6>
+            </div>
+            <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">12</div>
+            <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">121212</div>
+            <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">121212</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function displayfunction() {
+        $('.tab1').toggle("slide");
+    }
+
+    function displayfunctiontab2() {
+        $('.tab2').toggle("slide");
+    }
+
+    function displayfunctiontab3() {
+        $('.tab').toggle("slide");
+    }
+
+    function displayfunctiontab4() {
+        $('.tab4').toggle("slide");
+    }
+</script>

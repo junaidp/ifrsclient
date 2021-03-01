@@ -55,9 +55,10 @@ import { ModificationjournalentriesComponent } from './modificationjournalentrie
 import { RightofusescheduleComponent } from './rightofuseschedule/rightofuseschedule.component';
 import { ModificationreportslistComponent } from './modificationreportslist/modificationreportslist.component';
 import { DgmodificationreportslistComponent } from './dgmodificationreportslist/dgmodificationreportslist.component';
+import { RightofusescheduleleasesComponent } from './rightofusescheduleleases/rightofusescheduleleases.component';
 
 @NgModule({
-  declarations: [									
+  declarations: [										
     AppComponent,
     HomeComponent,
     NavbarComponent,
@@ -103,7 +104,8 @@ import { DgmodificationreportslistComponent } from './dgmodificationreportslist/
       ModificationjournalentriesComponent,
       RightofusescheduleComponent,
       ModificationreportslistComponent,
-      DgmodificationreportslistComponent
+      DgmodificationreportslistComponent,
+      RightofusescheduleleasesComponent
    ],
   imports: [
     BrowserModule,

@@ -46,6 +46,7 @@ import { ModificationjournalentriesComponent } from './modificationjournalentrie
 import { RightofusescheduleComponent } from './rightofuseschedule/rightofuseschedule.component';
 import { ModificationreportslistComponent } from './modificationreportslist/modificationreportslist.component';
 import { DgmodificationreportslistComponent } from './dgmodificationreportslist/dgmodificationreportslist.component';
+import { RightofusescheduleleasesComponent } from './rightofusescheduleleases/rightofusescheduleleases.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -81,6 +82,7 @@ const routes: Routes = [
   { path: 'rightofuseschedule', component: RightofusescheduleComponent },
   { path: 'modificationreportslist', component: ModificationreportslistComponent },
   { path: 'dgmodificationreportslist', component: DgmodificationreportslistComponent },
+  { path: 'rightofusescheduleleases', component: RightofusescheduleleasesComponent },
 
   
   { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
