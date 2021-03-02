@@ -131,332 +131,7 @@
                 <button class="btn btn-success" id="myBtnn">Integration</button>
             </div>
         </div>
-
-        <!-- <div id="endingView">
-            <div class="row mt-4">
-                <div class="col-12 border-bottom">
-                    <strong class="mb-3">PKR</strong>
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-3">
-                            <h6>Date</h6>
-                        </div>
-                        <div class="col-3 text-lg-left">
-                            <h6>Head Of Account</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Dr.</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Cr.</h6>
-                        </div>
-                    </div>
-                    <div class="row journal_new border" onclick="window.open('finance&accrued.html', 'newwindow', 'width=1020,height=300');  return false;">
-                        <div class="col-3"></div>
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-12 text-lg-left">Finance Cost</div>
-                                <div class="col-12 mt-2 text-lg-left">Accrued Liability</div>
-                            </div>
-                        </div>
-
-                        <div class="col-3">{{drValue | number}}</div>
-                        <div class="col-3 mt-4">
-
-                            <div class="row">
-                                <div class="col-12"></div>
-                                <div class="col-12 mt-2">{{drValue | number}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4" id=paymentMonthEndingDiv>
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-3">
-                            <h6>Date</h6>
-                        </div>
-                        <div class="col-3 text-lg-left">
-                            <h6>Head Of Account</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Dr.</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Cr.</h6>
-                        </div>
-                    </div>
-                    <div class="row journal_new border">
-                         <div class="col-3"></div> 
-                        <div class="col-3">
-                            <div class="row text-lg-left">
-                                <div class="col-12" style="cursor: pointer;" onclick="window.open('financecost.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Finance Cost</div>
-                                <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('accuredliability.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Accrued Liability</div>
-                                <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('leaseliability.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Lease LiabilityE</div>
-                                <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('cashbank.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Cash / Bank</div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-12">{{repeatedMonthValue | number}}</div>
-                                <div class="col-12 mt-2">{{totalOfMonth | number}}</div>
-                                <div class="col-12 mt-2">{{leaseLiabilityEnding | number}}</div>
-                            </div>
-                        </div>
-                        <div class="col-3 mt-4">
-                            <div class="row">
-                                <div class="col-12 mt-5">{{paymentCashBank | number}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row mt-4">
-                <div class="col-12 border-bottom">
-                    <strong class="mb-3">USD</strong>
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-3">
-                            <h6>Date</h6>
-                        </div>
-                        <div class="col-3 text-lg-left">
-                            <h6>Head Of Account</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Dr.</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Cr.</h6>
-                        </div>
-                    </div>
-                    <div class="row journal_new border" onclick="window.open('finance&accrued.html', 'newwindow', 'width=1020,height=300');  return false;">
-                         <div class="col-3"></div> 
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-12 text-lg-left">Finance Cost</div>
-                                <div class="col-12 mt-2 text-lg-left">Accrued Liability</div>
-                            </div>
-                        </div>
-                        <div class="col-3">{{drValue | number}}</div>
-                        <div class="col-3 mt-4">
-                            <div class="row">
-                                <div class="col-12"></div>
-                                <div class="col-12 mt-2">10,0000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-3">
-                            <h6>Date</h6>
-                        </div>
-                        <div class="col-3 text-lg-left">
-                            <h6>Head Of Account</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Dr.</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Cr.</h6>
-                        </div>
-                    </div>
-                    <div class="row journal_new border" id="show2">
-                        <div class="col-3"></div> 
-                        <div class="col-3">
-                            <div class="row text-lg-left">
-                                <div class="col-12" style="cursor: pointer;" onclick="window.open('financecost.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Finance Cost</div>
-                                <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('accuredliability.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Accrued Liability</div>
-                                <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('leaseliability.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Lease Liability</div>
-                                <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('cashbank.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                    Cash / Bank</div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-12">22,771</div>
-                                <div class="col-12 mt-2">55,663</div>
-                                <div class="col-12 mt-2">171,566</div>
-                            </div>
-                        </div>
-                        <div class="col-3 mt-4">
-                            <div class="row">
-                                <div class="col-12 mt-5">250,000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
         <div id="beginningView">
-            <!-- <div class="row mt-4">
-                <div class="col-12 border-bottom">
-                    <strong class="mb-3">PKR Beginning</strong>
-                </div>
-            </div>
-            <div id="paymentMonthBeginningDiv">
-                <div class="row mt-4">
-                    <div class="col-12 mt-3" id="paymentMonthBeginningDiv">
-                        <div class="row journal_new">
-                            <div class="col-3">
-                                <h6>Date</h6>
-                            </div>
-                            <div class="col-3 text-lg-left">
-                                <h6>Head Of Account</h6>
-                            </div>
-                            <div class="col-3">
-                                <h6>Dr.</h6>
-                            </div>
-                            <div class="col-3">
-                                <h6>Cr.</h6>
-                            </div>
-                        </div>
-                        <div class="row journal_new border">
-                             <div class="col-3"></div> 
-                            <div class="col-3">
-                                <div class="row text-lg-left">
-                                    <div class="col-12" style="cursor: pointer;" onclick="window.open('financecost.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                        Finance Cost</div>
-                                    <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('accuredliability.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                        Lease LiabilityB</div>
-                                    <div class="col-12 mt-2" style="cursor: pointer;" onclick="window.open('cashbank.html', 'newwindow', 'width=1020,height=300');  return false;">
-                                        Cash / Bank</div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="row">
-                                    <div class="col-12">{{financeCost | number}}</div>
-                                    <div class="col-12 mt-2">{{leaseLiabilityBeginning | number}}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 mt-4">
-                                <div class="row">
-                                    <div class="col-12 mt-5">{{paymentCashBank | number}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-3">
-                            <h6>Date</h6>
-                        </div>
-                        <div class="col-3 text-lg-left">
-                            <h6>Head Of Account</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Dr.</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Cr.</h6>
-                        </div>
-                    </div>
-                    <div class="row journal_new border" onclick="window.open('finance&accrued.html', 'newwindow', 'width=1020,height=300');  return false;">
-                        <div class="col-3"></div>
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-12 text-lg-left">Prepaid Expense</div>
-                                <div class="col-12 mt-2 text-lg-left">Finance Cost</div>
-                            </div>
-                        </div>
-
-                        <div class="col-3">{{financeCost| number}}</div>
-                        <div class="col-3 mt-4">
-                            <div class="row">
-                                <div class="col-12"></div>
-                                <div class="col-12 mt-2">{{financeCost | number}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 mt-3">
-                <div class="row journal_new">
-                    <div class="col-3">
-                        <h6>Date</h6>
-                    </div>
-                    <div class="col-3 text-lg-left">
-                        <h6>Head Of Account</h6>
-                    </div>
-                    <div class="col-3">
-                        <h6>Dr.</h6>
-                    </div>
-                    <div class="col-3">
-                        <h6>Cr.</h6>
-                    </div>
-                </div>
-                <div class="row journal_new border" onclick="window.open('finance&accrued.html', 'newwindow', 'width=1020,height=300');  return false;">
-                    <div class="col-3"></div>
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-12 text-lg-left">Finance Cost</div>
-                            <div class="col-12 mt-2 text-lg-left">Prepaid Expenses</div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">{{drValue | number}}</div>
-                    <div class="col-3 mt-4">
-                        <div class="row">
-                            <div class="col-12"></div>
-                            <div class="col-12 mt-2">{{drValue | number}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12 border-bottom">
-                    <strong class="mb-3">USD</strong>
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="row journal_new">
-                        <div class="col-3">
-                            <h6>Date</h6>
-                        </div>
-                        <div class="col-3 text-lg-left">
-                            <h6>Head Of Account</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Dr.</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6>Cr.</h6>
-                        </div>
-                    </div>
-                    <div class="row journal_new border" onclick="window.open('finance&accrued.html', 'newwindow', 'width=1020,height=300');  return false;">
-                         <div class="col-3">{{commencementDateS | date:'mediumDate'}}</div> 
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-12 text-lg-left">Finance Cost</div>
-                                <div class="col-12 mt-2 text-lg-left">Accrued Liability</div>
-                            </div>
-                        </div>
-                        <div class="col-3">100,0000</div>
-                        <div class="col-3 mt-4">
-                            <div class="row">
-                                <div class="col-12"></div>
-                                <div class="col-12 mt-2">10,0000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="row mt-4">
                 <div class="col-12 mt-3">
                     <div class="row journal_new">
@@ -491,6 +166,12 @@
                                 <div class="col-12 mt-2">
                                     Cash / Bank
                                 </div>
+                                <div class="col-12 mt-2">
+                                    Depreciation
+                                </div>
+                                <div class="col-12 mt-2">
+                                    Right of Use (ROU)
+                                </div>
                             </div>
                         </div>
                         <div class="col-3">
@@ -501,6 +182,7 @@
                                 <div class="col-12 mt-1 empty_div" *ngIf="leaseBool else assignZero">{{finalLeaseLiability | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="prepaidBool else assignZero">{{FinalPrepaidExpense | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!paymentBool else assignZero">{{paymentCashBank | number}}</div>
+                                <div class="col-12 mt-1 empty_div">Depreciation</div>
                             </div>
                         </div>
                         <ng-template #assignZero>
@@ -513,14 +195,14 @@
                                 <div class="col-12 mt-1 empty_div" *ngIf="!leaseBool  else assignZero">{{finalLeaseLiability | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!prepaidBool  else assignZero">{{FinalPrepaidExpense | number}}</div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="paymentBool else assignZero">{{paymentCashBank | number}}</div>
+                                <div class="col-12 mt-1 empty_div"></div>
+                                <div class="col-12 mt-1 empty_div">ROU</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="row">
             <div class="col-12 btn_mg mt-4">
                 <button class="btn btn-success nextBtn btn-lg pull-right float-lg-right" routerLink="/home" type="button">Done</button>

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { rightService } from "src/app/right-of-use/rightService";
-import { Globals } from "../globals"; 
+import { Globals } from "../globals";
 
 @Component({
-  selector: 'app-lease-report',
-  templateUrl: './lease-report.component.html',
-  styleUrls: ['./lease-report.component.css']
+  selector: 'app-rightofusescheduleleases',
+  templateUrl: './rightofusescheduleleases.component.html',
+  styleUrls: ['./rightofusescheduleleases.component.css']
 })
-export class LeaseReportComponent implements OnInit {
+export class RightofusescheduleleasesComponent implements OnInit {
   mapUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
 
