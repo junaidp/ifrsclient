@@ -59,21 +59,22 @@ export class HomeComponent implements OnInit {
     this.leaseService.bulkUploadLease(frmData).subscribe(response => {
       this.spinner.hide();
       console.log(response)
+    
+    //   var msg;
+    //   if (response.includes("Success")) {
+    //      msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
+    //   // }
+    //   // else {
+    // //    msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
+    //     this.router.navigate([this.globals.reportRighOfUseRoute]);
 
-      var msg;
-      if (response.includes("Success")) {
-         msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
-      // }
-      // else {
-    //    msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
-        this.router.navigate([this.globals.reportRighOfUseRoute]);
-
-        $('#saveSuccess').html(msg);
-        setTimeout(function () {
-          $('#saveSuccess .alert').slideToggle();
-        }, 8000);
-      }
-    });
+    //     $('#saveSuccess').html(msg);
+    //     setTimeout(function () {
+    //       $('#saveSuccess .alert').slideToggle();
+    //     }, 8000);
+    //   }
+    },
+  );
   }
 
 
