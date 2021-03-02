@@ -45,39 +45,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-  uploadBulkFile() {   
-    //alert(dataId)         
-    const frmData = new FormData();
-    console.log(this.myFiles)
-    this.spinner.show();
-  
-    for (var i = 0; i < this.myFiles.length; i++) {
-      frmData.append("file", this.myFiles[i]);
-      frmData.append("id" , localStorage.getItem('userId'));
-    }
-    console.log(frmData)
-    this.leaseService.bulkUploadLease(frmData).subscribe(response => {
-      this.spinner.hide();
-      console.log(response)
-    
-    //   var msg;
-    //   if (response.includes("Success")) {
-    //      msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
-    //   // }
-    //   // else {
-    // //    msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
-    //     this.router.navigate([this.globals.reportRighOfUseRoute]);
-
-    //     $('#saveSuccess').html(msg);
-    //     setTimeout(function () {
-    //       $('#saveSuccess .alert').slideToggle();
-    //     }, 8000);
-    //   }
-    },
-  );
-  }
-
-
   clickLease() {
     //just added console.log which will display the event details in browser on click of the button.
     this.selected = "/journalEntries"

@@ -58,18 +58,24 @@ export class NavbarComponent implements OnInit {
       console.log(response)
 
       var msg;
-      if (response.includes("Success")) {
-         msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
-      // }
-      // else {
-    //    msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
-        this.router.navigate([this.globals.reportRighOfUseRoute]);
+      if (response.includes("failure")) {
+         msg = '<div class="alert alert-danger"   role="alert" >' + response + '</div>';
 
-        $('#saveSuccess').html(msg);
-        setTimeout(function () {
-          $('#saveSuccess .alert').slideToggle();
-        }, 8000);
+         $('#bulkUploadResponsePanel').html(msg);
+      setTimeout(function () {
+        $('#bulkUploadResponsePanel .alert').slideToggle();
+      }, 8000);
       }
+      else{
+        msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
+
+        this.router.navigate([this.globals.reportRighOfUseRoute]);
+        $('#saveSuccess').html(msg);
+      setTimeout(function () {
+        $('#saveSuccess .alert').slideToggle();
+      }, 8000);
+      }
+      
     });
   }
 
