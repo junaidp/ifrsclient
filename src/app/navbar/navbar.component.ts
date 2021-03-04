@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
   signUpAddress = "";
   signUpCompany ; 
   myFiles: any;
+  mapResult: Map<String, String>;
   constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice , public leaseService: LeaseService, private spinner: NgxSpinnerService) {
   
   }
@@ -53,30 +54,63 @@ export class NavbarComponent implements OnInit {
       frmData.append("id" , localStorage.getItem('userId'));
     }
     console.log(frmData)
-    this.leaseService.bulkUploadLease(frmData).subscribe(response => {
-      this.spinner.hide();
-      console.log(response)
+    this.leaseService.bulkUploadLease(frmData).subscribe(
+      (response) => {
+        this.spinner.hide();
+        this.mapResult = response
+        console.log(this.mapResult)
+        console.log(this.mapResult)
+        var msg;
+        if(response == null){
+          this.router.navigate([this.globals.reportRighOfUseRoute]);
+          msg = '<div class="alert alert-info"   role="alert" >' + 'Bulk Upload was Successfull' + '</div>';
+         
+          $('#saveSuccess').html(msg);
 
-      var msg;
-      if (response.includes("failure")) {
-         msg = '<div class="alert alert-danger"   role="alert" >' + response + '</div>';
-
-         $('#bulkUploadResponsePanel').html(msg);
-      setTimeout(function () {
-        $('#bulkUploadResponsePanel .alert').slideToggle();
-      }, 8000);
-      }
-      else{
-        msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
-
-        this.router.navigate([this.globals.reportRighOfUseRoute]);
-        $('#saveSuccess').html(msg);
-      setTimeout(function () {
-        $('#saveSuccess .alert').slideToggle();
-      }, 8000);
-      }
+          setTimeout(function () {
+            $('#saveSuccess .alert').slideToggle();
+          }, 8000);
+        }
+        else{
+          msg = '<div class="alert alert-danger"   role="alert" >' + JSON.stringify(response, null , '\t') + '</div>';
+         
+          $('#bulkUploadResponsePanel').html(msg);
+        }
+       
+        
+       
+      // });
+        
       
-    });
+      // console.log(response)
+
+      // var msg;
+      // if (response.includes("failure")) {
+      //    msg = '<div class="alert alert-danger"   role="alert" >' + response + '</div>';
+
+      //    $('#bulkUploadResponsePanel').html(msg);
+      // setTimeout(function () {
+      //   $('#bulkUploadResponsePanel .alert').slideToggle();
+      // }, 8000);
+      // }
+      // else{
+      //   msg = '<div class="alert alert-info"   role="alert" >' + response + '</div>';
+
+      //   this.router.navigate([this.globals.reportRighOfUseRoute]);
+      //   $('#saveSuccess').html(msg);
+      // setTimeout(function () {
+      //   $('#saveSuccess .alert').slideToggle();
+      // }, 8000);
+      // }
+      
+    },
+    (error) => {                              //Error callback
+      console.error('error caught in component')
+      alert("error e oye")
+     this.spinner.hide();
+
+    },
+    );
   }
 
   SignUp(){
