@@ -17,6 +17,17 @@ export class LeaseService {
     return response;
   }
 
+  async calculateFtaSum(data) {
+    var paymentInterval = data.paymentIntervals
+
+
+    const  url = this.globals.APP_URL+"/calculation/journal/reportFtaSum";
+   const response = await axios.post(url, data);
+    return response;
+
+  }
+
+
   async SaveData(data) {
     const urlSaveData = this.globals.APP_URL+"/data/saveData";
     const response = await axios.post(urlSaveData, data).then();
@@ -46,6 +57,7 @@ export class LeaseService {
   public  bulkUploadLease(file: FormData): Observable<any> {
     return this.http.post(this.globals.APP_URL+"/data/bulkUploadLease", file );
   }
+
 }
 
 
