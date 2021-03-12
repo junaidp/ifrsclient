@@ -137,15 +137,15 @@
             </div>
             <div class="col-12 mt-3">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-12">
+                    <!-- <div class="col-lg-6 col-md-6 col-12">
                         <div class="row">
                             <div class="col-4 report_css">Other</div>
                             <div class="col-8">
                                 <input type="text" class="form-control" id="dateSelector" />
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12">
+                    </div> -->
+                    <div class="col-lg-12 col-md-6 col-12 text-right">
                         <button class="btn btn-success nextBtn btn-lg pull-right float-lg-right" (click)="  calculate(); " type="button">Generate</button>
                     </div>
                 </div>
@@ -186,6 +186,12 @@
                                 <div class="col-12 mt-2">
                                     Cash / Bank
                                 </div>
+                                <div class="col-12 mt-2">
+                                    Expence
+                                </div>
+                                <div class="col-12 mt-2">
+                                    Income
+                                </div>
                             </div>
                         </div>
                         <div class="col-3">
@@ -200,6 +206,7 @@
                                 </div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!paymentBool else assignZero">{{paymentCashBank | number}}
                                 </div>
+                                <div class="col-12 mt-1 empty_div">expence</div>
                             </div>
                         </div>
                         <ng-template #assignZero>
@@ -216,6 +223,8 @@
                                 </div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="paymentBool else assignZero">{{paymentCashBank | number}}
                                 </div>
+                                <div class="col-12 mt-1 empty_div"></div>
+                                <div class="col-12 mt-1 empty_div">income</div>
                             </div>
                         </div>
                     </div>

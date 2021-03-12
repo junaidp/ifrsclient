@@ -67,11 +67,30 @@
                 </div> -->
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
-                    <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
-                        <option>All</option>
-                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option> -->
-                        <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
-                    </select>
+                    <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
+                    <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
+                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
+                    </datalist>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Location</div>
+                    <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
+                    <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
+                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
+                    </datalist>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Asset COde</div>
+                    <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
+                    <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
+                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
+                    </datalist>
                 </div>
             </div>
         </div>
@@ -93,17 +112,23 @@
             <!-- <div class="col-2">
                 <h6>Date</h6>
             </div> -->
-            <div class="col-3">
+            <div class="col-2">
                 <h6>Contract Ref. No.</h6>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <h6>Lessor Name</h6>
             </div>
             <!-- <div class="col-2">
                 <h6>Lessee Name</h6>
             </div> -->
-            <div class="col-4">
+            <div class="col-2">
                 <h6>Class of Asset</h6>
+            </div>
+            <div class="col-2">
+                <h6>Location</h6>
+            </div>
+            <div class="col-2">
+                <h6>Asset Code</h6>
             </div>
             <div class="col-1">
                 <h6>Action</h6>
@@ -118,10 +143,12 @@
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{i+1}}</div>
                             <!-- <div class="col-lg-2 col-md-6 col-6">12/12/12</div> -->
-                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
-                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
                             <!-- <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div> -->
-                            <div class="col-lg-4 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">location</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">Asset code</div>
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
                             <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon" id="{{row.value['id']}}"></i></div>
                         </div>

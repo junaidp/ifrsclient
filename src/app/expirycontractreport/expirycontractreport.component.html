@@ -23,13 +23,13 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
-                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Right of Use</li>
-                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Lease Schedule</li>
+                        <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Report</li>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Expiry Contract Report</li>
                     </ol>
                 </nav>
             </div>
         </div>
-        <div class="row mt-4">
+        <!-- <div class="row mt-4">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12  report_css">Quick Report</div>
@@ -92,13 +92,16 @@
                     <input [(ngModel)]="startingDate" type="month" class="form-control col-lg-8 col-md-4 col-12" placeholder="date">
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row mt-4">
-            <div class="col-lg-6 col-md-6 col-12">
+            <div class="col-lg-6 col-md-12 col-12">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Asset Code</div>
-                    <select name="" class="form-control col-lg-8 col-md-4 col-12" id="">
-                        <option value="">all</option>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Date</div>
+                    <select class="form-control col-lg-8">
+                        <option value="">1 Month</option>
+                        <option value="">3 Month</option>
+                        <option value="">6 Month </option>
+                        <option value="">12 Month </option>
                     </select>
                 </div>
             </div>
@@ -109,73 +112,44 @@
     </div>
 
 
-    <div class="container-fluid mt-4 border-top">
-        <div class="row mt-4 ">
+    <div class="container mt-4 border-top">
+        <div class="row mt-4 responsive_display">
             <div class="col-1">
                 <h6>Sr. #</h6>
             </div>
-            <div class="col-1">
-                <h6>Ref. No.</h6>
-            </div>
-            <div class="col-1">
-                <h6>Asset Code</h6>
-            </div>
-            <div class="col-1">
-                <h6>Location </h6>
-            </div>
             <div class="col-2">
+                <h6>Contract Ref. No.</h6>
+            </div>
+            <div class="col-3">
                 <h6>Lessor Name</h6>
             </div>
-            <div class="col-2">
-                <h6>Lease Name</h6>
+            <div class="col-3">
+                <h6>Class of asset</h6>
             </div>
-            <div class="col-2">
-                <h6>ROU Closing</h6>
-            </div>
-            <div class="col-1">
-                <h6>Depreciation</h6>
-            </div>
-            <div class="col-1">
-                <h6>ROU Closing</h6>
+            <div class="col-3">
+                <h6></h6>
             </div>
         </div>
-
-        <div class="row mt-3 border-top">
+    </div>
+    <div class="container">
+        <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3">
-                    <li *ngFor="let row of mapUserData | keyvalue" onclick="displayfunctiontab3();" routerLink="/rightofuseschedule/">
-                        <div class="row m-0">
-                            <div class="col-lg-1 col-md-6 col-6">-</div>
-                            <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
-                            <div class="col-lg-1 col-md-6 col-6">ass code</div>
-                            <div class="col-lg-1 col-md-6 col-6">{{row.value['location']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['lessorName']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6">rou</div>
-                            <div class="col-lg-1 col-md-6 col-6">dep</div>
-                            <div class="col-lg-1 col-md-6 col-6">clo</div>
+                    <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{i+1}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
+                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
+
+                            <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row mt-2">
-            <div class="col-lg-1 col-md-6 col-6"></div>
-            <div class="col-lg-1 col-md-6 col-6"></div>
-            <div class="col-lg-1 col-md-6 col-6"></div>
-            <div class="col-lg-1 col-md-6 col-6"></div>
-            <div class="col-lg-2 col-md-6 col-6"></div>
-            <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">
-                <h6 class="m-0 font-weight-bolder ">Total</h6>
-            </div>
-            <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">12</div>
-            <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">121212</div>
-            <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">121212</div>
-        </div>
-    </div>
-
 </body>
 
 </html>
