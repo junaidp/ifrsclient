@@ -48,7 +48,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset1</div>
                     <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
                     <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
                         <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
@@ -89,11 +89,12 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Date</div>
-                    <input [(ngModel)]="startingDate" type="month" class="form-control col-lg-8 col-md-4 col-12" placeholder="date">
+                    <input [(ngModel)]="date" type="month" class="form-control col-lg-8 col-md-4 col-12" id="dateSelector" placeholder="data" name="" />
                 </div>
             </div>
         </div>
         <div class="row mt-4">
+<<<<<<< HEAD
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Asset Code</div>
@@ -104,6 +105,10 @@
             </div>
             <div class="col-lg-6 col-md-12 col-12 text-right">
                 <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
+=======
+            <div class="col-lg-12 col-md-12 col-12 text-right">
+                <button class="btn btn-info" (click)="getFilterUserDataFta()">Generate Report</button>
+>>>>>>> 5eb1a5ed49a587db730ec0c6ba24978b4629834f
             </div>
         </div>
     </div>
