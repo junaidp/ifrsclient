@@ -21,7 +21,7 @@ export class LeaseService {
     var paymentInterval = data.paymentIntervals
 
 
-    const  url = this.globals.APP_URL+"/calculation/journal/reportFtaSum";
+    const  url = this.globals.APP_URL+"/calculation/journal/reportSchedulePerYear";
    const response = await axios.post(url, data);
     return response;
 

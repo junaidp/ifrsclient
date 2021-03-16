@@ -3,6 +3,11 @@ import { rightService } from "src/app/right-of-use/rightService";
 import { Globals } from "../globals";
 import { LeaseService } from '../new-lease/leaseService';
 import { NgxSpinnerService } from "ngx-spinner";
+import {
+  Router,
+  NavigationExtras
+} from '@angular/router';
+
 declare var $: any;
 @Component({
   selector: 'app-rightofusescheduleleases',
@@ -28,9 +33,9 @@ export class RightofusescheduleleasesComponent implements OnInit {
   companyId ;
   finalDate ;
   dateSelectorMonth;
-  map: Map<string, Map<string, string>>;
+  mapRightReport: Map<string, Map<string, string>>;
   mapRow: Map<string , string>
-  constructor( public globals: Globals,public rightService: rightService, public leaseService: LeaseService,  private spinner: NgxSpinnerService) { }
+  constructor( public globals: Globals,public rightService: rightService, private router: Router, public leaseService: LeaseService,  private spinner: NgxSpinnerService) { }
 
   public getFilterUserData() {
     //  this.spinner.show();
@@ -66,9 +71,8 @@ export class RightofusescheduleleasesComponent implements OnInit {
 
 
 
-    public getFilterUserDataFta() {
-      alert("das")
-    //  this.spinner.show();
+    public getFilterUserDataScheduleReport() {
+      this.spinner.show();
   
   
       this.userId = localStorage.getItem('userId');
@@ -82,11 +86,7 @@ export class RightofusescheduleleasesComponent implements OnInit {
       var day = 10;
       var year = ret[0];
       var month = ret[1];
-      var paymentIntervalsService;
-      var payment;
-      var paymentInGlobal;
-      var paymentEnding = "Ending"
-      var paymentBeginning = "Beginning"
+    
   
       this.finalDate =  (30 +"-" +month + "-" + year)
       this.dateSelectorMonth = month
@@ -96,18 +96,16 @@ export class RightofusescheduleleasesComponent implements OnInit {
         year: year,
         month: month
       };
-      alert(JSON.stringify(data))
+     // alert(JSON.stringify(data))
       this.leaseService.calculateFtaSum(data).then(response => {
-        this.map = new Map(Object.entries(response.data));
+        this.mapRightReport = new Map(Object.entries(response.data));
         this.spinner.hide();
-        console.log(this.map)
+        console.log(this.mapRightReport)
         $.each(response.data, function (index) {
          // this.map = new Map(Object.entries(response.data[index]));
-          payment = response.data[index].payment;
           this.mapRow =response.data[index]
-          this.map1 = this.map.get("17");
-      this.presentValue = this.map1[9];
-          console.log(this.mapRow)
+         // this.map1 = this.map.get("17");
+         // console.log(this.mapRow)
           // commencementDateSer = (response.data[index].commencementDate)
       //      var paymentIntervalsService = response.data[index].paymentIntervals;
       //       var paymentInGlobal = response.data[index].paymentsAt;
@@ -137,7 +135,6 @@ export class RightofusescheduleleasesComponent implements OnInit {
       //     }
       //     alert(response.data[index].payment)
         });
-        this.mapUserData = new Map(Object.entries(response.data))
   
      //   console.log(response.data)
      //    console.log(this.mapUserData)
@@ -192,12 +189,33 @@ export class RightofusescheduleleasesComponent implements OnInit {
     }
 
   ngOnInit() {
+    var me = this;
+
+    $("#rightScheduleUl").on("click", ".rightScheduleLi", function (event) {
+      //  me.spinner.show();
+        var dataId = $(this).attr('id');
+        var data = {
+          dataId: dataId
+        };
+      //  alert(dataId);
+        me.router.navigate(['/rightofuseschedule/'], { state: { dataId: dataId } });
+        // me.populateUserData(me, data);
+        // me.populateDataTables(me, data);
+       // me.spinner.hide();
+  
+      });
+
     var data = {};
     this.rightService.getUsersData(data).then(response => {
       this.mapUserData = new Map(Object.entries(response.data));
       this.mapUserFilter = new Map(Object.entries(response.data));
       console.log(response.data)
     });
-  }
 
+   
+
+  }
+  private openUserDetailModal(me: this) {
+    
+  }
 }
