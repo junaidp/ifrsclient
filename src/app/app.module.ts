@@ -60,7 +60,6 @@ import { ModificationreportslistComponent } from './modificationreportslist/modi
 import { DgmodificationreportslistComponent } from './dgmodificationreportslist/dgmodificationreportslist.component';
 import { RightofusescheduleleasesComponent } from './rightofusescheduleleases/rightofusescheduleleases.component';
 import { InterestexpensereportComponent } from './Interestexpensereport/Interestexpensereport.component';
-import { MaturityanalysisreportComponent } from './Maturityanalysisreport/Maturityanalysisreport.component';
 import { ExpirycontractreportComponent } from './expirycontractreport/expirycontractreport.component';
 import { NewmodifyterminatedreportComponent } from './newmodifyterminatedreport/newmodifyterminatedreport.component';
 
@@ -114,7 +113,6 @@ import { NewmodifyterminatedreportComponent } from './newmodifyterminatedreport/
       DgmodificationreportslistComponent,
       RightofusescheduleleasesComponent,
       InterestexpensereportComponent,
-      MaturityanalysisreportComponent,
       ExpirycontractreportComponent,
       NewmodifyterminatedreportComponent
    ],
