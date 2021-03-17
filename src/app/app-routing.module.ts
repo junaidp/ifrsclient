@@ -48,7 +48,7 @@ import { ModificationreportslistComponent } from './modificationreportslist/modi
 import { DgmodificationreportslistComponent } from './dgmodificationreportslist/dgmodificationreportslist.component';
 import { RightofusescheduleleasesComponent } from './rightofusescheduleleases/rightofusescheduleleases.component';
 import { InterestexpensereportComponent } from './Interestexpensereport/Interestexpensereport.component';
-import { MaturityanalysisreportComponent } from './Maturityanalysisreport/Maturityanalysisreport.component';
+//import { MaturityanalysisreportComponent } from './Maturityanalysisreport/Maturityanalysisreport.component';
 import { ExpirycontractreportComponent } from './expirycontractreport/expirycontractreport.component';
 import { NewmodifyterminatedreportComponent } from './newmodifyterminatedreport/newmodifyterminatedreport.component';
 
@@ -88,7 +88,7 @@ const routes: Routes = [
   { path: 'dgmodificationreportslist', component: DgmodificationreportslistComponent },
   { path: 'rightofusescheduleleases', component: RightofusescheduleleasesComponent },
   { path: 'interestexpensereport', component: InterestexpensereportComponent },
-  { path: 'maturityanalysisreport', component: MaturityanalysisreportComponent },
+  //{ path: 'maturityanalysisreport', component: MaturityanalysisreportComponent },
   { path: 'expirycontractreport', component: ExpirycontractreportComponent },
   { path: 'newmodifyterminatedreport', component: NewmodifyterminatedreportComponent },
 
