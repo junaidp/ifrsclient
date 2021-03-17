@@ -131,7 +131,7 @@
                     <h6>Lease Name</h6>
                 </div>
                 <div class="col-2">
-                    <h6>ROU Closing</h6>
+                    <h6>ROU Opening</h6>
                 </div>
                 <div class="col-1">
                     <h6>Depreciation</h6>
@@ -144,9 +144,9 @@
             <div class="row mt-3 border-top">
                 <div class="col-12" style="padding: 0;">
                     <ul class="draft_close_section mt-4 mb-3" id="rightScheduleUl">
-                        <li *ngFor="let row of mapRightReport | keyvalue" onclick="displayfunctiontab3();" id="{{row.value['dataId']}}" class="rightScheduleLi" >
+                        <li *ngFor="let row of mapRightReport | keyvalue ; let i = index" onclick="displayfunctiontab3();" id="{{row.value['dataId']}}" class="rightScheduleLi" >
                             <div class="row m-0" >
-                                <div class="col-lg-1 col-md-6 col-6">-</div>
+                                <div class="col-lg-1 col-md-6 col-6">{{i+1}}</div>
                                 <div class="col-lg-1 col-md-6 col-6">{{row.value['leaseContractNo']}}</div>
                                 <div class="col-lg-1 col-md-6 col-6">{{row.value['assetCode']}}</div>
                                 <div class="col-lg-1 col-md-6 col-6">{{row.value['location']}}</div>
@@ -171,9 +171,9 @@
                 <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">
                     <h6 class="m-0 font-weight-bolder ">Total</h6>
                 </div>
-                <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">12</div>
-                <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">121212</div>
-                <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">121212</div>
+                <div class="col-lg-2 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">{{sumOfNVBOpeningFinal | number:'1.0-0'}}</div>
+                <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">{{-(sumOfDepreciationiFnal) | number:'1.0-0'}}</div>
+                <div class="col-lg-1 col-md-6 col-6 border font-weight-bolder pt-3 pb-2">{{sumOFNVBClosingFinal | number:'1.0-0'}}</div>
             </div>
         </div>
     </div>

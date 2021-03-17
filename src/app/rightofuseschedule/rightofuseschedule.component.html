@@ -47,8 +47,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let row of mapIndividualSchedule | keyvalue">
-                            <td>{{row.value[14] | number:'1.0-0'}}</td>
+                        <tr *ngFor="let row of mapIndividualSchedule | keyvalue ; let i = index">
+                            <td>{{i+1}}</td>
                             <td>{{row.value[15]| date:'mediumDate'}}</td>
                             <td>{{row.value[16]| number:'1.0-0'}}</td>
                             <td>{{-(row.value[17]) | number:'1.0-0'}}</td>

@@ -7,6 +7,7 @@ import {
   Router,
   NavigationExtras
 } from '@angular/router';
+import { single } from 'rxjs/operators';
 
 declare var $: any;
 @Component({
@@ -33,8 +34,13 @@ export class RightofusescheduleleasesComponent implements OnInit {
   companyId ;
   finalDate ;
   dateSelectorMonth;
+
+  sumOfNVBOpeningFinal ;
+  sumOFNVBClosingFinal;
+  sumOfDepreciationiFnal;
   mapRightReport: Map<string, Map<string, string>>;
   mapRow: Map<string , string>
+  map: Map<string, Map<string, string>>;
   constructor( public globals: Globals,public rightService: rightService, private router: Router, public leaseService: LeaseService,  private spinner: NgxSpinnerService) { }
 
   public getFilterUserData() {
@@ -97,55 +103,50 @@ export class RightofusescheduleleasesComponent implements OnInit {
         month: month
       };
      // alert(JSON.stringify(data))
+ 
+
       this.leaseService.calculateFtaSum(data).then(response => {
         this.mapRightReport = new Map(Object.entries(response.data));
         this.spinner.hide();
         console.log(this.mapRightReport)
+      //   for (let [key, value] of this.mapRightReport.entries()) {
+      //     console.log(key, value);
+      // }
+      var sumOfNVBOpening  =0;
+      var sumOFNVBClosing = 0;
+      var sumOfDepreciation = 0;
+      
         $.each(response.data, function (index) {
-         // this.map = new Map(Object.entries(response.data[index]));
-          this.mapRow =response.data[index]
-         // this.map1 = this.map.get("17");
-         // console.log(this.mapRow)
-          // commencementDateSer = (response.data[index].commencementDate)
-      //      var paymentIntervalsService = response.data[index].paymentIntervals;
-      //       var paymentInGlobal = response.data[index].paymentsAt;
-      //       var commencementDateSer = (response.data[index].commencementDate)
-      //       var commencementDateService = (commencementDateSer.split(" "))
-      //       var monthService = commencementDateService[1]
-  
-      //       if (typeof payment == "undefined"|| typeof payment == null){
-      //         payment = 0
-      //         }
+
+          this.map = new Map(Object.entries(response.data[index]));
+          var nvbDepreciation =0;
+          var nvbOpening = 0;
+          var nvbClosing  =0;
+
+          nvbOpening = this.map.get('16');
+          nvbOpening = Math.round(nvbOpening)
+          nvbDepreciation = this.map.get('17');
+          nvbDepreciation = Math.round(nvbDepreciation)
+          nvbClosing  = this.map.get('18');
+          nvbClosing = Math.round(nvbClosing);
+
+
+        //  alert(nvbOpening + "open" + nvbClosing  + "closing "   +  nvbDepreciation + "dep")
+          sumOfNVBOpening  += (nvbOpening);
+          sumOfDepreciation += nvbDepreciation
+          sumOFNVBClosing += nvbClosing
+
+        //  alert(sumOfNVBOpening + "sumofope" +  sumOfDepreciation + "dep"   +  sumOFNVBClosing)
          
-      //       if(payment>=0){
-      //         response.data[index].payment = payment
-      //       }
-  
-      //      const monthServiceInt = calculateMonth(monthService);
-  
-      //  //   alert(paymentIntervalsService)
-      //     if(paymentIntervalsService.toLowerCase() == "yearly"){
-      //       if ((monthServiceInt == month) ) {
-      //       //  alert("asd if")
-      //           response.data[index].payment = response.data[index].payment 
-      //       }
-      //       else{
-      //         response.data[index].payment = 0
-      //       }
-      //     }
-      //     alert(response.data[index].payment)
         });
-  
-     //   console.log(response.data)
-     //    console.log(this.mapUserData)
-        // $.each(response.data, function (index) {
-        //   this.map = new Map(Object.entries(response.data[index]));
-        //   console.log(this.map)
-  
-        // });
-  
+        this.sumOfNVBOpeningFinal = parseInt(sumOfNVBOpening+"")
+        this.sumOfDepreciationiFnal = parseInt(sumOfDepreciation+"")
+        this.sumOFNVBClosingFinal = parseInt(sumOFNVBClosing+"")
+
+       // console.log(this.sumOfNVBOpeningFinal + "op"  + this.sumOfDepreciationiFnal + "dep" + this.sumOFNVBClosingFinal )
       });
   
+      
       function calculateMonth(monthService) {
         if (monthService.toLowerCase() == "Jan".toLowerCase()) {
           return "01"
@@ -197,12 +198,7 @@ export class RightofusescheduleleasesComponent implements OnInit {
         var data = {
           dataId: dataId
         };
-      //  alert(dataId);
         me.router.navigate(['/rightofuseschedule/'], { state: { dataId: dataId } });
-        // me.populateUserData(me, data);
-        // me.populateDataTables(me, data);
-       // me.spinner.hide();
-  
       });
 
     var data = {};
@@ -210,12 +206,6 @@ export class RightofusescheduleleasesComponent implements OnInit {
       this.mapUserData = new Map(Object.entries(response.data));
       this.mapUserFilter = new Map(Object.entries(response.data));
       console.log(response.data)
-    });
-
-   
-
-  }
-  private openUserDetailModal(me: this) {
-    
+    });   
   }
 }
