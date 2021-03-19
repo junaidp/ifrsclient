@@ -16,10 +16,6 @@ declare var $: any;
   styleUrls: ['./rightofusescheduleleases.component.css']
 })
 export class RightofusescheduleleasesComponent implements OnInit {
-  mapUserData: Map<string, Map<string, string>>;
-  mapUserFilter: Map<string, Map<string, string>>;
-
-  
 
   leaseName = "";
   lessorName = "";
@@ -43,6 +39,15 @@ export class RightofusescheduleleasesComponent implements OnInit {
   map: Map<string, Map<string, string>>;
   constructor( public globals: Globals,public rightService: rightService, private router: Router, public leaseService: LeaseService,  private spinner: NgxSpinnerService) { }
 
+  mapUserData: Map<string, Map<string, string>>;
+  mapIndividualUserData: Map<string, Map<string, string>>;
+  mapUserFilter: Map<string, Map<string, string>>;
+  mapClassOfAsset: Map<string, Map<string, string>>;
+  mapClassOfAssetFilter: Map<string, string>
+  mapLeaseNameFilter: Map<string, string>
+  mapLessorNameFilter: Map<string, string>
+  mapClassOfAssetCodeFilter:  Map<string, string>
+  mapClassOfLocationFilter:  Map<string, string>
   public getFilterUserData() {
     //  this.spinner.show();
     //  alert(this.leaseName);
@@ -190,6 +195,14 @@ export class RightofusescheduleleasesComponent implements OnInit {
     }
 
   ngOnInit() {
+
+
+    this.getClassOfAssetFilterValues();
+    this.getLeaseFilterValues();
+    this.getLessorFilterValues();
+    this.getLocatonFilterValues();
+    this.getAssetCodeFilterValues();
+
     var me = this;
 
     $("#rightScheduleUl").on("click", ".rightScheduleLi", function (event) {
@@ -207,5 +220,57 @@ export class RightofusescheduleleasesComponent implements OnInit {
       this.mapUserFilter = new Map(Object.entries(response.data));
       console.log(response.data)
     });   
+  }
+
+
+
+  public getLessorFilterValues() {
+    var data = {
+      filterName: "lessorName"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLessorNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLessorNameFilter)
+    });
+  }
+
+  public getAssetCodeFilterValues() {
+    var data = {
+      filterName: "assetCode"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfAssetCodeFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfAssetCodeFilter)
+    });
+  }
+
+  public getLocatonFilterValues() {
+    var data = {
+      filterName: "location"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfLocationFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfLocationFilter)
+    });
+  }
+
+  public getClassOfAssetFilterValues() {
+    var data = {
+      filterName: "classOfAsset"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfAssetFilter)
+    });
+  }
+
+  public getLeaseFilterValues() {
+    var data = {
+      filterName: "leaseName"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLeaseNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLeaseNameFilter)
+    });
   }
 }

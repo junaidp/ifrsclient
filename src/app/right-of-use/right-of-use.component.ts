@@ -89,18 +89,12 @@ export class RightOfUseComponent implements OnInit {
   mapClassOfAssetFilter: Map<string, string>
   mapLeaseNameFilter: Map<string, string>
   mapLessorNameFilter: Map<string, string>
+  mapClassOfAssetCodeFilter:  Map<string, string>
+  mapClassOfLocationFilter:  Map<string, string>
 
 
 
-  public getLeaseFilterValues() {
-    var data = {
-      filterName: "leaseName"
-    };
-    this.rightService.getFiltersData(data).then(response => {
-      this.mapLeaseNameFilter = new Map(Object.entries(response.data));
-      console.log(this.mapLeaseNameFilter)
-    });
-  }
+
 
 
   public getFile() {
@@ -115,27 +109,6 @@ export class RightOfUseComponent implements OnInit {
     let url = (response.config.url);
     console.log(url)
     window.open(url);
-     // window.location.href = response.data;
-   //   this.mapLeaseNameFilter = new Map(Object.entries(response.data));
-
-
-    // var file = new Blob([response.headers], {type:  'application/docx' });
-    // var fileURL = URL.createObjectURL(file);
-    // window.open(fileURL);
-      
-    // var binaryData = [];
-    // binaryData.push(response);
-    // var url = window.URL.createObjectURL(new Blob(binaryData, {type: "application/docx"}));
-    // var a = document.createElement('a');
-    // document.body.appendChild(a);
-    // a.setAttribute('style', 'display: none');
-    // a.setAttribute('target', 'blank');
-    // a.href = url;
-    // a.download = response.data.filename;
-    // a.click();
-    // window.URL.revokeObjectURL(url);
-    // a.remove();
-
 
     });
   }
@@ -150,6 +123,26 @@ export class RightOfUseComponent implements OnInit {
     });
   }
 
+  public getAssetCodeFilterValues() {
+    var data = {
+      filterName: "assetCode"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfAssetCodeFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfAssetCodeFilter)
+    });
+  }
+
+  public getLocatonFilterValues() {
+    var data = {
+      filterName: "location"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfLocationFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfLocationFilter)
+    });
+  }
+
   public getClassOfAssetFilterValues() {
     var data = {
       filterName: "classOfAsset"
@@ -157,6 +150,16 @@ export class RightOfUseComponent implements OnInit {
     this.rightService.getFiltersData(data).then(response => {
       this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
       console.log(this.mapClassOfAssetFilter)
+    });
+  }
+
+  public getLeaseFilterValues() {
+    var data = {
+      filterName: "leaseName"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLeaseNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLeaseNameFilter)
     });
   }
 
@@ -200,6 +203,8 @@ export class RightOfUseComponent implements OnInit {
     this.getClassOfAssetFilterValues();
     this.getLeaseFilterValues();
     this.getLessorFilterValues();
+    this.getLocatonFilterValues();
+    this.getAssetCodeFilterValues();
 
     // for opening of userDetails modal wile clicking on details
     this.openUserDetailModal(me);

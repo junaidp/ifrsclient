@@ -32,6 +32,7 @@ export class NewLeaseComponent implements OnInit {
   location = "";
   assetDescription = "";
   classOfAsset = "";
+  assetCode = "";
 
 
 
@@ -208,6 +209,7 @@ export class NewLeaseComponent implements OnInit {
       location: this.location,
       contractCurrency: this.contractCurrency,
       assetDescription: this.assetDescription,
+      assetCode: this.assetCode,
 
       // contractCurrency:this.contractCurrency,
       answer1: this.answer1,

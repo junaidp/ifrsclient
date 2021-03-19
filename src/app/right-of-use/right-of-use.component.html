@@ -66,11 +66,13 @@
                     </div>
                 </div> -->
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of asset</div>
-                    <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
-                    <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
-                    </datalist>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Class Of Asset</div>
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option> -->
+                        <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -78,19 +80,20 @@
             <div class="col-6">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Location</div>
-                    <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
-                    <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
-                    </datalist>
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <option *ngFor="let row of mapClassOfLocationFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
             <div class="col-6">
+
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Asset COde</div>
-                    <input list="ice-cream-flavors" id="ice-cream-choice" placeholder="Select class of asset" name="ice-cream-choice" class="form-control col-lg-8 col-md-4 col-12" />
-                    <datalist id="ice-cream-flavors" [(ngModel)]="classOfAsset">
-                        <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option>
-                    </datalist>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Asset Code</div>
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <option *ngFor="let row of mapClassOfAssetCodeFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
         </div>
