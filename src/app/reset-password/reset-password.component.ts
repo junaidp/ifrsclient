@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { resetPasswordService } from "./resetPasswordService";
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError} from "../displayError";
+
+
+
 
 @Component({
   selector: 'app-reset-password',
@@ -12,7 +16,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class ResetPasswordComponent implements OnInit {
   resetPasswordEmail =""
   userId="" 
-  constructor(private route: ActivatedRoute, private resetPasswordService : resetPasswordService,  private spinner: NgxSpinnerService) { }
+  constructor(private route: ActivatedRoute, public displayError:DisplayError
+,    private resetPasswordService : resetPasswordService,  private spinner: NgxSpinnerService) { }
 
 
 
@@ -44,7 +49,13 @@ export class ResetPasswordComponent implements OnInit {
         }, 6000);
       }
      
-      });
+      },
+      (error): void => {   
+        //Error callback
+  this.spinner.hide();
+  this.displayError.displayErrorMessage(error);
+  
+  });
     }
 
   ngOnInit() {

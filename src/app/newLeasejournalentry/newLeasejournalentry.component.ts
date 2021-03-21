@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NewLeasejournalentryService } from "./NewLeasejournalentryService";
 import { Globals } from "../globals";
+import { DisplayError } from "../displayError";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewChild, ElementRef } from '@angular/core';
@@ -16,7 +17,8 @@ export class NewLeasejournalentryComponent implements OnInit {
 
 
 
-  constructor(public newLeasejournalentryservice: NewLeasejournalentryService, public globals: Globals, private router: Router) { }
+  constructor(public newLeasejournalentryservice: NewLeasejournalentryService, public displayError: DisplayError
+    , public globals: Globals, private router: Router) { }
   year: Date;
   month: Date;
 
@@ -106,7 +108,14 @@ export class NewLeasejournalentryComponent implements OnInit {
         //     alert(this.map.size)
         this.map1 = this.map.get("17");
         this.presentValue = this.map1[9];
-      });
+      }
+        ,
+        (error): void => {
+          //Error callback
+          // this.spinner.hide();
+          this.displayError.displayErrorMessage(error);
+
+        });
   }
 
 }

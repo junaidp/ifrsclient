@@ -5,6 +5,8 @@ import { rightService } from "src/app/right-of-use/rightService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError } from "../displayError";
+
 
 import { JournalService } from '../journal-entries/journalService';
 import { JournalEntriesComponent } from '../journal-entries/journal-entries.component';
@@ -32,7 +34,7 @@ export class PaymentReportComponent implements OnInit {
 
   leaseContractNo = "";
   classAsset = "";
-  commencementDate ="2019-03-11";
+  commencementDate = "2019-03-11";
   leaseNameIndividual = "";
   lessorNameIndividual = "";
   leasseeName = "";
@@ -69,15 +71,16 @@ export class PaymentReportComponent implements OnInit {
   escalationAfterEvery = "10";
   contractCurrency = "";
   //mapIndividualUserDetails: Map<String, String>;
-  mapIndividualUserDetails:  Map<string, string>;
+  mapIndividualUserDetails: Map<string, string>;
   map: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   presentValue: number;
 
-  constructor(public paymentService: paymentService, public globals: Globals, public rightService: rightService, public journalService: JournalService,  private spinner: NgxSpinnerService) { }
+  constructor(public paymentService: paymentService, public displayError: DisplayError
+    , public globals: Globals, public rightService: rightService, public journalService: JournalService, private spinner: NgxSpinnerService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
- 
+
 
   public getFilterUserData() {
     this.spinner.show();
@@ -86,11 +89,11 @@ export class PaymentReportComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.companyId = localStorage.getItem('companyId');
 
-    if(this.userId === "undefined"){
+    if (this.userId === "undefined") {
       this.userId = 0;
     }
     var ret = ($('#dateSelector').val().split("-"));
-   
+
     var day = 10;
     var year = ret[0];
     var month = ret[1];
@@ -100,7 +103,7 @@ export class PaymentReportComponent implements OnInit {
     var paymentEnding = "Ending"
     var paymentBeginning = "Beginning"
 
-    this.finalDate =  (30 +"-" +month + "-" + year)
+    this.finalDate = (30 + "-" + month + "-" + year)
     this.dateSelectorMonth = month
     var data = {
       userId: this.userId,
@@ -115,45 +118,51 @@ export class PaymentReportComponent implements OnInit {
         this.map = new Map(Object.entries(response.data[index]));
         payment = response.data[index].payment;
         // commencementDateSer = (response.data[index].commencementDate)
-         var paymentIntervalsService = response.data[index].paymentIntervals;
-          var paymentInGlobal = response.data[index].paymentsAt;
-          var commencementDateSer = (response.data[index].commencementDate)
-          var commencementDateService = (commencementDateSer.split(" "))
-          var monthService = commencementDateService[1]
+        var paymentIntervalsService = response.data[index].paymentIntervals;
+        var paymentInGlobal = response.data[index].paymentsAt;
+        var commencementDateSer = (response.data[index].commencementDate)
+        var commencementDateService = (commencementDateSer.split(" "))
+        var monthService = commencementDateService[1]
 
-          if (typeof payment == "undefined"|| typeof payment == null){
-            payment = 0
-            }
-       
-          if(payment>=0){
-            response.data[index].payment = payment
+        if (typeof payment == "undefined" || typeof payment == null) {
+          payment = 0
+        }
+
+        if (payment >= 0) {
+          response.data[index].payment = payment
+        }
+
+        const monthServiceInt = calculateMonth(monthService);
+
+        //   alert(paymentIntervalsService)
+        if (paymentIntervalsService.toLowerCase() == "yearly") {
+          if ((monthServiceInt == month)) {
+            //  alert("asd if")
+            response.data[index].payment = response.data[index].payment
           }
-
-         const monthServiceInt = calculateMonth(monthService);
-
-     //   alert(paymentIntervalsService)
-        if(paymentIntervalsService.toLowerCase() == "yearly"){
-          if ((monthServiceInt == month) ) {
-          //  alert("asd if")
-              response.data[index].payment = response.data[index].payment 
-          }
-          else{
+          else {
             response.data[index].payment = 0
           }
         }
-    //     alert(response.data[index].payment)
+        //     alert(response.data[index].payment)
       });
       this.mapUserData = new Map(Object.entries(response.data))
 
       console.log(response.data)
-   //    console.log(this.mapUserData)
+      //    console.log(this.mapUserData)
       // $.each(response.data, function (index) {
       //   this.map = new Map(Object.entries(response.data[index]));
       //   console.log(this.map)
 
       // });
 
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
 
     function calculateMonth(monthService) {
       if (monthService.toLowerCase() == "Jan".toLowerCase()) {
@@ -197,19 +206,19 @@ export class PaymentReportComponent implements OnInit {
 
   }
   ngOnInit() {
-    var me =this
+    var me = this
     var globalLInk = this.globals.APP_URL
-    $("#dataListUl").on("click", ".dataListLi", function(event){
+    $("#dataListUl").on("click", ".dataListLi", function (event) {
       me.spinner.show();
-      var dataId =$(this).attr('id');
-        var data = {
-          dataId: dataId
-        };
-        me.populateUserData(me, data);
-        me.populateDataTables(me, data);
-        me.spinner.hide();
+      var dataId = $(this).attr('id');
+      var data = {
+        dataId: dataId
+      };
+      me.populateUserData(me, data);
+      me.populateDataTables(me, data);
+      me.spinner.hide();
 
-  });
+    });
     // me.spinner.show();
     // var data = {};
     // this.rightService.getUsersData(data).then(response => {
@@ -254,7 +263,13 @@ export class PaymentReportComponent implements OnInit {
       me.answer7 = userDetails.answer7
       me.contractCurrency = userDetails.contractCurrency
       console.log(response.data);
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   private populateDataTables(me: this, data: { dataId: any; }) {
@@ -264,9 +279,15 @@ export class PaymentReportComponent implements OnInit {
       console.log(response.data)
       me.map1 = this.map.get("17");
       me.presentValue = this.map1[9];
-     
+
       console.log(response.data);
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
 }

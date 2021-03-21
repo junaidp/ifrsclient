@@ -24,7 +24,7 @@ export class RequestApprovedCompanyComponent implements OnInit {
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
-    alert(ID);
+   // alert(ID);
 
 
 

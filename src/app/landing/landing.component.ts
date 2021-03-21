@@ -8,6 +8,8 @@ import {Signupservice} from "src/app/signup/Signupservice";
 import {ChangeDetectorRef} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError} from "../displayError";
+
 declare var $: any;
 @Component({
   selector: 'app-landing',
@@ -46,7 +48,8 @@ export class LandingComponent implements OnInit {
 
   //for reset email password
   resetPasswordEmail = ""
-  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService) {
+  constructor(public loginservice: Loginservice, public globals: Globals, private router: Router, public authService: AuthService, public Signupservice: Signupservice, private cd : ChangeDetectorRef , private spinner: NgxSpinnerService, public displayError:DisplayError
+    ) {
     
    }
    
@@ -87,7 +90,13 @@ export class LandingComponent implements OnInit {
       
        console.log(response.data)
    //    this.router.navigate(['/login']);  
-    });
+    },
+    (error): void => {   
+      //Error callback
+this.spinner.hide();
+this.displayError.displayErrorMessage(error);
+
+});
   }
   else{
     this.validatorSignUp = false
@@ -167,7 +176,13 @@ export class LandingComponent implements OnInit {
       }, 6000);
     }
    
-    });
+    },
+    (error): void => {   
+      //Error callback
+this.spinner.hide();
+this.displayError.displayErrorMessage(error);
+
+});
     }
 
   private getUserDetails() {
@@ -178,7 +193,13 @@ export class LandingComponent implements OnInit {
     this.loginservice.getUserData(getUserData).then(response => {
       //  hide();
       console.log(response.data);
-    });
+    },
+    (error): void => {   
+      //Error callback
+this.spinner.hide();
+this.displayError.displayErrorMessage(error);
+
+});
   }
 
   bronzeClick() {
@@ -249,7 +270,13 @@ export class LandingComponent implements OnInit {
             this.isLoggedIn = false;
           }
           //$('.modal-backdrop').attr('style','display:none !important');
-        });
+        },
+        (error): void => {   
+          //Error callback
+    this.spinner.hide();
+    this.displayError.displayErrorMessage(error);
+    
+    });
       }
       
       private contactUsService(data: { name: string; emailFrom: string; emailTo: string; subject: string; message: string;}) {
@@ -267,7 +294,13 @@ export class LandingComponent implements OnInit {
           setTimeout(function () {
             $('#contactUsResponcePanel .alert').slideToggle();
           }, 6000);
-        });
+        },
+        (error): void => {   
+          //Error callback
+    this.spinner.hide();
+    this.displayError.displayErrorMessage(error);
+    
+    });
       }
     private setSignUpFormData() {
       if($('#individual_user_checkbox').prop("checked") == true){

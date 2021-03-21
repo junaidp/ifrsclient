@@ -3,8 +3,9 @@ import { Globals } from "../globals";
 import { JournalService } from "./journalService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
-import {ChangeDetectorRef} from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError } from "../displayError";
 declare var $: any;
 
 @Component({
@@ -20,7 +21,9 @@ export class JournalEntriesComponent implements OnInit {
   leaseBool = true;
   financeBool = true;
   // ending issue payment div is not showing
-  constructor(public journalService: JournalService, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
+  constructor(public journalService: JournalService, public globals: Globals, private cd: ChangeDetectorRef, private spinner: NgxSpinnerService
+    , public displayError: DisplayError
+  ) {
 
   }
 
@@ -63,7 +66,7 @@ export class JournalEntriesComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.companyId = localStorage.getItem('companyId');
 
-    if(this.userId === "undefined"){
+    if (this.userId === "undefined") {
       this.userId = 0;
     }
     var ret = ($('#dateSelector').val().split("-"));
@@ -71,9 +74,9 @@ export class JournalEntriesComponent implements OnInit {
     var year = ret[0];
     var month = ret[1];
 
-  //getting last day of month
-    var lastDay = new Date(year, month , 0);
-    this.finalDate =  (lastDay.getDate() +"-" +month + "-" + year)
+    //getting last day of month
+    var lastDay = new Date(year, month, 0);
+    this.finalDate = (lastDay.getDate() + "-" + month + "-" + year)
     this.dateSelectorMonth = month
     var data = {
       userId: this.userId,
@@ -83,10 +86,10 @@ export class JournalEntriesComponent implements OnInit {
     };
     //alert(JSON.stringify(data))
     this.spinner.show();
- 
+
     this.journalService.calculate(data).then(response => {
-     
-   //   hide();
+
+      //   hide();
       this.spinner.hide();
       console.log(response.data)
       var sumOfPrepaidExpense = 0
@@ -130,7 +133,7 @@ export class JournalEntriesComponent implements OnInit {
         this.repeatedMonthValue = 0
         drValueFinanceCost = 0
         totalOfMonthAccrued = 0
-        financeCostPrepaidExpence =0
+        financeCostPrepaidExpence = 0
         this.financeCost = 0
         leaseLiabilityEnding = 0
         leaseLiabilityBeginning = 0
@@ -151,26 +154,26 @@ export class JournalEntriesComponent implements OnInit {
 
         // settign valuesfrom api call srive 
         drValueFinanceCost = this.map.get('dr')
-         // sum of g,h,i
+        // sum of g,h,i
         this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued');
         this.commencementDateS = this.map.get('commencementDate');
         // for rounding off upto 0 dc
         drValueFinanceCost = Math.round(drValueFinanceCost)
-        
+
         this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
         const monthServiceInt = calculateMonth(monthService);
         // check to check whether its ending selected and month is equals to payment month then subtract repeated moth from dr value
         payment = this.map.get('payment');
-       if (typeof payment == "undefined"|| typeof payment == null){
-            payment = 0
+        if (typeof payment == "undefined" || typeof payment == null) {
+          payment = 0
         }
-        
-        if(payment>=0){
-        this.paymentCashBank = payment
+
+        if (payment >= 0) {
+          this.paymentCashBank = payment
         }
         if (paymentIntervalsService.toLowerCase() == "quarterly") {
           this.startDate = this.map.get('startDate')
-          if (typeof this.startDate != "undefined" && typeof this.startDate != null){
+          if (typeof this.startDate != "undefined" && typeof this.startDate != null) {
             var paymentDate = this.startDate.split("-")
             var paymentYear = paymentDate[0];
             var paymentMonth = paymentDate[1];
@@ -192,42 +195,42 @@ export class JournalEntriesComponent implements OnInit {
 
           if ((paymentIntervalsService.toLowerCase() == "quarterly")) {
 
-              //begining
-              drValueFinanceCost = this.map.get('dr')
-              crValuePrepaidExpence = this.map.get('dr')
-              this.financeCost = this.map.get('financeCharge');
-              financeCostPrepaidExpence = this.map.get('financeCharge');
-              payment = this.map.get('payment');
+            //begining
+            drValueFinanceCost = this.map.get('dr')
+            crValuePrepaidExpence = this.map.get('dr')
+            this.financeCost = this.map.get('financeCharge');
+            financeCostPrepaidExpence = this.map.get('financeCharge');
+            payment = this.map.get('payment');
 
-              //for round to 0 dc
-              drValueFinanceCost = Math.round(drValueFinanceCost)
-              crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
-              this.financeCost = Math.round(this.financeCost)
-              financeCostPrepaidExpence = Math.round(financeCostPrepaidExpence)
-              if(payment>=0){
-                this.paymentCashBank = payment
-              }
-              leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
+            //for round to 0 dc
+            drValueFinanceCost = Math.round(drValueFinanceCost)
+            crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
+            this.financeCost = Math.round(this.financeCost)
+            financeCostPrepaidExpence = Math.round(financeCostPrepaidExpence)
+            if (payment >= 0) {
+              this.paymentCashBank = payment
             }
+            leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
+          }
 
 
           crValuePrepaidExpence = Math.round(crValuePrepaidExpence)
           //alert(this.paymentCashBank  +   "fc "   + this.financeCost)
           leaseLiabilityBeginning = Math.round(this.paymentCashBank - this.financeCost)
-         // if(leaseLiabilityBeginning > 0){
-          
-         // if(isNaN(leaseLiabilityBeginning) ===true){
-         //   leaseLiabilityBeginning = 0
-        //  }
-        //  alert(leaseLiabilityBeginning)
-          if(crValuePrepaidExpence > 0){
+          // if(leaseLiabilityBeginning > 0){
 
-           sumOfPrepaidExpenseCr += parseInt(crValuePrepaidExpence)
+          // if(isNaN(leaseLiabilityBeginning) ===true){
+          //   leaseLiabilityBeginning = 0
+          //  }
+          //  alert(leaseLiabilityBeginning)
+          if (crValuePrepaidExpence > 0) {
+
+            sumOfPrepaidExpenseCr += parseInt(crValuePrepaidExpence)
           }
         }
 
         if (paymentInGlobal.toLowerCase() == paymentEnding.toLowerCase()) {
-      
+
           totalOfMonthAccrued = this.map.get('total')
           crValueAccrued = this.map.get('dr')
           totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
@@ -242,19 +245,19 @@ export class JournalEntriesComponent implements OnInit {
             //calculationg accrued liability for ending yearly
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued - this.repeatedMonthAccrued) //it should be repatMonthAccrued
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - totalOfMonthAccrued - this.repeatedMonthValue)
-         
+
           }
 
           if ((paymentIntervalsService.toLowerCase() == "monthly")) {
-           
+
             totalOfMonthAccrued = this.map.get('accuredLiabality')
             this.repeatedMonthValue = this.map.get('financeCostRemaining')
             this.repeatedMonthValue = Math.round(this.repeatedMonthValue)
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             totalOfMonthAccrued = Math.round(totalOfMonthAccrued)
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - totalOfMonthAccrued - this.repeatedMonthValue)
-           if(leaseLiabilityEnding > 0){
-           // if(isNaN(leaseLiabilityEnding) ===true){
+            if (leaseLiabilityEnding > 0) {
+              // if(isNaN(leaseLiabilityEnding) ===true){
               leaseLiabilityEnding = 0
             }
 
@@ -267,17 +270,17 @@ export class JournalEntriesComponent implements OnInit {
             drValueFinanceCost = this.map.get('dr')
             //alert(drValueFinanceCost + "line22`1")
             crValueAccrued = this.map.get('dr')
-         //   this.repeatedMonthValue = this.map.get('repeat')
+            //   this.repeatedMonthValue = this.map.get('repeat')
             this.aboveColj = this.map.get('aboveColJ')
             this.paymentCashBank = this.map.get('payment')
-            
+
             this.repeatedMonthAccrued = this.map.get('repeatmonthAccrued');
             //for rounding to 0
             drValueFinanceCost = Math.round(drValueFinanceCost)
             crValueAccrued = Math.round(crValueAccrued)
             this.aboveColj = Math.round(this.aboveColj)
             this.paymentCashBank = Math.round(this.paymentCashBank)
-           
+
             this.repeatedMonthAccrued = Math.round(this.repeatedMonthAccrued)
             //for every quarter start month dr should be subtracted from 1 value above the J column
 
@@ -299,46 +302,46 @@ export class JournalEntriesComponent implements OnInit {
               crValueAccrued = Math.round(crValueAccrued - this.aboveColj)
             }
             //  total(accruedliability payment month should be subtracted from coluumn j 1 value above)
-            
+
             this.monthTotal = parseInt(totalOfMonthAccrued, 10);
             this.repeatMonth = parseInt(this.repeatedMonthValue, 10);
             this.leaseLiabilityEnding = Math.round(this.paymentCashBank - this.monthTotal - this.repeatMonth)
-            
-           // sumOfPrepaidExpense = 0;
+
+            // sumOfPrepaidExpense = 0;
           }
           crValueAccrued = Math.round(crValueAccrued)
           if (crValueAccrued > 0) {
-          sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
+            sumOfAccruedLiabilityCr += parseInt(crValueAccrued)
           }
         }
-        if(drValueFinanceCost > 0){
-        sumOffinanceCostDr += parseInt(drValueFinanceCost)
+        if (drValueFinanceCost > 0) {
+          sumOffinanceCostDr += parseInt(drValueFinanceCost)
         }
         //  if (paymentInGlobal.toLowerCase() == paymentBeginning.toLowerCase() && (month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
         if ((month == monthServiceInt) || (paymentIntervalsService.toLowerCase() == "monthly") || (paymentIntervalsService.toLowerCase() == "quarterly")) {
           sumOfpaymentCashBank += parseFloat(this.paymentCashBank)
           sumOfpaymentCashBank = Math.round(sumOfpaymentCashBank)
           if (this.leaseLiabilityEnding > 0) {
-          sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
+            sumOfleaseLiabilityEnding += parseInt(this.leaseLiabilityEnding)
           }
-         
+
           // if(isNaN(sumOfleaseLiabilityEnding) ===true){
           //   sumOfleaseLiabilityEnding = 0
           // }
           // removed due to error identified by hassan in yearly begiining entry 21-01-2021
           if (leaseLiabilityBeginning > 0) {
-          sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
+            sumOfleaseLiabilityBeginning += parseInt(leaseLiabilityBeginning)
           }
           sumOftotalOfMonth += parseInt(totalOfMonthAccrued)
-          if(this.repeatedMonthValue > 0){
-          sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
-        }
-        if(this.financeCost > 0){
-          sumOffinanceCost += parseInt(this.financeCost)
-        }
-        if(this.financeCost > 0){
-          sumOffinanceCostCr += parseInt(this.financeCost)
-        }
+          if (this.repeatedMonthValue > 0) {
+            sumOfrepeatedMonthValue += parseInt(this.repeatedMonthValue)
+          }
+          if (this.financeCost > 0) {
+            sumOffinanceCost += parseInt(this.financeCost)
+          }
+          if (this.financeCost > 0) {
+            sumOffinanceCostCr += parseInt(this.financeCost)
+          }
           if (totalOfMonthAccrued > 0) {
             sumOfAccruedLiability += parseInt(totalOfMonthAccrued)
           }
@@ -358,60 +361,67 @@ export class JournalEntriesComponent implements OnInit {
       this.financeCost = sumOffinanceCost
       this.drValue = sumOffinanceCostDr
       var sumOfAccruedLiabilityFinal = sumOfAccruedLiability - sumOfAccruedLiabilityCr
-    //  alert(sumOfPrepaidExpense + "sumofprepaid"   +  sumOfPrepaidExpenseCr + "sumofprepaidcr")
+      //  alert(sumOfPrepaidExpense + "sumofprepaid"   +  sumOfPrepaidExpenseCr + "sumofprepaidcr")
       var sumOfPrepaidExpenceFinal = sumOfPrepaidExpense - sumOfPrepaidExpenseCr
-    //  alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
+      //  alert(sumOffinanceCost + "sfc" + sumOffinanceCostDr + "sfcDr" + sumOffinanceCostCr + "sfcr" + sumOfrepeatedMonthValue + "srpmnt")
       var sumOfFinanceCostFinal = sumOffinanceCost + sumOffinanceCostDr + sumOfrepeatedMonthValue + (-sumOffinanceCostCr)
       // newly added
 
-    //  alert(sumOfpaymentCashBank + "paymetnt "  + sumOffinanceCost + "sumoffc" + sumOfAccruedLiability + "sumofaccrued" + sumOfPrepaidExpenceFinal + "ssumofprepaid" + leaseLiabilityBeginning + "sumofleasebeg" + leaseLiabilityEnding + "leaseending")
+      //  alert(sumOfpaymentCashBank + "paymetnt "  + sumOffinanceCost + "sumoffc" + sumOfAccruedLiability + "sumofaccrued" + sumOfPrepaidExpenceFinal + "ssumofprepaid" + leaseLiabilityBeginning + "sumofleasebeg" + leaseLiabilityEnding + "leaseending")
       this.paymentCashBank = sumOfpaymentCashBank
       this.finalFinanceCost = sumOfFinanceCostFinal
       this.finalAccruedLiability = sumOfAccruedLiabilityFinal
       this.FinalPrepaidExpense = sumOfPrepaidExpenceFinal
-      this.finalLeaseLiability = sumOfleaseLiabilityEnding+sumOfleaseLiabilityBeginning
+      this.finalLeaseLiability = sumOfleaseLiabilityEnding + sumOfleaseLiabilityBeginning
 
 
 
-      if(this.paymentCashBank < 0) {
+      if (this.paymentCashBank < 0) {
         this.paymentCashBank = -(this.paymentCashBank)
         this.paymentBool = false;
       }
-      else{
+      else {
         this.paymentBool = true;
       }
-      if(this.finalFinanceCost < 0) {
+      if (this.finalFinanceCost < 0) {
         this.finalFinanceCost = -(this.finalFinanceCost)
         this.financeBool = false;
       }
-      else{
+      else {
         this.financeBool = true;
       }
-      if(this.finalAccruedLiability < 0) {
+      if (this.finalAccruedLiability < 0) {
         this.finalAccruedLiability = -(this.finalAccruedLiability)
         this.accruedBool = false;
       }
-      else{
+      else {
         this.accruedBool = true;
       }
-      if(this.FinalPrepaidExpense < 0) {
+      if (this.FinalPrepaidExpense < 0) {
         this.FinalPrepaidExpense = -(this.FinalPrepaidExpense)
         this.prepaidBool = false;
       }
-      else{
+      else {
         this.prepaidBool = true;
       }
-      if(this.finalLeaseLiability < 0) {
+      if (this.finalLeaseLiability < 0) {
         this.finalLeaseLiability = -(this.finalLeaseLiability)
         this.leaseBool = false;
       }
-      else{
+      else {
         this.leaseBool = true;
       }
- 
+
       this.cd.detectChanges();
-      
-    });
+
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      }
+    );
 
 
     function calculateMonth(monthService) {
@@ -462,27 +472,27 @@ export class JournalEntriesComponent implements OnInit {
     $('#endingView').show();
     $('#paymentMonthEndingDiv').show();
     $('#overlaylogin').hide();
-    (function() {
-        var myDiv = document.getElementById("overlaylogin"),
+    (function () {
+      var myDiv = document.getElementById("overlaylogin"),
 
-            showww = function() {
-                myDiv.style.display = "block";
-                setTimeout(hide, 2000); // 5 seconds
-            },
+        showww = function () {
+          myDiv.style.display = "block";
+          setTimeout(hide, 2000); // 5 seconds
+        },
 
-            hide = function() {
-                myDiv.style.display = "none";
-            };
+        hide = function () {
+          myDiv.style.display = "none";
+        };
 
-        showww();
+      showww();
     })();
     var modal = document.getElementById("myModall");
     var btn = document.getElementById("myBtnn");
     var span = document.getElementsByClassName("close")[0];
-    btn.onclick = function() {
+    btn.onclick = function () {
       modal.style.display = "block";
     }
-    window.onclick = function(event) {
+    window.onclick = function (event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }

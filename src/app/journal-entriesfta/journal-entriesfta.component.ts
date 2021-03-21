@@ -4,7 +4,9 @@ import { Globals } from "../globals";
 import { JournalServicefta } from "./journalServicefta";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
+import { DisplayError} from "../displayError";
 declare var $: any;
+
 
 @Component({
   selector: 'app-journal-entriesfta',
@@ -14,7 +16,7 @@ declare var $: any;
 
 export class JournalEntriesftaComponent implements OnInit {
 // ending issue payment div is not showing
-  constructor(public journalServicefta: JournalServicefta, public globals: Globals) {
+  constructor(public journalServicefta: JournalServicefta, public globals: Globals, public displayError:DisplayError) {
 
   }
   dateSelectorMonth:any
@@ -224,7 +226,14 @@ calculate() {
         }
     }
 
-    });
+    },
+    (error): void => {   
+      //Error callback
+//this.spinner.hide();
+this.displayError.displayErrorMessage(error);
+
+}
+    );
 
 
 

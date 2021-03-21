@@ -50,7 +50,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Class Of Asset</div>
-                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                    <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
 
                         <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option> -->
@@ -83,7 +83,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Location</div>
-                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                    <select [(ngModel)]="location" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
                         <option *ngFor="let row of mapClassOfLocationFilter | keyvalue  ; let i = index ">{{row.value}}</option>
                     </select>
@@ -100,7 +100,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 report_css">Asset Code</div>
-                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                    <select [(ngModel)]="assetCode" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
                         <option *ngFor="let row of mapClassOfAssetCodeFilter | keyvalue  ; let i = index ">{{row.value}}</option>
                     </select>

@@ -5,6 +5,7 @@ import { rightService } from "./rightService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError } from "../displayError";
 declare var $: any;
 
 @Component({
@@ -15,7 +16,7 @@ declare var $: any;
 export class RightOfUseComponent implements OnInit {
 
   //////////////////////////// for report dropdown and table below //////////////
-  
+
   leaseName = "All";
   lessorName = "All";
   classOfAsset = "All";
@@ -81,7 +82,7 @@ export class RightOfUseComponent implements OnInit {
   answer6Bool = true;
   answer7Bool = true;
 
-  constructor(public rightService: rightService, public leaseService: LeaseService, public globals: Globals, private spinner: NgxSpinnerService) { }
+  constructor(public rightService: rightService, public leaseService: LeaseService, public globals: Globals, private spinner: NgxSpinnerService, public displayError: DisplayError) { }
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
@@ -89,8 +90,8 @@ export class RightOfUseComponent implements OnInit {
   mapClassOfAssetFilter: Map<string, string>
   mapLeaseNameFilter: Map<string, string>
   mapLessorNameFilter: Map<string, string>
-  mapClassOfAssetCodeFilter:  Map<string, string>
-  mapClassOfLocationFilter:  Map<string, string>
+  mapClassOfAssetCodeFilter: Map<string, string>
+  mapClassOfLocationFilter: Map<string, string>
 
 
 
@@ -106,11 +107,17 @@ export class RightOfUseComponent implements OnInit {
 
       thefile = new Blob([response.config.url], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
       console.log(thefile)
-    let url = (response.config.url);
-    console.log(url)
-    window.open(url);
+      let url = (response.config.url);
+      console.log(url)
+      window.open(url);
 
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   public getLessorFilterValues() {
@@ -130,7 +137,13 @@ export class RightOfUseComponent implements OnInit {
     this.rightService.getFiltersData(data).then(response => {
       this.mapClassOfAssetCodeFilter = new Map(Object.entries(response.data));
       console.log(this.mapClassOfAssetCodeFilter)
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   public getLocatonFilterValues() {
@@ -140,7 +153,13 @@ export class RightOfUseComponent implements OnInit {
     this.rightService.getFiltersData(data).then(response => {
       this.mapClassOfLocationFilter = new Map(Object.entries(response.data));
       console.log(this.mapClassOfLocationFilter)
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   public getClassOfAssetFilterValues() {
@@ -150,7 +169,14 @@ export class RightOfUseComponent implements OnInit {
     this.rightService.getFiltersData(data).then(response => {
       this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
       console.log(this.mapClassOfAssetFilter)
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      }
+    );
   }
 
   public getLeaseFilterValues() {
@@ -160,7 +186,13 @@ export class RightOfUseComponent implements OnInit {
     this.rightService.getFiltersData(data).then(response => {
       this.mapLeaseNameFilter = new Map(Object.entries(response.data));
       console.log(this.mapLeaseNameFilter)
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   public getClassOfAsset() {
@@ -171,7 +203,13 @@ export class RightOfUseComponent implements OnInit {
       //   this.spinner.hide();
       this.mapClassOfAsset = new Map(Object.entries(response.data));
       console.log(JSON.stringify(response.data));
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   public getFilterUserData() {
@@ -188,12 +226,19 @@ export class RightOfUseComponent implements OnInit {
       this.spinner.hide();
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data)
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      }
+    );
   }
 
 
   ngOnInit() {
-    this.savedFileDb ="sadasdasd"
+    this.savedFileDb = "sadasdasd"
     // me will be used instead of this here
     var me = this
     //for click on delete icon for deleting userdara
@@ -321,7 +366,7 @@ export class RightOfUseComponent implements OnInit {
       me.answer7 = userDetails.answer7
       me.conclusion = userDetails.conclusion,
         me.contractCurrency = userDetails.contractCurrency
-        me.savedFileDb = userDetails.fileName
+      me.savedFileDb = userDetails.fileName
       console.log(response.data);
 
       if (me.answer1 == "") {
@@ -367,7 +412,13 @@ export class RightOfUseComponent implements OnInit {
         me.answer7Bool = true;
       }
 
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   private populateDataTables(me: this, data: { dataId: any; }) {
@@ -379,6 +430,13 @@ export class RightOfUseComponent implements OnInit {
       me.presentValue = this.map1[9];
 
       console.log(response.data);
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 }
+

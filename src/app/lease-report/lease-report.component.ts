@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { rightService } from "src/app/right-of-use/rightService";
-import { Globals } from "../globals"; 
+import { Globals } from "../globals";
+import { DisplayError } from "../displayError";
+
 
 @Component({
   selector: 'app-lease-report',
@@ -11,18 +13,18 @@ export class LeaseReportComponent implements OnInit {
   mapUserData: Map<string, Map<string, string>>;
   mapUserFilter: Map<string, Map<string, string>>;
 
-  
+
 
   leaseName = "";
   lessorName = "";
   classOfAsset = "";
-  location  = "";
+  location = "";
   date = "";
   vendorName = "";
   startingDate = "";
   endingDate = "";
   quickReport = "";
-  constructor( public globals: Globals,public rightService: rightService) { }
+  constructor(public globals: Globals, public displayError: DisplayError, public rightService: rightService) { }
 
   public getFilterUserData() {
     //  this.spinner.show();
@@ -34,8 +36,8 @@ export class LeaseReportComponent implements OnInit {
     //  alert(this.endingDate);
     //  alert(this.vendorName);
     //  alert(this.quickReport);
-     var data = {
-      leaseName: this.leaseName ,
+    var data = {
+      leaseName: this.leaseName,
       lessorName: this.lessorName,
       classOfAsset: this.classOfAsset,
       userId: localStorage.getItem('userId'),
@@ -47,14 +49,20 @@ export class LeaseReportComponent implements OnInit {
       //date: this.date
     };
     //  this.spinner.show();
-     alert(JSON.stringify(data));
-     this.rightService.getReportData(data).then(response => {
+    alert(JSON.stringify(data));
+    this.rightService.getReportData(data).then(response => {
       alert(response.data)
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data)
-   });
+    },
+      (error): void => {
+        //Error callback
+        //this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
 
-    }
+      });
+
+  }
 
   ngOnInit() {
     var data = {};
@@ -62,7 +70,14 @@ export class LeaseReportComponent implements OnInit {
       this.mapUserData = new Map(Object.entries(response.data));
       this.mapUserFilter = new Map(Object.entries(response.data));
       console.log(response.data)
-    });
+    }
+      ,
+      (error): void => {
+        //Error callback
+        //this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
 }

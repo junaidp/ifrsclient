@@ -3,6 +3,8 @@ import { LeaseService } from "./leaseService";
 import { Globals } from "../globals";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError } from "../displayError";
+
 import { JsonPipe } from '@angular/common';
 
 declare var $: any;
@@ -13,7 +15,8 @@ declare var $: any;
   styleUrls: ["./new-lease.component.css"]
 })
 export class NewLeaseComponent implements OnInit {
-  constructor(public leaseService: LeaseService, public globals: Globals, private router: Router, private spinner: NgxSpinnerService) { }
+  constructor(public leaseService: LeaseService, public displayError: DisplayError
+    , public globals: Globals, private router: Router, private spinner: NgxSpinnerService) { }
 
   fileToUpload: File = null;
   myFiles: any;
@@ -66,26 +69,26 @@ export class NewLeaseComponent implements OnInit {
 
   //getting user
 
-  getFileDetails (e) {
+  getFileDetails(e) {
     this.myFiles = []
-    console.log (e.target.files);
+    console.log(e.target.files);
     for (var i = 0; i < e.target.files.length; i++) {
       this.myFiles.push(e.target.files[i]);
     }
   }
 
-  
-  saveFileWithLeaseId(dataId) {   
+
+  saveFileWithLeaseId(dataId) {
     //alert(dataId)         
     const frmData = new FormData();
     console.log(this.myFiles)
-  
+
     for (var i = 0; i < this.myFiles.length; i++) {
       frmData.append("file", this.myFiles[i]);
-      frmData.append("id" , dataId);
+      frmData.append("id", dataId);
     }
     console.log(frmData)
- //   this.leaseService.addFollowUpAttachment(frmData).subscribe();
+    //   this.leaseService.addFollowUpAttachment(frmData).subscribe();
     this.leaseService.addFollowUpAttachment(frmData).subscribe(response => {
       console.log(response)
     });
@@ -152,36 +155,42 @@ export class NewLeaseComponent implements OnInit {
           }
         }
       });*/
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
 
 
 
 
 
   }
-  sectionone(){
-    $('#step-5').hide(); 
+  sectionone() {
+    $('#step-5').hide();
     $('#step-1').show();
   }
-  sectiontwo(){
-    $('#step-5').hide(); 
+  sectiontwo() {
+    $('#step-5').hide();
     $('#step-2').show();
   }
-  sectionthree(){
-    $('#step-5').hide(); 
+  sectionthree() {
+    $('#step-5').hide();
     $('#step-3').show()
   }
   saveData() {
     var conclusion = $('#lease_no').text();
-   // alert(conclusion)
+    // alert(conclusion)
     //   alert("sad")
     this.userId = localStorage.getItem('userId');
     if (this.userId === "undefined") {
       this.userId = 0;
     }
 
-  
-    
+
+
 
     // alert(this.userId)
     var data = {
@@ -245,9 +254,9 @@ export class NewLeaseComponent implements OnInit {
       console.log(JSON.stringify(response.data))
 
       var dataId = response.data.id
-    
 
-      if(this.myFiles.length > 0){
+
+      if (this.myFiles.length > 0) {
         this.saveFileWithLeaseId(dataId);
 
       }
@@ -257,9 +266,9 @@ export class NewLeaseComponent implements OnInit {
       //   msg = '<div class="alert alert-danger"  id = "saveSuccess" role="alert" >' + response.data + '</div>';
       // }
       // else {
-        msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
-        this.router.navigate(['/newlease/newleasejournalentry']);
-   //   }
+      msg = '<div class="alert alert-info"  id = "saveSuccess" role="alert" >User,s data saved successfully</div>';
+      this.router.navigate(['/newlease/newleasejournalentry']);
+      //   }
       $('#saveSuccess').html(msg);
       $('html, body').animate({
         'scrollTop': $("#saveSuccess").offset().top
@@ -271,7 +280,13 @@ export class NewLeaseComponent implements OnInit {
       //String ress = JSON.stringify(response.data);
       console.log(msg)
 
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
   addClassOfAsset() {
@@ -280,8 +295,8 @@ export class NewLeaseComponent implements OnInit {
     var data = {
       classOfAsset: this.classOfAsset,
       companyId: localStorage.getItem('companyId'),
-      userId : localStorage.getItem('userId')
-      
+      userId: localStorage.getItem('userId')
+
 
     };
     this.leaseService.saveClassOfAsset(data).then(response => {
@@ -308,7 +323,14 @@ export class NewLeaseComponent implements OnInit {
       }
       console.log(response.data)
       //    this.router.navigate(['/login']);  
-    });
+    }
+      ,
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      });
   }
 
 
@@ -316,7 +338,7 @@ export class NewLeaseComponent implements OnInit {
     this.spinner.show();
     var data = {
       companyId: localStorage.getItem('companyId'),
-      userId : localStorage.getItem('userId')
+      userId: localStorage.getItem('userId')
     };
 
     this.leaseService.getClassOfAsset(data).then(response => {
@@ -339,7 +361,7 @@ export class NewLeaseComponent implements OnInit {
     // var value = $('#lease_no').value();
     // alert(value);
     //$('.lease_no').innerHTML; = value;
-    
+
 
     $(document).ready(function () {
 
@@ -463,8 +485,8 @@ export class NewLeaseComponent implements OnInit {
       }
     }
 
-    function sectionone(){
-      $('#step-5').hide(); 
+    function sectionone() {
+      $('#step-5').hide();
       $('#step-1').show();
     }
 
