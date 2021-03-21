@@ -25,6 +25,7 @@ export class RightOfUseComponent implements OnInit {
   vendorName = "";
   startingDate = "";
   endingDate = "";
+  assetCode="";
   ///////////////////////////////// for individual report data ////////////////////
   dataId = ""
   leaseContractNo = "";

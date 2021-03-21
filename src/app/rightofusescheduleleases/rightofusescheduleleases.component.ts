@@ -30,6 +30,7 @@ export class RightofusescheduleleasesComponent implements OnInit {
   companyId ;
   finalDate ;
   dateSelectorMonth;
+  assetCode="";
 
   sumOfNVBOpeningFinal ;
   sumOFNVBClosingFinal;
