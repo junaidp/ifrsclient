@@ -65,27 +65,7 @@ export class LandingComponent implements OnInit {
         this.spinner.hide();
         //  hide();
 
-        var msg;
-        if (response.data.includes("Fail")) {
-          msg = '<div class="alert alert-danger"  role="alert" >' + response.data + '</div>';
-          $('#signUpResponsePanel').html(msg);
-          setTimeout(function () {
-            $('#signUpResponsePanel .alert').slideToggle();
-          }, 6000);
-
-        }
-        else {
-          msg = '<div class="alert alert-info"  id = "signInResponsePanel" role="alert" >' + response.data + '</div>';
-          $('#logreg-forms .form-signup').toggle();
-          $('#logreg-forms .form-signin').toggle();
-          this.isLoggedIn = false
-          $('#signInResponsePanel').html(msg);
-          setTimeout(function () {
-            $('#signInResponsePanel .alert').slideToggle();
-          }, 6000);
-        }
-
-
+        this.displaySignUpInfoMessage(response);
 
         console.log(response.data)
         //    this.router.navigate(['/login']);  
@@ -93,13 +73,35 @@ export class LandingComponent implements OnInit {
         (error): void => {
           //Error callback
           this.spinner.hide();
-          this.displayError.displayErrorMessage(error);
+          this.displayError.displayErrorMessageWithSpecificDiv(error,'signUpResponsePanel');
 
         });
     }
     else {
       this.validatorSignUp = false
       //div to be hidden here
+    }
+  }
+
+  private displaySignUpInfoMessage(response) {
+    var msg;
+    if (response.data.includes("Fail")) {
+      msg = '<div class="alert alert-danger"  role="alert" >' + response.data + '</div>';
+      $('#signUpResponsePanel').html(msg);
+      setTimeout(function () {
+        $('#signUpResponsePanel .alert').slideToggle();
+      }, 6000);
+
+    }
+    else {
+      msg = '<div class="alert alert-info"  id = "signInResponsePanel" role="alert" >' + response.data + '</div>';
+      $('#logreg-forms .form-signup').toggle();
+      $('#logreg-forms .form-signin').toggle();
+      this.isLoggedIn = false;
+      $('#signInResponsePanel').html(msg);
+      setTimeout(function () {
+        $('#signInResponsePanel .alert').slideToggle();
+      }, 6000);
     }
   }
 
@@ -163,7 +165,8 @@ export class LandingComponent implements OnInit {
       (error): void => {
         //Error callback
         this.spinner.hide();
-        this.displayError.displayErrorMessage(error);
+        this.displayError.displayErrorMessageWithSpecificDiv(error,'resetPasswordResponsePanel');
+
 
       });
   }
@@ -219,7 +222,7 @@ export class LandingComponent implements OnInit {
       (error): void => {
         //Error callback
         this.spinner.hide();
-        this.displayError.displayErrorMessage(error);
+        this.displayError.displayErrorMessageWithSpecificDiv(error,'signInResponsePanel');
 
       });
   }
@@ -272,7 +275,8 @@ export class LandingComponent implements OnInit {
       (error): void => {
         //Error callback
         this.spinner.hide();
-        this.displayError.displayErrorMessage(error);
+        this.displayError.displayErrorMessageWithSpecificDiv(error,'contactUsResponcePanel');
+       // this.displayError.displayErrorMessage(error);
 
       });
   }

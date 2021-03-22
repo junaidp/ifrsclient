@@ -21,6 +21,18 @@ export class DisplayError {
     }, 6000);
   }
 
+
+  async displayErrorMessageWithSpecificDiv(error: any,divId: any) {
+    var msg = '<div class="alert alert-danger"  role="alert" >' + error + '</div>';
+    //   }
+    $('#'+divId).html(msg);
+    $('html, body').animate({
+      'scrollTop': $('#'+divId).offset().top
+    });
+    setTimeout(function () {
+      $('#'+divId+' .alert').slideToggle();
+    }, 6000);
+  }
   // async SignUp(data) {
 
   //   const url = this.globals.APP_URL+"/users/saveUser";
