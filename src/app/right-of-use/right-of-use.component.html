@@ -27,7 +27,7 @@
                     <ol class="breadcrumb pl-0">
                         <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
                         <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">Reports</li>
-                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Leases Report</li>
+                        <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">All Leases Report</li>
                     </ol>
                 </nav>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                 </div> -->
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Class Of Asset</div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of Asset</div>
                     <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
 
@@ -151,7 +151,7 @@
                             <!-- <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div> -->
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">location</div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">Asset code</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
                             <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon" id="{{row.value['id']}}"></i></div>
                         </div>

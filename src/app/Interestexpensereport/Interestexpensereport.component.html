@@ -68,11 +68,14 @@
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12 report_css">Lease Name</div>
-                    <input list="leaseName" id="ice-cream-choice" name="lessorname" placeholder="Select Lease Name" class="form-control col-lg-8 col-md-4 col-12" />
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Asset Code</div>
+                    <!-- <input list="leaseName" id="ice-cream-choice" name="lessorname" placeholder="Select Lease Name" class="form-control col-lg-8 col-md-4 col-12" />
                     <datalist id="leaseName" [(ngModel)]="leaseName">
                         <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['leaseName']}}</option>
-                    </datalist>
+                    </datalist> -->
+                    <select name="" class="form-control col-lg-8 col-md-4 col-12" id="">
+                        <option value="">select</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -130,7 +133,7 @@
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">Finance Cost amount</div>
+                            <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
 
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
                         </div>
