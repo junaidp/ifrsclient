@@ -36,6 +36,7 @@ export class RightOfUseComponent implements OnInit {
   leasseeName = "";
   locationIndividual = "hh";
   classOfAssetIndividual = "";
+  assetCodeIndividual = ""
   assetDescriptionIndividual = ""
 
 
@@ -342,6 +343,7 @@ export class RightOfUseComponent implements OnInit {
       me.commencementDate = userDetails.commencementDate;
       me.locationIndividual = userDetails.location;
       me.assetDescriptionIndividual = userDetails.assetDescription;
+      me.assetCodeIndividual = userDetails.assetCode;
 
       //for second tab
       me.paymentsAt = userDetails.paymentsAt;
