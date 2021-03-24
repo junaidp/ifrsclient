@@ -234,4 +234,34 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/landing']);
 
   }
+
+  downloadFile(){
+    let link = document.createElement("a");
+    link.download = "";
+    link.href = "/src/assets/file/file.xlsx";
+    link.click();
+}
+
+public getTemplateFile() {
+  var data = {
+    path: 'C:/Users/Joni/git/boardofdirectorsServer/src/bulktemplate.xlsx/'
+  };
+  let thefile = {};
+  this.Signupservice.getFileByPath(data).then(response => {
+
+    thefile = new Blob([response.config.url], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
+    console.log(thefile)
+    let url = (response.config.url);
+    console.log(url)
+    window.open(url);
+
+  },
+    (error): void => {
+      //Error callback
+      this.spinner.hide();
+      this.displayError.displayErrorMessage(error);
+
+    });
+}
+
 }

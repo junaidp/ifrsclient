@@ -18,4 +18,12 @@ export class Signupservice {
     console.log(response);
     return response;
   }
+
+  async getFileByPath(data) {
+    const url = this.globals.APP_URL+"data/getFileByPath?path=" +data.path;
+     const response = await axios.get(url,data).then(
+    );
+    console.log(response);
+    return response;
+  }
 }
