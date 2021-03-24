@@ -150,8 +150,8 @@
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
                             <!-- <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div> -->
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">location</div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['location']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['assetCode']}}</div>
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
                             <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon" id="{{row.value['id']}}"></i></div>
                         </div>

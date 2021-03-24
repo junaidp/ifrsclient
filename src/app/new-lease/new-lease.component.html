@@ -29,7 +29,8 @@
                         <ol class="breadcrumb">
                             <i class="fas fa-home" style="line-height: 1.5;margin-left:4px;"></i>
                             <li class="breadcrumb-item" style="margin-left:4px;" aria-current="page">New Lease</li>
-                            <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Contract Form
+                            <li class="breadcrumb-item active" style="margin-left:4px;" aria-current="page">Contract
+                                Form
                             </li>
                         </ol>
                     </nav>
@@ -86,19 +87,23 @@
                         <p class="bolder">Contract Form</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-2" type="text" class="btn btn-default btn-circle bolder1 disabledd" disabled="true">2</a>
+                        <a href="#step-2" type="text" class="btn btn-default btn-circle bolder1 disabledd"
+                            disabled="true">2</a>
                         <p class="bolder1">Identify Lease</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-3" type="text" class="btn btn-default btn-circle bolder2 disabledd" disabled="disabled">3</a>
+                        <a href="#step-3" type="text" class="btn btn-default btn-circle bolder2 disabledd"
+                            disabled="disabled">3</a>
                         <p class="bolder2">Lease Information</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-4" type="text" class="btn btn-default btn-circle bolder3 disabledd" disabled="disabled">4</a>
+                        <a href="#step-4" type="text" class="btn btn-default btn-circle bolder3 disabledd"
+                            disabled="disabled">4</a>
                         <p class="bolder3">Lease Schedule</p>
                     </div>
                     <div class="stepwizard-step">
-                        <a href="#step-5" type="text" class="btn btn-default btn-circle bolder4 disabledd" disabled="disabled">5</a>
+                        <a href="#step-5" type="text" class="btn btn-default btn-circle bolder4 disabledd"
+                            disabled="disabled">5</a>
                         <p class="bolder4">Review / Submit</p>
                     </div>
                 </div>
@@ -112,14 +117,16 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom0">Contract Reference Number</label>
-                                        <input type="text" class="form-control" name="ref" [(ngModel)]="leaseContractNo" placeholder="Enter Contract Reference Number" required="true" />
+                                        <input type="text" class="form-control" name="ref" [(ngModel)]="leaseContractNo"
+                                            placeholder="Enter Contract Reference Number" required="true" />
                                         <div class="invalid-feedback">
                                             Please provide a valid Contract Reference Number.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Lessor Name</label>
-                                        <input type="text" class="form-control" name="contractNo005" [(ngModel)]="lessorName" placeholder="Enter Lessor Name" required>
+                                        <input type="text" class="form-control" name="contractNo005"
+                                            [(ngModel)]="lessorName" placeholder="Enter Lessor Name" required>
                                         <div class="invalid-feedback">
                                             Please provide Lessor Name.
                                         </div>
@@ -128,20 +135,26 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Class Of Asset</label>
-                                        <select id="addnewclass" name="contractNo2" [(ngModel)]="classAsset" class="form-control" onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
-                                            <option value="{{row.value['classOfAsset']}}" *ngFor="let row of mapClassOfAsset | keyvalue">{{row.value['classOfAsset']}}</option>
-                                            <option  value="100">Add new</option>
+                                        <select id="addnewclass" name="contractNo2" [(ngModel)]="classAsset"
+                                            class="form-control"
+                                            onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
+                                            <option value="{{row.value['classOfAsset']}}"
+                                                *ngFor="let row of mapClassOfAsset | keyvalue">
+                                                {{row.value['classOfAsset']}}</option>
+                                            <option value="100">Add new</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Asset Code</label>
-                                        <input type="text" class="form-control" placeholder="Asset Code" required name="assetCde" [(ngModel)]="assetCode">
+                                        <input type="text" class="form-control" placeholder="Asset Code" required
+                                            name="assetCde" [(ngModel)]="assetCode">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Location</label>
-                                        <input type="text" class="form-control" name="contractNo6" [(ngModel)]="location" placeholder="Select Location" required>
+                                        <input type="text" class="form-control" name="contractNo6"
+                                            [(ngModel)]="location" placeholder="Select Location" required>
                                         <div class="invalid-feedback">
                                             Please provide Location.
                                         </div>
@@ -149,14 +162,17 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Upload</label>
                                         <ng-container>
-                                            <input type="file" class="form-control input_file" id="uploadFile" multiple (change)="getFileDetails($event)">
+                                            <input type="file" class="form-control input_file" id="uploadFile" multiple
+                                                (change)="getFileDetails($event)">
                                         </ng-container>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Asset Description</label>
-                                        <textarea type="text" class="form-control" name="contractNo7" [(ngModel)]="assetDescription" placeholder="Describe Contract Conditions (if any)" required></textarea>
+                                        <textarea type="text" class="form-control" name="contractNo7"
+                                            [(ngModel)]="assetDescription"
+                                            placeholder="Describe Contract Conditions (if any)" required></textarea>
                                         <div class="invalid-feedback">
                                             Please provide Other condition.
                                         </div>
@@ -171,9 +187,12 @@
                             </form>
                             <div class="row">
                                 <div class="col-12 btn_mg">
-                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" type="button">Next</button>
-                                    <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
+                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right"
+                                        type="button">Next</button>
+                                    <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right"
+                                        type="submit">Save</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"
+                                        type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -188,13 +207,16 @@
                                     <div class="row">
                                         <div class="col-1">1.</div>
                                         <div class="col-11 p_decoration">
-                                            <p>Is the lease contract for short term period or the underlying asset is of low value?</p>
+                                            <p>Is the lease contract for short term period or the underlying asset is of
+                                                low value?</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 tool responsive_display"><i class="fas fa-info-circle" onclick="showpopupq1();"></i></div>
+                                <div class="col-1 tool responsive_display"><i class="fas fa-info-circle"
+                                        onclick="showpopupq1();"></i></div>
                                 <div class="col-lg-3 text-center">
-                                    <select class="form-control quest1_answer" name="contractNo40" [(ngModel)]="answer1" onchange="java_script_:show(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest1_answer" name="contractNo40" [(ngModel)]="answer1"
+                                        onchange="java_script_:show(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="0">Yes</option>
                                         <option value="1">No</option>
@@ -210,10 +232,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq2();"></i>
+                                <div class="col-lg-1 tool responsive_display float-lg-left"><i
+                                        class="fas fa-info-circle" onclick="showpopupq2();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block">
-                                    <select class="form-control quest2_answer" name="contractNo41" [(ngModel)]="answer2" onchange="java_script_:show1(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest2_answer" name="contractNo41" [(ngModel)]="answer2"
+                                        onchange="java_script_:show1(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -229,10 +253,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq3();"></i>
+                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle"
+                                        onclick="showpopupq3();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block">
-                                    <select class="form-control quest3_answer" name="contractNo42" [(ngModel)]="answer3" onchange="java_script_:show2(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest3_answer" name="contractNo42" [(ngModel)]="answer3"
+                                        onchange="java_script_:show2(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -244,15 +270,18 @@
                                     <div class="row">
                                         <div class="col-1">4.</div>
                                         <div class="col-11 p_decoration">
-                                            <p>Does the customer have the right to obtain substantially all of the economic benefits from use of the asset throughout the period of use?
+                                            <p>Does the customer have the right to obtain substantially all of the
+                                                economic benefits from use of the asset throughout the period of use?
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq4();"></i>
+                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle"
+                                        onclick="showpopupq4();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block">
-                                    <select class="form-control quest4_answer" name="contractNo43" [(ngModel)]="answer4" onchange="java_script_:show3(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest4_answer" name="contractNo43" [(ngModel)]="answer4"
+                                        onchange="java_script_:show3(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -264,15 +293,18 @@
                                     <div class="row">
                                         <div class="col-1">5.</div>
                                         <div class="col-11 p_decoration">
-                                            <p>Does the customer, the supplier or neither party have the right to direct how and for what purpose the asset is used throughout the period of use?
+                                            <p>Does the customer, the supplier or neither party have the right to direct
+                                                how and for what purpose the asset is used throughout the period of use?
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq5();"></i>
+                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle"
+                                        onclick="showpopupq5();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block mt-3">
-                                    <select class="form-control quest5_answer" name="contractNo44" [(ngModel)]="answer5" onchange="java_script_:show5(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest5_answer" name="contractNo44" [(ngModel)]="answer5"
+                                        onchange="java_script_:show5(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="2">Customer</option>
                                         <option value="0">Supplier</option>
@@ -285,15 +317,20 @@
                                     <div class="row">
                                         <div class="col-1">6.</div>
                                         <div class="col-11 p_decoration">
-                                            <p>Does the customer have the right to operate the asset throughout the period of use, without the supplier having the right to change those operating instructions?</p>
+                                            <p>Does the customer have the right to operate the asset throughout the
+                                                period of use, without the supplier having the right to change those
+                                                operating instructions?</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq6();"></i>
+                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle"
+                                        onclick="showpopupq6();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block mt-3">
-                                    <select class="form-control quest6_answer" name="contractNo4444" [(ngModel)]="answer6" onchange="java_script_:show6(this.options[this.selectedIndex].value)">
-                                       
+                                    <select class="form-control quest6_answer" name="contractNo4444"
+                                        [(ngModel)]="answer6"
+                                        onchange="java_script_:show6(this.options[this.selectedIndex].value)">
+
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -305,14 +342,17 @@
                                     <div class="row">
                                         <div class="col-1">7.</div>
                                         <div class="col-11 p_decoration">
-                                            <p>Did the customer design the asset in a way that predetermines how and for what purpose the asset will be used throughout the period of use?</p>
+                                            <p>Did the customer design the asset in a way that predetermines how and for
+                                                what purpose the asset will be used throughout the period of use?</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle" onclick="showpopupq7();"></i>
+                                <div class="col-1 tool responsive_display float-lg-left"><i class="fas fa-info-circle"
+                                        onclick="showpopupq7();"></i>
                                 </div>
                                 <div class="col-lg-3 text-center display_inline_block mt-3">
-                                    <select class="form-control quest7_answer" name="contractNo46" [(ngModel)]="answer7" onchange="java_script_:show7(this.options[this.selectedIndex].value)">
+                                    <select class="form-control quest7_answer" name="contractNo46" [(ngModel)]="answer7"
+                                        onchange="java_script_:show7(this.options[this.selectedIndex].value)">
                                         <option>Select here</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -342,9 +382,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 btn_mg">
-                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" type="button">Next</button>
-                                    <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
+                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right"
+                                        type="button">Next</button>
+                                    <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right"
+                                        type="submit">Save</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"
+                                        type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -357,7 +400,8 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Commencement Date</label>
-                                        <input type="date" [(ngModel)]="commencementDate" name="contractNo08" class="form-control" required>
+                                        <input type="date" [(ngModel)]="commencementDate" name="contractNo08"
+                                            class="form-control" required>
                                         <div class="invalid-feedback">
                                             Please provide a commencement date.
                                         </div>
@@ -374,7 +418,8 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Annual Discount Rate</label>
-                                        <input type="text" [(ngModel)]="annualDiscountRate" name="contractNo10" class="form-control" placeholder="in %" required>
+                                        <input type="text" [(ngModel)]="annualDiscountRate" name="contractNo10"
+                                            class="form-control" placeholder="in %" required>
                                         <div class="invalid-feedback">
                                             Annual discount.
                                         </div>
@@ -401,15 +446,18 @@
                                         </div>
                                     </div> -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="validationCustom04">Lease Term Period <i class="fas fa-info-circle" onclick="showpopuptermperiod();"></i></label>
-                                        <input type="number" class="form-control" [(ngModel)]="leaseTerm" name="contractNo11" placeholder="In Year/Month/Quarter" required>
+                                        <label for="validationCustom04">Lease Term Period <i class="fas fa-info-circle"
+                                                onclick="showpopuptermperiod();"></i></label>
+                                        <input type="number" class="form-control" [(ngModel)]="leaseTerm"
+                                            name="contractNo11" placeholder="In Year/Month/Quarter" required>
                                         <div class="invalid-feedback">
                                             Lease term period.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Payment</label>
-                                        <input type="number" class="form-control" [(ngModel)]="leasePayment" name="contractNo13" placeholder="in amount" required>
+                                        <input type="number" class="form-control" [(ngModel)]="leasePayment"
+                                            name="contractNo13" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Lease payment.
                                         </div>
@@ -418,14 +466,16 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Guaranteed Residual Value</label>
-                                        <input type="number" class="form-control" [(ngModel)]="guaranteedResidualValue" name="contractNo15" placeholder="in amount" required>
+                                        <input type="number" class="form-control" [(ngModel)]="guaranteedResidualValue"
+                                            name="contractNo15" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Guaranteed residual value.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
-                                        <input type="number" class="form-control" [(ngModel)]="initialDirectCost" name="contractNo17" placeholder="in amount" required>
+                                        <input type="number" class="form-control" [(ngModel)]="initialDirectCost"
+                                            name="contractNo17" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             initial direct cost.
                                         </div>
@@ -434,16 +484,30 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation</label>
-                                        <input type="text" class="form-control" [(ngModel)]="escalation" name="contractNo18" placeholder="in %" required>
+                                        <input type="text" class="form-control" [(ngModel)]="escalation"
+                                            name="contractNo18" placeholder="in %" required>
                                         <div class="invalid-feedback">
                                             Escalation %-age.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Escalation After Every</label>
-                                        <input type="number" min="0" [(ngModel)]="escalationAfterEvery" name="contractNo19" class="form-control" placeholder="In Year/Month/Quarter" required>
+                                        <input type="number" min="0" [(ngModel)]="escalationAfterEvery"
+                                            name="contractNo19" class="form-control" placeholder="In Year/Month/Quarter"
+                                            required>
                                         <div class="invalid-feedback">
                                             Escalation after every.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">Useful Life Of The Asset (years)</label>
+                                        <input type="text"  class="form-control"
+                                            [(ngModel)]="usefulLifeOfTheAsset" name="qwee" placeholder="in years"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Use full life of the Asset (years).
                                         </div>
                                     </div>
                                 </div>
@@ -465,6 +529,7 @@
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <!-- <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Contract Currency</label>
@@ -555,9 +620,12 @@
                         </div>
                         <div class="row">
                             <div class="col-12 btn_mg">
-                                <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" (click)="  calculate();" type="button">Next</button>
-                                <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
+                                <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right"
+                                    (click)="  calculate();" type="button">Next</button>
+                                <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right"
+                                    type="submit">Save</button>
+                                <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"
+                                    type="button">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -620,7 +688,8 @@
                                     <div class="row mt-3 mb-3">
                                         <div class="col-5"></div>
                                         <div class="col-2">Present Value &nbsp; = </div>
-                                        <div class="col-2 text-center"><strong>{{presentValue| number:'1.0-0'}}</strong></div>
+                                        <div class="col-2 text-center"><strong>{{presentValue| number:'1.0-0'}}</strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -685,9 +754,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 btn_mg">
-                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right" onclick="getvalue();" type="button">Next</button>
-                                    <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right" type="submit">Save</button>
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home" type="button">Cancel</button>
+                                    <button class="btn btn-dark nextBtn btn-lg pull-right float-lg-right"
+                                        onclick="getvalue();" type="button">Next</button>
+                                    <button class="btn btn-dark xtBtn btn-lg pull-right float-lg-right"
+                                        type="submit">Save</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" routerLink="/home"
+                                        type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -711,7 +783,9 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Contract Reference Number</label>
-                                            <input type="text" readonly class="form-control" [(ngModel)]="leaseContractNo" name="contractNo30" placeholder="Contract Reference Number" required>
+                                            <input type="text" readonly class="form-control"
+                                                [(ngModel)]="leaseContractNo" name="contractNo30"
+                                                placeholder="Contract Reference Number" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Contract Reference Number.
                                             </div>
@@ -725,7 +799,8 @@
                                         </div> -->
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Lessor Name</label>
-                                            <input type="text" readonly class="form-control" name="contractNo333" [(ngModel)]="lessorName" placeholder="Lessor Name" required>
+                                            <input type="text" readonly class="form-control" name="contractNo333"
+                                                [(ngModel)]="lessorName" placeholder="Lessor Name" required>
                                             <div class="invalid-feedback">
                                                 Please provide Lessor Name.
                                             </div>
@@ -734,7 +809,8 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Class Of Asset</label>
-                                            <input type="text" readonly class="form-control" name="contractNo32" [(ngModel)]="classAsset" placeholder="Class of asset" required>
+                                            <input type="text" readonly class="form-control" name="contractNo32"
+                                                [(ngModel)]="classAsset" placeholder="Class of asset" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Class of asset.
                                             </div>
@@ -748,7 +824,8 @@
                                         </div> -->
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom03">Location</label>
-                                            <input type="text" readonly class="form-control" name="contractNo36" [(ngModel)]="location" placeholder="Location" required>
+                                            <input type="text" readonly class="form-control" name="contractNo36"
+                                                [(ngModel)]="location" placeholder="Location" required>
                                             <div class="invalid-feedback">
                                                 Please provide Location.
                                             </div>
@@ -757,7 +834,9 @@
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom04">Asset Description</label>
-                                            <textarea type="text" readonly class="form-control" name="contractNo37" [(ngModel)]="assetDescription" placeholder="Other condition" required></textarea>
+                                            <textarea type="text" readonly class="form-control" name="contractNo37"
+                                                [(ngModel)]="assetDescription" placeholder="Other condition"
+                                                required></textarea>
                                             <div class="invalid-feedback">
                                                 Please provide Other condition.
                                             </div>
@@ -785,12 +864,14 @@
                                         <div class="row">
                                             <div class="col-1">1.</div>
                                             <div class="col-11 p_decoration">
-                                                <p>Is the lease contract for short term period or underlying asset is flow value?</p>
+                                                <p>Is the lease contract for short term period or underlying asset is
+                                                    flow value?</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo001" [(ngModel)]="answer1" class="form-control step_fiv_question1" value="{{answer1}}" disabled="true">
+                                        <select name="contractNo001" [(ngModel)]="answer1"
+                                            class="form-control step_fiv_question1" value="{{answer1}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="0">Yes</option>
                                             <option value="1">No</option>
@@ -807,7 +888,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo002" [(ngModel)]="answer2" class="form-control" value="{{answer2}}" disabled="true">
+                                        <select name="contractNo002" [(ngModel)]="answer2" class="form-control"
+                                            value="{{answer2}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -825,7 +907,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo003" [(ngModel)]="answer3" class="form-control" value="{{answer3}}" disabled="true">
+                                        <select name="contractNo003" [(ngModel)]="answer3" class="form-control"
+                                            value="{{answer3}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -837,13 +920,16 @@
                                         <div class="row">
                                             <div class="col-1">4.</div>
                                             <div class="col-11 p_decoration">
-                                                <p>Does the customer have the right to obtain substantially all of the economic benefits from use of the asset threughtout the period of use?
+                                                <p>Does the customer have the right to obtain substantially all of the
+                                                    economic benefits from use of the asset threughtout the period of
+                                                    use?
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo004" [(ngModel)]="answer4" class="form-control" value="{{answer4}}" disabled="true">
+                                        <select name="contractNo004" [(ngModel)]="answer4" class="form-control"
+                                            value="{{answer4}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -855,12 +941,15 @@
                                         <div class="row">
                                             <div class="col-1">5.</div>
                                             <div class="col-11 p_decoration">
-                                                <p>Does the customer, have the supplier or neither party have the right to direct how and for what purpose the asset is used threughtout the period of user?</p>
+                                                <p>Does the customer, have the supplier or neither party have the right
+                                                    to direct how and for what purpose the asset is used threughtout the
+                                                    period of user?</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo005" [(ngModel)]="answer5" class="form-control" value="{{answer5}}" disabled="true">
+                                        <select name="contractNo005" [(ngModel)]="answer5" class="form-control"
+                                            value="{{answer5}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="2">Customer</option>
                                             <option value="0">Supplier</option>
@@ -873,12 +962,15 @@
                                         <div class="row">
                                             <div class="col-1">6.</div>
                                             <div class="col-11 p_decoration">
-                                                <p>Does the customer have the right to operate the asset throught the priod of use, without the supplier having the right change those operating instructions?</p>
+                                                <p>Does the customer have the right to operate the asset throught the
+                                                    priod of use, without the supplier having the right change those
+                                                    operating instructions?</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo006" [(ngModel)]="answer6" class="form-control" value="{{answer6}}" disabled="true">
+                                        <select name="contractNo006" [(ngModel)]="answer6" class="form-control"
+                                            value="{{answer6}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -890,13 +982,16 @@
                                         <div class="row">
                                             <div class="col-1">7.</div>
                                             <div class="col-11 p_decoration">
-                                                <p>Did the customer design the asset in a way that predetermines how ans for what purpose the assect will be used throughout the period od use?
+                                                <p>Did the customer design the asset in a way that predetermines how ans
+                                                    for what purpose the assect will be used throughout the period od
+                                                    use?
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <select name="contractNo007" [(ngModel)]="answer7" class="form-control" value="{{answer7}}" disabled="true">
+                                        <select name="contractNo007" [(ngModel)]="answer7" class="form-control"
+                                            value="{{answer7}}" disabled="true">
                                             <option>Select here</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
@@ -925,14 +1020,16 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Commencement Date:</label>
-                                        <input type="date" readonly class="form-control" [(ngModel)]="commencementDate" name="contractNo081" placeholder="Contract Reference Number" required>
+                                        <input type="date" readonly class="form-control" [(ngModel)]="commencementDate"
+                                            name="contractNo081" placeholder="Contract Reference Number" required>
                                         <div class="invalid-feedback">
                                             Please provide a commencement date.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Payment In</label>
-                                        <select class="form-control" [(ngModel)]="paymentsAt" name="contractNo091" disabled>
+                                        <select class="form-control" [(ngModel)]="paymentsAt" name="contractNo091"
+                                            disabled>
                                             <option>Select here</option>
                                             <option>Beginning</option>
                                             <option>Ending</option>
@@ -942,14 +1039,17 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Annual Discount Rate</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="annualDiscountRate" name="contractNo101" placeholder="in %" required>
+                                        <input type="text" readonly class="form-control"
+                                            [(ngModel)]="annualDiscountRate" name="contractNo101" placeholder="in %"
+                                            required>
                                         <div class="invalid-feedback">
                                             Annual discount.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Payment Interval</label>
-                                        <select [(ngModel)]="paymentIntervals" name="contractNo141" class="form-control" disabled>
+                                        <select [(ngModel)]="paymentIntervals" name="contractNo141" class="form-control"
+                                            disabled>
                                             <option>Select period</option>
                                             <option>Monthly</option>
                                             <option>Quarterly</option>
@@ -972,14 +1072,16 @@
                                     </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Term Period</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="leaseTerm" name="contractNo111" placeholder="in years" required>
+                                        <input type="text" readonly class="form-control" [(ngModel)]="leaseTerm"
+                                            name="contractNo111" placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Lease term period.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Payment</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="leasePayment" name="contractNo131" placeholder="in amount" required>
+                                        <input type="text" readonly class="form-control" [(ngModel)]="leasePayment"
+                                            name="contractNo131" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Lease payment.
                                         </div>
@@ -988,14 +1090,17 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Guaranteed Residual Value</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="guaranteedResidualValue" name="contractNo151" placeholder="in amount" required>
+                                        <input type="text" readonly class="form-control"
+                                            [(ngModel)]="guaranteedResidualValue" name="contractNo151"
+                                            placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Guaranteed residual value.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="initialDirectCost" name="contractNo171" placeholder="in amount" required>
+                                        <input type="text" readonly class="form-control" [(ngModel)]="initialDirectCost"
+                                            name="contractNo171" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             initial direct cost.
                                         </div>
@@ -1004,7 +1109,9 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Useful Life Of The Asset (years)</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="usefulLifeOfTheAsset" name="qwee" placeholder="in years" required>
+                                        <input type="text" readonly class="form-control"
+                                            [(ngModel)]="usefulLifeOfTheAsset" name="qwee" placeholder="in years"
+                                            required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
                                         </div>
@@ -1012,7 +1119,8 @@
 
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Escalation %-age</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="escalation" name="contractNo181" placeholder="in percentage" required>
+                                        <input type="text" readonly class="form-control" [(ngModel)]="escalation"
+                                            name="contractNo181" placeholder="in percentage" required>
                                         <div class="invalid-feedback">
                                             Escalation %-age.
                                         </div>
@@ -1022,7 +1130,9 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Escalation After Every</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="escalationAfterEvery" name="contractNo191" placeholder="in years" required>
+                                        <input type="text" readonly class="form-control"
+                                            [(ngModel)]="escalationAfterEvery" name="contractNo191"
+                                            placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Escalation after every.
                                         </div>
@@ -1100,7 +1210,8 @@
                                             <div class="row mt-3 mb-3">
                                                 <div class="col-5"></div>
                                                 <div class="col-3">Present Value &nbsp; = </div>
-                                                <div class="col-4 text-center"><strong>{{presentValue| number:'1.0-0'}}</strong></div>
+                                                <div class="col-4 text-center"><strong>{{presentValue|
+                                                        number:'1.0-0'}}</strong></div>
                                             </div>
                                             <!-- <div class="col-lg-2 col-md-6 col-6">
                                                 <h6 class="mb-3">Date Of Payment</h6>
@@ -1205,7 +1316,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" type="submit" (click)="  saveData()">Submit</button>
+                                    <button class="btn btn-dark btn-lg pull-right float-lg-right" type="submit"
+                                        (click)="  saveData()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -1221,19 +1333,22 @@
 
 <div id="classOfAssetModal" class="modal addnewshow">
     <div class="modal-content">
-        <span class="closes col-12 text-right" (click)="getClassOfAsset()" onclick="$('.addnewshow').hide();">&times;</span>
+        <span class="closes col-12 text-right" (click)="getClassOfAsset()"
+            onclick="$('.addnewshow').hide();">&times;</span>
         <form>
             <div class="row">
                 <div id="classOfAssetResponcePanel"></div>
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom04">Add New Class of Asset</label>
-                    <input type="text" class="form-control" name="asset" [(ngModel)]="classOfAsset" placeholder="Add New Class of Asset" required>
+                    <input type="text" class="form-control" name="asset" [(ngModel)]="classOfAsset"
+                        placeholder="Add New Class of Asset" required>
                     <div class="invalid-feedback">
                         Please provide a valid Lease commencement data.
                     </div>
                 </div>
                 <div class="col-12 text-right">
-                    <button class="btn btn-success xtBtn btn-lg pull-right float-lg-right" (click)="addClassOfAsset()" type="submit">Add
+                    <button class="btn btn-success xtBtn btn-lg pull-right float-lg-right" (click)="addClassOfAsset()"
+                        type="submit">Add
                         New</button>
                 </div>
             </div>
@@ -1246,24 +1361,30 @@
         <div class="row">
             <div class="col-12">
                 <h6>Short-term lease</h6>
-                <p>A lease that, at the commencement date, has a lease term of 12 months or less. A lease that contains a purchase option is not a short-term lease.</p>
+                <p>A lease that, at the commencement date, has a lease term of 12 months or less. A lease that contains
+                    a purchase option is not a short-term lease.</p>
             </div>
             <div class="col-12">
                 <h6>Low Value</h6>
                 <h6>IFRS 16: B5</h6>
-                <p>An underlying asset can be of low value only if: <br> (a) &nbsp; the lessee can benefit from use of the underlying asset on its own or together with other resources that are readily available to the lessee; and <br> (b) &nbsp; the underlying
+                <p>An underlying asset can be of low value only if: <br> (a) &nbsp; the lessee can benefit from use of
+                    the underlying asset on its own or together with other resources that are readily available to the
+                    lessee; and <br> (b) &nbsp; the underlying
                     asset is not highly dependent on, or highly interrelated with, other assets.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B6</h6>
-                <p>A lease of an underlying asset does not qualify as a lease of a low-value asset if the nature of the asset is such that, when new, the asset is typically not of low value. For example, leases of cars would not qualify as leases of low-value
+                <p>A lease of an underlying asset does not qualify as a lease of a low-value asset if the nature of the
+                    asset is such that, when new, the asset is typically not of low value. For example, leases of cars
+                    would not qualify as leases of low-value
                     assets because a new car would typically not be of low value.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B7</h6>
-                <p>If a lessee subleases an asset, or expects to sublease an asset, the head lease does not qualify as a lease of a low-value asset.</p>
+                <p>If a lessee subleases an asset, or expects to sublease an asset, the head lease does not qualify as a
+                    lease of a low-value asset.</p>
             </div>
         </div>
     </div>
@@ -1274,7 +1395,9 @@
         <div class="row">
             <div class="col-12">
                 <h6>IFRS 16: B13</h6>
-                <p>An asset is typically identified by being explicitly specified in a contract. However, an asset can also be identified by being implicitly specified at the time that the asset is made available for use by the customer. </p>
+                <p>An asset is typically identified by being explicitly specified in a contract. However, an asset can
+                    also be identified by being implicitly specified at the time that the asset is made available for
+                    use by the customer. </p>
             </div>
         </div>
     </div>
@@ -1286,45 +1409,71 @@
             <div class="col-12">
                 <h6>Substantive Substitution Right</h6>
                 <h6>IFRS 16: B14</h6>
-                <p>Even if an asset is specified, a customer does not have the right to use an identified asset if the supplier has the substantive right to substitute the asset throughout the period of use. A supplier’s right to substitute an asset is substantive
-                    only if both of the following conditions exist: <br> (a) &nbsp;the supplier has the practical ability to substitute alternative assets throughout the period of use (for example, the customer cannot prevent the supplier from substituting
-                    the asset and alternative assets are readily available to the supplier or could be sourced by the supplier within a reasonable period of time); <br> (b) &nbsp; the supplier would benefit economically from the exercise of its right
-                    to substitute the asset (i.e. the economic benefits associated with substituting the asset are expected to exceed the costs associated with substituting the asset).
+                <p>Even if an asset is specified, a customer does not have the right to use an identified asset if the
+                    supplier has the substantive right to substitute the asset throughout the period of use. A
+                    supplier’s right to substitute an asset is substantive
+                    only if both of the following conditions exist: <br> (a) &nbsp;the supplier has the practical
+                    ability to substitute alternative assets throughout the period of use (for example, the customer
+                    cannot prevent the supplier from substituting
+                    the asset and alternative assets are readily available to the supplier or could be sourced by the
+                    supplier within a reasonable period of time); <br> (b) &nbsp; the supplier would benefit
+                    economically from the exercise of its right
+                    to substitute the asset (i.e. the economic benefits associated with substituting the asset are
+                    expected to exceed the costs associated with substituting the asset).
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B15</h6>
-                <p>If the supplier has a right or an obligation to substitute the asset only on or after either a particular date or the occurrence of a specified event, the supplier’s substitution right is not substantive because the supplier does not have
+                <p>If the supplier has a right or an obligation to substitute the asset only on or after either a
+                    particular date or the occurrence of a specified event, the supplier’s substitution right is not
+                    substantive because the supplier does not have
                     the practical ability to substitute alternative assets throughout the period of use.</p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B16</h6>
-                <p>An entity’s evaluation of whether a supplier’s substitution right is substantive is based on facts and circumstances at inception of the contract and shall exclude consideration of future events that, at inception of the contract, are
-                    not considered likely to occur. Examples of future events that, at inception of the contract, would not be considered likely to occur and, thus, should be excluded from the evaluation include: <br> (a) &nbsp; an agreement by a future
-                    customer to pay an above market rate for use of the asset; <br> (b) &nbsp; the introduction of new technology that is not substantially developed at inception of the contract; <br> (c) &nbsp; a substantial difference between the customer’s
-                    use of the asset, or the performance of the asset, and the use or performance considered likely at inception of the contract; and <br> (d) &nbsp; a substantial difference between the market price of the asset during the period of use,
+                <p>An entity’s evaluation of whether a supplier’s substitution right is substantive is based on facts
+                    and circumstances at inception of the contract and shall exclude consideration of future events
+                    that, at inception of the contract, are
+                    not considered likely to occur. Examples of future events that, at inception of the contract, would
+                    not be considered likely to occur and, thus, should be excluded from the evaluation include: <br>
+                    (a) &nbsp; an agreement by a future
+                    customer to pay an above market rate for use of the asset; <br> (b) &nbsp; the introduction of new
+                    technology that is not substantially developed at inception of the contract; <br> (c) &nbsp; a
+                    substantial difference between the customer’s
+                    use of the asset, or the performance of the asset, and the use or performance considered likely at
+                    inception of the contract; and <br> (d) &nbsp; a substantial difference between the market price of
+                    the asset during the period of use,
                     and the market price considered likely at inception of the contract.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B17</h6>
-                <p>If the asset is located at the customer’s premises or elsewhere, the costs associated with substitution are generally higher than when located at the supplier’s premises and, therefore, are more likely to exceed the benefits associated
+                <p>If the asset is located at the customer’s premises or elsewhere, the costs associated with
+                    substitution are generally higher than when located at the supplier’s premises and, therefore, are
+                    more likely to exceed the benefits associated
                     with substituting the asset.</p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B18</h6>
-                <p>The supplier’s right or obligation to substitute the asset for repairs and maintenance, if the asset is not operating properly or if a technical upgrade becomes available does not preclude the customer from having the right to use an identified
+                <p>The supplier’s right or obligation to substitute the asset for repairs and maintenance, if the asset
+                    is not operating properly or if a technical upgrade becomes available does not preclude the customer
+                    from having the right to use an identified
                     asset.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B19</h6>
-                <p>If the customer cannot readily determine whether the supplier has a substantive substitution right, the customer shall presume that any substitution right is not substantive.</p>
+                <p>If the customer cannot readily determine whether the supplier has a substantive substitution right,
+                    the customer shall presume that any substitution right is not substantive.</p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B18</h6>
-                <p>A capacity portion of an asset is an identified asset if it is physically distinct (for example, a floor of a building). A capacity or other portion of an asset that is not physically distinct (for example, a capacity portion of a fibre
-                    optic cable) is not an identified asset, unless it represents substantially all of the capacity of the asset and thereby provides the customer with the right to obtain substantially all of the economic benefits from use of the asset.</p>
+                <p>A capacity portion of an asset is an identified asset if it is physically distinct (for example, a
+                    floor of a building). A capacity or other portion of an asset that is not physically distinct (for
+                    example, a capacity portion of a fibre
+                    optic cable) is not an identified asset, unless it represents substantially all of the capacity of
+                    the asset and thereby provides the customer with the right to obtain substantially all of the
+                    economic benefits from use of the asset.</p>
             </div>
         </div>
     </div>
@@ -1335,31 +1484,49 @@
         <div class="row">
             <div class="col-12">
                 <h6>IFRS 16: B21</h6>
-                <p>To control the use of an identified asset, a customer is required to have the right to obtain substantially all of the economic benefits from use of the asset throughout the period of use (for example, by having exclusive use of the asset
-                    throughout that period). A customer can obtain economic benefits from use of an asset directly or indirectly in many ways, such as by using, holding or sub-leasing the asset. The economic benefits from use of an asset include its primary
-                    output and by-products (including potential cash flows derived from these items), and other economic benefits from using the asset that could be realised from a commercial transaction with a third party.
+                <p>To control the use of an identified asset, a customer is required to have the right to obtain
+                    substantially all of the economic benefits from use of the asset throughout the period of use (for
+                    example, by having exclusive use of the asset
+                    throughout that period). A customer can obtain economic benefits from use of an asset directly or
+                    indirectly in many ways, such as by using, holding or sub-leasing the asset. The economic benefits
+                    from use of an asset include its primary
+                    output and by-products (including potential cash flows derived from these items), and other economic
+                    benefits from using the asset that could be realised from a commercial transaction with a third
+                    party.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B22</h6>
-                <p>When assessing the right to obtain substantially all of the economic benefits from use of an asset, an entity shall consider the economic benefits that result from use of the asset within the defined scope of a customer’s right to use
+                <p>When assessing the right to obtain substantially all of the economic benefits from use of an asset,
+                    an entity shall consider the economic benefits that result from use of the asset within the defined
+                    scope of a customer’s right to use
                     the asset <strong onclick="shownext();" style="color: red;">(see
-                        paragraph B30)</strong>. For example: <br> (a) &nbsp; if a contract limits the use of a motor vehicle to only one particular territory during the period of use, an entity shall consider only the economic benefits from use of the
+                        paragraph B30)</strong>. For example: <br> (a) &nbsp; if a contract limits the use of a motor
+                    vehicle to only one particular territory during the period of use, an entity shall consider only the
+                    economic benefits from use of the
                     motor vehicle within that territory, and not beyond.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B23</h6>
-                <p>(b) &nbsp; if a contract specifies that a customer can drive a motor vehicle only up to a particular number of miles during the period of use, an entity shall consider only the economic benefits from use of the motor vehicle for the permitted
+                <p>(b) &nbsp; if a contract specifies that a customer can drive a motor vehicle only up to a particular
+                    number of miles during the period of use, an entity shall consider only the economic benefits from
+                    use of the motor vehicle for the permitted
                     mileage, and not beyond.
                 </p>
             </div>
             <div class="col-12 shownext1">
                 <h6>IFRS 16: B30</h6>
                 <p>
-                    A contract may include terms and conditions designed to protect the supplier’s interest in the asset or other assets, to protect its personnel, or to ensure the supplier’s compliance with laws or regulations. These are examples of protective rights. For
-                    example, a contract may <br> (i) &nbsp; specify the maximum amount of use of an asset or limit where or when the customer can use the asset,<br> (ii) &nbsp; require a customer to follow particular operating practices,
-                    or <br> (iii) &nbsp; require a customer to inform the supplier of changes in how an asset will be used. Protective rights typically define the scope of the customer’s right of use but do not, in isolation, prevent the customer from
+                    A contract may include terms and conditions designed to protect the supplier’s interest in the asset
+                    or other assets, to protect its personnel, or to ensure the supplier’s compliance with laws or
+                    regulations. These are examples of protective rights. For
+                    example, a contract may <br> (i) &nbsp; specify the maximum amount of use of an asset or limit where
+                    or when the customer can use the asset,<br> (ii) &nbsp; require a customer to follow particular
+                    operating practices,
+                    or <br> (iii) &nbsp; require a customer to inform the supplier of changes in how an asset will be
+                    used. Protective rights typically define the scope of the customer’s right of use but do not, in
+                    isolation, prevent the customer from
                     having the right to direct the use of an asset.
                 </p>
             </div>
@@ -1372,50 +1539,88 @@
         <div class="row">
             <div class="col-12">
                 <h6>IFRS 16: B25</h6>
-                <p>A customer has the right to direct how and for what purpose the asset is used if, within the scope of its right of use defined in the contract, it can change how and for what purpose the asset is used throughout the period of use. In making
-                    this assessment, an entity considers the decision-making rights that are most relevant to changing how and for what purpose the asset is used throughout the period of use. Decision-making rights are relevant when they affect the economic
-                    benefits to be derived from use. The decision-making rights that are most relevant are likely to be different for different contracts, depending on the nature of the asset and the terms and conditions of the contract.
+                <p>A customer has the right to direct how and for what purpose the asset is used if, within the scope of
+                    its right of use defined in the contract, it can change how and for what purpose the asset is used
+                    throughout the period of use. In making
+                    this assessment, an entity considers the decision-making rights that are most relevant to changing
+                    how and for what purpose the asset is used throughout the period of use. Decision-making rights are
+                    relevant when they affect the economic
+                    benefits to be derived from use. The decision-making rights that are most relevant are likely to be
+                    different for different contracts, depending on the nature of the asset and the terms and conditions
+                    of the contract.
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B26</h6>
-                <p>Examples of decision-making rights that, depending on the circumstances, grant the right to change how and for what purpose the asset is used, within the defined scope of the customer’s right of use, include:
-                    <br> (a) &nbsp; rights to change the type of output that is produced by the asset (for example, to decide whether to use a shipping container to transport goods or for storage, or to decide upon the mix of products sold from retail
+                <p>Examples of decision-making rights that, depending on the circumstances, grant the right to change
+                    how and for what purpose the asset is used, within the defined scope of the customer’s right of use,
+                    include:
+                    <br> (a) &nbsp; rights to change the type of output that is produced by the asset (for example, to
+                    decide whether to use a shipping container to transport goods or for storage, or to decide upon the
+                    mix of products sold from retail
                     space);
-                    <br> (b) &nbsp; rights to change when the output is produced (for example, to decide when an item of machinery or a power plant will be used);<br> (c) &nbsp; rights to change where the output is produced (for example, to decide upon
-                    the destination of a truck or a ship, or to decide where an item of equipment is used); and (d) rights to change whether the output is produced, and the quantity of that output (for example, to decide whether to produce energy from
+                    <br> (b) &nbsp; rights to change when the output is produced (for example, to decide when an item of
+                    machinery or a power plant will be used);<br> (c) &nbsp; rights to change where the output is
+                    produced (for example, to decide upon
+                    the destination of a truck or a ship, or to decide where an item of equipment is used); and (d)
+                    rights to change whether the output is produced, and the quantity of that output (for example, to
+                    decide whether to produce energy from
                     a power plant and how much energy to produce from that power plant).
                 </p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B27</h6>
-                <p>Examples of decision-making rights that do not grant the right to change how and for what purpose the asset is used include rights that are limited to operating or maintaining the asset. Such rights can be held by the customer or the supplier.
-                    Although rights such as those to operate or maintain an asset are often essential to the efficient use of an asset, they are not rights to direct how and for what purpose the asset is used and are often dependent on the decisions about
-                    how and for what purpose the asset is used. However, rights to operate an asset may grant the customer the right to direct the use of the asset if the relevant decisions about how and for what purpose the asset is used are predetermined
+                <p>Examples of decision-making rights that do not grant the right to change how and for what purpose the
+                    asset is used include rights that are limited to operating or maintaining the asset. Such rights can
+                    be held by the customer or the supplier.
+                    Although rights such as those to operate or maintain an asset are often essential to the efficient
+                    use of an asset, they are not rights to direct how and for what purpose the asset is used and are
+                    often dependent on the decisions about
+                    how and for what purpose the asset is used. However, rights to operate an asset may grant the
+                    customer the right to direct the use of the asset if the relevant decisions about how and for what
+                    purpose the asset is used are predetermined
                     (see paragraph 24(b)(i)).</p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B28</h6>
-                <p> The relevant decisions about how and for what purpose the asset is used can be predetermined in a number of ways. For example, the relevant decisions can be predetermined by the design of the asset or by contractual restrictions on the
+                <p> The relevant decisions about how and for what purpose the asset is used can be predetermined in a
+                    number of ways. For example, the relevant decisions can be predetermined by the design of the asset
+                    or by contractual restrictions on the
                     use of the asset.</p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B29</h6>
-                <p>In assessing whether a customer has the right to direct the use of an asset, an entity shall consider only rights to make decisions about the use of the asset during the period of use, unless the customer designed the asset (or specific
-                    aspects of the asset) as described in <strong onclick="shownext1();" style="color: red;">paragraph B24(b)(ii)</strong>. Consequently, unless the conditions in <strong onclick="shownext1();" style="color: red;">paragraph B24(b)(ii)</strong>                    exist, an entity shall not consider decisions that are predetermined before the period of use. For example, if a customer is able only to specify the output of an asset before the period of use, the customer does not have the right
-                    to direct the use of that asset. The ability to specify the output in a contract before the period of use, without any other decision-making rights relating to the use of the asset, gives a customer the same rights as any customer
+                <p>In assessing whether a customer has the right to direct the use of an asset, an entity shall consider
+                    only rights to make decisions about the use of the asset during the period of use, unless the
+                    customer designed the asset (or specific
+                    aspects of the asset) as described in <strong onclick="shownext1();" style="color: red;">paragraph
+                        B24(b)(ii)</strong>. Consequently, unless the conditions in <strong onclick="shownext1();"
+                        style="color: red;">paragraph B24(b)(ii)</strong> exist, an entity shall not consider decisions
+                    that are predetermined before the period of use. For example, if a customer is able only to specify
+                    the output of an asset before the period of use, the customer does not have the right
+                    to direct the use of that asset. The ability to specify the output in a contract before the period
+                    of use, without any other decision-making rights relating to the use of the asset, gives a customer
+                    the same rights as any customer
                     that purchases goods or services.</p>
             </div>
             <div class="col-12">
                 <h6>IFRS 16: B30</h6>
-                <p>A contract may include terms and conditions designed to protect the supplier’s interest in the asset or other assets, to protect its personnel, or to ensure the supplier’s compliance with laws or regulations. These are examples of protective
-                    rights. For example, a contract may <br> (i) &nbsp; specify the maximum amount of use of an asset or limit where or when the customer can use the asset,<br> (ii) &nbsp; require a customer to follow particular operating practices, or<br>                    (iii) &nbsp; require a customer to inform the supplier of changes in how an asset will be used. Protective rights typically define the scope of the customer’s right of use but do not, in isolation, prevent the customer from having
+                <p>A contract may include terms and conditions designed to protect the supplier’s interest in the asset
+                    or other assets, to protect its personnel, or to ensure the supplier’s compliance with laws or
+                    regulations. These are examples of protective
+                    rights. For example, a contract may <br> (i) &nbsp; specify the maximum amount of use of an asset or
+                    limit where or when the customer can use the asset,<br> (ii) &nbsp; require a customer to follow
+                    particular operating practices, or<br> (iii) &nbsp; require a customer to inform the supplier of
+                    changes in how an asset will be used. Protective rights typically define the scope of the customer’s
+                    right of use but do not, in isolation, prevent the customer from having
                     the right to direct the use of an asset.
                 </p>
             </div>
             <div class="col-12 shownextq5">
                 <h6>IFRS 16: B24</h6>
-                <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: The customer designed the asset (or specific aspects of the asset) in a way that predetermines how and for what purpose the asset will be used
+                <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: The
+                    customer designed the asset (or specific aspects of the asset) in a way that predetermines how and
+                    for what purpose the asset will be used
                     throughout the period of use.</p>
             </div>
         </div>
@@ -1427,7 +1632,9 @@
         <div class="row">
             <div class="col-12">
                 <h6>IFRS 16: B24 (b) (i)</h6>
-                <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: <br> The customer has the right to operate the asset (or to direct others to operate the asset in a manner that it determines) throughout the
+                <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: <br>
+                    The customer has the right to operate the asset (or to direct others to operate the asset in a
+                    manner that it determines) throughout the
                     period of use, without the supplier having the right to change those operating instructions; or
                 </p>
             </div>
@@ -1440,7 +1647,9 @@
         <div class="row">
             <div class="col-12">
                 <h6>IFRS 16: B24 (b) (11)</h6>
-                <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: <br> The customer designed the asset (or specific aspects of the asset) in a way that predetermines how and for what purpose the asset will
+                <p>The relevant decisions about how and for what purpose the asset is used are predetermined and: <br>
+                    The customer designed the asset (or specific aspects of the asset) in a way that predetermines how
+                    and for what purpose the asset will
                     be used throughout the period of use.
                 </p>
             </div>
@@ -1453,9 +1662,12 @@
         <div class="row">
             <div class="col-12">
                 <h6>How lease term is determined</h6>
-                <p>An entity shall determine the lease term as the non-cancellable period of a lease, together with both:</p>
-                <p>(a) Periods covered by an option to extend the lease if the lessee is reasonably certain to exercise that option;</p>
-                <p>(b) Periods covered by an option to terminate the lease if the lessee is reasonably certain not to exercise that option.</p>
+                <p>An entity shall determine the lease term as the non-cancellable period of a lease, together with
+                    both:</p>
+                <p>(a) Periods covered by an option to extend the lease if the lessee is reasonably certain to exercise
+                    that option;</p>
+                <p>(b) Periods covered by an option to terminate the lease if the lessee is reasonably certain not to
+                    exercise that option.</p>
             </div>
         </div>
     </div>

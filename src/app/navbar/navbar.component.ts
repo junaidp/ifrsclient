@@ -5,6 +5,7 @@ import {Signupservice} from "src/app/signup/Signupservice";
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { LeaseService } from "src/app/new-lease/leaseService";
+import { DisplayError } from "../displayError";
 declare var $: any 
 
 @Component({
@@ -28,7 +29,7 @@ export class NavbarComponent implements OnInit {
   signUpCompany ; 
   myFiles: any;
   mapResult: Map<String, String>;
-  constructor(public globals: Globals ,public authService: AuthService ,private router: Router, public Signupservice: Signupservice , public leaseService: LeaseService, private spinner: NgxSpinnerService) {
+  constructor(public globals: Globals ,public authService: AuthService , public displayError: DisplayError,private router: Router, public Signupservice: Signupservice , public leaseService: LeaseService, private spinner: NgxSpinnerService) {
   
   }
   name = localStorage.getItem('name');
@@ -106,7 +107,7 @@ export class NavbarComponent implements OnInit {
     },
     (error) => {                              //Error callback
       console.error('error caught in component')
-      alert("error e oye")
+      this.displayError.displayErrorMessage(error);
      this.spinner.hide();
 
     },
