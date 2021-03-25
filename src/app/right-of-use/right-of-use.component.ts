@@ -20,12 +20,12 @@ export class RightOfUseComponent implements OnInit {
   leaseName = "All";
   lessorName = "All";
   classOfAsset = "All";
-  location = "";
+  location = "All";
   date = "";
   vendorName = "";
   startingDate = "";
   endingDate = "";
-  assetCode="";
+  assetCode="All";
   ///////////////////////////////// for individual report data ////////////////////
   dataId = ""
   leaseContractNo = "";
@@ -220,6 +220,8 @@ export class RightOfUseComponent implements OnInit {
       leaseName: this.leaseName,
       lessorName: this.lessorName,
       classOfAsset: this.classOfAsset,
+      location: this.location,
+      assetCode: this.assetCode,
       userId: localStorage.getItem('userId'),
       companyId: localStorage.getItem('companyId')
     };
