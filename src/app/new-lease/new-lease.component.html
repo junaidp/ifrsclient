@@ -395,7 +395,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Payment</label>
-                                        <input type="number" class="form-control" [(ngModel)]="leasePayment" name="contractNo13" placeholder="in amount" required>
+                                        <input type="text" class="form-control number" [(ngModel)]="leasePayment" name="contractNo13" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Lease payment.
                                         </div>
@@ -404,14 +404,14 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Guaranteed Residual Value</label>
-                                        <input type="number" class="form-control" [(ngModel)]="guaranteedResidualValue" name="contractNo15" placeholder="in amount" required>
+                                        <input type="text" class="form-control number" [(ngModel)]="guaranteedResidualValue" name="contractNo15" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Guaranteed residual value.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
-                                        <input type="number" class="form-control" [(ngModel)]="initialDirectCost" name="contractNo17" placeholder="in amount" required>
+                                        <input type="text" class="form-control number" [(ngModel)]="initialDirectCost" name="contractNo17" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             initial direct cost.
                                         </div>
@@ -974,7 +974,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Lease Payment</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="leasePayment" name="contractNo131" placeholder="in amount" required>
+                                        <input type="text" readonly class="form-control " value = "{{leasePayment | number}}" name="contractNo131" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Lease payment.
                                         </div>
@@ -983,14 +983,14 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Guaranteed Residual Value</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="guaranteedResidualValue" name="contractNo151" placeholder="in amount" required>
+                                        <input type="text" readonly class="form-control number" value = "{{guaranteedResidualValue | number}}"  name="contractNo151" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             Guaranteed residual value.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom04">Initial Direct Cost</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="initialDirectCost" name="contractNo171" placeholder="in amount" required>
+                                        <input type="text" readonly class="form-control" value = "{{initialDirectCost | number}}"   name="contractNo171" placeholder="in amount" required>
                                         <div class="invalid-feedback">
                                             initial direct cost.
                                         </div>
@@ -999,7 +999,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Useful Life Of The Asset (years)</label>
-                                        <input type="text" readonly class="form-control" [(ngModel)]="usefulLifeOfTheAsset" name="qwee" placeholder="in years" required>
+                                        <input type="text" readonly class="form-control number" [(ngModel)]="usefulLifeOfTheAsset" name="qwee" placeholder="in years" required>
                                         <div class="invalid-feedback">
                                             Use full life of the Asset (years).
                                         </div>

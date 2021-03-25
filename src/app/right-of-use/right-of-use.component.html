@@ -471,7 +471,7 @@
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Lease payment</label>
-                                                <input type="text" value="{{leasePayment}}" readonly class="form-control" placeholder="in amount" required>
+                                                <input type="text" value="{{leasePayment | number}}" readonly class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
                                                     Lease payment.
                                                 </div>
@@ -480,14 +480,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Initial direct cost</label>
-                                                <input type="text" value="{{initialDirectCost}}" readonly class="form-control" placeholder="in amount" required>
+                                                <input type="text" value="{{initialDirectCost | number}}" readonly class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
                                                     initial direct cost.
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom04">Guaranteed residual value</label>
-                                                <input type="text" value="{{guaranteedResidualValue}}" readonly class="form-control" placeholder="in amount" required>
+                                                <input type="text" value="{{guaranteedResidualValue | number}}" readonly class="form-control" placeholder="in amount" required>
                                                 <div class="invalid-feedback">
                                                     Guaranteed residual value.
                                                 </div>

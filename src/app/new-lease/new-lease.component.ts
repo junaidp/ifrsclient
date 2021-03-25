@@ -5,7 +5,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { NgxSpinnerService } from "ngx-spinner";
 import { DisplayError } from "../displayError";
 
-import { JsonPipe } from '@angular/common';
+import { CurrencyPipe, JsonPipe } from '@angular/common';
 
 declare var $: any;
 
@@ -26,6 +26,7 @@ export class NewLeaseComponent implements OnInit {
   userId: any
 
   //first tab
+  
   leaseContractNo = "";
   classAsset = "";
   commencementDate = "";
@@ -99,6 +100,11 @@ export class NewLeaseComponent implements OnInit {
 
   calculate() {
 
+
+    this.leasePayment = this.removeCommas(this.leasePayment)
+    this.guaranteedResidualValue = this.removeCommas(this.guaranteedResidualValue)
+    this.initialDirectCost = this.removeCommas(this.initialDirectCost)
+
     var data = {
 
       leaseContractNo: this.leaseContractNo,
@@ -138,6 +144,7 @@ export class NewLeaseComponent implements OnInit {
 
 
     // alert("calculation for " + this.globals.userName)
+    console.log(data)
     this.leaseService.calculate(data).then(response => {
       this.spinner.hide();
       this.map = new Map(Object.entries(response.data));
@@ -191,7 +198,9 @@ export class NewLeaseComponent implements OnInit {
 
 
 
-
+    this.leasePayment = this.removeCommas(this.leasePayment)
+    this.guaranteedResidualValue = this.removeCommas(this.guaranteedResidualValue)
+    this.initialDirectCost = this.removeCommas(this.initialDirectCost)
     // alert(this.userId)
     var data = {
 
@@ -348,7 +357,33 @@ export class NewLeaseComponent implements OnInit {
     });
   }
 
+
+  public removeCommas(str) {
+    while (str.search(",") >= 0) {
+        str = (str + "").replace(',', '');
+    }
+    return str;
+};
   ngOnInit() {
+
+
+
+    $('input.number').keyup(function(event) {
+
+      // skip for arrow keys
+      if(event.which >= 37 && event.which <= 40) return;
+    
+      // format number
+      $(this).val(function(index, value) {
+        return value
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ;
+      });
+    });
+
+    
+
     this.myFiles = []
     this.getClassOfAsset();
     $(document).on('change', '#addnewclass', function () {
