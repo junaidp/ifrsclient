@@ -129,9 +129,9 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom03">Class Of Asset</label>
                                         <select id="addnewclass" name="contractNo2" [(ngModel)]="classAsset" class="form-control" onchange="java_script_:showpopup(this.options[this.selectedIndex].value)">
-                                            <option value="{{row.value['classOfAsset']}}"
+                                            <option value="{{row.value}}"
                                                 *ngFor="let row of mapClassOfAsset | keyvalue">
-                                                {{row.value['classOfAsset']}}</option>
+                                                {{row.value}}</option>
                                             <option value="100">Add new</option>
                                         </select>
                                     </div>
