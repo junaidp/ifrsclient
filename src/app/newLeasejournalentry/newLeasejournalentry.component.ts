@@ -6,6 +6,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewChild, ElementRef } from '@angular/core';
 import { allResolved } from "q";
+import { toInteger } from "@ng-bootstrap/ng-bootstrap/util/util";
 declare var $: any;
 
 @Component({
@@ -63,6 +64,7 @@ export class NewLeasejournalentryComponent implements OnInit {
   commencementDate: String;
 
   presentValue: number;
+  rightOfUse: number;
   date: "";
   date1: "";
   date2: "";
@@ -108,6 +110,14 @@ export class NewLeasejournalentryComponent implements OnInit {
         //     alert(this.map.size)
         this.map1 = this.map.get("17");
         this.presentValue = this.map1[9];
+
+
+      //  alert(this.globals.initialDirectCost)
+        var intialCost = Number(this.globals.initialDirectCost);
+        var present = Number(this.presentValue)
+
+        this.rightOfUse = present +  intialCost
+
       }
         ,
         (error): void => {
