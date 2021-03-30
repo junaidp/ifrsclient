@@ -65,6 +65,7 @@ export class NewLeasejournalentryComponent implements OnInit {
 
   presentValue: number;
   rightOfUse: number;
+  initialDirectCost: number;
   date: "";
   date1: "";
   date2: "";
@@ -113,10 +114,10 @@ export class NewLeasejournalentryComponent implements OnInit {
 
 
       //  alert(this.globals.initialDirectCost)
-        var intialCost = Number(this.globals.initialDirectCost);
+        this.initialDirectCost  = Number(this.globals.initialDirectCost);
         var present = Number(this.presentValue)
 
-        this.rightOfUse = present +  intialCost
+        this.rightOfUse = present +  this.initialDirectCost
 
       }
         ,
