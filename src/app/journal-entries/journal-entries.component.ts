@@ -33,6 +33,7 @@ export class JournalEntriesComponent implements OnInit {
   paymentCashBank: any
   finalLeaseLiability: any
   finalFinanceCost: any
+  finalDepreciation:any
   finalDate: any;
 
   leaseLiabilityEnding: any
@@ -115,6 +116,7 @@ export class JournalEntriesComponent implements OnInit {
       var dayService
       var yearService
       var commencementDateS
+      var sumOfDepreciation = 0;
 
       var financeCostPrepaidExpence
       var crValuePrepaidExpence
@@ -157,6 +159,14 @@ export class JournalEntriesComponent implements OnInit {
         // sum of g,h,i
         this.repeatedMonthAccrued = this.map.get('RepeatmonthAccrued');
         this.commencementDateS = this.map.get('commencementDate');
+       var depreciation= this.map.get('rightOfUseOfAsset');
+       depreciation = Math.round(depreciation)
+     //  alert(depreciation)
+       if (depreciation > 0) {
+
+        sumOfDepreciation += parseInt(depreciation)
+      }
+     // alert(sumOfDepreciation + "sumofdepreciation")
         // for rounding off upto 0 dc
         drValueFinanceCost = Math.round(drValueFinanceCost)
 
@@ -368,6 +378,8 @@ export class JournalEntriesComponent implements OnInit {
       // newly added
 
       //  alert(sumOfpaymentCashBank + "paymetnt "  + sumOffinanceCost + "sumoffc" + sumOfAccruedLiability + "sumofaccrued" + sumOfPrepaidExpenceFinal + "ssumofprepaid" + leaseLiabilityBeginning + "sumofleasebeg" + leaseLiabilityEnding + "leaseending")
+      this.finalDepreciation = sumOfDepreciation
+    //  alert(this.finalDepreciation + "finaldep")
       this.paymentCashBank = sumOfpaymentCashBank
       this.finalFinanceCost = sumOfFinanceCostFinal
       this.finalAccruedLiability = sumOfAccruedLiabilityFinal
