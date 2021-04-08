@@ -142,7 +142,7 @@
         <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
-                    <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi">
+                    <li *ngFor="let row of mapUserData |  keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{i+1}}</div>
                             <!-- <div class="col-lg-2 col-md-6 col-6">12/12/12</div> -->
@@ -542,45 +542,28 @@
                                                     <h6 class="col-lg-4 col-md-12 col-12">PRESENT VALUE CALCULATION</h6>
                                                 </div>
                                             </div>
-                                            <div class="col-1 responsive_display">
-                                                <h6 class="mb-3">Sr. #</h6>
-                                                <ul class="list-unstyled text-center">
-                                                    <li *ngFor="let row of map | keyvalue">
-                                                        {{row.value[0] | number:'1.0-0'}}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-2 col-md-6 col-6">
-                                                <h6 class="mb-3">Date Of Payment</h6>
-                                                <ul class="list-unstyled text-center">
-                                                    <li *ngFor="let row of map | keyvalue">
-                                                        {{row.value[2]| date:'mediumDate'}}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-2 col-md-6 col-6">
-                                                <h6 class="mb-3">Payment</h6>
-                                                <ul class="list-unstyled text-center">
-                                                    <li *ngFor="let row of map | keyvalue">
-                                                        {{row.value[3] | number:'1.0-0'}}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-2 col-md-6 col-6">
-                                                <h6 class="mb-3">Discount Factor ( % )</h6>
-                                                <ul class="list-unstyled text-center">
-                                                    <li *ngFor="let row of map | keyvalue">
-                                                        {{row.value[4] |number:'0.1-3'}}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-2 col-md-6 col-6">
-                                                <h6 class="mb-3">Discounted Amount</h6>
-                                                <ul class="list-unstyled text-center">
-                                                    <li *ngFor="let row of map | keyvalue">
-                                                        {{row.value[5] | number:'1.0-0'}}
-                                                    </li>
-                                                </ul>
+
+                                            <div class="col-12">
+                                                <table class="table table-striped table-bordered"id ="editUserTable">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Sr #</th>
+                                                        <th>Date Of Payment</th>
+                                                        <th>Payment</th>
+                                                        <th>Discount Factor ( % )</th>
+                                                        <th>Discounted Amount</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr *ngFor="let row of map | keyvalue" id="edit">
+                                                        <td id="{{row.value['userId']}}">{{row.value[0] | number:'1.0-0'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[2]| date:'mediumDate'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[3] | number:'1.0-0'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[4] |number:'0.1-3'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[5] | number:'1.0-0'}}</td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
                                             </div>
                                             <div class="col-3 text-right responsive_display"></div>
                                             <div class="col-12">
@@ -596,57 +579,28 @@
                                                 <h6 class="text-lg-left">Lease Payment Schedule</h6>
                                             </div>
                                             <div class="col-12">
-                                                <div class="row step_4 mb-4">
-                                                    <div class="col-1 responsive_display">
-                                                        <h6 class="mb-3">Sr. #</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[14] | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Date Of Payment</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[8] | date:'mediumDate'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Opening Balance</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[9] | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Finance Cost</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[10] | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Payment</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{(row.value[11]) | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-6 col-6">
-                                                        <h6 class="mb-3">Closing Balance</h6>
-                                                        <ul class="list-unstyled text-center">
-                                                            <li *ngFor="let row of map | keyvalue">
-                                                                {{row.value[12] | number:'1.0-0'}}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-1"></div>
-                                                </div>
+                                                <table class="table table-striped table-bordered"id ="editUserTable">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Sr #</th>
+                                                        <th>Date Of Payment</th>
+                                                        <th>Opening Balance</th>
+                                                        <th>Finance Cost</th>
+                                                        <th>Payment</th>
+                                                        <th>Closing Balance</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr *ngFor="let row of map | keyvalue" id="edit">
+                                                        <td id="{{row.value['userId']}}">{{row.value[14] | number:'1.0-0'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[8] | date:'mediumDate'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[9] | number:'1.0-0'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[10] |number:'0.1-3'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[11] | number:'1.0-0'}}</td>
+                                                        <td id="{{row.value['userId']}}">{{row.value[12] | number:'1.0-0'}}</td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
                                             </div>
                                             <div class="col-1 mb-4"></div>
                                         </div>
