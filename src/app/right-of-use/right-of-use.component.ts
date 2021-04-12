@@ -3,7 +3,7 @@ import { Globals } from "../globals";
 import { LeaseService } from "../new-lease/leaseService";
 import { rightService } from "./rightService";
 import { ThrowStmt } from '@angular/compiler';
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, KeyValue } from '@angular/common';
 import { NgxSpinnerService } from "ngx-spinner";
 import { DisplayError } from "../displayError";
 declare var $: any;
@@ -435,6 +435,9 @@ export class RightOfUseComponent implements OnInit {
       me.presentValue = this.map1[9];
 
       console.log(response.data);
+
+
+      
     },
       (error): void => {
         //Error callback
@@ -443,5 +446,21 @@ export class RightOfUseComponent implements OnInit {
 
       });
   }
+
+  // Preserve original property order
+originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+  return 0;
+}
+
+// Order by ascending property value
+valueAscOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+  alert("sd")
+  return a.value.localeCompare(b.value);
+}
+
+// Order by descending property key
+keyDescOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+  return a.key > b.key ? -1 : (b.key > a.key ? 1 : 0);
+}
 }
 

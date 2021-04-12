@@ -5,7 +5,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { NgxSpinnerService } from "ngx-spinner";
 import { DisplayError } from "../displayError";
 
-import { CurrencyPipe, JsonPipe } from '@angular/common';
+import { CurrencyPipe, JsonPipe, KeyValue } from '@angular/common';
 
 declare var $: any;
 
@@ -764,6 +764,19 @@ export class NewLeaseComponent implements OnInit {
 
 
 
+  }
+  originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+    return 0;
+  }
+  
+  // Order by ascending property value
+  valueAscOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+    return a.value.localeCompare(b.value);
+  }
+  
+  // Order by descending property key
+  keyDescOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+    return a.key > b.key ? -1 : (b.key > a.key ? 1 : 0);
   }
 
 
