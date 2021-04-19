@@ -79,7 +79,6 @@ export class RightofusescheduleleasesComponent implements OnInit {
       //date: this.date
     };
     //  this.spinner.show();
-    alert(JSON.stringify(data));
     this.rightService.getReportData(data).then(response => {
       alert(response.data)
       this.mapUserData = new Map(Object.entries(response.data));
