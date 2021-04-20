@@ -765,9 +765,9 @@ export class NewLeaseComponent implements OnInit {
 
 
   }
-  // originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
-  //   return 0;
-  // }
+  originalOrder = (a: KeyValue<string, Map<string, string>>, b: KeyValue<string, Map<string, string>>): number => {
+    return 0;
+  }
   
   // // Order by ascending property value
   // valueAscOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {

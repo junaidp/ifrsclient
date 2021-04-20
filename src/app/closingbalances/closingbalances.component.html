@@ -35,60 +35,56 @@
         <div class="row mt-4">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Date</div>
-                    <div class="col-lg-9 col-md-4 col-12">
-                        <input type="date" class="form-control" />
-                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Date</div>
+                    <input [(ngModel)]="date" type="month" class="form-control col-lg-8 col-md-4 col-12" id="dateSelector" placeholder="data" name="" />
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Lessor Name</div>
-                    <div class="col-lg-9 col-md-4 col-12">
-                        <select [(ngModel)]="lessorName" class="form-control">
-                            <option>All</option>
-                            <option *ngFor="let row of mapLessorNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4 mb-4">
-            <div class="col-lg-6 col-md-6 col-12">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Class of asset</div>
-                    <div class=" col-lg-9 col-md-4 col-12">
-                        <select [(ngModel)]="classOfAsset" class="form-control">
-                            <option>All</option>
-                            <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-12">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Location</div>
-                    <div class=" col-lg-9 col-md-4 col-12">
-                        <select class="form-control">
-                            <option>All</option>
-                        </select>
-                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Lessor Name</div>
+                    <select [(ngModel)]="lessorName" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option> -->
+                        <option *ngFor="let row of mapLessorNameFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
         </div>
         <div class="row mt-4 mb-4">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12 report_css">Asset Code</div>
-                    <div class=" col-lg-9 col-md-4 col-12">
-                        <select class="form-control">
-                            <option>All</option>
-                        </select>
-                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Class of Asset</div>
+                    <select [(ngModel)]="classOfAsset" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+
+                        <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['lessorName']}}</option> -->
+                        <option *ngFor="let row of mapClassOfAssetFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Location</div>
+                    <select [(ngModel)]="location" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <option *ngFor="let row of mapClassOfLocationFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-4">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 report_css">Asset Code</div>
+                    <select [(ngModel)]="assetCode" class="form-control col-lg-8 col-md-4 col-12">
+                        <option>All</option>
+                        <option *ngFor="let row of mapClassOfAssetCodeFilter | keyvalue  ; let i = index ">{{row.value}}</option>
+                    </select>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12 text-right">
-                <button class="btn btn-info" (click)="getFilterUserData()">Generate Report</button>
+                <button class="btn btn-info" (click)="getFilterUserDataClosingReport()">Generate Report</button>
             </div>
         </div>
     </div>
@@ -125,16 +121,16 @@
         <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
-                    <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi">
+                    <li *ngFor="let row of mapClosingReport | keyvalue ; let i = index" id="{{row.value['id']}}" class="dataListLi">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{i+1}}</div>
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
                             <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
 
-                            <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
-                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();"></div>
+                            <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['location']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['assetCode']}}</div>
+                            <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value[9] | number:'1.0-0'}}</div>
 
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
                         </div>

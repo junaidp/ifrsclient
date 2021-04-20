@@ -496,7 +496,7 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr *ngFor="let row of map | keyvalue; let i = index" id="edit">
+                                          <tr *ngFor="let row of map | keyvalue: originalOrder; let i = index" id="edit">
                                             <td id="{{row.value['userId']}}">{{i+1}}</td>
                                             <td id="{{row.value['userId']}}">{{row.value[2]| date:'mediumDate'}}</td>
                                             <td id="{{row.value['userId']}}">{{row.value[3] | number:'1.0-0'}}</td>
@@ -533,7 +533,7 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr *ngFor="let row of map | keyvalue; let i = index" id="edit">
+                                          <tr *ngFor="let row of map | keyvalue: originalOrder; let i = index" id="edit">
                                             <td id="{{row.value['userId']}}">{{i+1}}</td>
                                             <td id="{{row.value['userId']}}">{{row.value[8] | date:'mediumDate'}}</td>
                                             <td id="{{row.value['userId']}}">{{row.value[9] | number:'1.0-0'}}</td>
@@ -982,7 +982,7 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
-                                                  <tr *ngFor="let row of map |  keyvalue ; let i = index" id="edit">
+                                                  <tr *ngFor="let row of map |  keyvalue: originalOrder ; let i = index" id="edit">
                                                     <td id="{{row.value['userId']}}">{{i+1}}</td>
                                                     <td id="{{row.value['userId']}}">{{row.value[2]| date:'mediumDate'}}</td>
                                                     <td id="{{row.value['userId']}}">{{row.value[3] | number:'1.0-0'}}</td>
@@ -1017,7 +1017,7 @@
                                                       </tr>
                                                     </thead>
                                                     <tbody>
-                                                      <tr *ngFor="let row of map | keyvalue let i = index" id="edit">
+                                                      <tr *ngFor="let row of map | keyvalue: originalOrder ; let i = index" id="edit">
                                                         <td id="{{row.value['userId']}}">{{i+1}}</td>
                                                         <td id="{{row.value['userId']}}">{{row.value[8] | date:'mediumDate'}}</td>
                                                         <td id="{{row.value['userId']}}">{{row.value[9] | number:'1.0-0'}}</td>

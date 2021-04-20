@@ -5,6 +5,8 @@ import { closingbalancesService } from "./closingblancesService";
 import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
 import { NgxSpinnerService } from "ngx-spinner";
+import { rightService } from "src/app/right-of-use/rightService";
+
 declare var $: any;
 
 @Component({
@@ -18,11 +20,12 @@ export class ClosingbalancesComponent implements OnInit {
     leaseName = "All";
     lessorName = "All";
     classOfAsset = "All";
-    location = "";
+    location = "All";
     date = "";
     vendorName = "";
     startingDate = "";
     endingDate = "";
+    assetCode="All";
     ///////////////////////////////// for individual report data ////////////////////
     dataId = ""
     leaseContractNo = "";
@@ -74,92 +77,26 @@ export class ClosingbalancesComponent implements OnInit {
     answer6Bool = true;
     answer7Bool = true;
 
-  constructor(public closingbalancesService: closingbalancesService, public leaseService: LeaseService, public globals: Globals,private spinner: NgxSpinnerService) { }
+
+    userId;
+    companyId;
+    finalDate;
+    dateSelectorMonth;
+  constructor(public closingbalancesService: closingbalancesService, public rightService: rightService, public leaseService: LeaseService, public globals: Globals,private spinner: NgxSpinnerService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
-  mapUserFilter: Map<string, Map<string, string>>;
+  //mapUserFilter: Map<string, Map<string, string>>;
   mapClassOfAsset: Map<string, Map<string, string>>;
   mapClassOfAssetFilter: Map<string, string>
   mapLeaseNameFilter: Map<string, string>
   mapLessorNameFilter: Map<string, string>
-
-  public getLeaseFilterValues() {
-    var data = {
-      filterName: "leaseName"
-    };
-    this.closingbalancesService.getFiltersData(data).then(response => {
-      this.mapLeaseNameFilter = new Map(Object.entries(response.data));
-      console.log(this.mapLeaseNameFilter)
-    });
-  }
-
-  public getFile() {
-    var data = {
-      dataId: this.dataId
-    };
-    let thefile = {};
-    this.closingbalancesService.getIndividualReportFileByDataId(data).then(response => {
-
-      thefile = new Blob([response.config.url], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
-      console.log(thefile)
-    let url = (response.config.url);
-    console.log(url)
-    window.open(url);
-     // window.location.href = response.data;
-   //   this.mapLeaseNameFilter = new Map(Object.entries(response.data));
+  mapClassOfAssetCodeFilter: Map<string, string>
+  mapClassOfLocationFilter: Map<string, string>
+  mapClosingReport: Map<string, Map<string, string>>;
 
 
-    // var file = new Blob([response.headers], {type:  'application/docx' });
-    // var fileURL = URL.createObjectURL(file);
-    // window.open(fileURL);
-      
-    // var binaryData = [];
-    // binaryData.push(response);
-    // var url = window.URL.createObjectURL(new Blob(binaryData, {type: "application/docx"}));
-    // var a = document.createElement('a');
-    // document.body.appendChild(a);
-    // a.setAttribute('style', 'display: none');
-    // a.setAttribute('target', 'blank');
-    // a.href = url;
-    // a.download = response.data.filename;
-    // a.click();
-    // window.URL.revokeObjectURL(url);
-    // a.remove();
 
 
-    });
-  }
-
-  public getLessorFilterValues() {
-    var data = {
-      filterName: "lessorName"
-    };
-    this.closingbalancesService.getFiltersData(data).then(response => {
-      this.mapLessorNameFilter = new Map(Object.entries(response.data));
-      console.log(this.mapLessorNameFilter)
-    });
-  }
-
-  public getClassOfAssetFilterValues() {
-    var data = {
-      filterName: "classOfAsset"
-    };
-    this.closingbalancesService.getFiltersData(data).then(response => {
-      this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
-      console.log(this.mapClassOfAssetFilter)
-    });
-  }
-
-  public getClassOfAsset() {
-    //  this.spinner.show();
-    var data = {};
-
-    this.leaseService.getClassOfAsset(data).then(response => {
-      //   this.spinner.hide();
-      this.mapClassOfAsset = new Map(Object.entries(response.data));
-      console.log(JSON.stringify(response.data));
-    });
-  }
 
   public getFilterUserData() {
     this.spinner.show();
@@ -177,6 +114,88 @@ export class ClosingbalancesComponent implements OnInit {
       console.log(response.data)
     });
   }
+  public getFilterUserDataClosingReport() {
+    this.spinner.show();
+
+
+    this.userId = localStorage.getItem('userId');
+    this.companyId = localStorage.getItem('companyId');
+
+    if (this.userId === "undefined") {
+      this.userId = 0;
+    }
+    var ret = ($('#dateSelector').val().split("-"));
+
+    var day = 10;
+    var year = ret[0];
+    var month = ret[1];
+
+
+    this.finalDate = (30 + "-" + month + "-" + year)
+    this.dateSelectorMonth = month
+    var data = {
+      userId: this.userId,
+      companyId: this.companyId,
+      year: year,
+      month: month,
+      leaseName: this.leaseName,
+      lessorName: this.lessorName,
+      classOfAsset: this.classOfAsset,
+      location: this.location,
+      assetCode: this.assetCode,
+
+    };
+    // alert(JSON.stringify(data))
+
+
+    this.leaseService.calculateFtaSum(data).then(response => {
+      this.mapClosingReport = new Map(Object.entries(response.data));
+      this.spinner.hide();
+      console.log(this.mapClosingReport)
+    });
+
+
+    function calculateMonth(monthService) {
+      if (monthService.toLowerCase() == "Jan".toLowerCase()) {
+        return "01"
+      }
+      if (monthService.toLowerCase() == "Feb".toLowerCase()) {
+        return "02"
+      }
+      if (monthService.toLowerCase() == "Mar".toLowerCase()) {
+        return "03"
+      }
+      if (monthService.toLowerCase() == "Apr".toLowerCase()) {
+        return "04"
+      }
+      if (monthService.toLowerCase() == "May".toLowerCase()) {
+        return "05"
+      }
+      if (monthService.toLowerCase() == "Jun".toLowerCase()) {
+        return "06"
+      }
+      if (monthService.toLowerCase() == "Jul".toLowerCase()) {
+        return "07"
+      }
+      if (monthService.toLowerCase() == "Aug".toLowerCase()) {
+        return "08"
+      }
+      if (monthService.toLowerCase() == "Sep".toLowerCase()) {
+        return "09"
+      }
+      if (monthService.toLowerCase() == "Oct".toLowerCase()) {
+        return "10"
+      }
+      if (monthService.toLowerCase() == "Nov".toLowerCase()) {
+        return "11"
+      }
+      if (monthService.toLowerCase() == "Dec".toLowerCase()) {
+        return "12"
+      }
+
+    }
+
+  }
 
 
   ngOnInit() {
@@ -187,9 +206,11 @@ export class ClosingbalancesComponent implements OnInit {
     this.deleteUsersData(me);
 
 
-    this.getClassOfAssetFilterValues();
+ this.getClassOfAssetFilterValues();
     this.getLeaseFilterValues();
     this.getLessorFilterValues();
+    this.getLocatonFilterValues();
+    this.getAssetCodeFilterValues();
 
     // for opening of userDetails modal wile clicking on details
     this.openUserDetailModal(me);
@@ -264,7 +285,7 @@ export class ClosingbalancesComponent implements OnInit {
     var data = {};
     this.closingbalancesService.getUsersData(data).then(response => {
       me.spinner.hide();
-      this.mapUserFilter = new Map(Object.entries(response.data));
+     // this.mapUserFilter = new Map(Object.entries(response.data));
       this.mapUserData = new Map(Object.entries(response.data));
       console.log(response.data);
     });
@@ -366,5 +387,75 @@ export class ClosingbalancesComponent implements OnInit {
       console.log(response.data);
     });
   }
+
+
+  public getLessorFilterValues() {
+    var data = {
+      filterName: "lessorName"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLessorNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLessorNameFilter)
+    });
+  }
+
+  public getAssetCodeFilterValues() {
+    var data = {
+      filterName: "assetCode"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfAssetCodeFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfAssetCodeFilter)
+    });
+  }
+
+  public getLocatonFilterValues() {
+    var data = {
+      filterName: "location"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfLocationFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfLocationFilter)
+    });
+  }
+
+  public getClassOfAssetFilterValues() {
+    var data = {
+      filterName: "classOfAsset"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapClassOfAssetFilter = new Map(Object.entries(response.data));
+      console.log(this.mapClassOfAssetFilter)
+    });
+  }
+
+  public getLeaseFilterValues() {
+    var data = {
+      filterName: "leaseName"
+    };
+    this.rightService.getFiltersData(data).then(response => {
+      this.mapLeaseNameFilter = new Map(Object.entries(response.data));
+      console.log(this.mapLeaseNameFilter)
+    });
+  }
+
+
+  
+  public getFile() {
+    var data = {
+      dataId: this.dataId
+    };
+    let thefile = {};
+    this.closingbalancesService.getIndividualReportFileByDataId(data).then(response => {
+
+      thefile = new Blob([response.config.url], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
+      console.log(thefile)
+    let url = (response.config.url);
+    console.log(url)
+    window.open(url);
+
+    });
+  }
+
 
 }

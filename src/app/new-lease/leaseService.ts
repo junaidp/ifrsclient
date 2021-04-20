@@ -28,6 +28,16 @@ export class LeaseService {
   }
 
 
+  async calculateLeaseLiabilityReport(data) {
+    var paymentInterval = data.paymentIntervals
+
+
+    const  url = this.globals.APP_URL+"/calculation/journal/reportLeaseLiability";
+   const response = await axios.post(url, data);
+    return response;
+
+  }
+
   async SaveData(data) {
     const urlSaveData = this.globals.APP_URL+"/data/saveData";
     const response = await axios.post(urlSaveData, data).then();
