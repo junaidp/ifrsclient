@@ -6,6 +6,8 @@ import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
 import { NgxSpinnerService } from "ngx-spinner";
 import { rightService } from "src/app/right-of-use/rightService";
+import { DisplayError } from "../displayError";
+
 
 declare var $: any;
 
@@ -82,7 +84,7 @@ export class ClosingbalancesComponent implements OnInit {
     companyId;
     finalDate;
     dateSelectorMonth;
-  constructor(public closingbalancesService: closingbalancesService, public rightService: rightService, public leaseService: LeaseService, public globals: Globals,private spinner: NgxSpinnerService) { }
+  constructor(public closingbalancesService: closingbalancesService, public displayError: DisplayError, public rightService: rightService, public leaseService: LeaseService, public globals: Globals,private spinner: NgxSpinnerService) { }
   mapUserData: Map<string, Map<string, string>>;
   mapIndividualUserData: Map<string, Map<string, string>>;
   //mapUserFilter: Map<string, Map<string, string>>;
@@ -148,11 +150,18 @@ export class ClosingbalancesComponent implements OnInit {
     // alert(JSON.stringify(data))
 
 
-    this.leaseService.calculateFtaSum(data).then(response => {
+    this.leaseService.calculateLeaseLiabilityReport(data).then(response => {
       this.mapClosingReport = new Map(Object.entries(response.data));
       this.spinner.hide();
       console.log(this.mapClosingReport)
+    },
+    (error): void => {
+      //Error callback
+      this.spinner.hide();
+      this.displayError.displayErrorMessage(error);
+
     });
+    
 
 
     function calculateMonth(monthService) {
