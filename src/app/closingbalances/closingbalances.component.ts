@@ -95,6 +95,7 @@ export class ClosingbalancesComponent implements OnInit {
   mapClassOfAssetCodeFilter: Map<string, string>
   mapClassOfLocationFilter: Map<string, string>
   mapClosingReport: Map<string, Map<string, string>>;
+  sumOfLeaseLiabilityFinal =0;
 
 
 
@@ -153,7 +154,27 @@ export class ClosingbalancesComponent implements OnInit {
     this.leaseService.calculateLeaseLiabilityReport(data).then(response => {
       this.mapClosingReport = new Map(Object.entries(response.data));
       this.spinner.hide();
-      console.log(this.mapClosingReport)
+      console.log(this.mapClosingReport);
+      var sumOfLeaseLiability = 0;
+
+      $.each(response.data, function (index) {
+
+        this.map = new Map(Object.entries(response.data[index]));
+        var leaseLiability = 0;
+    
+
+        leaseLiability = this.map.get('12');
+        leaseLiability = Math.round(leaseLiability);
+ 
+
+        //  alert(nvbOpening + "open" + nvbClosing  + "closing "   +  nvbDepreciation + "dep")
+        sumOfLeaseLiability += leaseLiability
+
+        //  alert(sumOfNVBOpening + "sumofope" +  sumOfDepreciation + "dep"   +  sumOFNVBClosing)
+
+      });
+      this.sumOfLeaseLiabilityFinal = parseInt(sumOfLeaseLiability + "")
+
     },
     (error): void => {
       //Error callback
