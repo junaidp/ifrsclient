@@ -41,7 +41,7 @@
                     <select [(ngModel)]="leaseContractNo" class="form-control col-lg-8 col-md-4 col-12">
                         <option>All</option>
                         <!-- <option *ngFor="let row of mapUserFilter | keyvalue">{{row.value['classOfAsset']}}</option> -->
-                        <option *ngFor="let row of leaseContractNo | keyvalue  ; let i = index ">{{row.value}}</option>
+                        <option *ngFor="let row of mapContractReferenceFilter | keyvalue  ; let i = index ">{{row.value}}</option>
                     </select>
                 </div>
             </div>
@@ -74,7 +74,7 @@
 
     <div id="rightOfUseResponsePanel"></div>
 
-    <div class="container mt-4 border-top">
+    <!-- <div class="container mt-4 border-top">
         <div class="row mt-4 responsive_display">
             <div class="col-1">
                 <h6>Sr. #</h6>
@@ -92,34 +92,47 @@
                 <h6>Action</h6>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container">
-        <div class="row mt-3 border-top ">
+        <!-- <div class="row mt-3 border-top ">
             <div class="col-12" style="padding: 0;">
                 <ul class="draft_close_section mt-4 mb-3" id="dataListUl">
-                    <li *ngFor="let row of mapUserData | keyvalue ; let i = index" id="{{row.value['id']}}" routerLink="/derecognitionJounrnalentries">
+                    <li *ngFor="let row of mapUserData |  keyvalue: originalOrder  ; let i = index"  class="dataListLi" id="{{row.value['id']}}" routerLink="/derecognitionJounrnalentries">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-6" onclick="$('.leasetab').show();">{{i+1}}</div>
-                            <!-- <div class="col-lg-2 col-md-6 col-6">12/12/12</div> -->
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseContractNo']}}</div>
                             <div class="col-lg-3 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['lessorName']}}</div>
-                            <!-- <div class="col-lg-2 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['leaseName']}}</div> -->
                             <div class="col-lg-4 col-md-6 col-6" onclick="$('.leasetab').show();">{{row.value['classOfAsset']}}</div>
                             <input type="hidden" value="{{row.value['id']}}" name=h iddenDataId>
-                            <div class="col-lg-1 col-md-6 col-6 deleteLease" id="{{row.value['id']}}"><i class="far fa-times-circle deleteLeaseIcon" id="{{row.value['id']}}"></i></div>
                         </div>
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
+         <table class="table table-striped table-bordered"id ="editUserTable">
+            <thead>
+              <tr>
+                <th>Sr #</th>
+                <th>Contract Ref. No.</th>
+                <th>Lessor Name</th>
+                <th>Class of Asset</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of mapUserData |  keyvalue: originalOrder  ; let i = index"  class="dataListLi" id="{{row.value['id']}}" routerLink="/derecognitionJounrnalentries">
+                <td id="{{row.value['userId']}}">{{i+1}}</td>
+                <td id="{{row.value['userId']}}">{{row.value['leaseContractNo']}}</td>
+                <td id="{{row.value['userId']}}">{{row.value['lessorName']}}</td>
+                <td id="{{row.value['userId']}}">{{row.value['classOfAsset']}}</td>
+                <td>
+                  <span ><i class="fa fa-trash" id="deleteUser"></i></span>
+                </td>
+              </tr>
+            </tbody>
+        </table> 
     </div>
 
 </body>
 
 </html>
-<script>
-    $(".data1").click(function() {
-        // action goes here!!
-        alert("hi")
-    });
-</script>
