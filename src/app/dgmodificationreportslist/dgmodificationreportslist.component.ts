@@ -6,6 +6,10 @@ import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe, KeyValue } from '@angular/common';
 import { NgxSpinnerService } from "ngx-spinner";
 import { DisplayError } from "../displayError";
+import {
+  Router,
+  NavigationExtras
+} from '@angular/router';
 
 declare var $: any;
 
@@ -17,7 +21,7 @@ declare var $: any;
 export class DgmodificationreportslistComponent implements OnInit {
 
   //mapIndividualUserDetails: Map<String, String>;
-  constructor(public rightService: rightService, public leaseService: LeaseService, public globals: Globals, private spinner: NgxSpinnerService, public displayError: DisplayError) { }
+  constructor(public rightService: rightService, private router: Router,  public leaseService: LeaseService, public globals: Globals, private spinner: NgxSpinnerService, public displayError: DisplayError) { }
  
   leaseName = "All";
   lessorName = "All";
@@ -36,10 +40,17 @@ export class DgmodificationreportslistComponent implements OnInit {
 
 
   ngOnInit() {
+    var me = this;
     this.getFilterUserData();
     this.getClassOfAssetFilterData();
     this.getLessorFilterData();
     this.getReferenceNoFilterData();
+
+
+    $('#example tbody').on('click', 'tr', function () {
+      var dataId = $(this).attr('id');
+      me.router.navigate(['/derecognitionJounrnalentries/'], { state: { dataId: dataId } });
+    });
   }
 
 

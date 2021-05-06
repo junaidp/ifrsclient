@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+
+
+#example tr {
+    background-color: #eee;
+    border-top: 1px solid #fff;
+}
+#example tr:hover {
+    background-color: #ccc;
+}
+#example th {
+    background-color: #fff;
+}
+
+#example td:hover {
+    cursor: pointer;
+}
+</style>
 <head>
     <title>Right Of Use</title>
     <meta charset="UTF-8">
@@ -109,7 +127,7 @@
                 </ul>
             </div>
         </div> -->
-         <table class="table table-striped table-bordered"id ="editUserTable">
+         <table class="table table-striped table-bordered" id ="example">
             <thead>
               <tr>
                 <th>Sr #</th>
@@ -119,12 +137,13 @@
                 <th>Action</th>
               </tr>
             </thead>
+            <!-- routerLink="/derecognitionJounrnalentries" -->
             <tbody>
-              <tr *ngFor="let row of mapUserData |  keyvalue: originalOrder  ; let i = index"  class="dataListLi" id="{{row.value['id']}}" routerLink="/derecognitionJounrnalentries">
-                <td id="{{row.value['userId']}}">{{i+1}}</td>
-                <td id="{{row.value['userId']}}">{{row.value['leaseContractNo']}}</td>
-                <td id="{{row.value['userId']}}">{{row.value['lessorName']}}</td>
-                <td id="{{row.value['userId']}}">{{row.value['classOfAsset']}}</td>
+              <tr *ngFor="let row of mapUserData |  keyvalue: originalOrder  ; let i = index"  class="dataListLi" id="{{row.value['id']}}" >
+                <td id="{{row.value['id']}}">{{i+1}}</td>
+                <td id="{{row.value['id']}}">{{row.value['leaseContractNo']}}</td>
+                <td id="{{row.value['id']}}">{{row.value['lessorName']}}</td>
+                <td id="{{row.value['id']}}">{{row.value['classOfAsset']}}</td>
                 <td>
                   <span ><i class="fa fa-trash" id="deleteUser"></i></span>
                 </td>
