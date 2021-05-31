@@ -17,7 +17,20 @@ export class JournalService {
     return response;
 
   }
+
+  async calculateDepreciation(data) {
+    var paymentInterval = data.paymentIntervals
+  
+  
+    url = this.globals.APP_URL+"/calculation/yearlyDepreciationjournal";
+    alert(url)
+   const response = await axios.post(url, data);
+    return response;
+  
+  }
 }
+
+
 
 //   if(paymentInterval.toLowerCase()== "yearly"){
  //   url = "//compliancetool.herokuapp.com/calculation/journal/yearly ";

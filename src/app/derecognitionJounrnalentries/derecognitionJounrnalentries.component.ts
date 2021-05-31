@@ -33,11 +33,14 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   leaseBool = true;
 
   financeBool = true;
+
+
+  dataIdDec = "";
   // ending issue payment div is not showing
   constructor(public journalService: JournalService, private router: Router, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
 
     var id = this.router.getCurrentNavigation().extras.state.dataId;
-    alert(id)
+    this.dataIdDec = id;
   }
 
 
@@ -86,11 +89,12 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
       companyId: this.companyId,
       userSelectedDate: this.userSelectedDate,
       paymentToAdd: this.paymentToAdd,
-      recognitionOptions:this.recognitionOptions
+      recognitionOptions:this.recognitionOptions,
+      dataId: this.dataIdDec
 
     };
     alert(JSON.stringify(data))
-    this.journalService.calculate(data).then(response => {
+    this.journalService.calculateDepreciation(data).then(response => {
       console.log(response);
     });
 
