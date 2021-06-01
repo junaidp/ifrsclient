@@ -23,7 +23,6 @@ export class JournalService {
   
   
     url = this.globals.APP_URL+"/calculation/yearlyDepreciationjournal";
-    alert(url)
    const response = await axios.post(url, data);
     return response;
   

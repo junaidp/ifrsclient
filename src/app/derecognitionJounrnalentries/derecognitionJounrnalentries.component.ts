@@ -18,7 +18,7 @@ declare var $: any;
 })
 export class DerecognitionJounrnalentriesComponent implements OnInit {
 
-
+  mapDeRecognition: Map<String, String>;
 
 
 
@@ -44,10 +44,11 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   }
 
 
-  FinalPrepaidExpense: any
+  finalPrepaidExpense: any
   finalAccruedLiability: any
   paymentCashBank: any
   finalLeaseLiability: any
+  finalBankCr : any
   finalFinanceCost: any
   finalDate: any;
 
@@ -93,8 +94,19 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
       dataId: this.dataIdDec
 
     };
-    alert(JSON.stringify(data))
     this.journalService.calculateDepreciation(data).then(response => {
+      //this.mapDeRecognition = new Map(Object(response.data));
+      alert(response.data.BankCr)
+      this.finalAccruedLiability = response.data.AccruedDr;
+      this.finalFinanceCost = response.data.financeCostDr
+      this.finalLeaseLiability = response.data.LeaseLiabilityDr
+      this.finalBankCr = response.data.BankCr
+      // alert(response.data.financeCostDr)
+      // alert(response.data.AccruedDr)
+      // alert(response.data.LeaseLiabilityDr)
+      // 
+
+      //alert(this.mapDeRecognition.get("financeCostDr") + "sadas");
       console.log(response);
     });
 
