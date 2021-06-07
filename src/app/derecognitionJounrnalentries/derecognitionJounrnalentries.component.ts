@@ -52,6 +52,13 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   finalFinanceCost: any
   finalDate: any;
 
+  //termination
+  finalExpenseTer : any
+  finalLLTer : any
+  finalROUTer : any
+  finalGainTer : any
+  finalBankTer : any
+
   leaseLiabilityEnding: any
   leaseLiabilityBeginning: any
   userId: any
@@ -103,7 +110,16 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
       this.finalFinanceCost = response.data.financeCostDr
       this.finalLeaseLiability = response.data.LeaseLiabilityDr
       this.finalBankCr = response.data.BankCr
-  
+      //termination
+
+      this.finalExpenseTer = response.data.expenseTermination
+      this.finalLLTer = response.data.llTermination 
+      this.finalROUTer = response.data.rouTermination
+      this.finalGainTer = response.data.gainTermination 
+      this.finalBankTer = response.data.bankTermination 
+
+
+      
    
     });
 
