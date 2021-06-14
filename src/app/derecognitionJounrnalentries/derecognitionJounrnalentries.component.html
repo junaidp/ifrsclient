@@ -201,14 +201,14 @@
                         <div class="col-3">
                             <div class="row">
                                 <!-- *ngIf"finalFinanceCost >0" -->
-                                <div class="col-12  empty_div">{{finalFinanceCost | number: '1.0-0'}}</div>
-                                <div class="col-12 mt-1 empty_div">{{finalAccruedLiability | number: '1.0-0'}}
+                                <div class="col-12  empty_div" *ngIf="finalFinanceCostBool  else assignZero">{{finalFinanceCost | number: '1.0-0'}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalAccruedLiabilityBool  else assignZero">{{finalAccruedLiability | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">{{finalLeaseLiability | number: '1.0-0'}}
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalLeaseLiabilityBool  else assignZero">{{finalLeaseLiability | number: '1.0-0'}}
                                 </div>
 
                                 <!-- *ngIf="prepaidBool else assignZero" -->
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 mt-1 empty_div" >0
                                 </div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!paymentBool else assignZero">0
                                 </div>
@@ -221,12 +221,12 @@
                         <div class="col-3 mt-6">
                             <div class="row">
                                 <!-- *ngIf="!financeBool else assignZero" -->
-                                <div class="col-12 empty_div">0</div>
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 empty_div" *ngIf="!finalFinanceCostBool  else assignZero">{{finalFinanceCost | number: '1.0-0'}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!finalFinanceCostBool  else assignZero">{{finalFinanceCost | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 mt-1 empty_div" *ngIf="!finalLeaseLiabilityBool  else assignZero">{{finalLeaseLiability | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 mt-1 empty_div" *ngIf="!finalFinanceCostBool  else assignZero">0
                                 </div>
                                 <div class="col-12 mt-1 empty_div">{{finalBankCr | number: '1.0-0'}}
                                 </div>
@@ -284,18 +284,18 @@
                         <div class="col-3">
                             <div class="row">
                                 <!-- *ngIf"finalFinanceCost >0" -->
-                                <div class="col-12  empty_div">{{finalExpenseTer | number: '1.0-0'}}</div>
-                                <div class="col-12 mt-1 empty_div">{{finalLLTer | number: '1.0-0'}}
+                                <div class="col-12  empty_div"  >{{finalExpenseTer | number: '1.0-0'}}</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalLLTerBool  else assignZero">{{finalLLTer | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 mt-1 empty_div"*ngIf="!finalROUTerBool  else assignZero" >{{finalROUTer | number: '1.0-0'}}
                                 </div>
 
                                 <!-- *ngIf="prepaidBool else assignZero" -->
-                                <div class="col-12 mt-1 empty_div">{{finalGainTer | number: '1.0-0'}}
+                                <div class="col-12 mt-1 empty_div" *ngIf="!finalGainTerBool  else assignZero">{{finalGainTer | number: '1.0-0'}}
                                 </div>
                                 <div class="col-12 mt-1 empty_div" >0
                                 </div>
-                                <div class="col-12 mt-1 empty_div">expence</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalExpenseTerBool  else assignZero"> expence</div>
                             </div>
                         </div>
                         <ng-template #assignZero>
@@ -304,14 +304,15 @@
                         <div class="col-3 mt-6">
                             <div class="row">
                                 <!-- *ngIf="!financeBool else assignZero" -->
-                                <div class="col-12 empty_div">0</div>
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 empty_div" >0</div>
+                                <div class="col-12 mt-1 empty_div" *ngIf="!finalLLTerBool else assignZero">{{finalLLTer | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">{{finalROUTer | number: '1.0-0'}}
+                                <!-- *ngIf="prepaidBool else assignZero" -->
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalROUTerBool  else assignZero" >{{finalROUTer | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalGainTerBool else assignZero">{{finalGainTer | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">{{finalBankTer | number: '1.0-0'}}
+                                <div class="col-12 mt-1 empty_div" >{{finalBankTer | number: '1.0-0'}}
                                 </div>
                                 <div class="col-12 mt-1 empty_div">0</div>
                                 <div class="col-12 mt-1 empty_div">income</div>
@@ -321,6 +322,9 @@
                 </div>
             </div>
         </div>
+        <ng-template #assignZero>
+            <div class="col-12 empty_div"></div>
+        </ng-template>
         <div class="row">
             <div class="col-12 btn_mg mt-4">
                 <button class="btn btn-success nextBtn btn-lg pull-right float-lg-right" routerLink="/home" type="button">Done</button>

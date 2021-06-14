@@ -19,23 +19,24 @@ declare var $: any;
 export class DerecognitionJounrnalentriesComponent implements OnInit {
 
   mapDeRecognition: Map<String, String>;
-
-
-
   userSelectedDate: Date;
   recognitionOptions = ""
   paymentToAdd = ""
-
-
-  paymentBool = true;
-  accruedBool = true;
-  prepaidBool = true;
-  leaseBool = true;
-
-  financeBool = true;
-
-
   dataIdDec = "";
+
+  finalPrepaidExpenseBool: any
+  finalAccruedLiabilityBool: any
+  paymentCashBankBool: any
+  finalLeaseLiabilityBool: any
+  finalBankCrBool : any
+  finalFinanceCostBool: any
+
+  //termination
+  finalExpenseTerBool : any
+  finalLLTerBool : any
+  finalROUTerBool : any
+  finalGainTerBool : any
+  finalBankTerBool : any
   // ending issue payment div is not showing
   constructor(public journalService: JournalService, private router: Router, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
 
@@ -59,31 +60,13 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   finalGainTer : any
   finalBankTer : any
 
-  leaseLiabilityEnding: any
-  leaseLiabilityBeginning: any
   userId: any
   companyId: any
-  commencementDateService: Date
-  dateSelectorMonth: any
 
-  monthTotal: number
-  repeatMonth: number
-  drValue: any
-  accruedLiabilityMonthly: number
-  totalOfMonth: any
-  repeatedMonthValue: any
-  repeatedMonthAccrued: any
-  financeCost: any
-  year: Date;
-  month: Date;
+
   map: Map<string, Map<string, string>>;
   map1: Map<String, String>;
   //for dr
-
-  aboveColj: any
-  fullDate: ""
-  ServiceDrValue = 0;
-
 
   calculateDerecognition(){
     this.spinner.show();
@@ -118,11 +101,81 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
       this.finalGainTer = response.data.gainTermination 
       this.finalBankTer = response.data.bankTermination 
 
-
+      this.setBooleanForVisibility();
       
    
     });
 
+  }
+
+  private setBooleanForVisibility() {
+    if (this.finalAccruedLiability < 0) {
+      this.finalAccruedLiability = -(this.finalAccruedLiability);
+      this.finalAccruedLiabilityBool = false;
+    }
+    else {
+      this.finalAccruedLiabilityBool = true;
+    }
+    if (this.finalFinanceCost < 0) {
+      this.finalFinanceCost = -(this.finalFinanceCost);
+      this.finalFinanceCostBool = false;
+    }
+    else {
+      this.finalFinanceCostBool = true;
+    }
+    if (this.finalLeaseLiability < 0) {
+      this.finalLeaseLiability = -(this.finalLeaseLiability);
+      this.finalLeaseLiabilityBool = false;
+    }
+    else {
+      this.finalLeaseLiabilityBool = true;
+    }
+    if (this.finalBankCr < 0) {
+      this.finalBankCr = -(this.finalBankCr);
+      this.finalBankCrBool = false;
+    }
+    else {
+      this.finalBankCrBool = true;
+    }
+
+    // for termination
+    if (this.finalExpenseTer < 0) {
+      this.finalExpenseTer = -(this.finalExpenseTer);
+      this.finalExpenseTerBool = false;
+    }
+    else {
+      this.finalExpenseTerBool = true;
+    }
+    if (this.finalLLTer < 0) {
+      this.finalLLTer = -(this.finalLLTer);
+      this.finalLLTerBool = false;
+    }
+    else {
+      this.finalLLTerBool = true;
+    }
+    if (this.finalROUTer < 0) {
+      this.finalROUTer = -(this.finalROUTer);
+      this.finalROUTerBool = false;
+    }
+    else {
+      this.finalROUTerBool = true;
+    }
+
+    if (this.finalGainTer < 0) {
+      this.finalGainTer = -(this.finalGainTer);
+      this.finalGainTerBool = false;
+    }
+    else {
+      this.finalGainTerBool = true;
+    }
+
+    if (this.finalBankTer < 0) {
+      this.finalBankTer = -(this.finalBankTer);
+      this.finalBankTerBool = false;
+    }
+    else {
+      this.finalBankTerBool = true;
+    }
   }
 
   ngOnInit() {
