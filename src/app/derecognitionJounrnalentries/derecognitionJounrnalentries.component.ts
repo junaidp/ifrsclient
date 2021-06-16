@@ -5,6 +5,8 @@ import { ThrowStmt } from '@angular/compiler';
 import { JsonPipe } from '@angular/common';
 import {ChangeDetectorRef} from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DisplayError } from "../displayError";
+
 import {
   Router,
   NavigationExtras
@@ -38,7 +40,7 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   finalGainTerBool : any
   finalBankTerBool : any
   // ending issue payment div is not showing
-  constructor(public journalService: JournalService, private router: Router, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
+  constructor(public journalService: JournalService , public displayError: DisplayError,  private router: Router, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
 
     var id = this.router.getCurrentNavigation().extras.state.dataId;
     this.dataIdDec = id;
@@ -101,10 +103,19 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
       this.finalGainTer = response.data.gainTermination 
       this.finalBankTer = response.data.bankTermination 
 
+      this.finalPrepaidExpense = response.data.prepaid
+
       this.setBooleanForVisibility();
       
    
-    });
+    },
+      (error): void => {
+        //Error callback
+        this.spinner.hide();
+        this.displayError.displayErrorMessage(error);
+
+      }
+    );
 
   }
 
@@ -123,6 +134,15 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
     else {
       this.finalFinanceCostBool = true;
     }
+
+    if (this.finalPrepaidExpense < 0) {
+      this.finalPrepaidExpense = -(this.finalPrepaidExpense);
+      this.finalPrepaidExpenseBool = false;
+    }
+    else {
+      this.finalPrepaidExpenseBool = true;
+    }
+
     if (this.finalLeaseLiability < 0) {
       this.finalLeaseLiability = -(this.finalLeaseLiability);
       this.finalLeaseLiabilityBool = false;
