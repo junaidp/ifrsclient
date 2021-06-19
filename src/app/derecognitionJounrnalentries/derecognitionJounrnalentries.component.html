@@ -208,7 +208,7 @@
                                 </div>
 
                                 <!-- *ngIf="prepaidBool else assignZero" -->
-                                <div class="col-12 mt-1 empty_div">0
+                                <div class="col-12 mt-1 empty_div" *ngIf="finalPrepaidExpenseBool  else assignZero">{{finalPrepaidExpense | number: '1.0-0'}}
                                 </div>
                                 <div class="col-12 mt-1 empty_div">
                                 </div>
@@ -226,7 +226,7 @@
                                 </div>
                                 <div class="col-12 mt-1 empty_div" *ngIf="!finalLeaseLiabilityBool  else assignZero">{{finalLeaseLiability | number: '1.0-0'}}
                                 </div>
-                                <div class="col-12 mt-1 empty_div">
+                                <div class="col-12 mt-1 empty_div" *ngIf="!finalPrepaidExpenseBool  else assignZero">{{finalPrepaidExpense | number: '1.0-0'}}
                                 </div>
                                 <div class="col-12 mt-1 empty_div">{{finalBankCr | number: '1.0-0'}}
                                 </div>
@@ -347,43 +347,43 @@
                         <tr>
                             <th rowspan="9">{{finalDate}}</th>
                             <th>Finance Cost</th>
-                            <td></td>
-                            <td>{{finalExpenseTer | number: '1.0-0'}}</td>
+                            <td *ngIf="finalFinanceCostBool else assignZero">{{finalFinanceCost | number: '1.0-0'}}</td>
+                            <td *ngIf="!finalFinanceCostBool else assignZero">{{finalFinanceCost | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>Accrued Liability</th>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="finalAccruedLiabilityBool else assignZero">{{finalAccruedLiability | number: '1.0-0'}}</td>
+                            <td *ngIf="!finalAccruedLiabilityBool else assignZero">{{finalAccruedLiability | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>Prepaid Expense</th>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="finalLLTerBool else assignZero">{{finalPrepaidExpense | number: '1.0-0'}}</td>
+                            <td *ngIf="!finalLLTerBool else assignZero">{{finalPrepaidExpense | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>Expense</th>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="finalPrepaidExpenseBool else assignZero">{{finalExpenseTer | number: '1.0-0'}}</td>
+                            <td *ngIf="!finalPrepaidExpenseBool else assignZero">{{finalExpenseTer | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>Lease Liability</th>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!finalLLTerBool else assignZero">{{finalLLTer | number: '1.0-0'}}</td>
+                            <td *ngIf="finalLLTerBool else assignZero">{{finalLLTer | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>ROU</th>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="finalROUTerBool else assignZero">{{finalROUTer | number: '1.0-0'}}</td>
+                            <td *ngIf="!finalROUTerBool else assignZero">{{finalROUTer | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>Gain/Loss</th>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!finalGainTerBool else assignZero">{{finalGainTer | number: '1.0-0'}}</td>
+                            <td *ngIf="finalGainTerBool else assignZero">{{finalGainTer | number: '1.0-0'}}</td>
                         </tr>
                         <tr>
                             <th>Cash / Bank</th>
-                            <td></td>
-                            <td *ngIf="!finalGainTerBool else assignZero">bank{{finalGainTer | number: '1.0-0'}}</td>
+                            <td *ngIf="!finalBankTerBool else assignZero">{{finalBankTer | number: '1.0-0'}}</td>
+                            <td *ngIf="finalBankTerBool else assignZero">{{finalBankTer | number: '1.0-0'}}</td>
                         </tr>
                     </tbody>
                 </table>
