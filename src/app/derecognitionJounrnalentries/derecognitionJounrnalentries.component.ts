@@ -39,6 +39,9 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   finalROUTerBool : any
   finalGainTerBool : any
   finalBankTerBool : any
+  finalPrepaidExpenseTerBool: any
+  finalAccruedLiabilityTerBool: any
+  finalFinanceCostTerBool: any
   // ending issue payment div is not showing
   constructor(public journalService: JournalService , public displayError: DisplayError,  private router: Router, public globals: Globals , private cd : ChangeDetectorRef,  private spinner: NgxSpinnerService) {
 
@@ -56,6 +59,11 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
   finalDate: any;
 
   //termination
+
+  finalPrepaidExpenseTer: any
+  finalAccruedLiabilityTer: any
+  finalFinanceCostTer: any
+
   finalExpenseTer : any
   finalLLTer : any
   finalROUTer : any
@@ -104,6 +112,10 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
       this.finalBankTer = response.data.bankTermination 
 
       this.finalPrepaidExpense = response.data.prepaid
+
+      this.finalFinanceCostTer = response.data.financeCostDrTer
+      this.finalAccruedLiabilityTer = response.data.AccruedDrTer
+      this.finalPrepaidExpenseTer = response.data.prepaidTer
 
       this.setBooleanForVisibility();
       
@@ -195,6 +207,27 @@ export class DerecognitionJounrnalentriesComponent implements OnInit {
     }
     else {
       this.finalBankTerBool = true;
+    }
+    if (this.finalFinanceCostTer < 0) {
+      this.finalFinanceCostTer = -(this.finalFinanceCostTer);
+      this.finalFinanceCostTerBool = false;
+    }
+    else {
+      this.finalFinanceCostTerBool = true;
+    }
+    if (this.finalAccruedLiabilityTer < 0) {
+      this.finalAccruedLiabilityTer = -(this.finalAccruedLiabilityTer);
+      this.finalAccruedLiabilityTerBool = false;
+    }
+    else {
+      this.finalAccruedLiabilityTerBool = true;
+    }
+    if (this.finalPrepaidExpenseTer < 0) {
+      this.finalPrepaidExpenseTer = -(this.finalPrepaidExpenseTer);
+      this.finalPrepaidExpenseTerBool = false;
+    }
+    else {
+      this.finalPrepaidExpenseTerBool = true;
     }
   }
 
