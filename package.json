@@ -24,7 +24,7 @@
     "@angular/router": "~8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "@types/jquery": "^3.3.31",
-    "axios": "^0.19.1",
+    "axios": "^0.21.2",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "ngx-spinner": "^8.1.0",
