@@ -237,7 +237,8 @@ export class NewLeaseComponent implements OnInit {
       answer5: this.answer5,
       answer6: this.answer6,
       answer7: this.answer7,
-      conclusion: conclusion
+      conclusion: conclusion,
+      isModified: false
     };
 
     console.log(data)
