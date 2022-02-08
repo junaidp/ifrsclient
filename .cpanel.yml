@@ -1,5 +1,3 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/junaidp/public_html/
-    - /bin/cp -R images $DEPLOYPATH
