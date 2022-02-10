@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class Globals {
 
 
-  APP_URL  = "https://b54c-101-50-88-15.ngrok.io";
+  APP_URL  = "https://a00a-101-50-88-15.ngrok.io";
   //APP_URL  = "//7d83bbbe.ngrok.io";
   APP_URL_HEROKU = "//compliancetool.herokuapp.com";
   reportRighOfUseRoute = '/reports/rightofuse'
