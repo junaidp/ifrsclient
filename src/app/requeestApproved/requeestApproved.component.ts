@@ -18,7 +18,7 @@ export class RequeestApprovedComponent implements OnInit {
   constructor(private route: ActivatedRoute , public globals: Globals) { }
 
   ngOnInit() {
-    //const url = this.globals.APP_URL+"/data/getData";
+    //const url = this.globals.APP_URL+"data/getData";
     //console.log(this.route.snapshot.paramMap)
     //this.userId = this.route.snapshot.paramMap.get("id")
 

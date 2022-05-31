@@ -12,7 +12,7 @@ export class JournalService {
     var paymentInterval = data.paymentIntervals
 
 
-  url = this.globals.APP_URL+"/calculation/journal/yearlySum";
+  url = this.globals.APP_URL+"calculation/journal/yearlySum";
    const response = await axios.post(url, data);
     return response;
 
@@ -22,7 +22,7 @@ export class JournalService {
     var paymentInterval = data.paymentIntervals
   
   
-    url = this.globals.APP_URL+"/calculation/yearlyDepreciationjournal";
+    url = this.globals.APP_URL+"calculation/yearlyDepreciationjournal";
    const response = await axios.post(url, data);
     return response;
   

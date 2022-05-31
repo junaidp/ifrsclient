@@ -12,13 +12,13 @@ export class JournalServicefta {
     var paymentInterval = data.paymentIntervals
 
    if(paymentInterval.toLowerCase()== "yearly"){
-    url = this.globals.APP_URL+"/calculation/journal/yearly ";
+    url = this.globals.APP_URL+"calculation/journal/yearly ";
    }
    if(paymentInterval.toLowerCase()== "monthly"){
-    url = this.globals.APP_URL+"/calculation/journal/monthly ";
+    url = this.globals.APP_URL+"calculation/journal/monthly ";
   }
   if(paymentInterval.toLowerCase()== "quarterly"){
-    url = this.globals.APP_URL+"/calculation/journal/quarterly ";
+    url = this.globals.APP_URL+"calculation/journal/quarterly ";
   } 
 
  

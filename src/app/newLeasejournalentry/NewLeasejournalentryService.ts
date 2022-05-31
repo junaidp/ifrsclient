@@ -12,7 +12,7 @@ export class NewLeasejournalentryService {
     
   }
   async calculate(data) {
-    const url = this.globals.APP_URL+"/calculation/lease/yearly";
+    const url = this.globals.APP_URL+"calculation/lease/yearly";
    const response = await axios.post(url, data);
     return response;
   }

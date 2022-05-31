@@ -12,7 +12,7 @@ export class LeaseService {
     
   }
   async calculate(data) {
-    const url = this.globals.APP_URL+"/calculation/lease/yearly";
+    const url = this.globals.APP_URL+"calculation/lease/yearly";
    const response = await axios.post(url, data);
     return response;
   }
@@ -21,7 +21,7 @@ export class LeaseService {
     var paymentInterval = data.paymentIntervals
 
 
-    const  url = this.globals.APP_URL+"/calculation/journal/reportSchedulePerYear";
+    const  url = this.globals.APP_URL+"calculation/journal/reportSchedulePerYear";
    const response = await axios.post(url, data);
     return response;
 
@@ -32,27 +32,27 @@ export class LeaseService {
     var paymentInterval = data.paymentIntervals
 
 
-    const  url = this.globals.APP_URL+"/calculation/journal/reportLeaseLiability";
+    const  url = this.globals.APP_URL+"calculation/journal/reportLeaseLiability";
    const response = await axios.post(url, data);
     return response;
 
   }
 
   async SaveData(data) {
-    const urlSaveData = this.globals.APP_URL+"/data/saveData";
+    const urlSaveData = this.globals.APP_URL+"data/saveData";
     const response = await axios.post(urlSaveData, data).then();
     return response;
   }
 
   async getClassOfAsset(data) {
-    const urlSaveData = this.globals.APP_URL+"/data/getClassOfAsset";
+    const urlSaveData = this.globals.APP_URL+"data/getClassOfAsset";
     const response = await axios.post(urlSaveData, data).then();
     return response;
   }
 
   async saveClassOfAsset(data) {
 
-    const url = this.globals.APP_URL+"/data/saveClassOfAsset";
+    const url = this.globals.APP_URL+"data/saveClassOfAsset";
      const response = await axios.post(url,data).then(
     );
     console.log(response);
@@ -60,12 +60,12 @@ export class LeaseService {
   }
 
   public addFollowUpAttachment(file: FormData): Observable<any> {
-    return this.http.post(this.globals.APP_URL+"/data/addAttachment", file );
+    return this.http.post(this.globals.APP_URL+"data/addAttachment", file );
   }
 
 
   public  bulkUploadLease(file: FormData): Observable<any> {
-    return this.http.post(this.globals.APP_URL+"/data/bulkUploadLease", file );
+    return this.http.post(this.globals.APP_URL+"data/bulkUploadLease", file );
   }
 
 }

@@ -10,21 +10,21 @@ export class Loginservice {
     
   }
   async signIn(data) {
-    const url = this.globals.APP_URL+"/users/signIn";
+    const url = this.globals.APP_URL+"users/signIn";
      const response = await axios.post(url, data).then(
     );
     return response;
   }
 
   async sendContactUsEmail(data) {
-    const url = this.globals.APP_URL+"/data/sendContactUsEmail";
+    const url = this.globals.APP_URL+"data/sendContactUsEmail";
      const response = await axios.post(url, data).then(
     );
     return response;
   }
 
   async getUserData(data) {
-    const url = this.globals.APP_URL+"/data/getData";
+    const url = this.globals.APP_URL+"data/getData";
      const response = await axios.post(url, data).then(
     );
     return response;
@@ -32,7 +32,7 @@ export class Loginservice {
 
   async resetPassword(data) {
     var email = data.email
-    const url = this.globals.APP_URL+"/users/resetPasswordEmail?email="+ email;
+    const url = this.globals.APP_URL+"users/resetPasswordEmail?email="+ email;
      const response = await axios.get(url, data).then(
     );
     return response;

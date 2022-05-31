@@ -9,13 +9,13 @@ export class Firsttimeadoptionreportingperiodservice {
   }
 
   async calculate(data) {
-    const url = this.globals.APP_URL+"/calculation/fta/lease";
+    const url = this.globals.APP_URL+"calculation/fta/lease";
     const response = await axios.post(url, data);
      return response;
    }
  
    async SaveData(data) {
-    const urlSaveData = this.globals.APP_URL+"/data/saveData";
+    const urlSaveData = this.globals.APP_URL+"data/saveData";
      const response = await axios.post(urlSaveData, data).then();
      return response;
    }

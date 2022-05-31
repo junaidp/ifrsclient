@@ -12,7 +12,7 @@ export class requeestApproved {
 
   async SignUp(data) {
 
-    const url = this.globals.APP_URL+"/users/activateUser?userId=";
+    const url = this.globals.APP_URL+"users/activateUser?userId=";
      const response = await axios.post(url,data).then(
     );
     console.log(response);

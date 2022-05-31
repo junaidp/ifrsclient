@@ -15,7 +15,7 @@ export class resetPasswordCompanyService {
     var password = data.password
     const url = this.globals.APP_URL+"users/resetPasswordCompany?companyId=" +companyId +"&password="+password;
 
-   // const url = this.globals.APP_URL+"/users/resetPassword";
+   // const url = this.globals.APP_URL+"users/resetPassword";
      const response = await axios.post(url,data).then(
     );
     console.log(response);
